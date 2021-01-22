@@ -1,0 +1,160 @@
+
+Book.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+shadow
+  rotate: false
+  xy: 1, 462
+  size: 199, 42
+  orig: 199, 42
+  offset: 0, 0
+  index: -1
+cape1
+  rotate: false
+  xy: 154, 1
+  size: 151, 151
+  orig: 151, 151
+  offset: 0, 0
+  index: -1
+cape2
+  rotate: false
+  xy: 1, 1
+  size: 151, 151
+  orig: 151, 151
+  offset: 0, 0
+  index: -1
+cape5
+  rotate: false
+  xy: 307, 1
+  size: 151, 151
+  orig: 151, 151
+  offset: 0, 0
+  index: -1
+cape3
+  rotate: false
+  xy: 1, 307
+  size: 151, 151
+  orig: 151, 151
+  offset: 0, 0
+  index: -1
+cape4
+  rotate: false
+  xy: 1, 154
+  size: 151, 151
+  orig: 151, 151
+  offset: 0, 0
+  index: -1
+cape6
+  rotate: false
+  xy: 154, 154
+  size: 151, 151
+  orig: 151, 151
+  offset: 0, 0
+  index: -1
+leg-left
+  rotate: false
+  xy: 460, 67
+  size: 51, 62
+  orig: 51, 62
+  offset: 0, 0
+  index: -1
+leg-right
+  rotate: false
+  xy: 460, 1
+  size: 50, 64
+  orig: 50, 64
+  offset: 0, 0
+  index: -1
+boot-left-upper
+  rotate: false
+  xy: 307, 259
+  size: 38, 40
+  orig: 38, 40
+  offset: 0, 0
+  index: -1
+boot-left-lower
+  rotate: false
+  xy: 460, 131
+  size: 35, 16
+  orig: 35, 16
+  offset: 0, 0
+  index: -1
+boot-right-upper
+  rotate: false
+  xy: 307, 213
+  size: 46, 44
+  orig: 46, 44
+  offset: 0, 0
+  index: -1
+boot-right-lower
+  rotate: false
+  xy: 451, 207
+  size: 47, 30
+  orig: 47, 30
+  offset: 0, 0
+  index: -1
+tabard2
+  rotate: false
+  xy: 154, 307
+  size: 65, 153
+  orig: 65, 153
+  offset: 0, 0
+  index: -1
+tabard3
+  rotate: false
+  xy: 288, 307
+  size: 65, 153
+  orig: 65, 153
+  offset: 0, 0
+  index: -1
+tabard
+  rotate: false
+  xy: 355, 154
+  size: 65, 153
+  orig: 65, 153
+  offset: 0, 0
+  index: -1
+tabard4
+  rotate: false
+  xy: 221, 307
+  size: 65, 153
+  orig: 65, 153
+  offset: 0, 0
+  index: -1
+book-left-arm
+  rotate: false
+  xy: 294, 462
+  size: 32, 26
+  orig: 32, 26
+  offset: 0, 0
+  index: -1
+book-right-arm
+  rotate: false
+  xy: 451, 154
+  size: 53, 51
+  orig: 53, 51
+  offset: 0, 0
+  index: -1
+mantle
+  rotate: false
+  xy: 202, 462
+  size: 90, 25
+  orig: 90, 25
+  offset: 0, 0
+  index: -1
+helm
+  rotate: false
+  xy: 307, 154
+  size: 46, 57
+  orig: 46, 57
+  offset: 0, 0
+  index: -1
+book
+  rotate: false
+  xy: 355, 309
+  size: 94, 52
+  orig: 94, 52
+  offset: 0, 0
+  index: -1
