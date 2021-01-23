@@ -35,9 +35,28 @@
     "NAME": "Courageous Attack",
     "DESCRIPTION": "Deal !D! damage. NL If the enemy is thetemplar:Empowered, thetemplar:Inscribe 1 thetemplar:Valor."
   },
+  "TheTemplar:ShieldBash": {
+    "NAME": "Shield Bash",
+    "DESCRIPTION": "Gain !M! thetemplar:Bulwark. NL Deal damage equal to your thetemplar:Bulwark.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage)"
+    ]
+  },
+  "TheTemplar:Radiance": {
+    "NAME": "Radiance",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for ALL your cards with thetemplar:Blessing."
+  },
   "TheTemplar:Skirmish": {
     "NAME": "Skirmish",
     "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Fortitude."
+  },
+  "TheTemplar:Momentum": {
+    "NAME": "Momentum",
+    "DESCRIPTION": "Deal !D! damage. NL Vigor is not consumed by this card and affects it !M! times."
+  },
+  "TheTemplar:BladesOfTheFallen": {
+    "NAME": "Blades of the Fallen",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage !M! times. NL Ignores Block."
   },
   "TheTemplar:DevotedStrike": {
     "NAME": "Devoted Strike",
@@ -119,8 +138,8 @@
   },
   "TheTemplar:DesperatePrayer": {
     "NAME": "Desperate Prayer",
-    "DESCRIPTION": "Choose a card in your hand and discard the rest. The chosen card triggers thetemplar:Blessing this turn.",
-    "UPGRADE_DESCRIPTION": "Choose a card in your hand and discard the rest. The chosen card costs 0 and triggers thetemplar:Blessing this turn.",
+    "DESCRIPTION": "Choose a card in your hand and discard the rest. The chosen card always triggers thetemplar:Blessing this turn.",
+    "UPGRADE_DESCRIPTION": "Choose a card in your hand and discard the rest. The chosen card costs 0 and always triggers thetemplar:Blessing this turn.",
     "EXTENDED_DESCRIPTION": [
       "Choose a card for Desperate Prayer"
     ]

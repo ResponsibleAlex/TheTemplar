@@ -63,9 +63,6 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
                 ((ParagonFormPower)(AbstractDungeon.player.getPower(ParagonFormPower.POWER_ID))).trigger();
             }
 
-            // updage cost of any LightOfGlory
-            // TODO
-
             return true;
         }
         return false;
