@@ -1,21 +1,4 @@
 {
-        "TheTemplar:CommonPower": {
-                "NAME": "Placeholder Power",
-                "DESCRIPTIONS": [
-                        "You applied #b",
-                        " keyword.",
-                        " keywords."
-                ]
-        },
-        "TheTemplar:RarePower": {
-                "NAME": "Placeholder Power",
-                "DESCRIPTIONS": [
-                        "At the start of your turn, TOUCH #b",
-                        " enemy.",
-                        " enemies."
-                ]
-        },
-
         "TheTemplar:BulwarkPower": {
                 "NAME": "Bulwark",
                 "DESCRIPTIONS": [
@@ -93,6 +76,13 @@
                         "#yBlessing effects always trigger. Whenever you trigger a #yBlessing, draw #b",
                         " card.",
                         " cards."
+                ]
+        },
+        "TheTemplar:FanaticismPower": {
+                "NAME": "Fanaticism",
+                "DESCRIPTIONS": [
+                        "Whenever you play an #yAttack this turn, #yInscribe ",
+                        " #yZeal."
                 ]
         }
 }

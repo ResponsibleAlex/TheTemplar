@@ -1,5 +1,6 @@
 package TheTemplar.cards;
 
+import TheTemplar.actions.ArbiterAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -9,6 +10,7 @@ import TheTemplar.TemplarMod;
 import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 @SuppressWarnings("unused")
 public class Arbiter extends AbstractDynamicCard {
@@ -28,36 +30,24 @@ public class Arbiter extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
 
-    private static final int COST = 2;
-    // private static final int UPGRADED_COST = 0;
-
-    private static final int DAMAGE = 10;
-    private static final int UPGRADE_PLUS_DMG = 6;
-    private static final int BONUS = 12;
+    private static final int COST = -1;
+    private static final int DAMAGE = 5;
 
     // /STAT DECLARATION/
 
 
     public Arbiter() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = BONUS;
 
-        this.blessing = true;
+        damage = baseDamage = DAMAGE;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int[] amts = this.multiDamage.clone();
-        if(triggerBlessing()) {
-            for(int i = 0; i < amts.length; i++) {
-                amts[i] += magicNumber;
-            }
-        }
-
-        this.addToBot(new DamageAllEnemiesAction(p, amts, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+        this.addToBot(new ArbiterAction(p, upgraded, freeToPlayOnce, energyOnUse));
+        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
     }
 
 
@@ -66,7 +56,7 @@ public class Arbiter extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

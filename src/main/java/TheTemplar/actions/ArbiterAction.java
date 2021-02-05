@@ -7,13 +7,13 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
-public class DecreeOfJusticeAction extends AbstractGameAction {
+public class ArbiterAction extends AbstractGameAction {
     private final boolean freeToPlayOnce;
     private final AbstractPlayer p;
     private final int energyOnUse;
     private final boolean upgraded;
 
-    public DecreeOfJusticeAction(AbstractPlayer p, boolean upgraded, boolean freeToPlayOnce, int energyOnUse) {
+    public ArbiterAction(AbstractPlayer p, boolean upgraded, boolean freeToPlayOnce, int energyOnUse) {
         this.p = p;
         this.freeToPlayOnce = freeToPlayOnce;
         duration = Settings.ACTION_DUR_XFAST;
@@ -39,7 +39,7 @@ public class DecreeOfJusticeAction extends AbstractGameAction {
 
         // inscribe a Justice effect# times
         for (int i = 0; i < effect; i++) {
-            this.addToBot(new GlyphInscribeAction(new Justice()));
+            this.addToTop(new GlyphInscribeAction(new Justice()));
         }
 
         if (!freeToPlayOnce) {

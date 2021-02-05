@@ -527,11 +527,15 @@ public class TemplarMod implements
 
     public static int valorInscribedThisCombat = 0;
     public static int glyphsInscribedThisCombat = 0;
+    public static boolean[] glyphTypesInscribedThisCombat = new boolean[5];
 
     public static void resetGlyphsAndWeapon() {
         clearGlyphs();
         valorInscribedThisCombat = 0;
         glyphsInscribedThisCombat = 0;
+        for (int i = 0; i < 5; i++) {
+            glyphTypesInscribedThisCombat[i] = false;
+        }
 
         setHolyWeapon(HolyWeapons.Default);
     }

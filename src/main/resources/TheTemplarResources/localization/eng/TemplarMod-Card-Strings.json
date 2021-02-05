@@ -54,9 +54,24 @@
     "NAME": "Momentum",
     "DESCRIPTION": "Deal !D! damage. NL Vigor is not consumed by this card and affects it !M! times."
   },
+  "TheTemplar:FireOfConviction": {
+    "NAME": "Fire of Conviction",
+    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Zeal. NL Exhaust."
+  },
+  "TheTemplar:WordOfPower": {
+    "NAME": "Word of Power",
+    "DESCRIPTION": "Deal !D! damage. Draw 1 card for each unique glyph type thetemplar:Inscribed this combat.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (draw !M! cards.)"
+    ]
+  },
   "TheTemplar:BladesOfTheFallen": {
     "NAME": "Blades of the Fallen",
     "DESCRIPTION": "Ethereal. NL Deal !D! damage !M! times. NL Ignores Block."
+  },
+  "TheTemplar:Reckoning": {
+    "NAME": "Reckoning",
+    "DESCRIPTION": "thetemplar:Inscribe 1 thetemplar:Valor and 1 thetemplar:Justice. NL Deal !D! damage."
   },
   "TheTemplar:DevotedStrike": {
     "NAME": "Devoted Strike",
@@ -66,13 +81,25 @@
     "NAME": "FearlessAssault",
     "DESCRIPTION": "Deal !D! damage. NL If the enemy is thetemplar:Empowered, deal !M! additional damage."
   },
-  "TheTemplar:FireOfConviction": {
-    "NAME": "Fire of Conviction",
-    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Zeal. NL Exhaust."
+  "TheTemplar:DeterminedCharge": {
+    "NAME": "Determined Charge",
+    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Fortitude. NL thetemplar:Blessing: thetemplar:Inscribe 1 thetemplar:Fortitude."
+  },
+  "TheTemplar:CalculatedStrike": {
+    "NAME": "Calculated Strike",
+    "DESCRIPTION": "Deal !D! damage. NL If this is the only attack in your hand, deal double damage."
+  },
+  "TheTemplar:CelestialBurst": {
+    "NAME": "Celestial Burst",
+    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Blessing: draw !M! cards."
   },
   "TheTemplar:LightOfGlory": {
     "NAME": "Light of Glory",
     "DESCRIPTION": "Costs 1 less [E] for each glyph you thetemplar:Inscribe this combat. NL Deal !D! damage."
+  },
+  "TheTemplar:ThrillOfBattle": {
+    "NAME": "Thrill of Battle",
+    "DESCRIPTION": "Deal !D! damage. NL Gain Vigor equal to the unblocked damage dealt."
   },
   "TheTemplar:Lionheart": {
     "NAME": "Lionheart",
@@ -82,8 +109,8 @@
       " NL (hit !M! times.)"
     ]
   },
-  "TheTemplar:Arbiter": {
-    "NAME": "Arbiter",
+  "TheTemplar:Avenger": {
+    "NAME": "Avenger",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL thetemplar:Blessing: deals !M! additional damage."
   },
   "TheTemplar:Dragonslayer": {
@@ -93,6 +120,15 @@
   "TheTemplar:Crusader": {
     "NAME": "Crusader",
     "DESCRIPTION": "Deal !D! damage. NL thetemplar:Blessing: Gain [E] [E]."
+  },
+  "TheTemplar:Vanguard": {
+    "NAME": "Vanguard",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Permanently increase this card's Block and damage by !M!. NL Exhaust."
+  },
+  "TheTemplar:Arbiter": {
+    "NAME": "Arbiter",
+    "DESCRIPTION": "thetemplar:Inscribe X thetemplar:Justice. NL Deal !D! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "thetemplar:Inscribe X+1 thetemplar:Justice. NL Deal !D! damage to ALL enemies."
   },
   "TheTemplar:Endure": {
     "NAME": "Endure",
@@ -111,6 +147,27 @@
     "DESCRIPTION": "thetemplar:Inscribe 1 thetemplar:Valor and 1 thetemplar:Fortitude. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "thetemplar:Inscribe 1 thetemplar:Valor and 1 thetemplar:Fortitude."
   },
+  "TheTemplar:Hymn": {
+    "NAME": "Hymn",
+    "DESCRIPTION": "If you have a glyph thetemplar:Inscribed, thetemplar:Inscribe an additional glyph of that type.",
+    "EXTENDED_DESCRIPTION": [
+      " NL Otherwise, thetemplar:Inscribe a random glyph.",
+      "I have no glyph to match."
+    ]
+  },
+  "TheTemplar:Fervor": {
+    "NAME": "Fervor",
+    "DESCRIPTION": "Draw !M! card, then Exhaust a card. NL thetemplar:Inscribe 1 thetemplar:Zeal.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards, then Exhaust a card. NL thetemplar:Inscribe 1 thetemplar:Zeal."
+  },
+  "TheTemplar:Rebuke": {
+    "NAME": "Rebuke",
+    "DESCRIPTION": "thetemplar:Inscribe !M! thetemplar:Justice."
+  },
+  "TheTemplar:Rebuff": {
+    "NAME": "Rebuff",
+    "DESCRIPTION": "Gain !B! Block. NL Put the next card you play this turn on top of your draw pile."
+  },
   "TheTemplar:EtchInFaith": {
     "NAME": "Etch in Faith",
     "DESCRIPTION": "Choose a glyph to thetemplar:Inscribe. NL Exhaust.",
@@ -119,6 +176,22 @@
   "TheTemplar:Respite": {
     "NAME": "Respite",
     "DESCRIPTION": "Gain !B! Block. NL Grant !M! Metallicize to ALL enemies. NL Exhaust."
+  },
+  "TheTemplar:Temperance": {
+    "NAME": "Temperance",
+    "DESCRIPTION": "Discard a card. NL If you have no attacks in hand, gain !B! Block."
+  },
+  "TheTemplar:HeroicStand": {
+    "NAME": "Heroic Stand",
+    "DESCRIPTION": "Gain !B! Block. NL If any enemy is thetemplar:Empowered, gain twice as much."
+  },
+  "TheTemplar:ShieldsOfTheFallen": {
+    "NAME": "Shields of the Fallen",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Bulwark. NL Draw a card."
+  },
+  "TheTemplar:Fanaticism": {
+    "NAME": "Fanaticism",
+    "DESCRIPTION": "Whenever you play an Attack this turn, thetemplar:Inscribe 1 thetemplar:Zeal. NL Exhaust."
   },
   "TheTemplar:Unwavering": {
     "NAME": "Unwavering",
@@ -147,11 +220,6 @@
   "TheTemplar:HolyLight": {
     "NAME": "Holy Light",
     "DESCRIPTION": "Gain !M! regen. NL thetemplar:Inscribe 1 thetemplar:Charity. NL Exhaust."
-  },
-  "TheTemplar:DecreeOfJustice": {
-    "NAME": "Decree of Justice",
-    "DESCRIPTION": "thetemplar:Inscribe X thetemplar:Justice. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "thetemplar:Inscribe X+1 thetemplar:Justice. NL Exhaust."
   },
   "TheTemplar:HopeEternal": {
     "NAME": "Hope Eternal",

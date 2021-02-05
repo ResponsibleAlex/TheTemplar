@@ -89,8 +89,28 @@ public abstract class AbstractGlyph {
         return useCardRng ? glyphs.get(AbstractDungeon.cardRandomRng.random(glyphs.size() - 1)) : glyphs.get(MathUtils.random(glyphs.size() - 1));
     }
 
+    public static AbstractGlyph getCopyOfLeftGlyph() {
+        if (LeftGlyph.name.equals(Justice.classID)) {
+            return new Justice();
+        } else if (LeftGlyph.name.equals(Fortitude.classID)) {
+            return new Fortitude();
+        } else if (LeftGlyph.name.equals(Valor.classID)) {
+            return new Valor();
+        } else if (LeftGlyph.name.equals(Zeal.classID)) {
+            return new Zeal();
+        } else if (LeftGlyph.name.equals(Charity.classID)) {
+            return new Charity();
+        } else {
+            return null;
+        }
+    }
+
     public static boolean noneInscribed() {
         return LeftGlyph == null;
+    }
+
+    public static boolean canMatch() {
+        return LeftGlyph != null && RightGlyph == null;
     }
 
     public static void inscribeLeft(AbstractGlyph glyph) {
