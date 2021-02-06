@@ -26,7 +26,6 @@ public abstract class AbstractGlyph {
 
     public String name;
     public String description;
-    protected ArrayList<PowerTip> tips = new ArrayList<>();
     public float cX = 0.0F;
     public float cY = 0.0F;
     protected Color c;
@@ -128,8 +127,8 @@ public abstract class AbstractGlyph {
         this.fadeAlpha = 1.0F;
     }
 
-    public abstract void evokeSingle();
-    public abstract void evokeDouble();
+    public abstract void trigger();
+    public abstract void triggerMatchBonus();
 
     public void update() {
         if (isLeft || isRight) {
@@ -249,12 +248,12 @@ public abstract class AbstractGlyph {
                 false, false);
     }
 
-    public static void evokeGlyphs() {
+    public static void triggerGlyphs() {
+        LeftGlyph.trigger();
+        RightGlyph.trigger();
+
         if (LeftGlyph.name.equals(RightGlyph.name)) {
-            LeftGlyph.evokeDouble();
-        } else {
-            LeftGlyph.evokeSingle();
-            RightGlyph.evokeSingle();
+            LeftGlyph.triggerMatchBonus();
         }
     }
 

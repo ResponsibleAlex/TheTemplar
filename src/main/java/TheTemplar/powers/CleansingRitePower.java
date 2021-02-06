@@ -1,11 +1,12 @@
 package TheTemplar.powers;
 
 import TheTemplar.actions.GlyphInscribeAction;
-import TheTemplar.glyphs.Justice;
+import TheTemplar.glyphs.Charity;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -15,21 +16,22 @@ import TheTemplar.util.TextureLoader;
 
 import static TheTemplar.TemplarMod.makePowerPath;
 
-public class BattleTacticsPower extends AbstractPower implements CloneablePowerInterface {
-
-    public static final String POWER_ID = TemplarMod.makeID(BattleTacticsPower.class.getSimpleName());
+public class CleansingRitePower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = TemplarMod.makeID(CleansingRitePower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("BattleTactics84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("BattleTactics32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("CleansingRite84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("CleansingRite32.png"));
 
-    public BattleTacticsPower(final int amount) {
+    private final AbstractPlayer p;
+
+    public CleansingRitePower(final int amount) {
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        this.owner = this.p = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -52,27 +54,31 @@ public class BattleTacticsPower extends AbstractPower implements CloneablePowerI
 
     @Override
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
-        int count = 0;
-        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
-            if (c.type == AbstractCard.CardType.ATTACK)
-                count++;
-        }
+        AbstractCard c;
+        for (int i = 0; i < amount; i++) {
+            if (!p.hand.isEmpty()) {
+                this.flash();
 
-        if (count == 1) {
-            this.flash();
-            for (int i = 0; i < amount; i++) {
-                this.addToBot(new GlyphInscribeAction(new Justice()));
+                c = p.hand.getRandomCard(true);
+                if (c.type != AbstractCard.CardType.STATUS && c.type != AbstractCard.CardType.CURSE) {
+                    this.addToBot(new GlyphInscribeAction(new Charity()));
+                }
+                p.hand.moveToExhaustPile(c);
             }
         }
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        if (amount == 1) {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + DESCRIPTIONS[3] + amount + DESCRIPTIONS[4];
+        } else if (amount > 1) {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + DESCRIPTIONS[3] + amount + DESCRIPTIONS[4];
+        }
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new BattleTacticsPower(amount);
+        return new CleansingRitePower(amount);
     }
 }

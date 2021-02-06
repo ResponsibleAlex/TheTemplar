@@ -11,24 +11,21 @@ public class Zeal extends AbstractGlyph {
     public static final String DESCRIPTION =
             BaseMod.getKeywordDescription(TemplarMod.getModID().toLowerCase() + ":" + classID);
 
-    private static final int EVOKE_SINGLE = 1;
-    private static final int EVOKE_DOUBLE = 2;
-    private static final int EVOKE_ENERGY = 1;
+    private static final int TRIGGER = 1;
+    private static final int MATCH_BONUS = 1;
 
     public Zeal() {
         super(classID, DESCRIPTION);
     }
 
     @Override
-    public void evokeSingle() {
+    public void trigger() {
         this.addToBot(new GlyphAboveCreatureAction(p, this));
-        this.addToBot(new DrawCardAction(EVOKE_SINGLE));
+        this.addToBot(new DrawCardAction(TRIGGER));
     }
 
     @Override
-    public void evokeDouble() {
-        this.addToBot(new GlyphAboveCreatureAction(p, this));
-        this.addToBot(new DrawCardAction(EVOKE_DOUBLE));
-        this.addToBot(new GainEnergyAction(EVOKE_ENERGY));
+    public void triggerMatchBonus() {
+        this.addToBot(new GainEnergyAction(MATCH_BONUS));
     }
 }

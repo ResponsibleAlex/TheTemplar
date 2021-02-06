@@ -76,6 +76,16 @@ public class FlashCustomAttackEffect extends AbstractGameEffect {
                     CardCrawlGame.sound.play("ATTACK_MAGIC_BEAM_SHORT", 0.3f);
                 }
                 break;
+            case "StaggeringAwe":
+                this.width = 600;
+                this.height = 834;
+                this.x = x - this.width / 2.0F;
+                this.y = y;
+                this.originY = 0;
+                if (playSound) {
+                    CardCrawlGame.sound.play("ATTACK_MAGIC_BEAM_SHORT", 0.3f);
+                }
+                break;
             default:
                 this.width = 0;
                 this.height = 0;
@@ -109,6 +119,7 @@ public class FlashCustomAttackEffect extends AbstractGameEffect {
         i.put(HolyWeapons.Hammer, ImageMaster.loadImage(makeVfxPath("AttackHammer.png")));
         i.put(HolyWeapons.Sword, ImageMaster.loadImage(makeVfxPath("AttackSword.png")));
         i.put(HolyWeapons.Torch, ImageMaster.loadImage(makeVfxPath("AttackTorch.png")));
+        i.put("StaggeringAwe", ImageMaster.loadImage(makeVfxPath("StaggeringAwe.png")));
         return i;
     }
 }

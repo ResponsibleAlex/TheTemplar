@@ -15,7 +15,7 @@ public class AbstractPlayerPatch {
             method="onVictory"
     )
     public static class OnVictory {
-        public static void Prefix(AbstractPlayer __instance) { TemplarMod.resetGlyphsAndWeapon(); }
+        public static void Prefix(AbstractPlayer __instance) { TemplarMod.resetTemplarState(); }
     }
 
     @SpirePatch(
@@ -41,7 +41,7 @@ public class AbstractPlayerPatch {
     public static class PreBattlePrep {
         public static void Prefix(AbstractPlayer __instance)
         {
-            TemplarMod.resetGlyphsAndWeapon();
+            TemplarMod.resetTemplarState();
         }
     }
 
@@ -64,6 +64,17 @@ public class AbstractPlayerPatch {
     {
         public static void Prefix(AbstractPlayer __instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
             __instance.cardInUse = c;
+        }
+    }
+
+    @SpirePatch(
+            clz=AbstractPlayer.class,
+            method="applyStartOfTurnRelics"
+    )
+    public static class ApplyStartOfTurnRelics
+    {
+        public static void Prefix(AbstractPlayer __instance) {
+            TemplarMod.startOfTurn();
         }
     }
 }

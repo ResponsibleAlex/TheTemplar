@@ -1,11 +1,8 @@
 package TheTemplar.powers;
 
-import TheTemplar.actions.GlyphInscribeAction;
-import TheTemplar.glyphs.Justice;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -15,17 +12,16 @@ import TheTemplar.util.TextureLoader;
 
 import static TheTemplar.TemplarMod.makePowerPath;
 
-public class BattleTacticsPower extends AbstractPower implements CloneablePowerInterface {
-
-    public static final String POWER_ID = TemplarMod.makeID(BattleTacticsPower.class.getSimpleName());
+public class ResoluteWillPower extends AbstractPower implements CloneablePowerInterface {
+    public static final String POWER_ID = TemplarMod.makeID(ResoluteWillPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("BattleTactics84.png"));
-    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("BattleTactics32.png"));
+    private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("ResoluteWill84.png"));
+    private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("ResoluteWill32.png"));
 
-    public BattleTacticsPower(final int amount) {
+    public ResoluteWillPower(final int amount) {
         name = NAME;
         ID = POWER_ID;
 
@@ -51,28 +47,12 @@ public class BattleTacticsPower extends AbstractPower implements CloneablePowerI
     }
 
     @Override
-    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
-        int count = 0;
-        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
-            if (c.type == AbstractCard.CardType.ATTACK)
-                count++;
-        }
-
-        if (count == 1) {
-            this.flash();
-            for (int i = 0; i < amount; i++) {
-                this.addToBot(new GlyphInscribeAction(new Justice()));
-            }
-        }
-    }
-
-    @Override
     public void updateDescription() {
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new BattleTacticsPower(amount);
+        return new ResoluteWillPower(amount);
     }
 }

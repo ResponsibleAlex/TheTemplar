@@ -43,7 +43,7 @@ public class GlyphInscribeAction extends AbstractGameAction {
                 AbstractGlyph.inscribeLeft(glyphToInscribe);
             } else {
                 AbstractGlyph.inscribeRight(glyphToInscribe);
-                this.addToBot(new GlyphEvokeAction());
+                this.addToBot(new GlyphTriggerAction());
             }
         }
 

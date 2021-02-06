@@ -12,6 +12,6 @@ public class AbstractDungeonPatch {
             method="resetPlayer"
     )
     public static class ResetPlayer {
-        public static void Postfix() { TemplarMod.resetGlyphsAndWeapon(); }
+        public static void Postfix() { TemplarMod.resetTemplarState(); }
     }
 }

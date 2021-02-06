@@ -3,15 +3,15 @@ package TheTemplar.actions;
 import TheTemplar.glyphs.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 
-public class GlyphEvokeAction extends AbstractGameAction {
+public class GlyphTriggerAction extends AbstractGameAction {
 
-    public GlyphEvokeAction() {
+    public GlyphTriggerAction() {
         actionType = ActionType.SPECIAL;
     }
 
     @Override
     public void update() {
-        AbstractGlyph.evokeGlyphs();
+        AbstractGlyph.triggerGlyphs();
         this.addToBot(new GlyphRemoveAction());
 
         this.isDone = true;

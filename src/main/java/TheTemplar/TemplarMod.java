@@ -1,6 +1,7 @@
 package TheTemplar;
 
 import TheTemplar.glyphs.AbstractGlyph;
+import TheTemplar.patches.AbstractMonsterPatch;
 import TheTemplar.variables.HolyWeapons;
 import TheTemplar.vfx.FlashCustomAttackEffect;
 import TheTemplar.vfx.BookEffect;
@@ -26,6 +27,9 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.MetallicizePower;
+import com.megacrit.cardcrawl.powers.RegenerateMonsterPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -528,16 +532,25 @@ public class TemplarMod implements
     public static int valorInscribedThisCombat = 0;
     public static int glyphsInscribedThisCombat = 0;
     public static boolean[] glyphTypesInscribedThisCombat = new boolean[5];
+    public static boolean triggeredBlessingThisTurn = false;
+    public static boolean triggeredBlessingLastTurn = false;
 
-    public static void resetGlyphsAndWeapon() {
+    public static void resetTemplarState() {
         clearGlyphs();
         valorInscribedThisCombat = 0;
         glyphsInscribedThisCombat = 0;
         for (int i = 0; i < 5; i++) {
             glyphTypesInscribedThisCombat[i] = false;
         }
+        triggeredBlessingThisTurn = false;
+        triggeredBlessingLastTurn = false;
 
         setHolyWeapon(HolyWeapons.Default);
+    }
+
+    public static void startOfTurn() {
+        triggeredBlessingLastTurn = triggeredBlessingThisTurn;
+        triggeredBlessingThisTurn = false;
     }
 
     public static void combatUpdate() {
@@ -593,5 +606,21 @@ public class TemplarMod implements
                 if (playSound) playSound = false;
             }
         }
+    }
+
+    public static boolean isEmpowered(AbstractMonster m) {
+        return (m.hasPower(StrengthPower.POWER_ID) && m.getPower(StrengthPower.POWER_ID).amount > 0)
+                || m.hasPower(MetallicizePower.POWER_ID)
+                || m.hasPower(RegenerateMonsterPower.POWER_ID)
+                || AbstractMonsterPatch.maxHpBuff.get(m);
+    }
+
+    public static boolean areAnyEmpowered() {
+        for (AbstractMonster m: AbstractDungeon.getMonsters().monsters) {
+            if (isEmpowered(m)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

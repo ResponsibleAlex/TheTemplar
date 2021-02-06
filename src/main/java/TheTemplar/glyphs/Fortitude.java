@@ -3,34 +3,33 @@ package TheTemplar.glyphs;
 import TheTemplar.TemplarMod;
 import TheTemplar.actions.GainBulwarkAction;
 import TheTemplar.actions.GlyphAboveCreatureAction;
-import TheTemplar.powers.BulwarkPower;
+import TheTemplar.powers.ResoluteWillPower;
 import basemod.BaseMod;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 
 public class Fortitude extends AbstractGlyph {
     public static final String classID = Fortitude.class.getSimpleName();
     public static final String DESCRIPTION =
             BaseMod.getKeywordDescription(TemplarMod.getModID().toLowerCase() + ":" + classID);
 
-    private static final int EVOKE_SINGLE = 3;
-    private static final int EVOKE_DOUBLE = 8;
+    private static final int TRIGGER = 3;
+    private static final int MATCH_BONUS = 3;
 
     public Fortitude() {
         super(classID, DESCRIPTION);
     }
 
     @Override
-    public void evokeSingle() {
-        doEffect(EVOKE_SINGLE);
+    public void trigger() {
+        this.addToBot(new GlyphAboveCreatureAction(p, this));
+        int amt = TRIGGER;
+        if (p.hasPower(ResoluteWillPower.POWER_ID)) {
+            amt += p.getPower(ResoluteWillPower.POWER_ID).amount;
+        }
+        this.addToBot(new GainBulwarkAction(amt));
     }
 
     @Override
-    public void evokeDouble() {
-        doEffect(EVOKE_DOUBLE);
-    }
-
-    private void doEffect(int amt) {
-        this.addToBot(new GlyphAboveCreatureAction(p, this));
-        this.addToBot(new GainBulwarkAction(amt));
+    public void triggerMatchBonus() {
+        this.addToBot(new GainBulwarkAction(MATCH_BONUS));
     }
 }

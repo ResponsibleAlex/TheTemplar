@@ -1,5 +1,6 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.patches.AbstractMonsterPatch;
 import TheTemplar.powers.ParagonFormPower;
 import TheTemplar.powers.ProtectiveBlessingPower;
@@ -63,6 +64,8 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
                 ((ParagonFormPower)(AbstractDungeon.player.getPower(ParagonFormPower.POWER_ID))).trigger();
             }
 
+            TemplarMod.triggeredBlessingThisTurn = true;
+
             return true;
         }
         return false;
@@ -76,18 +79,10 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
     }
 
     public boolean isEmpowered(AbstractMonster m) {
-        return (m.hasPower(StrengthPower.POWER_ID) && m.getPower(StrengthPower.POWER_ID).amount > 0)
-                || m.hasPower(MetallicizePower.POWER_ID)
-                || m.hasPower(RegenerateMonsterPower.POWER_ID)
-                || AbstractMonsterPatch.maxHpBuff.get(m);
+        return TemplarMod.isEmpowered(m);
     }
 
     public boolean areAnyEmpowered() {
-        for (AbstractMonster m: AbstractDungeon.getMonsters().monsters) {
-            if (isEmpowered(m)) {
-                return true;
-            }
-        }
-        return false;
+        return TemplarMod.areAnyEmpowered();
     }
 }
