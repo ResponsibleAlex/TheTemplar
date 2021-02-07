@@ -11,7 +11,7 @@ public class Charity extends AbstractGlyph {
     public static final String DESCRIPTION =
             BaseMod.getKeywordDescription(TemplarMod.getModID().toLowerCase() + ":" + classID);
 
-    private static final int TRIGGER = 4;
+    private static final int TRIGGER = 5;
 
     public Charity() {
         super(classID, DESCRIPTION);

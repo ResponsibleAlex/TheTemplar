@@ -184,9 +184,6 @@ public class TheTemplar extends CustomPlayer {
         retVal.add(RighteousBlow.ID);
         retVal.add(BlessedCloak.ID);
 
-        retVal.add(TestAnimations.ID);
-        retVal.add(TestGlyphs.ID);
-
         return retVal;
     }
 

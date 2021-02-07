@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import TheTemplar.TemplarMod;
 import TheTemplar.util.TextureLoader;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import static TheTemplar.TemplarMod.makeRelicOutlinePath;
 import static TheTemplar.TemplarMod.makeRelicPath;
@@ -25,7 +26,7 @@ public class CodeOfChivalry extends CustomRelic {
     @Override
     public void atBattleStart() {
         flash();
-        AbstractDungeon.actionManager.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 
         this.addToBot(new GlyphInscribeAction(new Valor()));
     }
@@ -35,4 +36,8 @@ public class CodeOfChivalry extends CustomRelic {
         return DESCRIPTIONS[0];
     }
 
+    @Override
+    public AbstractRelic makeCopy() {
+        return new CodeOfChivalry();
+    }
 }

@@ -4,6 +4,7 @@ import TheTemplar.TemplarMod;
 import TheTemplar.actions.GainBulwarkAction;
 import TheTemplar.actions.GlyphAboveCreatureAction;
 import TheTemplar.powers.ResoluteWillPower;
+import TheTemplar.relics.RunedArmor;
 import basemod.BaseMod;
 
 public class Fortitude extends AbstractGlyph {
@@ -30,6 +31,10 @@ public class Fortitude extends AbstractGlyph {
 
     @Override
     public void triggerMatchBonus() {
-        this.addToBot(new GainBulwarkAction(MATCH_BONUS));
+        int amt = MATCH_BONUS;
+        if (p.hasRelic(RunedArmor.ID)) {
+            amt *= 2;
+        }
+        this.addToBot(new GainBulwarkAction(amt));
     }
 }

@@ -2,6 +2,7 @@ package TheTemplar.glyphs;
 
 import TheTemplar.TemplarMod;
 import TheTemplar.actions.GlyphAboveCreatureAction;
+import TheTemplar.relics.RunedArmor;
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -26,6 +27,10 @@ public class Zeal extends AbstractGlyph {
 
     @Override
     public void triggerMatchBonus() {
-        this.addToBot(new GainEnergyAction(MATCH_BONUS));
+        int amt = MATCH_BONUS;
+        if (p.hasRelic(RunedArmor.ID)) {
+            amt *= 2;
+        }
+        this.addToBot(new GainEnergyAction(amt));
     }
 }

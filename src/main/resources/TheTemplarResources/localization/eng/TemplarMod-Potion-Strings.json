@@ -1,6 +1,23 @@
 {
-"TheTemplar:PlaceholderPotion": {
-        "NAME": "Placeholder Potion",
-        "DESCRIPTIONS": ["Gain ", " At the end of your turn, lose ", " Strength."]
-}
+        "TheTemplar:PotionOfLore": {
+                "NAME": "Potion of Lore",
+                "DESCRIPTIONS": [
+                        "Choose a glyph to #yInscribe.",
+                        "Choose a glyph and #yInscribe it twice."
+                ]
+        },
+        "TheTemplar:StalwartFlask": {
+                "NAME": "Stalwart Flask",
+                "DESCRIPTIONS": [
+                        "Gain #b",
+                        " #yBulwark."
+                ]
+        },
+        "TheTemplar:ExaltedEssence": {
+                "NAME": "Exalted Essence",
+                "DESCRIPTIONS": [
+                        "Draw until you have 5 cards in hand and gain [E] .",
+                        "Draw until you have 5 cards in hand and gain [E] [E] ."
+                ]
+        }
 }

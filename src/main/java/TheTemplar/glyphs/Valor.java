@@ -2,6 +2,7 @@ package TheTemplar.glyphs;
 
 import TheTemplar.TemplarMod;
 import TheTemplar.actions.GlyphAboveCreatureAction;
+import TheTemplar.relics.RunedArmor;
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -13,7 +14,7 @@ public class Valor extends AbstractGlyph {
             BaseMod.getKeywordDescription(TemplarMod.getModID().toLowerCase() + ":" + classID);
 
     private static final int TRIGGER = 4;
-    private static final int MATCH_STR = 2;
+    private static final int MATCH_BONUS = 2;
 
     public Valor() {
         super(classID, DESCRIPTION);
@@ -27,6 +28,10 @@ public class Valor extends AbstractGlyph {
 
     @Override
     public void triggerMatchBonus() {
-        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, MATCH_STR), MATCH_STR));
+        int amt = MATCH_BONUS;
+        if (p.hasRelic(RunedArmor.ID)) {
+            amt *= 2;
+        }
+        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, amt), amt));
     }
 }

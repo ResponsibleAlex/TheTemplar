@@ -2,6 +2,9 @@ package TheTemplar;
 
 import TheTemplar.glyphs.AbstractGlyph;
 import TheTemplar.patches.AbstractMonsterPatch;
+import TheTemplar.potions.ExaltedEssence;
+import TheTemplar.potions.StalwartFlask;
+import TheTemplar.relics.*;
 import TheTemplar.variables.HolyWeapons;
 import TheTemplar.vfx.FlashCustomAttackEffect;
 import TheTemplar.vfx.BookEffect;
@@ -30,14 +33,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MetallicizePower;
 import com.megacrit.cardcrawl.powers.RegenerateMonsterPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import TheTemplar.cards.*;
 import TheTemplar.characters.TheTemplar;
 import TheTemplar.events.IdentityCrisisEvent;
-import TheTemplar.potions.PlaceholderPotion;
-import TheTemplar.relics.CodeOfChivalry;
+import TheTemplar.potions.PotionOfLore;
 import TheTemplar.util.IDCheckDontTouchPls;
 import TheTemplar.util.TextureLoader;
 import TheTemplar.variables.DefaultCustomVariable;
@@ -383,8 +386,10 @@ public class TemplarMod implements
         // Class Specific Potion. If you want your potion to not be class-specific,
         // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
         // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PlaceholderPotion.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PlaceholderPotion.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
-        
+        BaseMod.addPotion(PotionOfLore.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PotionOfLore.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
+        BaseMod.addPotion(StalwartFlask.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, StalwartFlask.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
+        BaseMod.addPotion(ExaltedEssence.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, ExaltedEssence.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
+
         logger.info("Done editing potions");
     }
     
@@ -397,12 +402,24 @@ public class TemplarMod implements
     public void receiveEditRelics() {
         logger.info("Adding relics");
 
-        // This adds a character specific relic. Only when you play with the mentioned color, will you get this relic.
-        BaseMod.addRelicToCustomPool(new CodeOfChivalry(), TheTemplar.Enums.COLOR_GRAY);
-
-        UnlockTracker.markRelicAsSeen(CodeOfChivalry.ID);
+        addRelic(new CodeOfChivalry());
+        addRelic(new DivineChalice());
+        addRelic(new PrayerBeads());
+        addRelic(new Apocrypha());
+        addRelic(new FightersRing());
+        addRelic(new DragonsScale());
+        addRelic(new GildedEgg());
+        addRelic(new BottledQuicksilver());
+        addRelic(new KingsCrown());
+        addRelic(new Reliquary());
+        addRelic(new RunedArmor());
 
         logger.info("Done adding relics!");
+    }
+
+    private void addRelic(AbstractRelic r) {
+        BaseMod.addRelicToCustomPool(r, TheTemplar.Enums.COLOR_GRAY);
+        UnlockTracker.markRelicAsSeen(r.relicId);
     }
     
     // ================ /ADD RELICS/ ===================

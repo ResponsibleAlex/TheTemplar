@@ -1,14 +1,11 @@
 package TheTemplar.cards;
 
-import TheTemplar.optionCards.*;
-import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
+import TheTemplar.actions.GlyphChoiceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import TheTemplar.TemplarMod;
 import TheTemplar.characters.TheTemplar;
-
-import java.util.ArrayList;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -46,14 +43,7 @@ public class EtchInFaith extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> glyphChoices = new ArrayList<>();
-        glyphChoices.add(new InscribeJustice());
-        glyphChoices.add(new InscribeFortitude());
-        glyphChoices.add(new InscribeValor());
-        glyphChoices.add(new InscribeZeal());
-        glyphChoices.add(new InscribeCharity());
-
-        this.addToBot(new ChooseOneAction(glyphChoices));
+        this.addToBot(new GlyphChoiceAction());
     }
 
 

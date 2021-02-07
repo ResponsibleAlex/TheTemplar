@@ -29,12 +29,18 @@ public class InscribeZeal extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
 
     private static final int COST = -2;
+    private final int number;
 
     // /STAT DECLARATION/
 
 
     public InscribeZeal() {
+        this(1);
+    }
+
+    public InscribeZeal(int number) {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        this.number = number;
     }
 
 
@@ -45,7 +51,9 @@ public class InscribeZeal extends AbstractDynamicCard {
     }
 
     public void onChoseThisOption() {
-        this.addToBot(new GlyphInscribeAction(new Zeal()));
+        for (int i = 0; i < this.number; i++) {
+            this.addToBot(new GlyphInscribeAction(new Zeal()));
+        }
     }
 
 

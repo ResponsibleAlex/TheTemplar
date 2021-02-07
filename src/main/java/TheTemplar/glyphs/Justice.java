@@ -4,6 +4,7 @@ import TheTemplar.TemplarMod;
 import TheTemplar.actions.GlyphAboveCreatureAction;
 import TheTemplar.powers.FlameOfHeavenPower;
 import TheTemplar.powers.ResoluteWillPower;
+import TheTemplar.relics.RunedArmor;
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -36,7 +37,11 @@ public class Justice extends AbstractGlyph {
 
     @Override
     public void triggerMatchBonus() {
-        doEffect(MATCH_BONUS, true);
+        int amt = MATCH_BONUS;
+        if (p.hasRelic(RunedArmor.ID)) {
+            amt *= 2;
+        }
+        doEffect(amt, true);
     }
 
     private void doEffect(int amt, boolean isMatchBonus) {
