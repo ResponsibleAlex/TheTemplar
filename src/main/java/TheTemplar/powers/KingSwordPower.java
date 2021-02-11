@@ -1,6 +1,7 @@
 package TheTemplar.powers;
 
 import TheTemplar.cards.KingSword;
+import TheTemplar.util.HolyWeaponPower;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -18,12 +19,11 @@ import TheTemplar.util.TextureLoader;
 
 import static TheTemplar.TemplarMod.makePowerPath;
 
-public class KingSwordPower extends AbstractPower implements CloneablePowerInterface {
+public class KingSwordPower extends HolyWeaponPower implements CloneablePowerInterface {
 
-    private final String desc;
-    private final float mult;
-    private final boolean upgraded;
-    private final int dmgAmt;
+    private String desc;
+    private float mult;
+    private int dmgAmt;
 
     public static final String POWER_ID = TemplarMod.makeID(KingSwordPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -39,7 +39,19 @@ public class KingSwordPower extends AbstractPower implements CloneablePowerInter
 
         this.owner = AbstractDungeon.player;
 
-        if (upgraded) {
+        type = PowerType.BUFF;
+
+        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+
+        refresh(upgraded);
+    }
+
+    @Override
+    public void refresh(boolean upgraded) {
+        this.upgraded = upgraded || this.upgraded;
+
+        if (this.upgraded) {
             mult = 1.5f;
             desc = "50";
             this.dmgAmt = KingSword.DAMAGE_ALL + KingSword.UPGRADE_PLUS_DAMAGE_ALL;
@@ -48,12 +60,6 @@ public class KingSwordPower extends AbstractPower implements CloneablePowerInter
             desc = "25";
             this.dmgAmt = KingSword.DAMAGE_ALL;
         }
-        this.upgraded = upgraded;
-
-        type = PowerType.BUFF;
-
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }

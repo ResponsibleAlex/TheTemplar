@@ -36,16 +36,10 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
     }
 
     @Override
-    public void triggerOnEndOfPlayerTurn() {
-        super.triggerOnEndOfPlayerTurn();
-        this.triggerNextBlessing = false;
-    }
-
-    @Override
     public void triggerOnGlowCheck() {
         if (this.willTriggerBlessing()) {
-            this.glowColor = Color.CORAL.cpy();
-        } if (this.glowEmpowered && this.areAnyEmpowered()) {
+            this.glowColor = Color.MAGENTA.cpy();
+        } else if (this.glowEmpowered && this.areAnyEmpowered()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
@@ -76,13 +70,14 @@ public abstract class AbstractDynamicCard extends AbstractDefaultCard {
             }
 
             TemplarMod.triggeredBlessingThisTurn = true;
+            this.triggerNextBlessing = false;
 
             return true;
         }
         return false;
     }
 
-    private boolean willTriggerBlessing() {
+    protected boolean willTriggerBlessing() {
         return (this.blessing &&
                 (AbstractDungeon.player.hand.size() == 5
                         || this.triggerNextBlessing

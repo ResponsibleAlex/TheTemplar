@@ -1,21 +1,4 @@
 {
-        "TheTemplar:CommonPower": {
-                "NAME": "Placeholder Power",
-                "DESCRIPTIONS": [
-                        "You applied #b",
-                        " keyword.",
-                        " keywords."
-                ]
-        },
-        "TheTemplar:RarePower": {
-                "NAME": "Placeholder Power",
-                "DESCRIPTIONS": [
-                        "At the start of your turn, TOUCH #b",
-                        " enemy.",
-                        " enemies."
-                ]
-        },
-
         "TheTemplar:BulwarkPower": {
                 "NAME": "Bulwark",
                 "DESCRIPTIONS": [
@@ -47,6 +30,54 @@
                 "DESCRIPTIONS": [
                         "Gain #b",
                         " #yBlock whenever you trigger a #yBlessing."
+                ]
+        },
+        "TheTemplar:ResoluteWillPower": {
+                "NAME": "Resolute Will",
+                "DESCRIPTIONS": [
+                        "Increase the effect of #yJustice and #yFortitude by #b",
+                        "."
+                ]
+        },
+        "TheTemplar:GallantryPower": {
+                "NAME": "Gallantry",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, if any enemies are #yEmpowered, gain #b",
+                        " temporary #yStrength and #b",
+                        " temporary #yDexterity."
+                ]
+        },
+        "TheTemplar:CleansingRitePower": {
+                "NAME": "Cleansing Rite",
+                "DESCRIPTIONS": [
+                        "Exhaust #b",
+                        " random card at the end of your turn.",
+                        " random cards at the end of your turn.",
+                        " If a card is #yExhausted that isn't a #yStatus or #yCurse, #yInscribe #b",
+                        " #yCharity."
+                ]
+        },
+        "TheTemplar:DivinePurposePower": {
+                "NAME": "Divine Purpose",
+                "DESCRIPTIONS": [
+                        "At the start of your turn, #yInscribe #b",
+                        " #yZeal if you triggered a #yBlessing on your previous turn."
+                ]
+        },
+        "TheTemplar:RetributionPower": {
+                "NAME": "Retribution",
+                "DESCRIPTIONS": [
+                        "Whenever you receive unblocked attack damage, gain #b",
+                        " #yThorns and #b",
+                        " #yBulwark."
+                ]
+        },
+        "TheTemplar:AltarPower": {
+                "NAME": "Altar",
+                "DESCRIPTIONS": [
+                        "If you have a glyph #yInscribed at the end of your turn, #yInscribe #b",
+                        " additional glyph of that type.",
+                        " additional glyphs of that type."
                 ]
         },
         "TheTemplar:SacredHammerPower": {
@@ -93,6 +124,13 @@
                         "#yBlessing effects always trigger. Whenever you trigger a #yBlessing, draw #b",
                         " card.",
                         " cards."
+                ]
+        },
+        "TheTemplar:FanaticismPower": {
+                "NAME": "Fanaticism",
+                "DESCRIPTIONS": [
+                        "Whenever you play an #yAttack this turn, #yInscribe ",
+                        " #yZeal."
                 ]
         }
 }

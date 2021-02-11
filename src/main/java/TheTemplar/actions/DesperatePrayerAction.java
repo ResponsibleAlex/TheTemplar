@@ -54,6 +54,7 @@ public class DesperatePrayerAction extends AbstractGameAction {
                     this.p.hand.moveToDiscardPile(c);
                 }
 
+                this.p.hand.addToTop(chosen);
                 this.p.hand.refreshHandLayout();
             }
 
@@ -62,7 +63,7 @@ public class DesperatePrayerAction extends AbstractGameAction {
     }
 
     private void setDesperatePrayer(AbstractCard c) {
-        if (c.getClass().isInstance(AbstractDynamicCard.class)) {
+        if (c instanceof AbstractDynamicCard) {
             ((AbstractDynamicCard)c).triggerNextBlessing = true;
         }
 

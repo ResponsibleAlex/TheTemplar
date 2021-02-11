@@ -10,6 +10,7 @@ import TheTemplar.TemplarMod;
 import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 @SuppressWarnings("unused")
 public class Squire extends AbstractDynamicCard {
@@ -54,6 +55,7 @@ public class Squire extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             this.isInnate = true;
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

@@ -1,5 +1,6 @@
 package TheTemplar.powers;
 
+import TheTemplar.util.HolyWeaponPower;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -12,7 +13,7 @@ import TheTemplar.util.TextureLoader;
 
 import static TheTemplar.TemplarMod.makePowerPath;
 
-public class BookOfTheFivePower extends AbstractPower implements CloneablePowerInterface {
+public class BookOfTheFivePower extends HolyWeaponPower implements CloneablePowerInterface {
     public static final String POWER_ID = TemplarMod.makeID(BookOfTheFivePower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;

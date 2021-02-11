@@ -32,7 +32,6 @@ public class CommandingStrike extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    // private static final int UPGRADED_COST = 0;
 
     private static final int DAMAGE = 7;
     private static final int UPGRADE_PLUS_DMG = 3;
@@ -65,7 +64,6 @@ public class CommandingStrike extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            //upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

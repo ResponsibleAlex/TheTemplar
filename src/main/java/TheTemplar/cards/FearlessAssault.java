@@ -30,7 +30,6 @@ public class FearlessAssault extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    // private static final int UPGRADED_COST = 0;
 
     private static final int DAMAGE = 8;
     private static final int UPGRADE_PLUS_DMG = 3;
@@ -48,19 +47,26 @@ public class FearlessAssault extends AbstractDynamicCard {
         this.glowEmpowered = true;
     }
 
+    public void calculateCardDamage(AbstractMonster m) {
+        int realBaseDamage = this.baseDamage;
+        if (this.isEmpowered(m)) {
+            this.baseDamage += this.magicNumber;
+        }
+        super.calculateCardDamage(m);
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
+    }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractGameAction.AttackEffect effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT;
 
-        int amt = damage;
         if (isEmpowered(m)) {
-            amt = damage + magicNumber;
             effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
         }
 
-        this.addToBot(new DamageAction(m, new DamageInfo(p, amt, damageTypeForTurn), effect));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
     }
 
 

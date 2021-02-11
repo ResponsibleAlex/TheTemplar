@@ -74,7 +74,7 @@ public class WordOfPower extends AbstractDynamicCard {
         }
         return typesInscribedThisCombat;
     }
-
+// TODO - display not working correctly
     private void setDescription(boolean includeTimes) {
         if (includeTimes) {
             this.magicNumber = this.countTypesInscribedThisCombat();

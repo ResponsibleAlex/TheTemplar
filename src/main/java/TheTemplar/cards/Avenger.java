@@ -11,7 +11,7 @@ import TheTemplar.characters.TheTemplar;
 import static TheTemplar.TemplarMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class Avenger extends AbstractDynamicCard {
+public class Avenger extends AbstractBaseValuesCard {
 
     // TEXT DECLARATION
 
@@ -29,7 +29,6 @@ public class Avenger extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
 
     private static final int COST = 2;
-    // private static final int UPGRADED_COST = 0;
 
     private static final int DAMAGE = 10;
     private static final int UPGRADE_PLUS_DMG = 6;
@@ -46,18 +45,16 @@ public class Avenger extends AbstractDynamicCard {
         this.blessing = true;
     }
 
+    @Override
+    protected int increaseBaseDamage() {
+        return (this.willTriggerBlessing() ? this.magicNumber : 0);
+    }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int[] amts = this.multiDamage.clone();
-        if(triggerBlessing()) {
-            for(int i = 0; i < amts.length; i++) {
-                amts[i] += magicNumber;
-            }
-        }
-
-        this.addToBot(new DamageAllEnemiesAction(p, amts, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+        this.triggerBlessing();
+        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
     }
 
 

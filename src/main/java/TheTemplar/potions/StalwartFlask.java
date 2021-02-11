@@ -34,7 +34,7 @@ public class StalwartFlask extends CustomPotion {
     public void initializeData() {
         potency = getPotency();
 
-        description = DESCRIPTIONS[1] + potency + DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + potency + DESCRIPTIONS[1];
 
         tips.clear();
         tips.add(new PowerTip(name, description));

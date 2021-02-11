@@ -3,6 +3,7 @@ package TheTemplar.actions;
 import TheTemplar.TemplarMod;
 import TheTemplar.cards.LightOfGlory;
 import TheTemplar.glyphs.*;
+import TheTemplar.powers.BookOfTheFivePower;
 import TheTemplar.variables.GlyphTypes;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,10 +15,18 @@ public class GlyphInscribeAction extends AbstractGameAction {
     private final AbstractGlyph glyphToInscribe;
 
     public GlyphInscribeAction(AbstractGlyph glyph) {
+        this(glyph, true);
+    }
+
+    public GlyphInscribeAction(AbstractGlyph glyph, boolean canDupWithBook) {
         glyphToInscribe = glyph;
 
         actionType = ActionType.SPECIAL;
         duration = startDuration = AbstractGlyph.INSCRIBE_TIME;
+
+        if (canDupWithBook && AbstractDungeon.player.hasPower(BookOfTheFivePower.POWER_ID)) {
+            this.addToBot(new GlyphInscribeAction(glyph.makeCopy(), false));
+        }
     }
 
     @Override
@@ -43,7 +52,7 @@ public class GlyphInscribeAction extends AbstractGameAction {
                 AbstractGlyph.inscribeLeft(glyphToInscribe);
             } else {
                 AbstractGlyph.inscribeRight(glyphToInscribe);
-                this.addToBot(new GlyphTriggerAction());
+                this.addToTop(new GlyphTriggerAction());
             }
         }
 

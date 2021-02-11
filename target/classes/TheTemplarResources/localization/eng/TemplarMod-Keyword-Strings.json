@@ -10,6 +10,7 @@
   {
     "PROPER_NAME": "Greater Rewards",
     "NAMES": [
+      "Greater Rewards",
       "Greater_Rewards",
       "greater_rewards"
     ],
@@ -44,6 +45,7 @@
   {
     "PROPER_NAME": "Holy Weapon",
     "NAMES": [
+      "Holy Weapon",
       "Holy_Weapon",
       "holy_weapon"
     ],
@@ -54,34 +56,34 @@
       "justice",
       "Justice"
     ],
-    "DESCRIPTION": "Deals #b4 damage to ALL enemies when paired. If matched with another #yJustice, deal #b10 damage to ALL enemies."
+    "DESCRIPTION": "Deals #b3 damage to ALL enemies when paired. NL Match bonus: deal #b6 damage to ALL enemies."
   },
   {
     "NAMES": [
       "fortitude",
       "Fortitude"
     ],
-    "DESCRIPTION": "Gain #b3 #yBulwark when paired. If matched with another #yFortitude, gain #b8 #yBulwark."
+    "DESCRIPTION": "Gain #b3 #yBulwark when paired. NL Match bonus: gain #b3 #yBulwark."
   },
   {
     "NAMES": [
       "valor",
       "Valor"
     ],
-    "DESCRIPTION": "Gain #b5 #yVigor when paired. If matched with another #yValor, gain #b8 #yVigor and #b2 #yStrength."
+    "DESCRIPTION": "Gain #b4 #yVigor when paired. NL Match bonus: gain #b2 #yStrength."
   },
   {
     "NAMES": [
       "zeal",
       "Zeal"
     ],
-    "DESCRIPTION": "Draw #b1 card when paired. If matched with another #yZeal, gain [E] and draw #b2 cards."
+    "DESCRIPTION": "Draw #b1 card when paired. NL Match bonus: gain [E] ."
   },
   {
     "NAMES": [
       "charity",
       "Charity"
     ],
-    "DESCRIPTION": "Gain #b4 Block when paired. If matched with another #yCharity, gain #b8 Block and remove all of your debuffs."
+    "DESCRIPTION": "Gain #b5 Block when paired. NL Match bonus: remove all of your debuffs."
   }
 ]

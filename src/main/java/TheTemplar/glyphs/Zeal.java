@@ -21,8 +21,8 @@ public class Zeal extends AbstractGlyph {
 
     @Override
     public void trigger() {
-        this.addToBot(new GlyphAboveCreatureAction(p, this));
-        this.addToBot(new DrawCardAction(TRIGGER));
+        this.addToTop(new GlyphAboveCreatureAction(p, this));
+        this.addToTop(new DrawCardAction(TRIGGER));
     }
 
     @Override
@@ -31,6 +31,11 @@ public class Zeal extends AbstractGlyph {
         if (p.hasRelic(RunedArmor.ID)) {
             amt *= 2;
         }
-        this.addToBot(new GainEnergyAction(amt));
+        this.addToTop(new GainEnergyAction(amt));
+    }
+
+    @Override
+    public AbstractGlyph makeCopy() {
+        return new Zeal();
     }
 }

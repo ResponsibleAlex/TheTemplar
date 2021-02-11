@@ -26,7 +26,7 @@ public class Fortitude extends AbstractGlyph {
         if (p.hasPower(ResoluteWillPower.POWER_ID)) {
             amt += p.getPower(ResoluteWillPower.POWER_ID).amount;
         }
-        this.addToBot(new GainBulwarkAction(amt));
+        this.addToTop(new GainBulwarkAction(amt));
     }
 
     @Override
@@ -35,6 +35,11 @@ public class Fortitude extends AbstractGlyph {
         if (p.hasRelic(RunedArmor.ID)) {
             amt *= 2;
         }
-        this.addToBot(new GainBulwarkAction(amt));
+        this.addToTop(new GainBulwarkAction(amt));
+    }
+
+    @Override
+    public AbstractGlyph makeCopy() {
+        return new Fortitude();
     }
 }

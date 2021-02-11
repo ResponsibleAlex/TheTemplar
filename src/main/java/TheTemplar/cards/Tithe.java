@@ -39,6 +39,7 @@ public class Tithe extends AbstractDynamicCard {
 
     public Tithe() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        magicNumber = baseMagicNumber = STRENGTH;
     }
 
 

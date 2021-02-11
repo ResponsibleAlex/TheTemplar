@@ -2,6 +2,7 @@ package TheTemplar.actions;
 
 import TheTemplar.TemplarMod;
 import TheTemplar.powers.*;
+import TheTemplar.util.HolyWeaponPower;
 import TheTemplar.variables.HolyWeapons;
 import TheTemplar.vfx.HolyWeaponEquipEffect;
 import com.badlogic.gdx.Gdx;
@@ -14,55 +15,60 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class EquipHolyWeaponAction extends AbstractGameAction {
     private final String newWeapon;
     private final boolean upgraded;
+    private final boolean sameWeapon;
     private final AbstractPlayer p;
 
     public EquipHolyWeaponAction(String holyWeapon, boolean upgraded) {
         this.newWeapon = holyWeapon;
+        this.sameWeapon = HolyWeapons.IsEquipped(holyWeapon);
         this.upgraded = upgraded;
-        this.p = AbstractDungeon.player;
 
-        if (HolyWeapons.IsEquipped(holyWeapon)) {
-            this.isDone = true;
-        } else {
-            this.duration = this.startDuration = .5f;
-        }
+        this.p = AbstractDungeon.player;
+        this.actionType = ActionType.SPECIAL;
+        this.duration = this.startDuration = .5f;
     }
 
     public void update() {
-        if (!this.isDone) {
-            if (this.duration == this.startDuration) {
-                AbstractDungeon.effectsQueue.add(new HolyWeaponEquipEffect());
-            }
+        if (this.duration == this.startDuration) {
+            AbstractDungeon.effectsQueue.add(new HolyWeaponEquipEffect());
+        }
 
-            this.duration -= Gdx.graphics.getDeltaTime();
-            if (this.duration < 0.0F) {
-                TemplarMod.setHolyWeapon(newWeapon);
-                this.setPower();
+        this.duration -= Gdx.graphics.getDeltaTime();
+        if (this.duration <= 0.0F) {
+            TemplarMod.setHolyWeapon(newWeapon);
+            this.setPower();
 
-                this.isDone = true;
-            }
+            this.isDone = true;
         }
     }
 
     private void setPower() {
-        this.removePowers();
-
         switch (this.newWeapon) {
             case HolyWeapons.Sword:
-                this.addToBot(new ApplyPowerAction(this.p, this.p, new KingSwordPower(this.upgraded), 0));
+                this.setPower(new KingSwordPower(this.upgraded));
                 break;
             case HolyWeapons.Hammer:
-                this.addToBot(new ApplyPowerAction(this.p, this.p, new SacredHammerPower(this.upgraded), 0));
+                this.setPower(new SacredHammerPower(this.upgraded));
                 break;
             case HolyWeapons.Aegis:
-                this.addToBot(new ApplyPowerAction(this.p, this.p, new AegisPower(this.upgraded), 0));
+                this.setPower(new AegisPower(this.upgraded));
                 break;
             case HolyWeapons.Torch:
-                this.addToBot(new ApplyPowerAction(this.p, this.p, new FlameOfHeavenPower(this.upgraded), 0));
+                this.setPower(new FlameOfHeavenPower(this.upgraded));
                 break;
             case HolyWeapons.Book:
-                this.addToBot(new ApplyPowerAction(this.p, this.p, new BookOfTheFivePower(), 0));
+                this.setPower(new BookOfTheFivePower());
                 break;
+        }
+    }
+    private void setPower(HolyWeaponPower power) {
+        if (this.sameWeapon) {
+            HolyWeaponPower current = (HolyWeaponPower) p.getPower(power.ID);
+            current.refresh(this.upgraded);
+            current.flash();
+        } else {
+            this.removePowers();
+            this.addToBot(new ApplyPowerAction(this.p, this.p, power, 0));
         }
     }
 
@@ -73,6 +79,4 @@ public class EquipHolyWeaponAction extends AbstractGameAction {
         this.addToBot(new RemoveSpecificPowerAction(this.p, this.p, AegisPower.POWER_ID));
         this.addToBot(new RemoveSpecificPowerAction(this.p, this.p, BookOfTheFivePower.POWER_ID));
     }
-
-
 }

@@ -12,7 +12,7 @@ public class GlyphTriggerAction extends AbstractGameAction {
     @Override
     public void update() {
         AbstractGlyph.triggerGlyphs();
-        this.addToBot(new GlyphRemoveAction());
+        this.addToTop(new GlyphRemoveAction());
 
         this.isDone = true;
     }

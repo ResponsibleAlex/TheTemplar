@@ -33,11 +33,11 @@ public class RingingChallengeAction extends AbstractGameAction {
         this.p = AbstractDungeon.player;
         this.r = AbstractDungeon.getCurrRoom();
 
-        if (this.r.getClass().isInstance(MonsterRoomBoss.class)) {
+        if (this.r instanceof MonsterRoomBoss) {
             this.isBoss = true;
-        } else if (this.r.getClass().isInstance(MonsterRoomElite.class)) {
+        } else if (this.r instanceof MonsterRoomElite) {
             this.isElite = true;
-        } else if (this.r.getClass().isInstance(MonsterRoom.class)) {
+        } else if (this.r instanceof MonsterRoom) {
             this.isNormal = true;
         }
 

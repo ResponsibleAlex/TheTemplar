@@ -60,7 +60,7 @@
   },
   "TheTemplar:WordOfPower": {
     "NAME": "Word of Power",
-    "DESCRIPTION": "Deal !D! damage. Draw 1 card for each unique glyph type thetemplar:Inscribed this combat.",
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card for each unique glyph type thetemplar:Inscribed this combat.",
     "EXTENDED_DESCRIPTION": [
       " NL (draw !M! cards.)"
     ]
@@ -228,7 +228,7 @@
   "TheTemplar:Beseech": {
     "NAME": "Beseech",
     "DESCRIPTION": "Choose Attack or Skill. Add a random card of that type to your hand. NL Exhaust. NL thetemplar:Blessing: it costs 0 this turn.",
-    "UPGRADE_DESCRIPTION": "Choose Attack or Skill. Add a random upgraded card of that type to your hand. NL Exhaust. NL thetemplar:Blessing: it costs 0 this turn."
+    "UPGRADE_DESCRIPTION": "Choose Attack or Skill. Add a random Upgraded card of that type to your hand. NL Exhaust. NL thetemplar:Blessing: it costs 0 this turn."
   },
   "TheTemplar:Innervate": {
     "NAME": "Innervate",
@@ -319,7 +319,7 @@
   },
   "TheTemplar:KingSword": {
     "NAME": "King Sword",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal !M!% more damage. Whenever you play an Attack, deal !thetemplar:SecondMagic! to ALL enemies."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal 25% more damage. Whenever you play an Attack, deal !M! to ALL enemies."
   },
   "TheTemplar:Aegis": {
     "NAME": "Aegis",

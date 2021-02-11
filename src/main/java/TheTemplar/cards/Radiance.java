@@ -14,7 +14,7 @@ import TheTemplar.characters.TheTemplar;
 import static TheTemplar.TemplarMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class Radiance extends AbstractDynamicCard {
+public class Radiance extends AbstractBaseValuesCard {
 
     // TEXT DECLARATION
 
@@ -54,7 +54,7 @@ public class Radiance extends AbstractDynamicCard {
     private int countBlessingPile(CardGroup group) {
         int x = 0;
         for (AbstractCard c : group.group) {
-            if (c.getClass().isInstance(AbstractDynamicCard.class)) {
+            if (c instanceof AbstractDynamicCard) {
                 if (((AbstractDynamicCard)c).blessing) {
                     x++;
                 }
@@ -63,26 +63,15 @@ public class Radiance extends AbstractDynamicCard {
         return x;
     }
 
+    @Override
+    protected int increaseBaseDamage() {
+        return this.magicNumber * countBlessingCards();
+    }
+
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
-    }
-
-    public void calculateCardDamage(AbstractMonster m) {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.magicNumber * countBlessingCards();
-        super.calculateCardDamage(m);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
-    }
-
-    public void applyPowers() {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.magicNumber * countBlessingCards();
-        super.applyPowers();
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     // Upgraded stats.

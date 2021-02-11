@@ -30,7 +30,6 @@ public class Sanctuary extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
 
     private static final int COST = 1;
-    // private static final int UPGRADED_COST = 0;
 
     private static final int BLOCK = 6;
     private static final int UPGRADE_PLUS_BLOCK = 3;

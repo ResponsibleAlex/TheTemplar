@@ -249,12 +249,12 @@ public abstract class AbstractGlyph {
     }
 
     public static void triggerGlyphs() {
-        LeftGlyph.trigger();
-        RightGlyph.trigger();
-
         if (LeftGlyph.name.equals(RightGlyph.name)) {
             LeftGlyph.triggerMatchBonus();
         }
+
+        RightGlyph.trigger();
+        LeftGlyph.trigger();
     }
 
     public static void renderGlyphs(SpriteBatch sb) {
@@ -298,6 +298,8 @@ public abstract class AbstractGlyph {
         RightGlyph = null;
     }
 
+    public abstract AbstractGlyph makeCopy();
+
     protected static HashMap<String, Texture> InitTextures() {
         HashMap<String, Texture> map = new HashMap<>();
         map.put("Justice", ImageMaster.loadImage(makeGlyphPath("Justice.png")));
@@ -320,5 +322,8 @@ public abstract class AbstractGlyph {
 
     protected void addToBot(AbstractGameAction action) {
         AbstractDungeon.actionManager.addToBottom(action);
+    }
+    protected void addToTop(AbstractGameAction action) {
+        AbstractDungeon.actionManager.addToTop(action);
     }
 }

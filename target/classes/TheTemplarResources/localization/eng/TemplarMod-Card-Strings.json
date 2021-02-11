@@ -35,9 +35,43 @@
     "NAME": "Courageous Attack",
     "DESCRIPTION": "Deal !D! damage. NL If the enemy is thetemplar:Empowered, thetemplar:Inscribe 1 thetemplar:Valor."
   },
+  "TheTemplar:ShieldBash": {
+    "NAME": "Shield Bash",
+    "DESCRIPTION": "Gain !M! thetemplar:Bulwark. NL Deal damage equal to your thetemplar:Bulwark.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage)"
+    ]
+  },
+  "TheTemplar:Radiance": {
+    "NAME": "Radiance",
+    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for ALL your cards with thetemplar:Blessing."
+  },
   "TheTemplar:Skirmish": {
     "NAME": "Skirmish",
     "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Fortitude."
+  },
+  "TheTemplar:Momentum": {
+    "NAME": "Momentum",
+    "DESCRIPTION": "Deal !D! damage. NL Vigor is not consumed by this card and affects it !M! times."
+  },
+  "TheTemplar:FireOfConviction": {
+    "NAME": "Fire of Conviction",
+    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Zeal. NL Exhaust."
+  },
+  "TheTemplar:WordOfPower": {
+    "NAME": "Word of Power",
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card for each unique glyph type thetemplar:Inscribed this combat.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (draw !M! cards.)"
+    ]
+  },
+  "TheTemplar:BladesOfTheFallen": {
+    "NAME": "Blades of the Fallen",
+    "DESCRIPTION": "Ethereal. NL Deal !D! damage !M! times. NL Ignores Block."
+  },
+  "TheTemplar:Reckoning": {
+    "NAME": "Reckoning",
+    "DESCRIPTION": "thetemplar:Inscribe 1 thetemplar:Valor and 1 thetemplar:Justice. NL Deal !D! damage."
   },
   "TheTemplar:DevotedStrike": {
     "NAME": "Devoted Strike",
@@ -47,13 +81,25 @@
     "NAME": "FearlessAssault",
     "DESCRIPTION": "Deal !D! damage. NL If the enemy is thetemplar:Empowered, deal !M! additional damage."
   },
-  "TheTemplar:FireOfConviction": {
-    "NAME": "Fire of Conviction",
-    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Zeal. NL Exhaust."
+  "TheTemplar:DeterminedCharge": {
+    "NAME": "Determined Charge",
+    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Fortitude. NL thetemplar:Blessing: thetemplar:Inscribe 1 thetemplar:Fortitude."
+  },
+  "TheTemplar:CalculatedStrike": {
+    "NAME": "Calculated Strike",
+    "DESCRIPTION": "Deal !D! damage. NL If this is the only attack in your hand, deal double damage."
+  },
+  "TheTemplar:CelestialBurst": {
+    "NAME": "Celestial Burst",
+    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Blessing: draw !M! cards."
   },
   "TheTemplar:LightOfGlory": {
     "NAME": "Light of Glory",
     "DESCRIPTION": "Costs 1 less [E] for each glyph you thetemplar:Inscribe this combat. NL Deal !D! damage."
+  },
+  "TheTemplar:ThrillOfBattle": {
+    "NAME": "Thrill of Battle",
+    "DESCRIPTION": "Deal !D! damage. NL Gain Vigor equal to the unblocked damage dealt."
   },
   "TheTemplar:Lionheart": {
     "NAME": "Lionheart",
@@ -63,8 +109,8 @@
       " NL (hit !M! times.)"
     ]
   },
-  "TheTemplar:Arbiter": {
-    "NAME": "Arbiter",
+  "TheTemplar:Avenger": {
+    "NAME": "Avenger",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL thetemplar:Blessing: deals !M! additional damage."
   },
   "TheTemplar:Dragonslayer": {
@@ -74,6 +120,15 @@
   "TheTemplar:Crusader": {
     "NAME": "Crusader",
     "DESCRIPTION": "Deal !D! damage. NL thetemplar:Blessing: Gain [E] [E]."
+  },
+  "TheTemplar:Vanguard": {
+    "NAME": "Vanguard",
+    "DESCRIPTION": "Gain !B! Block. NL Deal !D! damage. NL Permanently increase this card's Block and damage by !M!. NL Exhaust."
+  },
+  "TheTemplar:Arbiter": {
+    "NAME": "Arbiter",
+    "DESCRIPTION": "thetemplar:Inscribe X thetemplar:Justice. NL Deal !D! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "thetemplar:Inscribe X+1 thetemplar:Justice. NL Deal !D! damage to ALL enemies."
   },
   "TheTemplar:Endure": {
     "NAME": "Endure",
@@ -92,6 +147,27 @@
     "DESCRIPTION": "thetemplar:Inscribe 1 thetemplar:Valor and 1 thetemplar:Fortitude. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "thetemplar:Inscribe 1 thetemplar:Valor and 1 thetemplar:Fortitude."
   },
+  "TheTemplar:Hymn": {
+    "NAME": "Hymn",
+    "DESCRIPTION": "If you have a glyph thetemplar:Inscribed, thetemplar:Inscribe an additional glyph of that type.",
+    "EXTENDED_DESCRIPTION": [
+      " NL Otherwise, thetemplar:Inscribe a random glyph.",
+      "I have no glyph to match."
+    ]
+  },
+  "TheTemplar:Fervor": {
+    "NAME": "Fervor",
+    "DESCRIPTION": "Draw !M! card, then Exhaust a card. NL thetemplar:Inscribe 1 thetemplar:Zeal.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards, then Exhaust a card. NL thetemplar:Inscribe 1 thetemplar:Zeal."
+  },
+  "TheTemplar:Rebuke": {
+    "NAME": "Rebuke",
+    "DESCRIPTION": "thetemplar:Inscribe !M! thetemplar:Justice."
+  },
+  "TheTemplar:Rebuff": {
+    "NAME": "Rebuff",
+    "DESCRIPTION": "Gain !B! Block. NL Put the next card you play this turn on top of your draw pile."
+  },
   "TheTemplar:EtchInFaith": {
     "NAME": "Etch in Faith",
     "DESCRIPTION": "Choose a glyph to thetemplar:Inscribe. NL Exhaust.",
@@ -100,6 +176,26 @@
   "TheTemplar:Respite": {
     "NAME": "Respite",
     "DESCRIPTION": "Gain !B! Block. NL Grant !M! Metallicize to ALL enemies. NL Exhaust."
+  },
+  "TheTemplar:Temperance": {
+    "NAME": "Temperance",
+    "DESCRIPTION": "Discard a card. NL If you have no attacks in hand, gain !B! Block."
+  },
+  "TheTemplar:HeroicStand": {
+    "NAME": "Heroic Stand",
+    "DESCRIPTION": "Gain !B! Block. NL If any enemy is thetemplar:Empowered, gain twice as much."
+  },
+  "TheTemplar:ShieldsOfTheFallen": {
+    "NAME": "Shields of the Fallen",
+    "DESCRIPTION": "Ethereal. NL Gain !M! Bulwark. NL Draw a card."
+  },
+  "TheTemplar:Fanaticism": {
+    "NAME": "Fanaticism",
+    "DESCRIPTION": "Whenever you play an Attack this turn, thetemplar:Inscribe 1 thetemplar:Zeal. NL Exhaust."
+  },
+  "TheTemplar:Tithe": {
+    "NAME": "Tithe",
+    "DESCRIPTION": "Lose 10% of your gold. Heal HP equal to 10% of the gold lost and gain !M! Strength."
   },
   "TheTemplar:Unwavering": {
     "NAME": "Unwavering",
@@ -119,8 +215,8 @@
   },
   "TheTemplar:DesperatePrayer": {
     "NAME": "Desperate Prayer",
-    "DESCRIPTION": "Choose a card in your hand and discard the rest. The chosen card triggers thetemplar:Blessing regardless of the number of cards in your hand the next time you play it this turn.",
-    "UPGRADE_DESCRIPTION": "Choose a card in your hand and discard the rest. The chosen card costs 0 and triggers thetemplar:Blessing regardless of the number of cards in your hand the next time you play it this turn.",
+    "DESCRIPTION": "Choose a card in your hand and discard the rest. The chosen card always triggers thetemplar:Blessing this turn.",
+    "UPGRADE_DESCRIPTION": "Choose a card in your hand and discard the rest. The chosen card costs 0 and always triggers thetemplar:Blessing this turn.",
     "EXTENDED_DESCRIPTION": [
       "Choose a card for Desperate Prayer"
     ]
@@ -129,19 +225,58 @@
     "NAME": "Holy Light",
     "DESCRIPTION": "Gain !M! regen. NL thetemplar:Inscribe 1 thetemplar:Charity. NL Exhaust."
   },
-  "TheTemplar:DecreeOfJustice": {
-    "NAME": "Decree of Justice",
-    "DESCRIPTION": "thetemplar:Inscribe X thetemplar:Justice. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "thetemplar:Inscribe X+1 thetemplar:Justice. NL Exhaust."
+  "TheTemplar:Beseech": {
+    "NAME": "Beseech",
+    "DESCRIPTION": "Choose Attack or Skill. Add a random card of that type to your hand. NL Exhaust. NL thetemplar:Blessing: it costs 0 this turn.",
+    "UPGRADE_DESCRIPTION": "Choose Attack or Skill. Add a random Upgraded card of that type to your hand. NL Exhaust. NL thetemplar:Blessing: it costs 0 this turn."
+  },
+  "TheTemplar:Innervate": {
+    "NAME": "Innervate",
+    "DESCRIPTION": "Gain [E]. NL thetemplar:Blessing: gain additional [E].",
+    "UPGRADE_DESCRIPTION": "Gain [E]. NL thetemplar:Blessing: gain additional [E] [E]."
+  },
+  "TheTemplar:Providence": {
+    "NAME": "Providence",
+    "DESCRIPTION": "Draw 2 cards, then put a card from your hand on top of your draw pile. NL Exhaust. NL thetemplar:Blessing: it costs 0 until played.",
+    "UPGRADE_DESCRIPTION": "Draw 2 cards, then put a card from your hand on top of your draw pile. NL thetemplar:Blessing: it costs 0 until played."
+  },
+  "TheTemplar:Awakening": {
+    "NAME": "Awakening",
+    "DESCRIPTION": "Gain !B! Block. NL If you have triggered a thetemplar:Blessing this turn, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL If you have triggered a thetemplar:Blessing this turn, draw !M! cards."
+  },
+  "TheTemplar:ImbuedArmor": {
+    "NAME": "Imbued Armor",
+    "DESCRIPTION": "Gain !M! Vigor and !B! Block X times."
   },
   "TheTemplar:HopeEternal": {
     "NAME": "Hope Eternal",
     "DESCRIPTION": "This turn, your next Attack or Skill is played twice. NL thetemplar:Blessing: draw a card. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "This turn, your next Attack or Skill is played twice. NL thetemplar:Blessing: draw a card."
   },
+  "TheTemplar:StaggeringAwe": {
+    "NAME": "Staggering Awe",
+    "DESCRIPTION": "Stun the enemy. NL Exhaust."
+  },
+  "TheTemplar:Squire": {
+    "NAME": "Squire",
+    "DESCRIPTION": "Choose a card in your draw pile. Add a copy of that card to your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Choose a card in your draw pile. Add a copy of that card to your hand.",
+    "EXTENDED_DESCRIPTION": [
+      "Choose a card to copy to your hand"
+    ]
+  },
+  "TheTemplar:Virtue": {
+    "NAME": "Virtue",
+    "DESCRIPTION": "thetemplar:Inscribe 2 thetemplar:Charity. NL Exhaust. NL thetemplar:Blessing: does not exhaust."
+  },
   "TheTemplar:RingingChallenge": {
     "NAME": "Ringing Challenge",
     "DESCRIPTION": "Innate. NL Ethereal. NL ALL enemies become randomly thetemplar:Empowered and grant thetemplar:Greater_Rewards at the end of combat. NL Exhaust."
+  },
+  "TheTemplar:ResoluteWill": {
+    "NAME": "Resolute Will",
+    "DESCRIPTION": "Increase the effect of thetemplar:Justice and thetemplar:Fortitude by !M!."
   },
   "TheTemplar:BattleTactics": {
     "NAME": "Battle Tactics",
@@ -150,6 +285,27 @@
   "TheTemplar:ProtectiveBlessing": {
     "NAME": "Protective Blessing",
     "DESCRIPTION": "Gain !M! Block whenever you trigger a thetemplar:Blessing."
+  },
+  "TheTemplar:Gallantry": {
+    "NAME": "Gallantry",
+    "DESCRIPTION": "At the start of your turn, if any enemies are thetemplar:Empowered, gain !M! temporary Strength and !M! temporary Dexterity."
+  },
+  "TheTemplar:CleansingRite": {
+    "NAME": "Cleansing Rite",
+    "DESCRIPTION": "Exhaust 1 random card at the end of your turn. If a card is Exhausted that isn't a Status or Curse, thetemplar:Inscribe 1 thetemplar:Charity."
+  },
+  "TheTemplar:DivinePurpose": {
+    "NAME": "Divine Purpose",
+    "DESCRIPTION": "At the start of your turn, thetemplar:Inscribe 1 thetemplar:Zeal if you triggered a thetemplar:Blessing on your previous turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, thetemplar:Inscribe 1 thetemplar:Zeal if you triggered a thetemplar:Blessing on your previous turn."
+  },
+  "TheTemplar:Retribution": {
+    "NAME": "Retribution",
+    "DESCRIPTION": "Whenever you receive unblocked attack damage, gain !M! Thorns and !M! thetemplar:Bulwark."
+  },
+  "TheTemplar:Altar": {
+    "NAME": "Altar",
+    "DESCRIPTION": "If you have a glyph thetemplar:Inscribed at the end of your turn, thetemplar:Inscribe !M! additional glyph of that type."
   },
   "TheTemplar:SacredHammer": {
     "NAME": "Sacred Hammer",
@@ -163,7 +319,7 @@
   },
   "TheTemplar:KingSword": {
     "NAME": "King Sword",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal !M!% more damage. Whenever you play an Attack, deal !thetemplar:SecondMagic! to ALL enemies."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal 25% more damage. Whenever you play an Attack, deal !M! to ALL enemies."
   },
   "TheTemplar:Aegis": {
     "NAME": "Aegis",

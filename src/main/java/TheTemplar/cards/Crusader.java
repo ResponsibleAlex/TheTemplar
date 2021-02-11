@@ -31,7 +31,6 @@ public class Crusader extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
 
     private static final int COST = 2;
-    // private static final int UPGRADED_COST = 0;
 
     private static final int DAMAGE = 18;
     private static final int UPGRADE_PLUS_DMG = 7;

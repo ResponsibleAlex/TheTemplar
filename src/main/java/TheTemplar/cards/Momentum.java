@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import static TheTemplar.TemplarMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class Momentum extends AbstractDynamicCard {
+public class Momentum extends AbstractBaseValuesCard {
 
     // TEXT DECLARATION
 
@@ -34,7 +34,7 @@ public class Momentum extends AbstractDynamicCard {
     private static final int COST = 1;
 
     private static final int DAMAGE = 8;
-    private static final int EXTRA_TIMES = 1;
+    private static final int TIMES = 2;
     private static final int UPGRADE_PLUS_TIMES = 1;
 
     // /STAT DECLARATION/
@@ -43,7 +43,7 @@ public class Momentum extends AbstractDynamicCard {
     public Momentum() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = EXTRA_TIMES;
+        magicNumber = baseMagicNumber = TIMES;
     }
 
 
@@ -53,28 +53,13 @@ public class Momentum extends AbstractDynamicCard {
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
-    @Override
-    public void calculateCardDamage(AbstractMonster m) {
+    protected int increaseBaseDamage() {
         int vigorBonus = 0;
+        int additionalTimes = this.magicNumber - 1;
         if (AbstractDungeon.player.hasPower(VigorPower.POWER_ID)) {
-            vigorBonus = AbstractDungeon.player.getPower(VigorPower.POWER_ID).amount * this.magicNumber;
+            vigorBonus = AbstractDungeon.player.getPower(VigorPower.POWER_ID).amount * additionalTimes;
         }
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += vigorBonus;
-        super.calculateCardDamage(m);
-        this.baseDamage = realBaseDamage;
-    }
-
-    @Override
-    public void applyPowers() {
-        int vigorBonus = 0;
-        if (AbstractDungeon.player.hasPower(VigorPower.POWER_ID)) {
-            vigorBonus = AbstractDungeon.player.getPower(VigorPower.POWER_ID).amount * this.magicNumber;
-        }
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += vigorBonus;
-        super.applyPowers();
-        this.baseDamage = realBaseDamage;
+        return vigorBonus;
     }
 
     // Upgraded stats.

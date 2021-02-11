@@ -30,8 +30,6 @@ public class KingSword extends AbstractDynamicCard {
 
     private static final int COST = 3;
 
-    public static final int DAMAGE_MULTIPLIER = 25;
-    public static final int UPGRADE_PLUS_DAMAGE_MULTIPLIER = 25;
     public static final int DAMAGE_ALL = 2;
     public static final int UPGRADE_PLUS_DAMAGE_ALL = 1;
 
@@ -40,8 +38,7 @@ public class KingSword extends AbstractDynamicCard {
 
     public KingSword() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = DAMAGE_MULTIPLIER;
-        defaultSecondMagicNumber = defaultBaseSecondMagicNumber = DAMAGE_ALL;
+        magicNumber = baseMagicNumber = DAMAGE_ALL;
     }
 
 
@@ -57,8 +54,7 @@ public class KingSword extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_MULTIPLIER);
-            upgradeDefaultSecondMagicNumber(UPGRADE_PLUS_DAMAGE_ALL);
+            upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_ALL);
             initializeDescription();
         }
     }

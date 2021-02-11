@@ -45,9 +45,11 @@ public class BlessedCloak extends AbstractDynamicCard {
     }
 
 
+
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        // TODO - this should be done in applyPowers and ???
         int amt = block;
         if (triggerBlessing()) {
             amt = block + magicNumber;
@@ -62,7 +64,6 @@ public class BlessedCloak extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            //upgradeBaseCost(UPGRADED_COST);
             initializeDescription();
         }
     }

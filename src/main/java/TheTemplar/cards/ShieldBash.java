@@ -60,8 +60,6 @@ public class ShieldBash extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.updateBaseDamage();
-        this.calculateCardDamage(m);
         this.addToBot(new GainBulwarkAction(magicNumber));
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         this.rawDescription = cardStrings.DESCRIPTION;
@@ -81,6 +79,7 @@ public class ShieldBash extends AbstractDynamicCard {
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
+        this.updateBaseDamage();
         super.calculateCardDamage(mo);
         this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         this.initializeDescription();

@@ -2,6 +2,7 @@ package TheTemplar.powers;
 
 import TheTemplar.actions.GlyphInscribeAction;
 import TheTemplar.glyphs.Valor;
+import TheTemplar.util.HolyWeaponPower;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -14,7 +15,7 @@ import TheTemplar.util.TextureLoader;
 
 import static TheTemplar.TemplarMod.makePowerPath;
 
-public class FlameOfHeavenPower extends AbstractPower implements CloneablePowerInterface {
+public class FlameOfHeavenPower extends HolyWeaponPower implements CloneablePowerInterface {
     public static final String POWER_ID = TemplarMod.makeID(FlameOfHeavenPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -23,22 +24,19 @@ public class FlameOfHeavenPower extends AbstractPower implements CloneablePowerI
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("FlameOfHeaven84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("FlameOfHeaven32.png"));
 
-    public final boolean upgraded;
-
     public FlameOfHeavenPower(final boolean upgraded) {
         name = NAME;
         ID = POWER_ID;
 
         this.owner = AbstractDungeon.player;
         this.amount = 0;
-        this.upgraded = upgraded;
 
         type = PowerType.BUFF;
 
         this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
-        updateDescription();
+        refresh(upgraded);
     }
 
     public void stackPower(int unused) { }

@@ -3,12 +3,12 @@
     "NAME": "Code Of Chivalry",
     "FLAVOR": "A list of rules and ideals for a knight of the order to follow.",
     "DESCRIPTIONS": [
-      "At the start of each combat, #yInscribe #b1 #yValor."
+      "At the start of each combat, #ythetemplar:Inscribe #b1 #ythetemplar:Valor."
     ]
   },
   "TheTemplar:DivineChalice": {
     "NAME": "Divine Chalice",
-    "FLAVOR": "A cup said to have been touched by the divine, a goal of many great quests.",
+    "FLAVOR": "A cup said to have been touched by the divine, the goal of many great quests.",
     "DESCRIPTIONS": [
       "Start each combat with #b3 #yRegen and #b1 #yStrength."
     ]
@@ -17,14 +17,14 @@
     "NAME": "Prayer Beads",
     "FLAVOR": "Used in various liturgies and canticles of the order.",
     "DESCRIPTIONS": [
-      "Gain [E] the first time you trigger a #yBlessing each turn."
+      "Gain [E] the first time you trigger a #ythetemplar:Blessing each turn."
     ]
   },
   "TheTemplar:Apocrypha": {
     "NAME": "Apocrypha",
     "FLAVOR": "Ancient texts, once lost, now ignored.",
     "DESCRIPTIONS": [
-      "Replaces #rCode #rof #rChivalry. NL #yInscribe a random Glyph at the start of each turn."
+      "Replaces #rCode #rof #rChivalry. NL #ythetemplar:Inscribe a random Glyph at the start of each turn."
     ]
   },
   "TheTemplar:FightersRing": {
@@ -38,7 +38,7 @@
     "NAME": "Dragon's Scale",
     "FLAVOR": "It glints in the light and feels slightly warm to the touch.",
     "DESCRIPTIONS": [
-      "Gain #b1 #yBulwark at the start of each turn."
+      "Gain #b1 #ythetemplar:Bulwark at the start of each turn."
     ]
   },
   "TheTemplar:GildedEgg": {

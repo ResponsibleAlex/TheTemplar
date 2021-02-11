@@ -30,10 +30,10 @@ public class Unwavering extends AbstractDynamicCard {
 
     private static final int COST = 2;
 
-    private static final int BLOCK = 7;
-    private static final int UPGRADE_PLUS_BLOCK = 3;
+    private static final int BLOCK = 6;
+    private static final int UPGRADE_PLUS_BLOCK = 2;
     private static final int BULWARK = 4;
-    private static final int UPGRADE_PLUS_BULWARK = 1;
+    private static final int UPGRADE_PLUS_BULWARK = 2;
 
     // /STAT DECLARATION/
 
