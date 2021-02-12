@@ -61,6 +61,11 @@ public class WordOfPower extends AbstractDynamicCard {
         this.setDescription(true);
     }
 
+    public void calculateCardDamage(AbstractMonster m) {
+        super.calculateCardDamage(m);
+        this.setDescription(true);
+    }
+
     public void onMoveToDiscard() {
         this.setDescription(false);
     }
@@ -74,10 +79,11 @@ public class WordOfPower extends AbstractDynamicCard {
         }
         return typesInscribedThisCombat;
     }
-// TODO - display not working correctly
+
     private void setDescription(boolean includeTimes) {
         if (includeTimes) {
             this.magicNumber = this.countTypesInscribedThisCombat();
+            this.isMagicNumberModified = true;
             this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         } else {
             this.rawDescription = cardStrings.DESCRIPTION;

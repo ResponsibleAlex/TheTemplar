@@ -27,6 +27,7 @@ public class DamageActionPatch {
         public static void Postfix(DamageAction __instance, AbstractCreature target, DamageInfo info, AbstractGameAction.AttackEffect effect) {
             if (info.owner.isPlayer) {
                 if (effect != AbstractGameAction.AttackEffect.NONE
+                        && info.type == DamageInfo.DamageType.NORMAL
                         && TemplarMod.shouldUseCustomAttackEffect()) {
 
                     __instance.attackEffect = AbstractGameAction.AttackEffect.NONE;

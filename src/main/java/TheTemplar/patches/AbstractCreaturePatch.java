@@ -19,11 +19,11 @@ public class AbstractCreaturePatch {
     )
     public static class DecrementBlock {
         public static SpireReturn<Integer> Prefix(AbstractCreature __instance, DamageInfo info, int damageAmount) {
-            if ((AbstractDungeon.getCurrMapNode() != null
-                    && (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
+            if (AbstractDungeon.getCurrMapNode() != null
+                && (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
                     || AbstractDungeon.getCurrRoom() instanceof MonsterRoom)
-            )
-                    && info.type == DamageInfo.DamageType.NORMAL && info.owner.isPlayer) {
+                && info.owner != null
+                && info.type == DamageInfo.DamageType.NORMAL && info.owner.isPlayer) {
 
                 if (AbstractDungeon.player.hasPower(SacredHammerPower.POWER_ID)) {
                     return SpireReturn.Return(damageAmount);
@@ -34,6 +34,7 @@ public class AbstractCreaturePatch {
                         return SpireReturn.Return(damageAmount);
                     }
                 }
+
             }
 
             return SpireReturn.Continue();

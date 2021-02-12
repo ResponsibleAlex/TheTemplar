@@ -33,7 +33,6 @@ public class Lionheart extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
 
     private static final int COST = 3;
-    // private static final int UPGRADED_COST = 0;
 
     private static final int DAMAGE = 9;
 
@@ -46,20 +45,6 @@ public class Lionheart extends AbstractDynamicCard {
         isMultiDamage = false;
     }
 
-    public void applyPowers() {
-        super.applyPowers();
-        this.setDescription(true);
-    }
-
-    public void onMoveToDiscard() {
-        this.setDescription(false);
-    }
-
-    public void calculateCardDamage(AbstractMonster m) {
-        super.calculateCardDamage(m);
-        this.setDescription(true);
-    }
-
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -70,10 +55,24 @@ public class Lionheart extends AbstractDynamicCard {
         this.addToBot(new LionheartAction(this));
     }
 
-    private void setDescription(boolean includeTimes) {
+    public void applyPowers() {
+        super.applyPowers();
+        this.setDescription(true);
+    }
 
+    public void calculateCardDamage(AbstractMonster m) {
+        super.calculateCardDamage(m);
+        this.setDescription(true);
+    }
+
+    public void onMoveToDiscard() {
+        this.setDescription(false);
+    }
+
+    private void setDescription(boolean includeTimes) {
         if (includeTimes) {
             this.magicNumber = TemplarMod.valorInscribedThisCombat;
+            this.isMagicNumberModified = true;
             if (this.upgraded) {
                 // display an incremented amount to account for the Valor this card will Inscribe
                 this.magicNumber++;

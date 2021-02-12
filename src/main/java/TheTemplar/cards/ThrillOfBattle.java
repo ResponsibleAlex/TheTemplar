@@ -45,7 +45,7 @@ public class ThrillOfBattle extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ThrillOfBattleAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
+        this.addToBot(new ThrillOfBattleAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)));
     }
 
 

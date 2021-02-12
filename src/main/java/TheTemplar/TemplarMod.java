@@ -619,8 +619,10 @@ public class TemplarMod implements
         } else {
             boolean playSound = true;
             for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-                flashCustomAttackEffect(m, playSound);
-                if (playSound) playSound = false;
+                if (!m.isDeadOrEscaped()) {
+                    flashCustomAttackEffect(m, playSound);
+                    if (playSound) playSound = false;
+                }
             }
         }
     }
@@ -634,8 +636,10 @@ public class TemplarMod implements
 
     public static boolean areAnyEmpowered() {
         for (AbstractMonster m: AbstractDungeon.getMonsters().monsters) {
-            if (isEmpowered(m)) {
-                return true;
+            if (!m.isDeadOrEscaped()) {
+                if (isEmpowered(m)) {
+                    return true;
+                }
             }
         }
         return false;

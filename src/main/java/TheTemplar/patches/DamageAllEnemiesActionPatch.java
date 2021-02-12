@@ -27,7 +27,7 @@ public class DamageAllEnemiesActionPatch {
     public static class DamageAllEnemiesActionConstructor {
         public static void Postfix(DamageAllEnemiesAction __instance, AbstractCreature source, int[] amount, DamageInfo.DamageType type, AbstractGameAction.AttackEffect effect, boolean isFast) {
             if (TemplarMod.shouldUseCustomAttackEffect()
-                    && type != DamageInfo.DamageType.THORNS
+                    && type == DamageInfo.DamageType.NORMAL
                     && effect != AbstractGameAction.AttackEffect.NONE) {
 
                 __instance.attackEffect = AbstractGameAction.AttackEffect.NONE;
