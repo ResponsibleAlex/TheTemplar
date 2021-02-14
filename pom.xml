@@ -12,8 +12,6 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <SlayTheSpire.version>12-22-2020</SlayTheSpire.version>
-        <ModTheSpire.version>3.8.0</ModTheSpire.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>C:\Program Files (x86)\Steam\steamapps</Steam.path>
@@ -23,7 +21,7 @@
         <dependency>
             <groupId>com.megacrit.cardcrawl</groupId>
             <artifactId>slaythespire</artifactId>
-            <version>${SlayTheSpire.version}</version>
+            <version>12-22-2020</version>
             <scope>system</scope>
             <systemPath>${Steam.path}/common/SlayTheSpire/desktop-1.0.jar</systemPath>
             <!--<systemPath>${basedir}/../lib/desktop-1.0.jar</systemPath>-->
@@ -31,7 +29,7 @@
         <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
             <artifactId>modthespire</artifactId>
-            <version>${ModTheSpire.version}</version>
+            <version>3.8.0</version>
             <scope>system</scope>
             <systemPath>${Steam.path}/workshop/content/646570/1605060445/ModTheSpire.jar</systemPath>
             <!--<systemPath>${basedir}/../lib/ModTheSpire.jar</systemPath>-->
@@ -51,6 +49,27 @@
             <scope>system</scope>
             <systemPath>${Steam.path}/workshop/content/646570/1609158507/StSLib.jar</systemPath>
             <!--<systemPath>${basedir}/../lib/StSLib.jar</systemPath>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.7.7</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>3.7.7</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -87,6 +106,11 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
             </plugin>
         </plugins>
 
