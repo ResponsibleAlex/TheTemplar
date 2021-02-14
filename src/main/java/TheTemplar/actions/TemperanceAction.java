@@ -6,29 +6,23 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 
 public class TemperanceAction extends AbstractGameAction {
-    private final AbstractPlayer p;
+    private final AbstractPlayer player;
     private final int amt;
 
     public TemperanceAction(AbstractPlayer player, int block) {
-        p = player;
+        this.player = player;
         amt = block;
     }
 
     @Override
     public void update() {
-        boolean hasAttacks = false;
-
-        for (AbstractCard c : p.hand.group) {
-            if (c.type == AbstractCard.CardType.ATTACK) {
-                hasAttacks = true;
-                break;
-            }
-        }
+        boolean hasAttacks = player.hand.group.stream()
+                                              .anyMatch(c -> c.type == AbstractCard.CardType.ATTACK);
 
         if (!hasAttacks) {
-            this.addToBot(new GainBlockAction(p, p, amt));
+            addToBot(new GainBlockAction(player, player, amt));
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

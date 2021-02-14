@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class GlyphInscribeAction extends AbstractGameAction {
     private final AbstractGlyph glyphToInscribe;
@@ -25,13 +26,13 @@ public class GlyphInscribeAction extends AbstractGameAction {
         duration = startDuration = AbstractGlyph.INSCRIBE_TIME;
 
         if (canDupWithBook && AbstractDungeon.player.hasPower(BookOfTheFivePower.POWER_ID)) {
-            this.addToBot(new GlyphInscribeAction(glyph.makeCopy(), false));
+            addToBot(new GlyphInscribeAction(glyph.makeCopy(), false));
         }
     }
 
     @Override
     public void update() {
-        if (this.duration == this.startDuration) {
+        if (duration == startDuration) {
             TemplarMod.glyphsInscribedThisCombat++;
             updateLightOfGlory();
 
@@ -52,11 +53,11 @@ public class GlyphInscribeAction extends AbstractGameAction {
                 AbstractGlyph.inscribeLeft(glyphToInscribe);
             } else {
                 AbstractGlyph.inscribeRight(glyphToInscribe);
-                this.addToTop(new GlyphTriggerAction());
+                addToTop(new GlyphTriggerAction());
             }
         }
 
-        this.tickDuration();
+        tickDuration();
     }
 
     private void updateLightOfGlory() {
@@ -66,11 +67,9 @@ public class GlyphInscribeAction extends AbstractGameAction {
         updateLightOfGloryPile(AbstractDungeon.player.discardPile.group);
     }
 
-    private void updateLightOfGloryPile(ArrayList<AbstractCard> pile) {
-        for (AbstractCard c: pile) {
-            if (c.cardID.equals(LightOfGlory.ID)) {
-                c.updateCost(-1);
-            }
-        }
+    private void updateLightOfGloryPile(Collection<AbstractCard> pile) {
+        pile.stream()
+            .filter(c -> c.cardID.equals(LightOfGlory.ID))
+            .forEach(c -> c.updateCost(-1));
     }
 }

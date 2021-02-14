@@ -9,55 +9,51 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 public class JusticeAction extends AbstractGameAction {
 
-    private int amt;
     private final boolean isMatchBonus;
-    private final AbstractPlayer p;
-    private final AbstractGlyph g;
+    private final AbstractPlayer player;
+    private final AbstractGlyph glyph;
+    private int amount;
 
     public JusticeAction(int amount, boolean isMatchBonus, AbstractGlyph glyph) {
-        this.actionType = ActionType.DAMAGE;
-        this.duration = this.startDuration = Settings.ACTION_DUR_XFAST;
+        actionType = ActionType.DAMAGE;
+        duration = startDuration = Settings.ACTION_DUR_XFAST;
 
-        this.amt = amount;
+        this.amount = amount;
         this.isMatchBonus = isMatchBonus;
-        this.p = AbstractDungeon.player;
-        this.g = glyph;
+        player = AbstractDungeon.player;
+        this.glyph = glyph;
     }
 
     public void update() {
-        if (this.duration == this.startDuration) {
-            if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+        if (duration == startDuration && !AbstractDungeon.getMonsters()
+                                                         .areMonstersBasicallyDead()) {
+            if (!isMatchBonus) {
+                AbstractDungeon.getMonsters().monsters.stream()
+                                                      .filter(m -> !m.isDeadOrEscaped())
+                                                      .map(m -> new GlyphAboveCreatureAction(m, glyph))
+                                                      .forEach(this::addToTop);
 
-                if (!isMatchBonus) {
-                    for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-                        if (!m.isDeadOrEscaped()) {
-                            this.addToTop(new GlyphAboveCreatureAction(m, g));
-                        }
-                    }
-
-                    // increase damage by Vigor if you have Flame of Heaven and Vigor
-                    if (this.p.hasPower(FlameOfHeavenPower.POWER_ID) && this.p.hasPower(VigorPower.POWER_ID)) {
-                        amt += this.p.getPower(VigorPower.POWER_ID).amount;
-                        // if Flame of Heaven is upgraded, do not remove the Vigor
-                        if (!((FlameOfHeavenPower) this.p.getPower(FlameOfHeavenPower.POWER_ID)).upgraded) {
-                            this.addToTop(new RemoveSpecificPowerAction(this.p, this.p, VigorPower.POWER_ID));
-                        }
+                // increase damage by Vigor if you have Flame of Heaven and Vigor
+                if (player.hasPower(FlameOfHeavenPower.POWER_ID) && player.hasPower(VigorPower.POWER_ID)) {
+                    amount += player.getPower(VigorPower.POWER_ID).amount;
+                    // if Flame of Heaven is upgraded, do not remove the Vigor
+                    if (!((FlameOfHeavenPower) player.getPower(FlameOfHeavenPower.POWER_ID)).upgraded) {
+                        addToTop(new RemoveSpecificPowerAction(player, player, VigorPower.POWER_ID));
                     }
                 }
-
-                this.addToTop(
-                        new DamageAllEnemiesAction(this.p,
-                                DamageInfo.createDamageMatrix(amt, true),
-                                DamageInfo.DamageType.THORNS,
-                                AbstractGameAction.AttackEffect.FIRE));
             }
+
+            addToTop(
+                    new DamageAllEnemiesAction(player,
+                            DamageInfo.createDamageMatrix(amount, true),
+                            DamageInfo.DamageType.THORNS,
+                            AbstractGameAction.AttackEffect.FIRE));
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

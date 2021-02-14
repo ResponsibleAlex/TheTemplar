@@ -19,48 +19,49 @@ import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
 
 public class RingingChallengeAction extends AbstractGameAction {
 
-    private final AbstractPlayer p;
-    private final AbstractRoom r;
+    private final AbstractPlayer player;
+    private final AbstractRoom room;
 
     private boolean isNormal = false;
     private boolean isElite = false;
     private boolean isBoss = false;
 
-    private boolean randomUpgrade = false;
+    private boolean isRandomUpgrade = false;
     private int maxHp = 0;
 
     public RingingChallengeAction() {
-        this.p = AbstractDungeon.player;
-        this.r = AbstractDungeon.getCurrRoom();
+        player = AbstractDungeon.player;
+        room = AbstractDungeon.getCurrRoom();
 
-        if (this.r instanceof MonsterRoomBoss) {
-            this.isBoss = true;
-        } else if (this.r instanceof MonsterRoomElite) {
-            this.isElite = true;
-        } else if (this.r instanceof MonsterRoom) {
-            this.isNormal = true;
+        if (room instanceof MonsterRoomBoss) {
+            isBoss = true;
+        } else if (room instanceof MonsterRoomElite) {
+            isElite = true;
+        } else if (room instanceof MonsterRoom) {
+            isNormal = true;
         }
 
-        this.actionType = ActionType.SPECIAL;
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
+        actionType = ActionType.SPECIAL;
+        duration = startDuration = Settings.ACTION_DUR_FAST;
 
-        if (this.p.hasPower(RingingChallengePower.POWER_ID)) {
-            this.isDone = true;
+        if (player.hasPower(RingingChallengePower.POWER_ID)) {
+            isDone = true;
         }
     }
 
     public void update() {
-        if (AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            this.isDone = true;
+        if (AbstractDungeon.getMonsters()
+                           .areMonstersBasicallyDead()) {
+            isDone = true;
         } else {
-            if (this.duration == this.startDuration) {
-                this.setEnemyBuffs();
-                this.setRewards();
+            if (duration == startDuration) {
+                setEnemyBuffs();
+                setRewards();
 
-                this.addToBot(new ApplyPowerAction(p, p, new RingingChallengePower(this.maxHp, this.randomUpgrade)));
+                addToBot(new ApplyPowerAction(player, player, new RingingChallengePower(maxHp, isRandomUpgrade)));
             }
 
-            this.tickDuration();
+            tickDuration();
         }
     }
 
@@ -68,29 +69,29 @@ public class RingingChallengeAction extends AbstractGameAction {
         MonsterGroup mg = AbstractDungeon.getMonsters();
         int amt;
 
-        switch(AbstractDungeon.miscRng.random(0, 3)) {
+        switch (AbstractDungeon.miscRng.random(0, 3)) {
             case 0:
                 amt = AbstractDungeon.actNum + 1;
-                for (AbstractMonster m : mg.monsters) {
-                    this.addToBot(new ApplyPowerAction(m, m, new StrengthPower(m, amt), amt));
-                }
+                mg.monsters.stream()
+                           .map(m -> new ApplyPowerAction(m, m, new StrengthPower(m, amt), amt))
+                           .forEach(this::addToBot);
                 break;
             case 1:
-                for (AbstractMonster m : mg.monsters) {
-                    this.addToBot(new IncreaseMaxHpAction(m, 0.25F, true));
-                }
+                mg.monsters.stream()
+                           .map(m -> new IncreaseMaxHpAction(m, 0.25F, true))
+                           .forEach(this::addToBot);
                 break;
             case 2:
                 amt = AbstractDungeon.actNum * 2 + 2;
-                for (AbstractMonster m : mg.monsters) {
-                    this.addToBot(new ApplyPowerAction(m, m, new MetallicizePower(m, amt), amt));
-                }
+                mg.monsters.stream()
+                           .map(m -> new ApplyPowerAction(m, m, new MetallicizePower(m, amt), amt))
+                           .forEach(this::addToBot);
                 break;
             case 3:
                 amt = 1 + AbstractDungeon.actNum * 2;
-                for (AbstractMonster m : mg.monsters) {
-                    this.addToBot(new ApplyPowerAction(m, m, new RegenerateMonsterPower(m, amt), amt));
-                }
+                mg.monsters.stream()
+                           .map(m -> new ApplyPowerAction(m, m, new RegenerateMonsterPower(m, amt), amt))
+                           .forEach(this::addToBot);
                 break;
         }
     }
@@ -98,33 +99,33 @@ public class RingingChallengeAction extends AbstractGameAction {
     private void setRewards() {
         int roll = AbstractDungeon.miscRng.random(0, 100);
 
-        if (this.isNormal) {
+        if (isNormal) {
             // 15 more gold +6% rare chance  OR  10 more gold +12% rare chance
             if (roll > 33) {
-                this.r.addGoldToRewards(15);
-                this.r.baseRareCardChance += 6;
-                this.r.baseUncommonCardChance += 6;
+                room.addGoldToRewards(15);
+                room.baseRareCardChance += 6;
+                room.baseUncommonCardChance += 6;
             } else {
-                this.r.addGoldToRewards(10);
-                this.r.baseRareCardChance += 12;
-                this.r.baseUncommonCardChance += 12;
+                room.addGoldToRewards(10);
+                room.baseRareCardChance += 12;
+                room.baseUncommonCardChance += 12;
             }
-        } else if (this.isElite) {
+        } else if (isElite) {
             // 20 more gold   AND
             // random upgrade  AND/OR  Max HP
-            this.r.addGoldToRewards(20);
+            room.addGoldToRewards(20);
             if (roll > 80) {
-                this.randomUpgrade = true;
-                this.maxHp = 2;
+                isRandomUpgrade = true;
+                maxHp = 2;
             } else if (roll > 33) {
-                this.maxHp = 3;
+                maxHp = 3;
             } else {
-                this.randomUpgrade = true;
+                isRandomUpgrade = true;
             }
-        } else if (this.isBoss) {
+        } else if (isBoss) {
             // +4 Max HP  AND  random upgrade
-            this.randomUpgrade = true;
-            this.maxHp = 4;
+            isRandomUpgrade = true;
+            maxHp = 4;
         }
     }
 }

@@ -12,14 +12,14 @@ public class GlyphRemoveAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        if (this.duration == AbstractGlyph.FADE_TIME) {
+        if (duration == AbstractGlyph.FADE_TIME) {
             AbstractGlyph.fadeGlyphsAnimation();
         }
 
-        this.duration -= Gdx.graphics.getDeltaTime();
+        duration -= Gdx.graphics.getDeltaTime();
         if (duration <= 0.0F) {
             AbstractGlyph.removeGlyphs();
-            this.isDone = true;
+            isDone = true;
         }
     }
 }

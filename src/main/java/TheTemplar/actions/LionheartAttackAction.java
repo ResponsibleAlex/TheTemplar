@@ -11,17 +11,17 @@ public class LionheartAttackAction extends AttackDamageRandomEnemyAction {
 
     public LionheartAttackAction(AbstractCard card) {
         super(card);
-        this.attackEffect = AttackEffect.FIRE;
+        attackEffect = AttackEffect.FIRE;
     }
 
     public void update() {
         if (!Settings.FAST_MODE) {
-            this.addToTop(new WaitAction(0.1F));
+            addToTop(new WaitAction(0.1F));
         }
 
         super.update();
-        if (this.target != null) {
-            this.addToTop(new VFXAction(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect)));
+        if (target != null) {
+            addToTop(new VFXAction(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, attackEffect)));
         }
     }
 }
