@@ -251,7 +251,7 @@
   },
   "TheTemplar:HopeEternal": {
     "NAME": "Hope Eternal",
-    "DESCRIPTION": "This turn, your next Attack or Skill is played twice. NL thetemplar:Blessing: draw a card. NL Exhaust.",
+    "DESCRIPTION": "This turn, your next Attack or Skill is played twice. NL Exhaust. NL thetemplar:Blessing: draw a card.",
     "UPGRADE_DESCRIPTION": "This turn, your next Attack or Skill is played twice. NL thetemplar:Blessing: draw a card."
   },
   "TheTemplar:StaggeringAwe": {
@@ -336,7 +336,6 @@
     "UPGRADE_DESCRIPTION": "thetemplar:Blessing effects always trigger. NL Whenever you trigger a thetemplar:Blessing, draw a card."
   },
 
-
   "TheTemplar:InscribeJustice": {
     "NAME": "Justice",
     "DESCRIPTION": "thetemplar:Inscribe 1 thetemplar:Justice."
@@ -357,14 +356,14 @@
     "NAME": "Charity",
     "DESCRIPTION": "thetemplar:Inscribe 1 thetemplar:Charity."
   },
-
-
-  "TheTemplar:TestAnimations": {
-    "NAME": "Test Animations",
-    "DESCRIPTION": "Cycles through animations. NL Returns to your hand."
+  "TheTemplar:BeseechChooseAttack": {
+    "NAME": "Attack",
+    "DESCRIPTION": "Add a random Attack to your hand.",
+    "UPGRADE_DESCRIPTION": " NL It costs 0 this turn."
   },
-  "TheTemplar:TestGlyphs": {
-    "NAME": "Test Glyphs",
-    "DESCRIPTION": "Choose 1 Glyph to Inscribe. NL Returns to your hand."
+  "TheTemplar:BeseechChooseSkill": {
+    "NAME": "Skill",
+    "DESCRIPTION": "Add a random Skill to your hand.",
+    "UPGRADE_DESCRIPTION": " NL It costs 0 this turn."
   }
 }

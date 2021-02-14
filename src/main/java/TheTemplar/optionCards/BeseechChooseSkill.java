@@ -10,6 +10,7 @@ import TheTemplar.TemplarMod;
 import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 @SuppressWarnings("unused")
 public class BeseechChooseSkill extends AbstractDynamicCard {
@@ -33,13 +34,16 @@ public class BeseechChooseSkill extends AbstractDynamicCard {
 
     // /STAT DECLARATION/
 
-    private final boolean upgrade;
+    private final boolean upgradeCard;
     private final boolean setCost;
 
-    public BeseechChooseSkill(boolean upgrade, boolean setCost) {
+    public BeseechChooseSkill(boolean upgradeCard, boolean setCost) {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.upgrade = upgrade;
+        this.upgradeCard = upgradeCard;
         this.setCost = setCost;
+        if (setCost) {
+            this.upgrade();
+        }
     }
 
 
@@ -52,7 +56,7 @@ public class BeseechChooseSkill extends AbstractDynamicCard {
     public void onChoseThisOption() {
         AbstractCard c = AbstractDungeon.returnTrulyRandomCardInCombat(CardType.SKILL).makeCopy();
 
-        if (this.upgrade) {
+        if (this.upgradeCard) {
             c.upgrade();
         }
         if (this.setCost) {
@@ -67,12 +71,13 @@ public class BeseechChooseSkill extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
 
     @Override
     public AbstractCard makeCopy() {
-        return new BeseechChooseSkill(this.upgrade, this.setCost);
+        return new BeseechChooseSkill(this.upgradeCard, this.setCost);
     }
 }

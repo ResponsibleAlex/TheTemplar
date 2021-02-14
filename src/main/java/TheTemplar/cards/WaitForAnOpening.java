@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import TheTemplar.TemplarMod;
 import TheTemplar.characters.TheTemplar;
@@ -42,17 +43,34 @@ public class WaitForAnOpening extends AbstractDynamicCard {
         baseDamage = DAMAGE;
     }
 
+    @Override
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!m.isDeadOrEscaped() && this.isMonsterNotAttacking(m)) {
+                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+                break;
+            }
+        }
+    }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
-        if (m != null && m.getIntentBaseDmg() == 0) {
-            this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        if (m != null && this.isMonsterNotAttacking(m)) {
+            this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         }
     }
 
+    private boolean isMonsterNotAttacking(AbstractMonster m) {
+        return (m.intent != AbstractMonster.Intent.ATTACK &&
+                m.intent != AbstractMonster.Intent.ATTACK_BUFF &&
+                m.intent != AbstractMonster.Intent.ATTACK_DEBUFF &&
+                m.intent != AbstractMonster.Intent.ATTACK_DEFEND);
+    }
 
     // Upgraded stats.
     @Override

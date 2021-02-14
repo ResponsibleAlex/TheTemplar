@@ -45,7 +45,8 @@
     "NAME": "Gilded Egg",
     "FLAVOR": "The gold shell appears priceless. What riches could be inside?",
     "DESCRIPTIONS": [
-      "The next #b2 times you add a #yRare card to your deck, it is #yUpgraded."
+      "The next #b2 times you add a #yRare card to your deck, it is #yUpgraded.",
+      "The next time you add a #yRare card to your deck, it is #yUpgraded."
     ]
   },
   "TheTemplar:BottledQuicksilver": {

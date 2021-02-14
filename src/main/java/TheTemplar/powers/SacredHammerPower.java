@@ -46,7 +46,7 @@ public class SacredHammerPower extends HolyWeaponPower implements CloneablePower
 
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
-        if (target.currentBlock == 0) {
+        if (target.currentBlock == 0 && info.type == DamageInfo.DamageType.NORMAL) {
             this.flash();
             this.addToBot(new ApplyPowerAction(target, this.owner, new VulnerablePower(target, 1, false), 1));
             if (this.upgraded) {

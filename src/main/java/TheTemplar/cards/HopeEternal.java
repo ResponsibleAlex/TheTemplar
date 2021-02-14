@@ -2,6 +2,7 @@ package TheTemplar.cards;
 
 import TheTemplar.powers.HopeEternalPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -38,12 +39,16 @@ public class HopeEternal extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
         this.exhaust = true;
+        this.blessing = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (this.triggerBlessing()) {
+            this.addToBot(new DrawCardAction(1));
+        }
         this.addToBot(new ApplyPowerAction(p, p, new HopeEternalPower(), 0));
     }
 
