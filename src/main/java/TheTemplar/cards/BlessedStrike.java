@@ -44,7 +44,7 @@ public class BlessedStrike extends AbstractBaseValuesCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BONUS;
 
-        blessing = true;
+        isBlessing = true;
         tags.add(CardTags.STRIKE);
     }
 

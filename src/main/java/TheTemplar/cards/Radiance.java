@@ -56,7 +56,7 @@ public class Radiance extends AbstractBaseValuesCard {
         int x = 0;
         for (AbstractCard c : group.group) {
             if (c instanceof AbstractDynamicCard) {
-                if (((AbstractDynamicCard) c).blessing) {
+                if (((AbstractDynamicCard) c).isBlessing) {
                     x++;
                 }
             }

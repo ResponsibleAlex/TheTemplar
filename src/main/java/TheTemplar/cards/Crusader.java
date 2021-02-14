@@ -42,7 +42,7 @@ public class Crusader extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        blessing = true;
+        isBlessing = true;
     }
 
 

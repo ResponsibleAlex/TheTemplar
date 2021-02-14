@@ -41,7 +41,7 @@ public class BlessedCloak extends AbstractDynamicCard {
         baseBlock = BLOCK;
         baseMagicNumber = magicNumber = BLESSING_BLOCK;
 
-        blessing = true;
+        isBlessing = true;
     }
 
 

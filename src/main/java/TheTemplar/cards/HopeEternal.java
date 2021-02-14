@@ -39,7 +39,7 @@ public class HopeEternal extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
         exhaust = true;
-        blessing = true;
+        isBlessing = true;
     }
 
 

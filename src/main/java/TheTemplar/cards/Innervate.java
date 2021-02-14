@@ -35,7 +35,7 @@ public class Innervate extends AbstractDynamicCard {
 
     public Innervate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        blessing = true;
+        isBlessing = true;
     }
 
 

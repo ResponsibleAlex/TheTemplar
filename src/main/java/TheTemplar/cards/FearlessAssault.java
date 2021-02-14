@@ -44,7 +44,7 @@ public class FearlessAssault extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BONUS;
 
-        glowEmpowered = true;
+        isGlowEmpowered = true;
     }
 
     public void calculateCardDamage(AbstractMonster m) {

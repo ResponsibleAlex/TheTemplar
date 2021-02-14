@@ -45,7 +45,7 @@ public class CelestialBurst extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = CARDS;
 
-        blessing = true;
+        isBlessing = true;
     }
 
 

@@ -42,7 +42,7 @@ public class DevotedStrike extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        blessing = true;
+        isBlessing = true;
         tags.add(CardTags.STRIKE);
     }
 

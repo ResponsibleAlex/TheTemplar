@@ -38,7 +38,7 @@ public class HeroicStand extends AbstractDynamicCard {
     public HeroicStand() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
-        glowEmpowered = true;
+        isGlowEmpowered = true;
     }
 
 

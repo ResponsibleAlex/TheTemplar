@@ -42,7 +42,7 @@ public class Avenger extends AbstractBaseValuesCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BONUS;
 
-        blessing = true;
+        isBlessing = true;
     }
 
     @Override

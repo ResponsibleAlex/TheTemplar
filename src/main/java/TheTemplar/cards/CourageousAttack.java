@@ -43,7 +43,7 @@ public class CourageousAttack extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        glowEmpowered = true;
+        isGlowEmpowered = true;
     }
 
 

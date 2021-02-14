@@ -36,7 +36,7 @@ public class Virtue extends AbstractDynamicCard {
 
     public Virtue() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        blessing = true;
+        isBlessing = true;
         exhaust = true;
     }
 

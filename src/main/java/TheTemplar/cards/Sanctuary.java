@@ -41,7 +41,7 @@ public class Sanctuary extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
 
-        blessing = true;
+        isBlessing = true;
     }
 
 
