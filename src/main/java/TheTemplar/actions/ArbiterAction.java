@@ -8,49 +8,60 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
+import java.util.stream.IntStream;
+
 public class ArbiterAction extends AbstractGameAction {
-    private final boolean freeToPlayOnce;
-    private final AbstractPlayer p;
+    private final boolean isFreePlayOnce;
+    private final AbstractPlayer player;
     private final int energyOnUse;
-    private final boolean upgraded;
+    private final boolean isUpgraded;
     private final DamageAllEnemiesAction dmgAction;
 
-    public ArbiterAction(AbstractPlayer p, boolean upgraded, boolean freeToPlayOnce, int energyOnUse, DamageAllEnemiesAction damageAllEnemiesAction) {
-        this.p = p;
-        this.freeToPlayOnce = freeToPlayOnce;
+    public ArbiterAction(AbstractPlayer player, boolean isUpgraded, boolean isFreePlayOnce, int energyOnUse, DamageAllEnemiesAction damageAllEnemiesAction) {
         duration = Settings.ACTION_DUR_XFAST;
         actionType = ActionType.SPECIAL;
+        this.player = player;
+        this.isFreePlayOnce = isFreePlayOnce;
         this.energyOnUse = energyOnUse;
-        this.upgraded = upgraded;
+        this.isUpgraded = isUpgraded;
         this.dmgAction = damageAllEnemiesAction;
     }
 
     public void update() {
-        int effect = EnergyPanel.totalCount;
-        if (-1 != energyOnUse) {
-            effect = energyOnUse;
-        }
+        int effect = getInitialEffect();
 
-        if (p.hasRelic(ChemicalX.ID)) {
+        if (player.hasRelic(ChemicalX.ID)) {
             effect += 2;
-            p.getRelic(ChemicalX.ID).flash();
+            player.getRelic(ChemicalX.ID)
+                  .flash();
         }
 
-        if (upgraded) {
+        if (isUpgraded) {
             ++effect;
         }
 
-        // inscribe a Justice effect# times
-        for (int i = 0; i < effect; i++) {
-            this.addToTop(new GlyphInscribeAction(new Justice()));
-        }
-        // add the multi damage action to the bottom
-        this.addToBot(dmgAction);
+        inscribeJusticeEffect(effect);
 
-        if (!freeToPlayOnce) {
-            p.energy.use(EnergyPanel.totalCount);
+        // add the multi damage action to the bottom
+        addToBot(dmgAction);
+
+        if (!isFreePlayOnce) {
+            player.energy.use(EnergyPanel.totalCount);
         }
 
         isDone = true;
+    }
+
+    private void inscribeJusticeEffect(int effect) {
+        IntStream.range(0, effect)
+                 .mapToObj(i -> new GlyphInscribeAction(new Justice()))
+                 .forEach(this::addToTop);
+    }
+
+    private int getInitialEffect() {
+        if (energyOnUse == -1) {
+            return EnergyPanel.totalCount;
+        }
+        return energyOnUse;
     }
 }
