@@ -29,52 +29,52 @@ public class HolyWeaponEquipEffect extends AbstractGameEffect {
     private static final float fadeDurationMax = 0.4f;
 
     public HolyWeaponEquipEffect() {
-        this.img = ImageMaster.loadImage(IMG + ".png");
+        img = ImageMaster.loadImage(IMG + ".png");
 
         startX = x = AbstractDungeon.player.drawX - 90.f * Settings.scale;
         y = AbstractDungeon.player.drawY - 20.0f * Settings.scale;
         height = Settings.HEIGHT + 15.0f * Settings.scale;
 
-        this.color = Color.WHITE.cpy();
-        this.duration = this.startingDuration = 0.5F;
+        color = Color.WHITE.cpy();
+        duration = startingDuration = 0.5F;
     }
 
     public void update() {
-        if (this.duration == this.startingDuration) {
+        if (duration == startingDuration) {
             CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.LOW, ScreenShake.ShakeDur.MED, false);
 
             for(int i = 0; i < 15; ++i) {
-                AbstractDungeon.topLevelEffectsQueue.add(new ImpactSparkEffect(this.x + MathUtils.random(-20.0F, 20.0F) * Settings.scale + 125.0F * Settings.scale, this.y + MathUtils.random(-20.0F, 20.0F) * Settings.scale));
+                AbstractDungeon.topLevelEffectsQueue.add(new ImpactSparkEffect(x + MathUtils.random(-20.0F, 20.0F) * Settings.scale + 125.0F * Settings.scale, y + MathUtils.random(-20.0F, 20.0F) * Settings.scale));
             }
         }
 
-        if (this.duration > 0f) {
-            this.duration -= Gdx.graphics.getDeltaTime();
-            if (this.duration <= 0.0F) {
-                this.duration = 0f;
-                this.fadeDuration = fadeDurationMax;
+        if (duration > 0f) {
+            duration -= Gdx.graphics.getDeltaTime();
+            if (duration <= 0.0F) {
+                duration = 0f;
+                fadeDuration = fadeDurationMax;
 
                 //TODO floaty particles
             }
 
-            this.width = 750f * Settings.scale * (0.5f - this.duration);
-            this.x = this.startX - this.width / 4.0f;
-        } else if (this.fadeDuration > 0f) {
-            this.fadeDuration -= Gdx.graphics.getDeltaTime();
-            if (this.fadeDuration <= 0f) {
-                this.isDone = true;
+            width = 750f * Settings.scale * (0.5f - duration);
+            x = startX - width / 4.0f;
+        } else if (fadeDuration > 0f) {
+            fadeDuration -= Gdx.graphics.getDeltaTime();
+            if (fadeDuration <= 0f) {
+                isDone = true;
             }
 
-            this.color.a = Interpolation.pow2Out.apply(0.0F, fadeDurationMax, this.fadeDuration);
+            color.a = Interpolation.pow2Out.apply(0.0F, fadeDurationMax, fadeDuration);
         }
     }
 
     public void render(SpriteBatch sb) {
         sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
-        sb.setColor(this.color);
+        sb.setColor(color);
 
         sb.draw(img,
-                this.x, this.y,
+                x, y,
                 150f, 0f,
                 width, height,
                 Settings.scale, Settings.scale,

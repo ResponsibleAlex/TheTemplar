@@ -30,7 +30,7 @@ public class AltarPower extends AbstractPower implements CloneablePowerInterface
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -38,23 +38,23 @@ public class AltarPower extends AbstractPower implements CloneablePowerInterface
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
     }
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (AbstractGlyph.canMatch()) {
-            this.flash();
+            flash();
 
             Deque<AbstractGlyph> glyphs = new ArrayDeque<>();
             for (int i = 0; i < amount; i++) {
@@ -62,7 +62,7 @@ public class AltarPower extends AbstractPower implements CloneablePowerInterface
             }
 
             while (!glyphs.isEmpty()) {
-                this.addToBot(new GlyphInscribeAction(glyphs.pop()));
+                addToBot(new GlyphInscribeAction(glyphs.pop()));
             }
         }
     }

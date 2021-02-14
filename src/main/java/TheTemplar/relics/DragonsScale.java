@@ -27,10 +27,10 @@ public class DragonsScale extends CustomRelic {
 
     @Override
     public void atTurnStart() {
-        this.flash();
+        flash();
         AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new RelicAboveCreatureAction(p, this));
-        this.addToBot(new GainBulwarkAction(BULWARK));
+        addToBot(new RelicAboveCreatureAction(p, this));
+        addToBot(new GainBulwarkAction(BULWARK));
     }
 
     // Description

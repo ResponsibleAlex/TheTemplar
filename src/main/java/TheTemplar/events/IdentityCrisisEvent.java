@@ -56,9 +56,9 @@ public class IdentityCrisisEvent extends AbstractImageEvent {
             case 0: // While you are on screen number 0 (The starting screen)
                 switch (i) {
                     case 0: // If you press button the first button (Button at index 0), in this case: Inspiration.
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[1]); // Update the text of the event
-                        this.imageEventText.updateDialogOption(0, OPTIONS[5]); // 1. Change the first button to the [Leave] button
-                        this.imageEventText.clearRemainingOptions(); // 2. and remove all others
+                        imageEventText.updateBodyText(DESCRIPTIONS[1]); // Update the text of the event
+                        imageEventText.updateDialogOption(0, OPTIONS[5]); // 1. Change the first button to the [Leave] button
+                        imageEventText.clearRemainingOptions(); // 2. and remove all others
                         screenNum = 1; // Screen set the screen number to 1. Once we exit the switch (i) statement,
                         // we'll still continue the switch (screenNum) statement. It'll find screen 1 and do it's actions
                         // (in our case, that's the final screen, but you can chain as many as you want like that)
@@ -87,9 +87,9 @@ public class IdentityCrisisEvent extends AbstractImageEvent {
                                     1, OPTIONS[6], false, false, false, true);
                         }
 
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[2]);
-                        this.imageEventText.updateDialogOption(0, OPTIONS[5]);
-                        this.imageEventText.clearRemainingOptions();
+                        imageEventText.updateBodyText(DESCRIPTIONS[2]);
+                        imageEventText.updateDialogOption(0, OPTIONS[5]);
+                        imageEventText.clearRemainingOptions();
                         screenNum = 1;
 
                         // Same as before. A note here is that you can also do
@@ -105,17 +105,17 @@ public class IdentityCrisisEvent extends AbstractImageEvent {
                         AbstractCard c = new Apotheosis().makeCopy();
                         AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) (Settings.WIDTH / 2), (float) (Settings.HEIGHT / 2)));
 
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[3]);
-                        this.imageEventText.updateDialogOption(0, OPTIONS[5]);
-                        this.imageEventText.clearRemainingOptions();
+                        imageEventText.updateBodyText(DESCRIPTIONS[3]);
+                        imageEventText.updateDialogOption(0, OPTIONS[5]);
+                        imageEventText.clearRemainingOptions();
                         screenNum = 1;
                         break;
                     case 3: // If you press button the fourth button (Button at index 3), in this case: TOUCH
                         imageEventText.loadImage("TheTemplarResources/images/events/IdentityCrisisEvent2.png"); // Change the shown image
                         // Other than that, this option doesn't do anything special.
-                        this.imageEventText.updateBodyText(DESCRIPTIONS[4]);
-                        this.imageEventText.updateDialogOption(0, OPTIONS[5]);
-                        this.imageEventText.clearRemainingOptions();
+                        imageEventText.updateBodyText(DESCRIPTIONS[4]);
+                        imageEventText.updateDialogOption(0, OPTIONS[5]);
+                        imageEventText.clearRemainingOptions();
                         screenNum = 1;
                         break;
                 }

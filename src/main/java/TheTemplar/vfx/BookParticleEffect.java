@@ -27,38 +27,38 @@ public class BookParticleEffect extends AbstractGameEffect {
     private final Texture img;
 
     public BookParticleEffect() {
-        this.x = AbstractDungeon.player.drawX
-                + MathUtils.random(-20f, 50f) * this.scale;
+        x = AbstractDungeon.player.drawX
+                + MathUtils.random(-20f, 50f) * scale;
 
-        this.startY = this.y = AbstractDungeon.player.drawY
-                + 100.0f * this.scale
-                + MathUtils.random(0f, 15f) * this.scale;
-        this.endY = this.startY - MathUtils.random(40f, 100f);
+        startY = y = AbstractDungeon.player.drawY
+                + 100.0f * scale
+                + MathUtils.random(0f, 15f) * scale;
+        endY = startY - MathUtils.random(40f, 100f);
 
-        this.img = RandomGlyph();
-        this.color = new Color(MathUtils.random(0f, 1f),
+        img = RandomGlyph();
+        color = new Color(MathUtils.random(0f, 1f),
                 MathUtils.random(0f, 1f),
                 MathUtils.random(0f, 1f),
                 1f);
 
-        this.duration = this.startingDuration = 1.0f;
+        duration = startingDuration = 1.0f;
     }
 
     @Override
     public void update() {
-        this.duration -= Gdx.graphics.getDeltaTime();
-        if (this.duration <= 0) {
-            this.duration = 0;
-            this.isDone = true;
+        duration -= Gdx.graphics.getDeltaTime();
+        if (duration <= 0) {
+            duration = 0;
+            isDone = true;
         }
 
-        this.y = Interpolation.linear.apply(this.endY, this.startY, this.duration / this.startingDuration);
-        this.color.a = Interpolation.linear.apply(0f, 1f, this.duration / this.startingDuration);
+        y = Interpolation.linear.apply(endY, startY, duration / startingDuration);
+        color.a = Interpolation.linear.apply(0f, 1f, duration / startingDuration);
     }
 
     @Override
     public void render(SpriteBatch sb) {
-        sb.setColor(this.color);
+        sb.setColor(color);
         sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
         draw(sb, 1.01f);
         draw(sb, 1.0f);
@@ -67,8 +67,8 @@ public class BookParticleEffect extends AbstractGameEffect {
 
     private void draw(SpriteBatch sb, float scaleMultiplier) {
         sb.draw(img,
-                this.x,
-                this.y,
+                x,
+                y,
                 65f, 65f,
                 45f, 45f,
                 Settings.scale * scaleMultiplier,

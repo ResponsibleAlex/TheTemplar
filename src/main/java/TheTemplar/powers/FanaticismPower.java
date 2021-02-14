@@ -30,7 +30,7 @@ public class FanaticismPower extends AbstractPower implements CloneablePowerInte
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -38,30 +38,30 @@ public class FanaticismPower extends AbstractPower implements CloneablePowerInte
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
     }
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         if (card.type == AbstractCard.CardType.ATTACK) {
-            this.flash();
-            this.addToBot(new GlyphInscribeAction(new Zeal()));
+            flash();
+            addToBot(new GlyphInscribeAction(new Zeal()));
         }
     }
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, FanaticismPower.POWER_ID));
+        addToBot(new RemoveSpecificPowerAction(owner, owner, FanaticismPower.POWER_ID));
     }
 
     @Override

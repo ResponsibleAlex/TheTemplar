@@ -28,13 +28,13 @@ public class FlameOfHeavenPower extends HolyWeaponPower implements CloneablePowe
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
-        this.amount = 0;
+        owner = AbstractDungeon.player;
+        amount = 0;
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         refresh(upgraded);
     }
@@ -43,13 +43,13 @@ public class FlameOfHeavenPower extends HolyWeaponPower implements CloneablePowe
 
     @Override
     public void atStartOfTurn() {
-        this.flash();
-        this.addToBot(new GlyphInscribeAction(new Valor()));
+        flash();
+        addToBot(new GlyphInscribeAction(new Valor()));
     }
 
     @Override
     public void updateDescription() {
-        if (this.upgraded) {
+        if (upgraded) {
             description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[2];
         } else {
             description = DESCRIPTIONS[0] + DESCRIPTIONS[2];
@@ -58,6 +58,6 @@ public class FlameOfHeavenPower extends HolyWeaponPower implements CloneablePowe
 
     @Override
     public AbstractPower makeCopy() {
-        return new FlameOfHeavenPower(this.upgraded);
+        return new FlameOfHeavenPower(upgraded);
     }
 }

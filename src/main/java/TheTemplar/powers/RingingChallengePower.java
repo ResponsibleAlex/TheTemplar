@@ -36,16 +36,16 @@ public class RingingChallengePower extends AbstractPower implements CloneablePow
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
-        this.amount = 0;
+        owner = AbstractDungeon.player;
+        amount = 0;
 
         this.maxHp = maxHp;
         this.upgradeCard = upgradeCard;
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
@@ -54,13 +54,13 @@ public class RingingChallengePower extends AbstractPower implements CloneablePow
 
     @Override
     public void onVictory() {
-        this.flash();
+        flash();
 
-        if (this.maxHp > 0) {
-            AbstractDungeon.player.increaseMaxHp(this.maxHp, true);
+        if (maxHp > 0) {
+            AbstractDungeon.player.increaseMaxHp(maxHp, true);
         }
-        if (this.upgradeCard) {
-            this.doUpgrade();
+        if (upgradeCard) {
+            doUpgrade();
         }
     }
 
@@ -97,6 +97,6 @@ public class RingingChallengePower extends AbstractPower implements CloneablePow
 
     @Override
     public AbstractPower makeCopy() {
-        return new RingingChallengePower(this.maxHp, this.upgradeCard);
+        return new RingingChallengePower(maxHp, upgradeCard);
     }
 }

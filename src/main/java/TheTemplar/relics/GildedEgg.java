@@ -22,14 +22,14 @@ public class GildedEgg extends CustomRelic {
 
     public GildedEgg() {
         super(ID, IMG, OUTLINE, RelicTier.UNCOMMON, LandingSound.HEAVY);
-        this.counter = 2;
+        counter = 2;
     }
 
     public void onEquip() {
         for (RewardItem reward : AbstractDungeon.combatRewardScreen.rewards) {
             if (reward.cards != null) {
                 for (AbstractCard c : reward.cards) {
-                    this.onPreviewObtainCard(c);
+                    onPreviewObtainCard(c);
                 }
             }
         }
@@ -37,43 +37,43 @@ public class GildedEgg extends CustomRelic {
 
     @Override
     public void onPreviewObtainCard(AbstractCard c) {
-        if (this.counter > 0 && c.rarity == AbstractCard.CardRarity.RARE && c.canUpgrade() && !c.upgraded) {
-            this.flash();
+        if (counter > 0 && c.rarity == AbstractCard.CardRarity.RARE && c.canUpgrade() && !c.upgraded) {
+            flash();
             c.upgrade();
         }
     }
 
     @Override
     public void onObtainCard(AbstractCard c) {
-        if (this.counter > 0 && c.rarity == AbstractCard.CardRarity.RARE) {
+        if (counter > 0 && c.rarity == AbstractCard.CardRarity.RARE) {
             if (c.canUpgrade() && !c.upgraded) {
                 c.upgrade();
             }
-            this.flash();
-            this.decrementCounter();
+            flash();
+            decrementCounter();
         }
     }
 
     public void decrementCounter() {
-        this.counter--;
-        this.setCounter(this.counter);
+        counter--;
+        setCounter(counter);
     }
 
     @Override
     public void setCounter(int setCounter) {
-        this.counter = setCounter;
+        counter = setCounter;
         if (setCounter == 0) {
-            this.usedUp();
+            usedUp();
         } else {
-            this.description = getUpdatedDescription();
-            this.resetTips();
+            description = getUpdatedDescription();
+            resetTips();
         }
     }
 
     // Description
     @Override
     public String getUpdatedDescription() {
-        if (this.counter == 1) {
+        if (counter == 1) {
             return DESCRIPTIONS[1];
         } else {
             return DESCRIPTIONS[0];
@@ -81,9 +81,9 @@ public class GildedEgg extends CustomRelic {
     }
 
     private void resetTips() {
-        this.tips.clear();
-        this.tips.add(new PowerTip(this.name, this.description));
-        this.initializeTips();
+        tips.clear();
+        tips.add(new PowerTip(name, description));
+        initializeTips();
     }
 
     public boolean canSpawn() {

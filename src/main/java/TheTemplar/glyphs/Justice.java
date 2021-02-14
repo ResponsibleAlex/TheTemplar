@@ -24,7 +24,7 @@ public class Justice extends AbstractGlyph {
         if (p.hasPower(ResoluteWillPower.POWER_ID)) {
             amt += p.getPower(ResoluteWillPower.POWER_ID).amount;
         }
-        this.addToTop(new JusticeAction(amt, false, this));
+        addToTop(new JusticeAction(amt, false, this));
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Justice extends AbstractGlyph {
         if (p.hasRelic(RunedArmor.ID)) {
             amt *= 2;
         }
-        this.addToTop(new JusticeAction(amt, true, this));
+        addToTop(new JusticeAction(amt, true, this));
     }
 
     @Override

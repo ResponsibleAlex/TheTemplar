@@ -38,31 +38,31 @@ public class BulwarkPower extends AbstractPower implements CloneablePowerInterfa
             this.amount = 999;
         }
         this.source = source;
-        this.p = AbstractDungeon.player;
+        p = AbstractDungeon.player;
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
         updateDescription();
     }
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        this.addToBot(new GainBlockAction(p, p, this.amount));
+        addToBot(new GainBlockAction(p, p, amount));
 
-        this.amount = this.amount / 2;
-        if (this.amount <= 0) {
-            this.addToBot(new RemoveSpecificPowerAction(p, p, this.ID));
+        amount = amount / 2;
+        if (amount <= 0) {
+            addToBot(new RemoveSpecificPowerAction(p, p, ID));
         } else {
             updateDescription();
         }

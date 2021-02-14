@@ -7,6 +7,6 @@ public class HolyWeaponPower extends AbstractPower {
 
     public void refresh(boolean upgraded) {
         this.upgraded = upgraded || this.upgraded;
-        this.updateDescription();
+        updateDescription();
     }
 }

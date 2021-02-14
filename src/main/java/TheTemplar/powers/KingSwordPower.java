@@ -37,12 +37,12 @@ public class KingSwordPower extends HolyWeaponPower implements CloneablePowerInt
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         refresh(upgraded);
     }
@@ -54,11 +54,11 @@ public class KingSwordPower extends HolyWeaponPower implements CloneablePowerInt
         if (this.upgraded) {
             mult = 1.5f;
             desc = "50";
-            this.dmgAmt = KingSword.DAMAGE_ALL + KingSword.UPGRADE_PLUS_DAMAGE_ALL;
+            dmgAmt = KingSword.DAMAGE_ALL + KingSword.UPGRADE_PLUS_DAMAGE_ALL;
         } else {
             mult = 1.25f;
             desc = "25";
-            this.dmgAmt = KingSword.DAMAGE_ALL;
+            dmgAmt = KingSword.DAMAGE_ALL;
         }
 
         updateDescription();
@@ -80,17 +80,17 @@ public class KingSwordPower extends HolyWeaponPower implements CloneablePowerInt
         if (AbstractCard.CardType.ATTACK == card.type) {
             flash();
             TemplarMod.flashCustomAttackAllEffect();
-            this.addToBot(new DamageAllEnemiesAction(this.owner, DamageInfo.createDamageMatrix(this.dmgAmt, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE, true));
+            addToBot(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(dmgAmt, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE, true));
         }
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + this.desc + DESCRIPTIONS[1] + this.dmgAmt + DESCRIPTIONS[2];
+        description = DESCRIPTIONS[0] + desc + DESCRIPTIONS[1] + dmgAmt + DESCRIPTIONS[2];
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new KingSwordPower(this.upgraded);
+        return new KingSwordPower(upgraded);
     }
 }
