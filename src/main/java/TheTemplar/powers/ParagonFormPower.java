@@ -48,6 +48,7 @@ public class ParagonFormPower extends AbstractPower implements CloneablePowerInt
     }
 
     public void trigger() {
+        this.flash();
         this.addToBot(new DrawCardAction(this.amount));
     }
 

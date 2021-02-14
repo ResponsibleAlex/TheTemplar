@@ -609,7 +609,7 @@ public class TemplarMod implements
             }
         }
 
-        AbstractDungeon.actionManager.addToTop(
+        AbstractDungeon.actionManager.addToBottom(
                 new VFXAction(new FlashCustomAttackEffect(x, y, HolyWeapons.GetEquipped(), playSound)));
     }
 

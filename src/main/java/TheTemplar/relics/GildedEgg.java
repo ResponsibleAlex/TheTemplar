@@ -5,7 +5,9 @@ import TheTemplar.util.TextureLoader;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 
@@ -36,31 +38,56 @@ public class GildedEgg extends CustomRelic {
     @Override
     public void onPreviewObtainCard(AbstractCard c) {
         if (this.counter > 0 && c.rarity == AbstractCard.CardRarity.RARE && c.canUpgrade() && !c.upgraded) {
+            this.flash();
             c.upgrade();
         }
     }
 
     @Override
     public void onObtainCard(AbstractCard c) {
-        if (this.counter > 0 && c.rarity == AbstractCard.CardRarity.RARE && c.canUpgrade() && !c.upgraded) {
+        if (this.counter > 0 && c.rarity == AbstractCard.CardRarity.RARE) {
+            if (c.canUpgrade() && !c.upgraded) {
+                c.upgrade();
+            }
             this.flash();
-            c.upgrade();
             this.decrementCounter();
         }
     }
 
     public void decrementCounter() {
         this.counter--;
-        if (this.counter == 0) {
+        this.setCounter(this.counter);
+    }
+
+    @Override
+    public void setCounter(int setCounter) {
+        this.counter = setCounter;
+        if (setCounter == 0) {
             this.usedUp();
-            this.counter = -2;
+        } else {
+            this.description = getUpdatedDescription();
+            this.resetTips();
         }
     }
 
     // Description
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0];
+        if (this.counter == 1) {
+            return DESCRIPTIONS[1];
+        } else {
+            return DESCRIPTIONS[0];
+        }
+    }
+
+    private void resetTips() {
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, this.description));
+        this.initializeTips();
+    }
+
+    public boolean canSpawn() {
+        return Settings.isEndless || AbstractDungeon.floorNum <= 48;
     }
 
     @Override

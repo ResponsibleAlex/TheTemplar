@@ -51,7 +51,7 @@ public abstract class AbstractGlyph {
     protected float pulseAnimTimer;
 
     protected float fadeAlpha;
-    public static final float FADE_TIME = 0.7F;
+    public static final float FADE_TIME = 0.2F;
     protected float fadeAnimTimer;
 
     protected boolean isLeft = false;

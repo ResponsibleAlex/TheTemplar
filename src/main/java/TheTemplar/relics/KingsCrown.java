@@ -34,6 +34,7 @@ public class KingsCrown extends CustomRelic {
         if (this.pickCard && !AbstractDungeon.isScreenUp && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             this.pickCard = false;
             AbstractCard c = (AbstractDungeon.gridSelectScreen.selectedCards.get(0)).makeCopy();
+            c.upgrade();
 
             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
@@ -46,22 +47,36 @@ public class KingsCrown extends CustomRelic {
         CardGroup cardChoices = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         AbstractCard choice;
 
-        ArrayList<AbstractCard> srcPool = new ArrayList<>();
-        srcPool.addAll(AbstractDungeon.srcCommonCardPool.group);
-        srcPool.addAll(AbstractDungeon.srcUncommonCardPool.group);
-        srcPool.addAll(AbstractDungeon.srcRareCardPool.group);
-
-        for (AbstractCard c : srcPool) {
+        for (AbstractCard c : this.getCardPool()) {
             choice = c.makeCopy();
             choice.upgrade();
 
             for (AbstractRelic r : AbstractDungeon.player.relics) {
                 r.onPreviewObtainCard(choice);
             }
-            cardChoices.addToBottom(c);
+            cardChoices.addToBottom(choice);
         }
 
         AbstractDungeon.gridSelectScreen.open(cardChoices, 1, DESCRIPTIONS[1], false);
+    }
+
+    private ArrayList<AbstractCard> getCardPool() {
+        CardGroup rares = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        rares.group.addAll(AbstractDungeon.srcRareCardPool.group);
+        rares.sortByType(false);
+
+        CardGroup uncommons = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        uncommons.group.addAll(AbstractDungeon.srcUncommonCardPool.group);
+        uncommons.sortByType(false);
+
+        CardGroup commons = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        commons.group.addAll(AbstractDungeon.srcCommonCardPool.group);
+        commons.sortByType(false);
+
+        ArrayList<AbstractCard> srcPool = new ArrayList<>(rares.group);
+        srcPool.addAll(uncommons.group);
+        srcPool.addAll(commons.group);
+        return srcPool;
     }
 
     // Description
