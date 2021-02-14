@@ -1,15 +1,15 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.actions.GlyphInscribeMatchAction;
 import TheTemplar.actions.GlyphInscribeRandomAction;
+import TheTemplar.characters.TheTemplar;
 import TheTemplar.glyphs.AbstractGlyph;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -48,9 +48,9 @@ public class Hymn extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (AbstractGlyph.canMatch()) {
-            this.addToBot(new GlyphInscribeMatchAction());
-        } else if (this.upgraded) {
-            this.addToBot(new GlyphInscribeRandomAction());
+            addToBot(new GlyphInscribeMatchAction());
+        } else if (upgraded) {
+            addToBot(new GlyphInscribeRandomAction());
         }
     }
 
@@ -59,9 +59,9 @@ public class Hymn extends AbstractDynamicCard {
         if (!canUse) {
             return false;
         } else {
-            if (!this.upgraded && !AbstractGlyph.canMatch()) {
+            if (!upgraded && !AbstractGlyph.canMatch()) {
                 canUse = false;
-                this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[1];
+                cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[1];
             }
 
             return canUse;

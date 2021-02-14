@@ -1,12 +1,12 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.actions.ThrillOfBattleAction;
+import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -45,7 +45,7 @@ public class ThrillOfBattle extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ThrillOfBattleAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)));
+        addToBot(new ThrillOfBattleAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
     }
 
 

@@ -1,13 +1,13 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
+import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -44,17 +44,17 @@ public class FearlessAssault extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BONUS;
 
-        this.glowEmpowered = true;
+        glowEmpowered = true;
     }
 
     public void calculateCardDamage(AbstractMonster m) {
-        int realBaseDamage = this.baseDamage;
-        if (this.isEmpowered(m)) {
-            this.baseDamage += this.magicNumber;
+        int realBaseDamage = baseDamage;
+        if (isEmpowered(m)) {
+            baseDamage += magicNumber;
         }
         super.calculateCardDamage(m);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
+        baseDamage = realBaseDamage;
+        isDamageModified = damage != baseDamage;
     }
 
     // Actions the card should do.
@@ -66,7 +66,7 @@ public class FearlessAssault extends AbstractDynamicCard {
             effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
         }
 
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
     }
 
 

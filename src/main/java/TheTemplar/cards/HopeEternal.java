@@ -1,13 +1,13 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
+import TheTemplar.characters.TheTemplar;
 import TheTemplar.powers.HopeEternalPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -38,18 +38,18 @@ public class HopeEternal extends AbstractDynamicCard {
     public HopeEternal() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
-        this.exhaust = true;
-        this.blessing = true;
+        exhaust = true;
+        blessing = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.triggerBlessing()) {
-            this.addToBot(new DrawCardAction(1));
+        if (triggerBlessing()) {
+            addToBot(new DrawCardAction(1));
         }
-        this.addToBot(new ApplyPowerAction(p, p, new HopeEternalPower(), 0));
+        addToBot(new ApplyPowerAction(p, p, new HopeEternalPower(), 0));
     }
 
 
@@ -58,7 +58,7 @@ public class HopeEternal extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.exhaust = false;
+            exhaust = false;
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

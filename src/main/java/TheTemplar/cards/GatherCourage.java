@@ -1,14 +1,14 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.actions.GlyphInscribeAction;
+import TheTemplar.characters.TheTemplar;
 import TheTemplar.glyphs.Valor;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static TheTemplar.TemplarMod.makeCardPath;
@@ -43,7 +43,7 @@ public class GatherCourage extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = VALOR;
 
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
@@ -51,12 +51,12 @@ public class GatherCourage extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster unused) {
         for (int i = 0; i < magicNumber; i++) {
-            this.addToBot(new GlyphInscribeAction(new Valor()));
+            addToBot(new GlyphInscribeAction(new Valor()));
         }
 
-        for (AbstractMonster m: AbstractDungeon.getMonsters().monsters) {
-            if(!m.isDeadOrEscaped()) {
-                this.addToBot(new ApplyPowerAction(m, m, new StrengthPower(m, ENEMY_STRENGTH), ENEMY_STRENGTH));
+        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+            if (!m.isDeadOrEscaped()) {
+                addToBot(new ApplyPowerAction(m, m, new StrengthPower(m, ENEMY_STRENGTH), ENEMY_STRENGTH));
             }
         }
     }

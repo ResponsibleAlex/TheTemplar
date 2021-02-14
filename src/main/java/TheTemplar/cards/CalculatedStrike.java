@@ -47,10 +47,10 @@ public class CalculatedStrike extends AbstractDynamicCard {
 
     @Override
     public void triggerOnGlowCheck() {
-        if (this.onlyAttackInHand()) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        if (onlyAttackInHand()) {
+            glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
-            this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+            glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         }
     }
 
@@ -67,15 +67,15 @@ public class CalculatedStrike extends AbstractDynamicCard {
     public void calculateCardDamage(AbstractMonster m) {
         super.calculateCardDamage(m);
 
-        if (this.onlyAttackInHand()) {
-            this.damage *= 2;
+        if (onlyAttackInHand()) {
+            damage *= 2;
         }
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
     }
 
 

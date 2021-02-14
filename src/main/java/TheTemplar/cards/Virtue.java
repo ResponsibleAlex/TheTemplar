@@ -1,12 +1,12 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.actions.GlyphInscribeAction;
+import TheTemplar.characters.TheTemplar;
 import TheTemplar.glyphs.Charity;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -36,17 +36,17 @@ public class Virtue extends AbstractDynamicCard {
 
     public Virtue() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.blessing = true;
-        this.exhaust = true;
+        blessing = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.exhaust = !this.triggerBlessing();
-        this.addToBot(new GlyphInscribeAction(new Charity()));
-        this.addToBot(new GlyphInscribeAction(new Charity()));
+        exhaust = !triggerBlessing();
+        addToBot(new GlyphInscribeAction(new Charity()));
+        addToBot(new GlyphInscribeAction(new Charity()));
     }
 
 

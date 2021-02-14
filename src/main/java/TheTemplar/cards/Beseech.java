@@ -1,13 +1,13 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
+import TheTemplar.characters.TheTemplar;
 import TheTemplar.optionCards.BeseechChooseAttack;
 import TheTemplar.optionCards.BeseechChooseSkill;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import java.util.ArrayList;
 
@@ -39,21 +39,21 @@ public class Beseech extends AbstractDynamicCard {
 
     public Beseech() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
-        this.blessing = true;
+        exhaust = true;
+        blessing = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        boolean setCost = this.triggerBlessing();
+        boolean setCost = triggerBlessing();
 
         ArrayList<AbstractCard> choices = new ArrayList<>();
-        choices.add(new BeseechChooseAttack(this.upgraded, setCost));
-        choices.add(new BeseechChooseSkill(this.upgraded, setCost));
+        choices.add(new BeseechChooseAttack(upgraded, setCost));
+        choices.add(new BeseechChooseSkill(upgraded, setCost));
 
-        this.addToBot(new ChooseOneAction(choices));
+        addToBot(new ChooseOneAction(choices));
     }
 
 

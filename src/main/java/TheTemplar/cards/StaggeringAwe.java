@@ -1,13 +1,13 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
+import TheTemplar.characters.TheTemplar;
 import TheTemplar.vfx.FlashCustomAttackEffect;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -37,15 +37,15 @@ public class StaggeringAwe extends AbstractDynamicCard {
 
     public StaggeringAwe() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new VFXAction(new FlashCustomAttackEffect(m.hb.cX, m.drawY, "StaggeringAwe", true)));
-        this.addToBot(new StunMonsterAction(m, p, 1));
+        addToBot(new VFXAction(new FlashCustomAttackEffect(m.hb.cX, m.drawY, "StaggeringAwe", true)));
+        addToBot(new StunMonsterAction(m, p, 1));
     }
 
 

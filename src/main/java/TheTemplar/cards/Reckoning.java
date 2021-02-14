@@ -1,6 +1,8 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.actions.GlyphInscribeAction;
+import TheTemplar.characters.TheTemplar;
 import TheTemplar.glyphs.Justice;
 import TheTemplar.glyphs.Valor;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -11,8 +13,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 
 import static TheTemplar.TemplarMod.makeCardPath;
@@ -52,12 +52,12 @@ public class Reckoning extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GlyphInscribeAction(new Valor()));
-        this.addToBot(new GlyphInscribeAction(new Justice()));
+        addToBot(new GlyphInscribeAction(new Valor()));
+        addToBot(new GlyphInscribeAction(new Justice()));
 
-        this.addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.0F));
-        this.addToBot(new SFXAction("ORB_LIGHTNING_EVOKE"));
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.0F));
+        addToBot(new SFXAction("ORB_LIGHTNING_EVOKE"));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
     }
 
 

@@ -1,6 +1,8 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.actions.GlyphInscribeAction;
+import TheTemplar.characters.TheTemplar;
 import TheTemplar.glyphs.Zeal;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -10,8 +12,6 @@ import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 
@@ -52,12 +52,12 @@ public class SweepingBlow extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new SFXAction("ATTACK_HEAVY"));
-        this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new SFXAction("ATTACK_HEAVY"));
+        addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
 
-        this.addToBot(new GlyphInscribeAction(new Zeal()));
-        this.addToBot(new ApplyPowerAction(p, p, new FrailPower(p, 2, true), 2));
+        addToBot(new GlyphInscribeAction(new Zeal()));
+        addToBot(new ApplyPowerAction(p, p, new FrailPower(p, 2, true), 2));
     }
 
 
