@@ -94,7 +94,7 @@ public class TemplarMod implements
     private static String modID;
 
     // Mod-settings settings. This is if you want an on/off savable button
-    public static Properties theDefaultDefaultSettings = new Properties();
+    public static final Properties theDefaultDefaultSettings = new Properties();
     public static final String ENABLE_PLACEHOLDER_SETTINGS = "enablePlaceholder";
     public static boolean enablePlaceholder = true; // The boolean we'll be setting on/off (true/false)
 
@@ -548,7 +548,7 @@ public class TemplarMod implements
 
     public static int valorInscribedThisCombat = 0;
     public static int glyphsInscribedThisCombat = 0;
-    public static boolean[] glyphTypesInscribedThisCombat = new boolean[5];
+    public static final boolean[] glyphTypesInscribedThisCombat = new boolean[5];
     public static boolean triggeredBlessingThisTurn = false;
     public static boolean triggeredBlessingLastTurn = false;
 
