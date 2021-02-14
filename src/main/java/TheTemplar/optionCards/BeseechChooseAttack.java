@@ -42,7 +42,7 @@ public class BeseechChooseAttack extends AbstractDynamicCard {
         this.upgradeCard = upgradeCard;
         this.setCost = setCost;
         if (setCost) {
-            this.upgrade();
+            upgrade();
         }
     }
 
@@ -50,20 +50,20 @@ public class BeseechChooseAttack extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.onChoseThisOption();
+        onChoseThisOption();
     }
 
     public void onChoseThisOption() {
         AbstractCard c = AbstractDungeon.returnTrulyRandomCardInCombat(CardType.ATTACK).makeCopy();
 
-        if (this.upgradeCard) {
+        if (upgradeCard) {
             c.upgrade();
         }
-        if (this.setCost) {
+        if (setCost) {
             c.setCostForTurn(0);
         }
 
-        this.addToBot(new MakeTempCardInHandAction(c, true));
+        addToBot(new MakeTempCardInHandAction(c, true));
     }
 
     // Upgraded stats.
@@ -78,6 +78,6 @@ public class BeseechChooseAttack extends AbstractDynamicCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new BeseechChooseAttack(this.upgradeCard, this.setCost);
+        return new BeseechChooseAttack(upgradeCard, setCost);
     }
 }

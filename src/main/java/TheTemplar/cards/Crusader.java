@@ -1,5 +1,7 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
+import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -7,8 +9,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -42,17 +42,17 @@ public class Crusader extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        this.blessing = true;
+        isBlessing = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 
         if (triggerBlessing()) {
-            this.addToBot(new GainEnergyAction(2));
+            addToBot(new GainEnergyAction(2));
         }
     }
 

@@ -8,15 +8,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class GainBulwarkAction extends AbstractGameAction {
 
-    private final AbstractPlayer p;
+    private final AbstractPlayer player;
+
     public GainBulwarkAction(int amount) {
         this.amount = amount;
-        this.actionType = ActionType.POWER;
-        this.p = AbstractDungeon.player;
+        actionType = ActionType.POWER;
+        player = AbstractDungeon.player;
     }
 
     public void update() {
-        this.addToBot(new ApplyPowerAction(p, p, new BulwarkPower(p, p, amount), amount));
-        this.isDone = true;
+        addToBot(new ApplyPowerAction(player, player, new BulwarkPower(player, player, amount), amount));
+        isDone = true;
     }
 }

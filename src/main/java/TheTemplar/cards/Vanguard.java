@@ -1,6 +1,8 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.actions.VanguardGrowthAction;
+import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -8,8 +10,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -43,19 +43,19 @@ public class Vanguard extends AbstractDynamicCard {
     public Vanguard() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
-        baseDamage = baseBlock = this.misc = BASE_VALUE;
+        baseDamage = baseBlock = misc = BASE_VALUE;
         magicNumber = baseMagicNumber = BONUS;
 
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new VanguardGrowthAction(this.uuid, this.magicNumber));
-        this.addToBot(new GainBlockAction(p, p, this.block));
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        addToBot(new VanguardGrowthAction(uuid, magicNumber));
+        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
 

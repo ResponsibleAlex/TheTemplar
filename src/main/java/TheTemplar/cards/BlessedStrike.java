@@ -1,13 +1,13 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
+import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -44,13 +44,13 @@ public class BlessedStrike extends AbstractBaseValuesCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BONUS;
 
-        blessing = true;
+        isBlessing = true;
         tags.add(CardTags.STRIKE);
     }
 
     @Override
     protected int increaseBaseDamage() {
-        return (this.willTriggerBlessing() ? this.magicNumber : 0);
+        return (willTriggerBlessing() ? magicNumber : 0);
     }
 
     // Actions the card should do.
@@ -62,7 +62,7 @@ public class BlessedStrike extends AbstractBaseValuesCard {
             effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
         }
 
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
     }
 
 

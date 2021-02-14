@@ -24,7 +24,7 @@ public class ExaltedEssence extends CustomPotion {
 
     public ExaltedEssence() {
         super(NAME, POTION_ID, PotionRarity.RARE, PotionSize.BOTTLE, PotionColor.WHITE);
-        this.isThrown = false;
+        isThrown = false;
     }
 
     public void initializeData() {
@@ -42,7 +42,7 @@ public class ExaltedEssence extends CustomPotion {
     @Override
     public void use(AbstractCreature target) {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.addToBot(new ExaltedEssenceAction(this.potency));
+            addToBot(new ExaltedEssenceAction(potency));
         }
     }
 

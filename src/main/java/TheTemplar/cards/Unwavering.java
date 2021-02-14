@@ -1,12 +1,12 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.actions.GainBulwarkAction;
+import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -48,8 +48,8 @@ public class Unwavering extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p, p, block));
-        this.addToBot(new GainBulwarkAction(magicNumber));
+        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new GainBulwarkAction(magicNumber));
     }
 
 

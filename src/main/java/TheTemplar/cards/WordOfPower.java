@@ -1,5 +1,7 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
+import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -10,8 +12,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -51,23 +51,23 @@ public class WordOfPower extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
 
-        this.addToBot(new DrawCardAction(AbstractDungeon.player, countTypesInscribedThisCombat()));
+        addToBot(new DrawCardAction(AbstractDungeon.player, countTypesInscribedThisCombat()));
     }
 
     public void applyPowers() {
         super.applyPowers();
-        this.setDescription(true);
+        setDescription(true);
     }
 
     public void calculateCardDamage(AbstractMonster m) {
         super.calculateCardDamage(m);
-        this.setDescription(true);
+        setDescription(true);
     }
 
     public void onMoveToDiscard() {
-        this.setDescription(false);
+        setDescription(false);
     }
 
     private int countTypesInscribedThisCombat() {
@@ -82,14 +82,14 @@ public class WordOfPower extends AbstractDynamicCard {
 
     private void setDescription(boolean includeTimes) {
         if (includeTimes) {
-            this.magicNumber = this.countTypesInscribedThisCombat();
-            this.isMagicNumberModified = true;
-            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+            magicNumber = countTypesInscribedThisCombat();
+            isMagicNumberModified = true;
+            rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         } else {
-            this.rawDescription = cardStrings.DESCRIPTION;
+            rawDescription = cardStrings.DESCRIPTION;
         }
 
-        this.initializeDescription();
+        initializeDescription();
     }
 
     // Upgraded stats.

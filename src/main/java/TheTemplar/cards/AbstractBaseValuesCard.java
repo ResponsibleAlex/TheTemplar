@@ -18,18 +18,18 @@ public abstract class AbstractBaseValuesCard extends AbstractDynamicCard {
     }
 
     public void calculateCardDamage(AbstractMonster m) {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.increaseBaseDamage();
+        int realBaseDamage = baseDamage;
+        baseDamage += increaseBaseDamage();
         super.calculateCardDamage(m);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
+        baseDamage = realBaseDamage;
+        isDamageModified = damage != baseDamage;
     }
 
     public void applyPowers() {
-        int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.increaseBaseDamage();
+        int realBaseDamage = baseDamage;
+        baseDamage += increaseBaseDamage();
         super.applyPowers();
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
+        baseDamage = realBaseDamage;
+        isDamageModified = damage != baseDamage;
     }
 }

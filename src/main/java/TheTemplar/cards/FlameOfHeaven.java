@@ -1,12 +1,12 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.actions.EquipHolyWeaponAction;
+import TheTemplar.characters.TheTemplar;
 import TheTemplar.variables.HolyWeapons;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -42,7 +42,7 @@ public class FlameOfHeaven extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new EquipHolyWeaponAction(HolyWeapons.Torch, this.upgraded));
+        addToBot(new EquipHolyWeaponAction(HolyWeapons.Torch, upgraded));
     }
 
 

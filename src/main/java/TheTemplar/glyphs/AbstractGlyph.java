@@ -61,21 +61,21 @@ public abstract class AbstractGlyph {
     protected static final HashMap<String, Texture> glowTextures = InitGlowTextures();
 
     public AbstractGlyph(String glyphName, String glyphDesc) {
-        this.img = textures.get(glyphName);
-        this.glowImg = glowTextures.get(glyphName);
-        this.name = glyphName;
-        this.description = glyphDesc;
+        img = textures.get(glyphName);
+        glowImg = glowTextures.get(glyphName);
+        name = glyphName;
+        description = glyphDesc;
 
-        this.c = new Color(1.0F, 1.0F, 1.0F, 1.0F);
-        this.shineColor = new Color(1.0F, 1.0F, 1.0F, this.c.a / 3.0F);
-        this.glowColor = new Color(1.0F, 1.0F, 1.0F, 0.7F);
+        c = new Color(1.0F, 1.0F, 1.0F, 1.0F);
+        shineColor = new Color(1.0F, 1.0F, 1.0F, c.a / 3.0F);
+        glowColor = new Color(1.0F, 1.0F, 1.0F, 0.7F);
 
-        this.hb = new Hitbox(SIZE * Settings.scale, SIZE * Settings.scale);
-        this.p = AbstractDungeon.player;
+        hb = new Hitbox(SIZE * Settings.scale, SIZE * Settings.scale);
+        p = AbstractDungeon.player;
 
-        this.inscribeAnimTimer = INSCRIBE_TIME;
-        this.pulseAnimTimer = 0.0F;
-        this.fadeAnimTimer = 0.0F;
+        inscribeAnimTimer = INSCRIBE_TIME;
+        pulseAnimTimer = 0.0F;
+        fadeAnimTimer = 0.0F;
     }
 
     public static AbstractGlyph getRandomGlyph(boolean useCardRng) {
@@ -123,8 +123,8 @@ public abstract class AbstractGlyph {
     }
 
     protected void startFadeAnimation() {
-        this.fadeAnimTimer = FADE_TIME;
-        this.fadeAlpha = 1.0F;
+        fadeAnimTimer = FADE_TIME;
+        fadeAlpha = 1.0F;
     }
 
     public abstract void trigger();
@@ -144,49 +144,49 @@ public abstract class AbstractGlyph {
 
             hb.resize(SIZE * Settings.scale, SIZE * Settings.scale);
             hb.move(cX, cY);
-            this.hb.update();
+            hb.update();
 
-            if (this.hb.hovered) {
+            if (hb.hovered) {
                 TipHelper.renderGenericTip(
-                        this.cX + HALF_SIZE * Settings.scale,
-                        this.cY + PCT_35_SIZE * Settings.scale,
-                        this.name, this.description);
+                        cX + HALF_SIZE * Settings.scale,
+                        cY + PCT_35_SIZE * Settings.scale,
+                        name, description);
             }
         }
     }
 
     public void updateAnimation() {
-        if (this.inscribeAnimTimer > 0.0F) {
+        if (inscribeAnimTimer > 0.0F) {
 
-            this.inscribeAnimTimer -= Gdx.graphics.getDeltaTime();
-            if (this.inscribeAnimTimer < 0.0F) {
-                this.inscribeAnimTimer = 0.0F;
+            inscribeAnimTimer -= Gdx.graphics.getDeltaTime();
+            if (inscribeAnimTimer < 0.0F) {
+                inscribeAnimTimer = 0.0F;
             }
 
-            this.scaleOffset = 1 + (this.inscribeAnimTimer / INSCRIBE_TIME * 1.8F);
+            scaleOffset = 1 + (inscribeAnimTimer / INSCRIBE_TIME * 1.8F);
 
         } else {
 
-            if (this.isLeft) {
-                this.pulseAnimTimer += Gdx.graphics.getDeltaTime();
-                if (this.pulseAnimTimer >= PULSE_TIME * 2) {
-                    this.pulseAnimTimer -= PULSE_TIME * 2;
+            if (isLeft) {
+                pulseAnimTimer += Gdx.graphics.getDeltaTime();
+                if (pulseAnimTimer >= PULSE_TIME * 2) {
+                    pulseAnimTimer -= PULSE_TIME * 2;
                 }
 
-                pulseScale = Interpolation.sine.apply(1.0F, 1.09F, this.pulseAnimTimer / PULSE_TIME);
+                pulseScale = Interpolation.sine.apply(1.0F, 1.09F, pulseAnimTimer / PULSE_TIME);
             }
         }
 
-        if (this.fadeAnimTimer > 0.0F) {
+        if (fadeAnimTimer > 0.0F) {
 
-            this.fadeAnimTimer -= Gdx.graphics.getDeltaTime();
-            if (this.fadeAnimTimer < 0.0F) {
-                this.fadeAnimTimer = 0.0F;
+            fadeAnimTimer -= Gdx.graphics.getDeltaTime();
+            if (fadeAnimTimer < 0.0F) {
+                fadeAnimTimer = 0.0F;
             }
 
-            this.fadeAlpha = this.fadeAnimTimer / FADE_TIME;
-            this.glowColor.a = fadeAlpha;
-            this.c.a = Math.max(0.0F, fadeAlpha - 0.5F);
+            fadeAlpha = fadeAnimTimer / FADE_TIME;
+            glowColor.a = fadeAlpha;
+            c.a = Math.max(0.0F, fadeAlpha - 0.5F);
         }
 
     }
@@ -198,15 +198,15 @@ public abstract class AbstractGlyph {
                 && !p.isDead
         ) {
 
-            if (this.fadeAnimTimer > 0.0F) {
+            if (fadeAnimTimer > 0.0F) {
 
-                sb.setColor(this.glowColor);
+                sb.setColor(glowColor);
                 sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
-                this.draw(this.glowImg, sb, pulseScale);
+                draw(glowImg, sb, pulseScale);
 
-                if (this.c.a > 0.0F) {
-                    sb.setColor(this.c);
-                    this.draw(this.img, sb, this.scaleOffset);
+                if (c.a > 0.0F) {
+                    sb.setColor(c);
+                    draw(img, sb, scaleOffset);
                 }
 
                 sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
@@ -214,31 +214,31 @@ public abstract class AbstractGlyph {
             } else {
 
                 if (pulseScale > 1.0F) {
-                    sb.setColor(this.glowColor);
+                    sb.setColor(glowColor);
                     sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
-                    this.draw(this.glowImg, sb, pulseScale);
+                    draw(glowImg, sb, pulseScale);
                     sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
                 }
 
-                sb.setColor(this.c);
-                this.draw(this.img, sb, this.scaleOffset);
+                sb.setColor(c);
+                draw(img, sb, scaleOffset);
             }
 
-            if (this.inscribeAnimTimer > 0.0F) {
-                sb.setColor(this.shineColor);
+            if (inscribeAnimTimer > 0.0F) {
+                sb.setColor(shineColor);
                 sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
-                this.draw(this.img, sb, 1.2F * this.scaleOffset);
-                this.draw(this.img, sb, 1.5F * this.scaleOffset);
+                draw(img, sb, 1.2F * scaleOffset);
+                draw(img, sb, 1.5F * scaleOffset);
                 sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
             }
 
-            this.hb.render(sb);
+            hb.render(sb);
         }
     }
     private void draw(Texture texture, SpriteBatch sb, float scaleMultiplier) {
         sb.draw(texture,
-                this.cX - HALF_SIZE * Settings.scale,
-                this.cY - HALF_SIZE * Settings.scale,
+                cX - HALF_SIZE * Settings.scale,
+                cY - HALF_SIZE * Settings.scale,
                 HALF_SIZE, HALF_SIZE,
                 SIZE, SIZE,
                 Settings.scale * scaleMultiplier,

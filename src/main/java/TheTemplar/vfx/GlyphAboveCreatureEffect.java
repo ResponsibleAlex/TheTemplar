@@ -23,24 +23,24 @@ public class GlyphAboveCreatureEffect extends AbstractGameEffect {
     private final Color glowColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
     public GlyphAboveCreatureEffect (AbstractCreature c, AbstractGlyph g) {
-        this.x = c.drawX;
-        this.y = c.drawY + c.hb_h;
+        x = c.drawX;
+        y = c.drawY + c.hb_h;
 
-        this.img = g.glowImg;
+        img = g.glowImg;
 
-        this.duration = this.startingDuration = Settings.ACTION_DUR_MED;
-        this.scale = scaleMin;
+        duration = startingDuration = Settings.ACTION_DUR_MED;
+        scale = scaleMin;
     }
 
     @Override
     public void update() {
-        this.duration -= Gdx.graphics.getDeltaTime();
+        duration -= Gdx.graphics.getDeltaTime();
         if (duration < 0) {
-            this.isDone = true;
+            isDone = true;
         }
 
-        this.scale = Interpolation.linear.apply(scaleMax, scaleMin, this.duration / this.startingDuration);
-        this.glowColor.a = Interpolation.linear.apply(0f, 1.0f, this.duration / this.startingDuration);
+        scale = Interpolation.linear.apply(scaleMax, scaleMin, duration / startingDuration);
+        glowColor.a = Interpolation.linear.apply(0f, 1.0f, duration / startingDuration);
     }
 
     @Override
@@ -48,13 +48,13 @@ public class GlyphAboveCreatureEffect extends AbstractGameEffect {
         sb.setColor(glowColor);
         sb.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
 
-        sb.draw(this.img,
-                this.x - HALF_SIZE,
-                this.y - HALF_SIZE,
+        sb.draw(img,
+                x - HALF_SIZE,
+                y - HALF_SIZE,
                 HALF_SIZE, HALF_SIZE,
                 SIZE, SIZE,
-                Settings.scale * this.scale,
-                Settings.scale * this.scale,
+                Settings.scale * scale,
+                Settings.scale * scale,
                 0, 0, 0,
                 (int)SIZE, (int)SIZE,
                 false, false);

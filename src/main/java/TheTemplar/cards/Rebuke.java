@@ -1,12 +1,12 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.actions.GlyphInscribeAction;
+import TheTemplar.characters.TheTemplar;
 import TheTemplar.glyphs.Justice;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -45,9 +45,9 @@ public class Rebuke extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GlyphInscribeAction(new Justice()));
-        if (this.upgraded) {
-            this.addToBot(new GlyphInscribeAction(new Justice()));
+        addToBot(new GlyphInscribeAction(new Justice()));
+        if (upgraded) {
+            addToBot(new GlyphInscribeAction(new Justice()));
         }
     }
 

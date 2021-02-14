@@ -30,9 +30,9 @@ public class Apocrypha extends CustomRelic {
 
     @Override
     public void atTurnStart() {
-        this.flash();
-        this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        this.addToBot(new GlyphInscribeRandomAction());
+        flash();
+        addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        addToBot(new GlyphInscribeRandomAction());
     }
 
     @Override

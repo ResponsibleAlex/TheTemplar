@@ -13,29 +13,33 @@ public class VanguardGrowthAction extends AbstractGameAction {
 
     public VanguardGrowthAction(UUID targetUUID, int miscIncrease) {
         this.miscIncrease = miscIncrease;
-        this.uuid = targetUUID;
+        uuid = targetUUID;
     }
 
     @Override
     public void update() {
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
-        {
-            if (c.uuid.equals(this.uuid)) {
-                c.misc += this.miscIncrease;
-                c.applyPowers();
-                c.baseBlock = c.misc;
-                c.baseDamage = c.misc;
-                c.isBlockModified = false;
-            }
-        }
+        AbstractDungeon.player.masterDeck.group.stream()
+                                               .filter(c -> c.uuid.equals(uuid))
+                                               .forEach(this::applyMasterDeckPowers);
 
-        for(AbstractCard c : GetAllInBattleInstances.get(this.uuid)) {
-            c.baseBlock = c.misc;
-            c.baseDamage = c.misc;
-            c.misc += this.miscIncrease;
-            c.applyPowers();
-        }
+        GetAllInBattleInstances.get(uuid)
+                               .forEach(this::applyBattleCards);
 
-        this.isDone = true;
+        isDone = true;
+    }
+
+    private void applyMasterDeckPowers(AbstractCard c) {
+        c.misc += miscIncrease;
+        c.applyPowers();
+        c.baseBlock = c.misc;
+        c.baseDamage = c.misc;
+        c.isBlockModified = false;
+    }
+
+    private void applyBattleCards(AbstractCard c) {
+        c.baseBlock = c.misc;
+        c.baseDamage = c.misc;
+        c.misc += miscIncrease;
+        c.applyPowers();
     }
 }

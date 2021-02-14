@@ -31,8 +31,8 @@ public class KingsCrown extends CustomRelic {
     @Override
     public void update() {
         super.update();
-        if (this.pickCard && !AbstractDungeon.isScreenUp && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-            this.pickCard = false;
+        if (pickCard && !AbstractDungeon.isScreenUp && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+            pickCard = false;
             AbstractCard c = (AbstractDungeon.gridSelectScreen.selectedCards.get(0)).makeCopy();
             c.upgrade();
 
@@ -43,11 +43,11 @@ public class KingsCrown extends CustomRelic {
 
     @Override
     public void onEquip() {
-        this.pickCard = true;
+        pickCard = true;
         CardGroup cardChoices = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         AbstractCard choice;
 
-        for (AbstractCard c : this.getCardPool()) {
+        for (AbstractCard c : getCardPool()) {
             choice = c.makeCopy();
             choice.upgrade();
 

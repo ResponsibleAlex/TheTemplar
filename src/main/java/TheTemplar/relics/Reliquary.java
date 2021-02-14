@@ -25,36 +25,36 @@ public class Reliquary extends CustomRelic {
 
     public Reliquary() {
         super(ID, IMG, OUTLINE, RelicTier.RARE, LandingSound.CLINK);
-        this.counter = NUMBER;
+        counter = NUMBER;
     }
 
     @Override
     public void justEnteredRoom(AbstractRoom room) {
-        this.counter = NUMBER;
-        this.grayscale = false;
+        counter = NUMBER;
+        grayscale = false;
     }
 
     public void decrementCounter() {
-        this.counter--;
-        if (this.counter == 0) {
-            this.grayscale = true;
-            this.counter = -2;
+        counter--;
+        if (counter == 0) {
+            grayscale = true;
+            counter = -2;
         }
     }
 
     @Override
     public void onCardDraw(AbstractCard drawnCard) {
-        if (this.counter > 0
+        if (counter > 0
                 && (drawnCard.type == AbstractCard.CardType.CURSE
                 || drawnCard.type == AbstractCard.CardType.STATUS)) {
 
-            this.addToTop(new ExhaustSpecificCardAction(drawnCard, AbstractDungeon.player.hand, true));
-            this.addToBot(new DrawCardAction(1));
+            addToTop(new ExhaustSpecificCardAction(drawnCard, AbstractDungeon.player.hand, true));
+            addToBot(new DrawCardAction(1));
 
-            this.flash();
-            this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            flash();
+            addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 
-            this.decrementCounter();
+            decrementCounter();
         }
     }
 

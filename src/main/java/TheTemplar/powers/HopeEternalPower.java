@@ -33,13 +33,13 @@ public class HopeEternalPower extends AbstractPower implements CloneablePowerInt
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
-        this.amount = 0;
+        owner = AbstractDungeon.player;
+        amount = 0;
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
@@ -51,7 +51,7 @@ public class HopeEternalPower extends AbstractPower implements CloneablePowerInt
                 && !card.cardID.equals(HopeEternal.ID)
                 && (card.type == AbstractCard.CardType.ATTACK || card.type == AbstractCard.CardType.SKILL)) {
 
-            this.flash();
+            flash();
             AbstractMonster m = null;
             if (action.target != null) {
                 m = (AbstractMonster) action.target;
@@ -70,13 +70,13 @@ public class HopeEternalPower extends AbstractPower implements CloneablePowerInt
             tmp.purgeOnUse = true;
             AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
 
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, ID));
+            addToBot(new RemoveSpecificPowerAction(owner, owner, ID));
         }
     }
 
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, ID));
+            addToBot(new RemoveSpecificPowerAction(owner, owner, ID));
         }
     }
 

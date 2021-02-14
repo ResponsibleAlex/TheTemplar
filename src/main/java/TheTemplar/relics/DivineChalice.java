@@ -31,11 +31,11 @@ public class DivineChalice extends CustomRelic {
     @Override
     public void atBattleStart() {
         flash();
-        this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 
         AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new ApplyPowerAction(p, p, new RegenPower(p, REGEN), REGEN));
-        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, STRENGTH), STRENGTH));
+        addToBot(new ApplyPowerAction(p, p, new RegenPower(p, REGEN), REGEN));
+        addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, STRENGTH), STRENGTH));
     }
 
     // Description

@@ -1,11 +1,11 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
+import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
@@ -35,7 +35,7 @@ public class Innervate extends AbstractDynamicCard {
 
     public Innervate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.blessing = true;
+        isBlessing = true;
     }
 
 
@@ -44,15 +44,15 @@ public class Innervate extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int amt = 1;
 
-        if (this.triggerBlessing()) {
+        if (triggerBlessing()) {
             amt++;
 
-            if (this.upgraded) {
+            if (upgraded) {
                 amt++;
             }
         }
 
-        this.addToBot(new GainEnergyAction(amt));
+        addToBot(new GainEnergyAction(amt));
     }
 
 

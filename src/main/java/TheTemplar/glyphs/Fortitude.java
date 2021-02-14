@@ -21,12 +21,12 @@ public class Fortitude extends AbstractGlyph {
 
     @Override
     public void trigger() {
-        this.addToBot(new GlyphAboveCreatureAction(p, this));
+        addToBot(new GlyphAboveCreatureAction(p, this));
         int amt = TRIGGER;
         if (p.hasPower(ResoluteWillPower.POWER_ID)) {
             amt += p.getPower(ResoluteWillPower.POWER_ID).amount;
         }
-        this.addToTop(new GainBulwarkAction(amt));
+        addToTop(new GainBulwarkAction(amt));
     }
 
     @Override
@@ -35,7 +35,7 @@ public class Fortitude extends AbstractGlyph {
         if (p.hasRelic(RunedArmor.ID)) {
             amt *= 2;
         }
-        this.addToTop(new GainBulwarkAction(amt));
+        addToTop(new GainBulwarkAction(amt));
     }
 
     @Override

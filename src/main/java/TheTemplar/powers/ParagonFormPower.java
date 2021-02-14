@@ -26,7 +26,7 @@ public class ParagonFormPower extends AbstractPower implements CloneablePowerInt
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -34,22 +34,22 @@ public class ParagonFormPower extends AbstractPower implements CloneablePowerInt
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
     }
 
     public void trigger() {
-        this.flash();
-        this.addToBot(new DrawCardAction(this.amount));
+        flash();
+        addToBot(new DrawCardAction(amount));
     }
 
     @Override

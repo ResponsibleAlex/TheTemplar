@@ -54,7 +54,7 @@ public class DesperatePrayerAction extends AbstractGameAction {
 
     private void setDesperatePrayer(AbstractCard c) {
         if (c instanceof AbstractDynamicCard) {
-            ((AbstractDynamicCard) c).triggerNextBlessing = true;
+            ((AbstractDynamicCard) c).isTriggerNextBlessing = true;
         }
 
         if (isSetCost) {

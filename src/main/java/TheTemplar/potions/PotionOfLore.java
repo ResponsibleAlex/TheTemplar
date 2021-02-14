@@ -30,7 +30,7 @@ public class PotionOfLore extends CustomPotion {
 
     public PotionOfLore() {
         super(NAME, POTION_ID, PotionRarity.COMMON, PotionSize.S, PotionColor.WHITE);
-        this.isThrown = false;
+        isThrown = false;
     }
 
     public void initializeData() {
@@ -49,7 +49,7 @@ public class PotionOfLore extends CustomPotion {
     @Override
     public void use(AbstractCreature target) {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.addToBot(new GlyphChoiceAction(this.potency));
+            addToBot(new GlyphChoiceAction(potency));
         }
     }
     

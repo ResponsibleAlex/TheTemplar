@@ -1,12 +1,12 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
+import TheTemplar.characters.TheTemplar;
 import TheTemplar.powers.GallantryPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -45,7 +45,7 @@ public class Gallantry extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p,
+        addToBot(new ApplyPowerAction(p, p,
                 new GallantryPower(magicNumber), magicNumber));
     }
 

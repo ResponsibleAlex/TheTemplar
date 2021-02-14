@@ -4,22 +4,24 @@ import TheTemplar.TemplarMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
+import java.util.stream.IntStream;
+
 public class LionheartAction extends AbstractGameAction {
 
     private final AbstractCard card;
 
     public LionheartAction(AbstractCard card) {
         this.card = card;
-        this.actionType = ActionType.DAMAGE;
+        actionType = ActionType.DAMAGE;
     }
 
     public void update() {
-        if (!this.isDone) {
-            for (int i = 0; i < TemplarMod.glyphsInscribedThisCombat; i++) {
-                this.addToBot(new LionheartAttackAction(this.card));
-            }
+        if (!isDone) {
+            IntStream.range(0, TemplarMod.glyphsInscribedThisCombat)
+                     .mapToObj(i -> new LionheartAttackAction(card))
+                     .forEach(this::addToBot);
 
-            this.isDone = true;
+            isDone = true;
         }
     }
 }

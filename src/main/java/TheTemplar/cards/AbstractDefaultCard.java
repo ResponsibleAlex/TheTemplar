@@ -1,4 +1,5 @@
 package TheTemplar.cards;
+
 import basemod.abstracts.CustomCard;
 
 public abstract class AbstractDefaultCard extends CustomCard {

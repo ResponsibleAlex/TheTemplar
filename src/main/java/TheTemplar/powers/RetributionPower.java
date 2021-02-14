@@ -29,7 +29,7 @@ public class RetributionPower extends AbstractPower implements CloneablePowerInt
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -37,25 +37,25 @@ public class RetributionPower extends AbstractPower implements CloneablePowerInt
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
     }
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && damageAmount > 0) {
-            this.flash();
-            this.addToTop(new ApplyPowerAction(owner, owner, new ThornsPower(owner, amount), amount));
-            this.addToBot(new GainBulwarkAction(amount));
+        if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != owner && damageAmount > 0) {
+            flash();
+            addToTop(new ApplyPowerAction(owner, owner, new ThornsPower(owner, amount), amount));
+            addToBot(new GainBulwarkAction(amount));
         }
 
         return damageAmount;

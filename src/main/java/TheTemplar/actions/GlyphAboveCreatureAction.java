@@ -12,19 +12,19 @@ public class GlyphAboveCreatureAction extends AbstractGameAction {
     private final AbstractGlyph glyph;
 
     public GlyphAboveCreatureAction(AbstractCreature target, AbstractGlyph glyph) {
-        this.setValues(target, AbstractDungeon.player);
+        setValues(target, AbstractDungeon.player);
         this.glyph = glyph;
-        this.actionType = ActionType.TEXT;
-        this.duration = Settings.ACTION_DUR_XFAST;
+        actionType = ActionType.TEXT;
+        duration = Settings.ACTION_DUR_XFAST;
     }
 
     @Override
     public void update() {
-        if (!this.used) {
-            AbstractDungeon.effectList.add(new GlyphAboveCreatureEffect(this.target, this.glyph));
-            this.used = true;
+        if (!used) {
+            AbstractDungeon.effectList.add(new GlyphAboveCreatureEffect(target, glyph));
+            used = true;
         }
 
-        this.tickDuration();
+        tickDuration();
     }
 }

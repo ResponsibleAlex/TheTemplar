@@ -26,7 +26,7 @@ public class GallantryPower extends AbstractPower implements CloneablePowerInter
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -34,27 +34,27 @@ public class GallantryPower extends AbstractPower implements CloneablePowerInter
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
     }
 
     @Override
     public void atStartOfTurn() {
         if (TemplarMod.areAnyEmpowered()) {
-            this.flash();
-            this.addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
-            this.addToBot(new ApplyPowerAction(owner, owner, new LoseStrengthPower(owner, amount), amount));
-            this.addToBot(new ApplyPowerAction(owner, owner, new DexterityPower(owner, amount), amount));
-            this.addToBot(new ApplyPowerAction(owner, owner, new LoseDexterityPower(owner, amount), amount));
+            flash();
+            addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, amount), amount));
+            addToBot(new ApplyPowerAction(owner, owner, new LoseStrengthPower(owner, amount), amount));
+            addToBot(new ApplyPowerAction(owner, owner, new DexterityPower(owner, amount), amount));
+            addToBot(new ApplyPowerAction(owner, owner, new LoseDexterityPower(owner, amount), amount));
         }
     }
 

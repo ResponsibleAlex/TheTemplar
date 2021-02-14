@@ -1,13 +1,13 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
+import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.powers.MetallicizePower;
 
 import static TheTemplar.TemplarMod.makeCardPath;
@@ -44,18 +44,18 @@ public class Respite extends AbstractDynamicCard {
         baseBlock = BLOCK;
         magicNumber = baseMagicNumber = METALLICIZE;
 
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster unused) {
-        this.addToBot(new GainBlockAction(p, p, block));
+        addToBot(new GainBlockAction(p, p, block));
 
-        for (AbstractMonster m: AbstractDungeon.getMonsters().monsters) {
-            if(!m.isDeadOrEscaped()) {
-                this.addToBot(new ApplyPowerAction(m, m, new MetallicizePower(m, this.magicNumber), this.magicNumber));
+        for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+            if (!m.isDeadOrEscaped()) {
+                addToBot(new ApplyPowerAction(m, m, new MetallicizePower(m, magicNumber), magicNumber));
             }
         }
     }

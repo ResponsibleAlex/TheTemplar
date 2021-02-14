@@ -1,5 +1,7 @@
 package TheTemplar.cards;
 
+import TheTemplar.TemplarMod;
+import TheTemplar.characters.TheTemplar;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -8,8 +10,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import TheTemplar.TemplarMod;
-import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -51,11 +51,12 @@ public class Radiance extends AbstractBaseValuesCard {
                 + countBlessingPile(AbstractDungeon.player.discardPile)
                 + countBlessingPile(AbstractDungeon.player.drawPile);
     }
+
     private int countBlessingPile(CardGroup group) {
         int x = 0;
         for (AbstractCard c : group.group) {
             if (c instanceof AbstractDynamicCard) {
-                if (((AbstractDynamicCard)c).blessing) {
+                if (((AbstractDynamicCard) c).isBlessing) {
                     x++;
                 }
             }
@@ -65,13 +66,13 @@ public class Radiance extends AbstractBaseValuesCard {
 
     @Override
     protected int increaseBaseDamage() {
-        return this.magicNumber * countBlessingCards();
+        return magicNumber * countBlessingCards();
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
     }
 
     // Upgraded stats.

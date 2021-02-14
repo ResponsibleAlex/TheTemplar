@@ -12,9 +12,8 @@ public class GlyphTriggerAction extends AbstractGameAction {
     @Override
     public void update() {
         AbstractGlyph.triggerGlyphs();
-        this.addToTop(new GlyphRemoveAction());
+        addToTop(new GlyphRemoveAction());
 
-        this.isDone = true;
+        isDone = true;
     }
-
 }

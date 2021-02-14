@@ -22,8 +22,8 @@ public class Valor extends AbstractGlyph {
 
     @Override
     public void trigger() {
-        this.addToTop(new GlyphAboveCreatureAction(p, this));
-        this.addToTop(new ApplyPowerAction(p, p, new VigorPower(p, TRIGGER), TRIGGER, true));
+        addToTop(new GlyphAboveCreatureAction(p, this));
+        addToTop(new ApplyPowerAction(p, p, new VigorPower(p, TRIGGER), TRIGGER, true));
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Valor extends AbstractGlyph {
         if (p.hasRelic(RunedArmor.ID)) {
             amt *= 2;
         }
-        this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, amt), amt));
+        addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, amt), amt));
     }
 
     @Override
