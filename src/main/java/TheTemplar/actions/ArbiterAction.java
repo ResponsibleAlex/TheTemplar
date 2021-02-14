@@ -24,7 +24,7 @@ public class ArbiterAction extends AbstractGameAction {
         this.isFreePlayOnce = isFreePlayOnce;
         this.energyOnUse = energyOnUse;
         this.isUpgraded = isUpgraded;
-        this.dmgAction = damageAllEnemiesAction;
+        dmgAction = damageAllEnemiesAction;
     }
 
     public void update() {

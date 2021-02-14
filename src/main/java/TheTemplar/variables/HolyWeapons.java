@@ -1,5 +1,6 @@
 package TheTemplar.variables;
 
+//TODO Let's look at making this an enum
 public abstract class HolyWeapons {
     public static final String Default = "Mace";
     public static final String Aegis = "Aegis";
@@ -9,7 +10,11 @@ public abstract class HolyWeapons {
     public static final String Book = "Book";
 
     private static String equipped = Default;
-    public static String GetEquipped() { return equipped; }
+
+    public static String GetEquipped() {
+        return equipped;
+    }
+
     public static void SetEquipped(String newWeapon) {
         equipped = newWeapon;
     }
