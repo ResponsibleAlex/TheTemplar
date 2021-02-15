@@ -95,7 +95,6 @@ TheTemplar\actions\TemperanceAction.class
 TheTemplar\actions\ThrillOfBattleAction.class
 TheTemplar\patches\DamageAllEnemiesActionPatch$DamageAllEnemiesActionConstructor.class
 TheTemplar\powers\BulwarkPower.class
-TheTemplar\actions\LionheartAction.class
 TheTemplar\patches\AbstractPlayerPatch$ApplyStartOfTurnRelics.class
 TheTemplar\powers\AegisPower.class
 TheTemplar\cards\Radiance.class
@@ -108,7 +107,6 @@ TheTemplar\cards\ThrillOfBattle.class
 TheTemplar\patches\relics\BottledQuicksilverPatch$MakeStatEquivalentCopy.class
 TheTemplar\powers\GallantryPower.class
 TheTemplar\glyphs\Justice.class
-TheTemplar\events\IdentityCrisisEvent.class
 TheTemplar\cards\Altar.class
 TheTemplar\patches\AbstractMonsterPatch.class
 TheTemplar\actions\DevotedStrikeAction.class

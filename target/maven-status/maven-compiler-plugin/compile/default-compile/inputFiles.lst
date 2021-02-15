@@ -50,7 +50,6 @@ C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\glyphs\Valor.jav
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\relics\FightersRing.java
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\cards\Altar.java
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\actions\GlyphRemoveAction.java
-C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\actions\LionheartAction.java
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\powers\BulwarkPower.java
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\variables\GlyphTypes.java
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\cards\AbstractBaseValuesCard.java
@@ -153,7 +152,6 @@ C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\util\IDCheckDont
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\cards\Squire.java
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\patches\DamageActionPatch.java
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\cards\ShieldBash.java
-C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\events\IdentityCrisisEvent.java
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\cards\Radiance.java
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\powers\ProtectiveBlessingPower.java
 C:\Users\alexa\source\repos\TheTemplar\src\main\java\TheTemplar\relics\BottledQuicksilver.java

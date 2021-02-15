@@ -62,7 +62,7 @@
     "NAME": "Word of Power",
     "DESCRIPTION": "Deal !D! damage. NL Draw 1 card for each unique glyph type thetemplar:Inscribed this combat.",
     "EXTENDED_DESCRIPTION": [
-      " NL (draw !M! cards.)"
+      " NL (Draw !M! cards.)"
     ]
   },
   "TheTemplar:BladesOfTheFallen": {
@@ -106,7 +106,7 @@
     "DESCRIPTION": "Deal !D! damage to a random enemy for each thetemplar:Valor thetemplar:Inscribed this combat.",
     "UPGRADE_DESCRIPTION": "thetemplar:Inscribe 1 thetemplar:Valor. NL ",
     "EXTENDED_DESCRIPTION": [
-      " NL (hit !M! times.)"
+      " NL (Hits !M! times.)"
     ]
   },
   "TheTemplar:Avenger": {

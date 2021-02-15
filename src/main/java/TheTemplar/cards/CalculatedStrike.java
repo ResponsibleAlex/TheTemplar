@@ -1,6 +1,5 @@
 package TheTemplar.cards;
 
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -56,12 +55,29 @@ public class CalculatedStrike extends AbstractDynamicCard {
     }
 
     private boolean onlyAttackInHand() {
+        int expected;
+        if (AbstractDungeon.player.hand.contains(this)) {
+            // playing from hand, normal case
+            expected = 1;
+        } else {
+            // playing from limbo, not in hand
+            expected = 0;
+        }
+
+        int count = 0;
         for (AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (c.type == CardType.ATTACK) {
+            if (c.uuid == this.uuid) {
+                // first check if uuid matches. We need to ignore this card
+                // but still account for duplicated cards.
+                count++;
+            } else if (c.type == CardType.ATTACK) {
+                // we found a different attack, return false
                 return false;
             }
         }
-        return true;
+
+        // we didn't find any other attacks, make sure the count matches expected
+        return count == expected;
     }
 
     @Override

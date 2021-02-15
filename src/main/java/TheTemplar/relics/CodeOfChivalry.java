@@ -24,7 +24,7 @@ public class CodeOfChivalry extends CustomRelic {
     }
 
     @Override
-    public void atBattleStart() {
+    public void atBattleStartPreDraw() {
         flash();
         this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 

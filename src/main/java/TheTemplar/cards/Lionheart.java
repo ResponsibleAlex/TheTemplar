@@ -1,7 +1,7 @@
 package TheTemplar.cards;
 
 import TheTemplar.actions.GlyphInscribeAction;
-import TheTemplar.actions.LionheartAction;
+import TheTemplar.actions.LionheartAttackAction;
 import TheTemplar.glyphs.Valor;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -48,11 +48,15 @@ public class Lionheart extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        int times = TemplarMod.valorInscribedThisCombat;
         if (this.upgraded) {
             this.addToBot(new GlyphInscribeAction(new Valor()));
+            times++;
         }
 
-        this.addToBot(new LionheartAction(this));
+        for (int i = 0; i < times; i++) {
+            this.addToBot(new LionheartAttackAction(this));
+        }
     }
 
     public void applyPowers() {
@@ -62,6 +66,11 @@ public class Lionheart extends AbstractDynamicCard {
 
     public void calculateCardDamage(AbstractMonster m) {
         super.calculateCardDamage(m);
+        this.setDescription(true);
+    }
+
+    @Override
+    public void atTurnStart() {
         this.setDescription(true);
     }
 

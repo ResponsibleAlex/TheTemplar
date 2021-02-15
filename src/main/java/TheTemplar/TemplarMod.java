@@ -9,7 +9,6 @@ import TheTemplar.variables.HolyWeapons;
 import TheTemplar.vfx.FlashCustomAttackEffect;
 import TheTemplar.vfx.BookEffect;
 import basemod.*;
-import basemod.eventUtil.AddEventParams;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -20,12 +19,10 @@ import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
@@ -39,7 +36,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import TheTemplar.cards.*;
 import TheTemplar.characters.TheTemplar;
-import TheTemplar.events.IdentityCrisisEvent;
 import TheTemplar.potions.PotionOfLore;
 import TheTemplar.util.IDCheckDontTouchPls;
 import TheTemplar.util.TextureLoader;
@@ -172,10 +168,10 @@ public class TemplarMod implements
     public static String makePowerPath(String resourcePath) {
         return getModID() + "Resources/images/powers/" + resourcePath;
     }
-    
-    public static String makeEventPath(String resourcePath) {
+
+    /*public static String makeEventPath(String resourcePath) {
         return getModID() + "Resources/images/events/" + resourcePath;
-    }
+    }*/
     
     // =============== /MAKE IMAGE PATHS/ =================
     
@@ -364,13 +360,13 @@ public class TemplarMod implements
 
         // Create a new event builder
         // Since this is a builder these method calls (outside of create()) can be skipped/added as necessary
-        AddEventParams eventParams = new AddEventParams.Builder(IdentityCrisisEvent.ID, IdentityCrisisEvent.class) // for this specific event
+        /*AddEventParams eventParams = new AddEventParams.Builder(IdentityCrisisEvent.ID, IdentityCrisisEvent.class) // for this specific event
             .dungeonID(TheCity.ID) // The dungeon (act) this event will appear in
             .playerClass(TheTemplar.Enums.THE_TEMPLAR) // Character specific event
             .create();
 
         // Add the event
-        BaseMod.addEvent(eventParams);
+        BaseMod.addEvent(eventParams);*/
 
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
@@ -609,8 +605,8 @@ public class TemplarMod implements
             }
         }
 
-        AbstractDungeon.actionManager.addToBottom(
-                new VFXAction(new FlashCustomAttackEffect(x, y, HolyWeapons.GetEquipped(), playSound)));
+        AbstractDungeon.effectList.add(
+                new FlashCustomAttackEffect(x, y, HolyWeapons.GetEquipped(), playSound));
     }
 
     public static void flashCustomAttackAllEffect() {

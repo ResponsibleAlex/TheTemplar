@@ -66,6 +66,11 @@ public class WordOfPower extends AbstractDynamicCard {
         this.setDescription(true);
     }
 
+    @Override
+    public void atTurnStart() {
+        this.setDescription(true);
+    }
+
     public void onMoveToDiscard() {
         this.setDescription(false);
     }

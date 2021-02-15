@@ -10,8 +10,7 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 public class LionheartAttackAction extends AttackDamageRandomEnemyAction {
 
     public LionheartAttackAction(AbstractCard card) {
-        super(card);
-        this.attackEffect = AttackEffect.FIRE;
+        super(card, AttackEffect.FIRE);
     }
 
     public void update() {
@@ -20,8 +19,5 @@ public class LionheartAttackAction extends AttackDamageRandomEnemyAction {
         }
 
         super.update();
-        if (this.target != null) {
-            this.addToTop(new VFXAction(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, this.attackEffect)));
-        }
     }
 }
