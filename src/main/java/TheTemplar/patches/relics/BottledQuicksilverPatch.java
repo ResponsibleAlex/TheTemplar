@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 @SuppressWarnings("unused")
 @SpirePatch(clz = AbstractCard.class, method = SpirePatch.CLASS)
 public class BottledQuicksilverPatch {
-    public static SpireField<Boolean> inBottledQuicksilver = new SpireField<>(() -> false);
+    public static final SpireField<Boolean> inBottledQuicksilver = new SpireField<>(() -> false);
 
     @SpirePatch(clz = AbstractCard.class, method = "makeStatEquivalentCopy")
     public static class MakeStatEquivalentCopy {

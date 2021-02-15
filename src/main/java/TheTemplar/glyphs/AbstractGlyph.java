@@ -24,23 +24,23 @@ public abstract class AbstractGlyph {
     private static AbstractGlyph LeftGlyph;
     private static AbstractGlyph RightGlyph;
 
-    public String name;
-    public String description;
+    public final String name;
+    public final String description;
     public float cX = 0.0F;
     public float cY = 0.0F;
-    protected Color c;
-    protected Color shineColor;
-    protected Color glowColor;
+    protected final Color c;
+    protected final Color shineColor;
+    protected final Color glowColor;
 
     protected static final float SIZE = 130.0F;
     protected static final float PCT_35_SIZE = SIZE * 0.35F;
     protected static final float HALF_SIZE = SIZE / 2.0F;
     protected static final float THREE_QTR_SIZE = SIZE * 3.0F / 4.0F;
 
-    public Hitbox hb;
-    protected AbstractPlayer p;
-    protected Texture img;
-    public Texture glowImg;
+    public final Hitbox hb;
+    protected final AbstractPlayer p;
+    protected final Texture img;
+    public final Texture glowImg;
 
     protected float scaleOffset;
     public static final float INSCRIBE_TIME = 0.5F;

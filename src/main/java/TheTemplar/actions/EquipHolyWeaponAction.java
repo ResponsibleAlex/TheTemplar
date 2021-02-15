@@ -13,70 +13,78 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class EquipHolyWeaponAction extends AbstractGameAction {
-    private final String newWeapon;
-    private final boolean upgraded;
-    private final boolean sameWeapon;
-    private final AbstractPlayer p;
+    private final String weapon;
+    private final boolean isUpgraded;
+    private final boolean isSameWeapon;
+    private final AbstractPlayer player;
 
-    public EquipHolyWeaponAction(String holyWeapon, boolean upgraded) {
-        this.newWeapon = holyWeapon;
-        this.sameWeapon = HolyWeapons.IsEquipped(holyWeapon);
-        this.upgraded = upgraded;
+    public EquipHolyWeaponAction(String holyWeapon, boolean isUpgraded) {
+        weapon = holyWeapon;
+        isSameWeapon = HolyWeapons.IsEquipped(holyWeapon);
+        this.isUpgraded = isUpgraded;
 
-        this.p = AbstractDungeon.player;
-        this.actionType = ActionType.SPECIAL;
-        this.duration = this.startDuration = .5f;
+        player = AbstractDungeon.player;
+        actionType = ActionType.SPECIAL;
+        duration = .5f;
+        startDuration = .5f;
     }
 
     public void update() {
-        if (this.duration == this.startDuration) {
+        if (duration == startDuration) {
             AbstractDungeon.effectsQueue.add(new HolyWeaponEquipEffect());
         }
 
-        this.duration -= Gdx.graphics.getDeltaTime();
-        if (this.duration <= 0.0F) {
-            TemplarMod.setHolyWeapon(newWeapon);
-            this.setPower();
+        duration -= Gdx.graphics.getDeltaTime();
+        if (duration <= 0.0F) {
+            TemplarMod.setHolyWeapon(weapon);
+            setPower();
 
-            this.isDone = true;
+            isDone = true;
         }
     }
 
     private void setPower() {
-        switch (this.newWeapon) {
+        switch (weapon) {
             case HolyWeapons.Sword:
-                this.setPower(new KingSwordPower(this.upgraded));
+                setPower(new KingSwordPower(isUpgraded));
                 break;
             case HolyWeapons.Hammer:
-                this.setPower(new SacredHammerPower(this.upgraded));
+                setPower(new SacredHammerPower(isUpgraded));
                 break;
             case HolyWeapons.Aegis:
-                this.setPower(new AegisPower(this.upgraded));
+                setPower(new AegisPower(isUpgraded));
                 break;
             case HolyWeapons.Torch:
-                this.setPower(new FlameOfHeavenPower(this.upgraded));
+                setPower(new FlameOfHeavenPower(isUpgraded));
                 break;
             case HolyWeapons.Book:
-                this.setPower(new BookOfTheFivePower());
+                setPower(new BookOfTheFivePower());
                 break;
+            default:
+                throw new RuntimeException("Unknown weapon: " + weapon);
         }
     }
+
     private void setPower(HolyWeaponPower power) {
-        if (this.sameWeapon) {
-            HolyWeaponPower current = (HolyWeaponPower) p.getPower(power.ID);
-            current.refresh(this.upgraded);
+        if (isSameWeapon) {
+            HolyWeaponPower current = (HolyWeaponPower) player.getPower(power.ID);
+            current.refresh(isUpgraded);
             current.flash();
         } else {
-            this.removePowers();
-            this.addToBot(new ApplyPowerAction(this.p, this.p, power, 0));
+            removePowers();
+            addToBot(new ApplyPowerAction(player, player, power, 0));
         }
     }
 
     private void removePowers() {
-        this.addToBot(new RemoveSpecificPowerAction(this.p, this.p, SacredHammerPower.POWER_ID));
-        this.addToBot(new RemoveSpecificPowerAction(this.p, this.p, FlameOfHeavenPower.POWER_ID));
-        this.addToBot(new RemoveSpecificPowerAction(this.p, this.p, KingSwordPower.POWER_ID));
-        this.addToBot(new RemoveSpecificPowerAction(this.p, this.p, AegisPower.POWER_ID));
-        this.addToBot(new RemoveSpecificPowerAction(this.p, this.p, BookOfTheFivePower.POWER_ID));
+        addToBot(buildRemovePowerAction(SacredHammerPower.POWER_ID));
+        addToBot(buildRemovePowerAction(FlameOfHeavenPower.POWER_ID));
+        addToBot(buildRemovePowerAction(KingSwordPower.POWER_ID));
+        addToBot(buildRemovePowerAction(AegisPower.POWER_ID));
+        addToBot(buildRemovePowerAction(BookOfTheFivePower.POWER_ID));
+    }
+
+    private RemoveSpecificPowerAction buildRemovePowerAction(String powerId) {
+        return new RemoveSpecificPowerAction(player, player, powerId);
     }
 }
