@@ -66,13 +66,9 @@ public class CalculatedStrike extends AbstractDynamicCard {
 
         int count = 0;
         for (AbstractCard c : AbstractDungeon.player.hand.group) {
-            if (c.uuid == this.uuid) {
-                // first check if uuid matches. We need to ignore this card
-                // but still account for duplicated cards.
-                count++;
-            } else if (c.type == CardType.ATTACK) {
+            if (c.type == CardType.ATTACK) {
                 // we found a different attack, return false
-                return false;
+                count++;
             }
         }
 
