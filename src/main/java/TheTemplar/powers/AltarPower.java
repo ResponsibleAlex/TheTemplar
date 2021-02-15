@@ -1,7 +1,9 @@
 package TheTemplar.powers;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.actions.GlyphInscribeAction;
 import TheTemplar.glyphs.AbstractGlyph;
+import TheTemplar.util.TextureLoader;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -9,10 +11,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import TheTemplar.TemplarMod;
-import TheTemplar.util.TextureLoader;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 import static TheTemplar.TemplarMod.makePowerPath;
 
@@ -55,12 +56,12 @@ public class AltarPower extends AbstractPower implements CloneablePowerInterface
         if (AbstractGlyph.canMatch()) {
             this.flash();
 
-            Stack<AbstractGlyph> glyphs = new Stack<>();
+            Deque<AbstractGlyph> glyphs = new ArrayDeque<>();
             for (int i = 0; i < amount; i++) {
                 glyphs.push(AbstractGlyph.getCopyOfLeftGlyph());
             }
 
-            while (!glyphs.empty()) {
+            while (!glyphs.isEmpty()) {
                 this.addToBot(new GlyphInscribeAction(glyphs.pop()));
             }
         }

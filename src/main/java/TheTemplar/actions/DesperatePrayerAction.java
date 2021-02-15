@@ -7,55 +7,45 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import java.util.ArrayList;
-
 public class DesperatePrayerAction extends AbstractGameAction {
-    private final boolean setCost;
-    private final AbstractPlayer p;
-    private final String text;
+    private final boolean isSetCost;
+    private final AbstractPlayer player;
+    private final String cardText;
 
-    public DesperatePrayerAction(boolean upgraded, String chooseACardText) {
-        this.text = chooseACardText;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
-        this.p = AbstractDungeon.player;
-        this.setCost = upgraded;
+    public DesperatePrayerAction(boolean isSetCost, String chooseACardText) {
+        cardText = chooseACardText;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = startDuration = Settings.ACTION_DUR_FAST;
+        player = AbstractDungeon.player;
+        this.isSetCost = isSetCost;
     }
 
     public void update() {
         if (duration == startDuration) {
-            if (this.p.hand.isEmpty()) {
-                this.isDone = true;
-            } else if (1 == p.hand.group.size()) {
+            if (player.hand.isEmpty()) {
+                isDone = true;
+            } else if (1 == player.hand.group.size()) {
                 // only 1 card
-                AbstractCard c = this.p.hand.getTopCard();
-                this.setDesperatePrayer(c);
-                this.isDone = true;
+                setDesperatePrayer(player.hand.getTopCard());
+                isDone = true;
             } else {
-                AbstractDungeon.handCardSelectScreen.open(text, 1, false, false, false, false);
+                AbstractDungeon.handCardSelectScreen.open(cardText, 1, false, false, false, false);
                 tickDuration();
             }
         } else {
-
             if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
                 AbstractCard chosen = AbstractDungeon.handCardSelectScreen.selectedCards.getTopCard();
-                this.setDesperatePrayer(chosen);
+                setDesperatePrayer(chosen);
 
                 AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
                 AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
 
-                ArrayList<AbstractCard> others = new ArrayList<>();
-                for (AbstractCard c : this.p.hand.group) {
-                    if (c.uuid != chosen.uuid) {
-                        others.add(c);
-                    }
-                }
-                for (AbstractCard c : others) {
-                    this.p.hand.moveToDiscardPile(c);
-                }
+                player.hand.group.stream()
+                                 .filter(c -> c.uuid != chosen.uuid)
+                                 .forEach(c -> player.hand.moveToDiscardPile(c));
 
-                this.p.hand.addToTop(chosen);
-                this.p.hand.refreshHandLayout();
+                player.hand.addToTop(chosen);
+                player.hand.refreshHandLayout();
             }
 
             tickDuration();
@@ -64,10 +54,10 @@ public class DesperatePrayerAction extends AbstractGameAction {
 
     private void setDesperatePrayer(AbstractCard c) {
         if (c instanceof AbstractDynamicCard) {
-            ((AbstractDynamicCard)c).triggerNextBlessing = true;
+            ((AbstractDynamicCard) c).triggerNextBlessing = true;
         }
 
-        if (this.setCost) {
+        if (isSetCost) {
             c.setCostForTurn(0);
         }
 

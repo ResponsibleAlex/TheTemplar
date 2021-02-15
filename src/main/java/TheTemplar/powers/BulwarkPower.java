@@ -17,8 +17,8 @@ import TheTemplar.util.TextureLoader;
 import static TheTemplar.TemplarMod.makePowerPath;
 
 public class BulwarkPower extends AbstractPower implements CloneablePowerInterface {
-    public AbstractCreature source;
-    public AbstractPlayer p;
+    public final AbstractCreature source;
+    public final AbstractPlayer p;
 
     public static final String POWER_ID = TemplarMod.makeID("BulwarkPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);

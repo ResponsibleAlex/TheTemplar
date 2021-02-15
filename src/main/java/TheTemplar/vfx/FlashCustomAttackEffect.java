@@ -17,7 +17,7 @@ import static TheTemplar.TemplarMod.makeVfxPath;
 public class FlashCustomAttackEffect extends AbstractGameEffect {
     private final static HashMap<String, Texture> TEXTURES = InitTextures();
 
-    public Texture img;
+    public final Texture img;
     private final float width;
     private final float height;
     private float x;

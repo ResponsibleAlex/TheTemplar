@@ -2,33 +2,30 @@ package TheTemplar.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class DevotedStrikeAction extends AbstractGameAction {
     public DevotedStrikeAction() {
-        this.duration = this.startDuration = Settings.ACTION_DUR_XFAST;
-        this.actionType = ActionType.SPECIAL;
+        duration = startDuration = Settings.ACTION_DUR_XFAST;
+        actionType = ActionType.SPECIAL;
     }
 
     public void update() {
-        if (this.duration == this.startDuration) {
-            ArrayList<AbstractCard> eligibleCards = new ArrayList<>();
+        if (duration == startDuration) {
+            List<AbstractCard> eligibleCards = AbstractDungeon.player.hand.group.stream()
+                                                                                .filter(c -> c.cost > 0)
+                                                                                .filter(c -> c.costForTurn > 0)
+                                                                                .filter(c -> !c.freeToPlayOnce)
+                                                                                .collect(Collectors.toList());
 
-            for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                if (c.cost > 0 && c.costForTurn > 0 && !c.freeToPlayOnce) {
-                    eligibleCards.add(c);
-                }
-            }
-
-            for (CardQueueItem cqi : AbstractDungeon.actionManager.cardQueue) {
-                if (cqi.card != null) {
-                    eligibleCards.remove(cqi.card);
-                }
-            }
+            AbstractDungeon.actionManager.cardQueue.stream()
+                                                   .filter(cqi -> cqi.card != null)
+                                                   .map(cqi -> cqi.card)
+                                                   .forEach(eligibleCards::remove);
 
             if (!eligibleCards.isEmpty()) {
                 AbstractCard c = eligibleCards.get(AbstractDungeon.cardRandomRng.random(0, eligibleCards.size() - 1));
@@ -37,6 +34,6 @@ public class DevotedStrikeAction extends AbstractGameAction {
             }
         }
 
-        this.tickDuration();
+        tickDuration();
     }
 }
