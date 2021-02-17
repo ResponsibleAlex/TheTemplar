@@ -27,8 +27,8 @@
     "NAME": "Wait for an Opening",
     "DESCRIPTION": "Deal !D! damage. NL If the enemy does NOT intend to attack, deal !D! damage again."
   },
-  "TheTemplar:SweepingBlow": {
-    "NAME": "Sweeping Blow",
+  "TheTemplar:RecklessSweep": {
+    "NAME": "Reckless Sweep",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL thetemplar:Inscribe 1 thetemplar:Zeal. NL Gain !M! Frail."
   },
   "TheTemplar:CourageousAttack": {
@@ -256,7 +256,8 @@
   },
   "TheTemplar:StaggeringAwe": {
     "NAME": "Staggering Awe",
-    "DESCRIPTION": "Stun the enemy. NL Exhaust."
+    "DESCRIPTION": "Stun the enemy. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remove all Artifact from the enemy, then Stun it. NL Exhaust."
   },
   "TheTemplar:Squire": {
     "NAME": "Squire",
@@ -319,7 +320,8 @@
   },
   "TheTemplar:KingSword": {
     "NAME": "King Sword",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal 25% more damage. Whenever you play an Attack, deal !M! to ALL enemies."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal 25% more damage. Whenever you play an Attack, deal !M! to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal 50% more damage. Whenever you play an Attack, deal !M! to ALL enemies."
   },
   "TheTemplar:Aegis": {
     "NAME": "Aegis",

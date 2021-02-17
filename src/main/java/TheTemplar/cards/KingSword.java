@@ -9,6 +9,7 @@ import TheTemplar.TemplarMod;
 import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
+import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 @SuppressWarnings("unused")
 public class KingSword extends AbstractDynamicCard {
@@ -55,6 +56,7 @@ public class KingSword extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_ALL);
+            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

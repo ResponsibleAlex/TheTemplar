@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.RegenPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -22,7 +23,7 @@ public class DivineChalice extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("DivineChalice.png"));
 
     private static final int REGEN = 3;
-    private static final int STRENGTH = 1;
+    private static final int STR_DEX = 1;
 
     public DivineChalice() {
         super(ID, IMG, OUTLINE, RelicTier.BOSS, LandingSound.CLINK);
@@ -35,7 +36,8 @@ public class DivineChalice extends CustomRelic {
 
         AbstractPlayer p = AbstractDungeon.player;
         this.addToBot(new ApplyPowerAction(p, p, new RegenPower(p, REGEN), REGEN));
-        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, STRENGTH), STRENGTH));
+        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, STR_DEX), STR_DEX));
+        this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, STR_DEX), STR_DEX));
     }
 
     // Description

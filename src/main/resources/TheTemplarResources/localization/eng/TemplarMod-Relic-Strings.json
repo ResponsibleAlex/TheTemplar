@@ -10,7 +10,7 @@
     "NAME": "Divine Chalice",
     "FLAVOR": "A cup said to have been touched by the divine, the goal of many great quests.",
     "DESCRIPTIONS": [
-      "Start each combat with #b3 #yRegen and #b1 #yStrength."
+      "Start each combat with #b3 #yRegen, #b1 #yStrength, and #b1 #yDexterity."
     ]
   },
   "TheTemplar:PrayerBeads": {

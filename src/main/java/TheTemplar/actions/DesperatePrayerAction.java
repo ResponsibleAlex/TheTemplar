@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
+import java.util.ArrayList;
+
 public class DesperatePrayerAction extends AbstractGameAction {
     private final boolean isSetCost;
     private final AbstractPlayer player;
@@ -40,9 +42,15 @@ public class DesperatePrayerAction extends AbstractGameAction {
                 AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
                 AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
 
-                player.hand.group.stream()
-                                 .filter(c -> c.uuid != chosen.uuid)
-                                 .forEach(c -> player.hand.moveToDiscardPile(c));
+                ArrayList<AbstractCard> others = new ArrayList<>();
+                for (AbstractCard c : player.hand.group) {
+                    if (c.uuid != chosen.uuid) {
+                        others.add(c);
+                    }
+                }
+                for (AbstractCard c : others) {
+                    player.hand.moveToDiscardPile(c);
+                }
 
                 player.hand.addToTop(chosen);
                 player.hand.refreshHandLayout();

@@ -18,12 +18,12 @@ import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import static TheTemplar.TemplarMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class SweepingBlow extends AbstractDynamicCard {
+public class RecklessSweep extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
-    public static final String ID = TemplarMod.makeID(SweepingBlow.class.getSimpleName());
-    public static final String IMG = makeCardPath(SweepingBlow.class.getSimpleName());
+    public static final String ID = TemplarMod.makeID(RecklessSweep.class.getSimpleName());
+    public static final String IMG = makeCardPath(RecklessSweep.class.getSimpleName());
 
     // /TEXT DECLARATION/
 
@@ -44,7 +44,7 @@ public class SweepingBlow extends AbstractDynamicCard {
     // /STAT DECLARATION/
 
 
-    public SweepingBlow() {
+    public RecklessSweep() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = FRAIL;
@@ -75,6 +75,6 @@ public class SweepingBlow extends AbstractDynamicCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new SweepingBlow();
+        return new RecklessSweep();
     }
 }
