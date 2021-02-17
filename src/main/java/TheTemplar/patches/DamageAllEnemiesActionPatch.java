@@ -15,20 +15,14 @@ public class DamageAllEnemiesActionPatch {
     // a special effect and don't trigger ours.
     @SpirePatch(
             clz = DamageAllEnemiesAction.class,
-            method = SpirePatch.CONSTRUCTOR,
-            paramtypez = {
-                    AbstractCreature.class,
-                    int[].class,
-                    DamageInfo.DamageType.class,
-                    AbstractGameAction.AttackEffect.class,
-                    boolean.class
-            }
+            method = "update"
     )
-    public static class DamageAllEnemiesActionConstructor {
-        public static void Postfix(DamageAllEnemiesAction __instance, AbstractCreature source, int[] amount, DamageInfo.DamageType type, AbstractGameAction.AttackEffect effect, boolean isFast) {
-            if (TemplarMod.shouldUseCustomAttackEffect()
-                    && type == DamageInfo.DamageType.NORMAL
-                    && effect != AbstractGameAction.AttackEffect.NONE) {
+    public static class DamageAllEnemiesActionUpdate {
+        public static void Prefix(DamageAllEnemiesAction __instance, boolean ___firstFrame) {
+            if (___firstFrame &&
+                    TemplarMod.shouldUseCustomAttackEffect() &&
+                    __instance.damageType == DamageInfo.DamageType.NORMAL &&
+                    __instance.attackEffect != AbstractGameAction.AttackEffect.NONE) {
 
                 __instance.attackEffect = AbstractGameAction.AttackEffect.NONE;
                 TemplarMod.flashCustomAttackAllEffect();

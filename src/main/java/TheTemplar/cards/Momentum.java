@@ -31,11 +31,11 @@ public class Momentum extends AbstractBaseValuesCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
 
-    private static final int COST = 1;
+    private static final int COST = 2;
 
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 10;
     private static final int TIMES = 2;
-    private static final int UPGRADE_PLUS_TIMES = 1;
+    private static final int UPGRADE_PLUS_TIMES = 2;
 
     // /STAT DECLARATION/
 

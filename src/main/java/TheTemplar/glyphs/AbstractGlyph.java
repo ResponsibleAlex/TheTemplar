@@ -43,7 +43,7 @@ public abstract class AbstractGlyph {
     public final Texture glowImg;
 
     protected float scaleOffset;
-    public static final float INSCRIBE_TIME = 0.5F;
+    public static final float INSCRIBE_TIME = 0.35F;
     protected float inscribeAnimTimer;
 
     protected static float pulseScale;

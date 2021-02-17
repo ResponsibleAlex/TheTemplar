@@ -1,5 +1,6 @@
 package TheTemplar.actions;
 
+import TheTemplar.TemplarMod;
 import TheTemplar.glyphs.AbstractGlyph;
 import TheTemplar.powers.FlameOfHeavenPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

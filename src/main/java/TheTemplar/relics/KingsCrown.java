@@ -23,6 +23,7 @@ public class KingsCrown extends CustomRelic {
     private static final Texture OUTLINE = TextureLoader.getTexture(makeRelicOutlinePath("KingsCrown.png"));
 
     private boolean pickCard = false;
+    private boolean showBanner = false;
 
     public KingsCrown() {
         super(ID, IMG, OUTLINE, RelicTier.RARE, LandingSound.HEAVY);
@@ -31,13 +32,17 @@ public class KingsCrown extends CustomRelic {
     @Override
     public void update() {
         super.update();
-        if (this.pickCard && !AbstractDungeon.isScreenUp && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+        if (this.pickCard && !AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             this.pickCard = false;
             AbstractCard c = (AbstractDungeon.gridSelectScreen.selectedCards.get(0)).makeCopy();
             c.upgrade();
 
             AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(c, (float) Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
+
+            if (showBanner) {
+                AbstractDungeon.dynamicBanner.appear();
+            }
         }
     }
 
@@ -57,6 +62,10 @@ public class KingsCrown extends CustomRelic {
             cardChoices.addToBottom(choice);
         }
 
+        if (AbstractDungeon.dynamicBanner != null) {
+            showBanner = true;
+            AbstractDungeon.dynamicBanner.hide();
+        }
         AbstractDungeon.gridSelectScreen.open(cardChoices, 1, DESCRIPTIONS[1], false);
     }
 

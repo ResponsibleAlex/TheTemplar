@@ -29,7 +29,7 @@
   },
   "TheTemplar:SweepingBlow": {
     "NAME": "Sweeping Blow",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL thetemplar:Inscribe 1 thetemplar:Zeal. NL Gain 2 Frail."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL thetemplar:Inscribe 1 thetemplar:Zeal. NL Gain !M! Frail."
   },
   "TheTemplar:CourageousAttack": {
     "NAME": "Courageous Attack",

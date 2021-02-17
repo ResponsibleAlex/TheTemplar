@@ -55,7 +55,9 @@ public class FanaticismPower extends AbstractPower implements CloneablePowerInte
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         if (card.type == AbstractCard.CardType.ATTACK) {
             this.flash();
-            this.addToBot(new GlyphInscribeAction(new Zeal()));
+            for (int i = 0; i < this.amount; i++) {
+                this.addToBot(new GlyphInscribeAction(new Zeal()));
+            }
         }
     }
 

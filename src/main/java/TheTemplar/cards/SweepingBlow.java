@@ -38,7 +38,8 @@ public class SweepingBlow extends AbstractDynamicCard {
     private static final int COST = 1;
 
     private static final int DAMAGE = 8;
-    private static final int UPGRADE_PLUS_DMG = 3;
+    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int FRAIL = 1;
 
     // /STAT DECLARATION/
 
@@ -46,6 +47,7 @@ public class SweepingBlow extends AbstractDynamicCard {
     public SweepingBlow() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
+        baseMagicNumber = magicNumber = FRAIL;
     }
 
 
@@ -57,7 +59,7 @@ public class SweepingBlow extends AbstractDynamicCard {
         this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
 
         this.addToBot(new GlyphInscribeAction(new Zeal()));
-        this.addToBot(new ApplyPowerAction(p, p, new FrailPower(p, 2, true), 2));
+        this.addToBot(new ApplyPowerAction(p, p, new FrailPower(p, this.magicNumber, true), 2));
     }
 
 

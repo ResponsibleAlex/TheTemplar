@@ -31,6 +31,7 @@ public class Justice extends AbstractGlyph {
     public void triggerMatchBonus() {
         int amt = MATCH_BONUS;
         if (p.hasRelic(RunedArmor.ID)) {
+            p.getRelic(RunedArmor.ID).flash();
             amt *= 2;
         }
         this.addToTop(new JusticeAction(amt, true, this));
