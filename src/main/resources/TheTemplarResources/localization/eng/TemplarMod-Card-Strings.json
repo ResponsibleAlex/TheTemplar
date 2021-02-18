@@ -157,8 +157,8 @@
   },
   "TheTemplar:Fervor": {
     "NAME": "Fervor",
-    "DESCRIPTION": "Draw !M! card, then Exhaust a card. NL thetemplar:Inscribe 1 thetemplar:Zeal.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards, then Exhaust a card. NL thetemplar:Inscribe 1 thetemplar:Zeal."
+    "DESCRIPTION": "Draw !M! card, then thetemplar:Cleanse 1 card. NL thetemplar:Inscribe 1 thetemplar:Zeal.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards, then thetemplar:Cleanse 1 card. NL thetemplar:Inscribe 1 thetemplar:Zeal."
   },
   "TheTemplar:Rebuke": {
     "NAME": "Rebuke",
@@ -293,7 +293,7 @@
   },
   "TheTemplar:CleansingRite": {
     "NAME": "Cleansing Rite",
-    "DESCRIPTION": "Exhaust 1 random card at the end of your turn. If a card is Exhausted that isn't a Status or Curse, thetemplar:Inscribe 1 thetemplar:Charity."
+    "DESCRIPTION": "At the end of your turn, thetemplar:Cleanse 1 card and gain !M! Vigor."
   },
   "TheTemplar:DivinePurpose": {
     "NAME": "Divine Purpose",

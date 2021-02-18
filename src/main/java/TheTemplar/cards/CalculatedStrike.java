@@ -67,7 +67,6 @@ public class CalculatedStrike extends AbstractDynamicCard {
         int count = 0;
         for (AbstractCard c : AbstractDungeon.player.hand.group) {
             if (c.type == CardType.ATTACK) {
-                // we found a different attack, return false
                 count++;
             }
         }

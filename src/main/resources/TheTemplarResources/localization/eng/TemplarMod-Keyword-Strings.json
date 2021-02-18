@@ -43,6 +43,14 @@
     "DESCRIPTION": "At the end of turn, gain #yBlock equal to your #yBulwark then reduce it by half."
   },
   {
+    "PROPER_NAME": "Cleanse",
+    "NAMES": [
+      "Cleanse",
+      "cleanse"
+    ],
+    "DESCRIPTION": "#yExhaust a random card in your hand. #yCurse and #yStatus cards are prioritized."
+  },
+  {
     "PROPER_NAME": "Holy Weapon",
     "NAMES": [
       "Holy Weapon",

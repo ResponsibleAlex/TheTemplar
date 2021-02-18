@@ -31,14 +31,15 @@ public class CleansingRite extends AbstractDynamicCard {
     private static final int COST = 1;
     private static final int UPGRADED_COST = 0;
 
-    private static final int MAGIC_NUMBER = 1;
+    private static final int CARDS = 1;
+    public static final int VIGOR = 2;
 
     // /STAT DECLARATION/
 
 
     public CleansingRite() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = MAGIC_NUMBER;
+        magicNumber = baseMagicNumber = VIGOR;
     }
 
 
@@ -46,7 +47,7 @@ public class CleansingRite extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new ApplyPowerAction(p, p,
-                new CleansingRitePower(magicNumber), magicNumber));
+                new CleansingRitePower(1), 1));
     }
 
 

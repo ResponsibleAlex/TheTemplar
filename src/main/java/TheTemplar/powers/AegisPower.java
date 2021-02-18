@@ -60,7 +60,7 @@ public class AegisPower extends HolyWeaponPower implements CloneablePowerInterfa
                 && info.owner instanceof AbstractMonster) {
 
             this.flash();
-            int amt = (int) (this.upgraded ? info.output * 0.66 : info.output * 0.33);
+            int amt = (int) (this.upgraded ? Math.ceil(info.output * 0.66) : Math.ceil(info.output * 0.33));
             this.addToTop(new DamageAction(info.owner, new DamageInfo(this.owner, amt, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE, true));
 
         }

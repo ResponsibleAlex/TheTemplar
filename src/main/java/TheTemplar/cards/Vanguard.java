@@ -58,6 +58,11 @@ public class Vanguard extends AbstractDynamicCard {
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
+    public void applyPowers() {
+        this.baseDamage = this.baseBlock = this.misc;
+        super.applyPowers();
+        this.initializeDescription();
+    }
 
     // Upgraded stats.
     @Override
