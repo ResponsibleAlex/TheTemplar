@@ -157,8 +157,8 @@
   },
   "TheTemplar:Fervor": {
     "NAME": "Fervor",
-    "DESCRIPTION": "Draw !M! card, then thetemplar:Cleanse 1 card. NL thetemplar:Inscribe 1 thetemplar:Zeal.",
-    "UPGRADE_DESCRIPTION": "Draw !M! cards, then thetemplar:Cleanse 1 card. NL thetemplar:Inscribe 1 thetemplar:Zeal."
+    "DESCRIPTION": "Draw !M! card, then Exhaust 1 card. NL thetemplar:Inscribe 1 thetemplar:Zeal.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards, then Exhaust 1 card. NL thetemplar:Inscribe 1 thetemplar:Zeal."
   },
   "TheTemplar:Rebuke": {
     "NAME": "Rebuke",

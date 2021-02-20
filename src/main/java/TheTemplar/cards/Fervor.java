@@ -1,9 +1,9 @@
 package TheTemplar.cards;
 
-import TheTemplar.actions.CleanseAction;
 import TheTemplar.actions.GlyphInscribeAction;
 import TheTemplar.glyphs.Zeal;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -49,8 +49,7 @@ public class Fervor extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DrawCardAction(p, this.magicNumber));
-        //this.addToBot(new ExhaustAction(1, false));
-        this.addToBot(new CleanseAction());
+        this.addToBot(new ExhaustAction(1, false));
         this.addToBot(new GlyphInscribeAction(new Zeal()));
     }
 
