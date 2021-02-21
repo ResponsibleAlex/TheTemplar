@@ -26,7 +26,7 @@ public class Strike extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.ATTACK;
-    public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 1;
     // private static final int UPGRADED_COST = 0;

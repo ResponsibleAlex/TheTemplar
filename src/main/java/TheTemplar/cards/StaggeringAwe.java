@@ -29,7 +29,7 @@ public class StaggeringAwe extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 2;
     //private static final int UPGRADED_COST = 2;

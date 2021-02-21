@@ -28,7 +28,7 @@ public class Respite extends AbstractDynamicCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
     private static final CardType TYPE = CardType.SKILL;
-    public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
+    public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 1;
 

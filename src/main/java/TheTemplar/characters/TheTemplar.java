@@ -4,7 +4,6 @@ import TheTemplar.variables.HolyWeapons;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.esotericsoftware.spine.AnimationState;
@@ -15,10 +14,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -29,10 +26,9 @@ import TheTemplar.cards.*;
 import TheTemplar.relics.CodeOfChivalry;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static TheTemplar.TemplarMod.*;
-import static TheTemplar.characters.TheTemplar.Enums.COLOR_GRAY;
+import static TheTemplar.characters.TheTemplar.Enums.TEMPLAR_COLOR;
 
 //Wiki-page https://github.com/daviscook477/BaseMod/wiki/Custom-Characters
 //and https://github.com/daviscook477/BaseMod/wiki/Migrating-to-5.0
@@ -52,7 +48,7 @@ public class TheTemplar extends CustomPlayer {
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_TEMPLAR;
         @SpireEnum(name = "DEFAULT_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
-        public static AbstractCard.CardColor COLOR_GRAY;
+        public static AbstractCard.CardColor TEMPLAR_COLOR;
         @SpireEnum(name = "DEFAULT_GRAY_COLOR") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
@@ -117,9 +113,9 @@ public class TheTemplar extends CustomPlayer {
 
         initializeClass(null, // required call to load textures and setup energy/loadout.
                 // I left these in DefaultMod.java (Ctrl+click them to see where they are, Ctrl+hover to see what they read.)
-                THE_DEFAULT_SHOULDER_2, // campfire pose
-                THE_DEFAULT_SHOULDER_1, // another campfire pose
-                THE_DEFAULT_CORPSE, // dead corpse
+                TEMPLAR_SHOULDER_2, // campfire pose
+                TEMPLAR_SHOULDER_1, // another campfire pose
+                TEMPLAR_CORPSE, // dead corpse
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN)); // energy manager
 
         // =============== /TEXTURES, ENERGY, LOADOUT/ =================
@@ -218,19 +214,19 @@ public class TheTemplar extends CustomPlayer {
     // Ascension 14 or higher. (ironclad loses 5, defect and silent lose 4 hp respectively)
     @Override
     public int getAscensionMaxHPLoss() {
-        return 0;
+        return 4;
     }
 
     // Should return the card color enum to be associated with your character.
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return COLOR_GRAY;
+        return TEMPLAR_COLOR;
     }
 
     // Should return a color object to be used to color the trail of moving cards
     @Override
     public Color getCardTrailColor() {
-        return TemplarMod.DEFAULT_GRAY;
+        return TemplarMod.TEMPLAR_BLUE;
     }
 
     // Should return a BitmapFont object that you can use to customize how your
@@ -267,14 +263,14 @@ public class TheTemplar extends CustomPlayer {
     // Should return a Color object to be used to color the miniature card images in run history.
     @Override
     public Color getCardRenderColor() {
-        return TemplarMod.DEFAULT_GRAY;
+        return TemplarMod.TEMPLAR_BLUE;
     }
 
     // Should return a Color object to be used as screen tint effect when your
     // character attacks the heart.
     @Override
     public Color getSlashAttackColor() {
-        return TemplarMod.DEFAULT_GRAY;
+        return TemplarMod.TEMPLAR_BLUE;
     }
 
     // Should return an AttackEffect array of any size greater than 0. These effects

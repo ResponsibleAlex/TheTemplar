@@ -47,35 +47,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
-//TODO: DON'T MASS RENAME/REFACTOR
-//TODO: DON'T MASS RENAME/REFACTOR
-//TODO: DON'T MASS RENAME/REFACTOR
-//TODO: DON'T MASS RENAME/REFACTOR
-// Please don't just mass replace "theDefault" with "yourMod" everywhere.
-// It'll be a bigger pain for you. You only need to replace it in 4 places.
-// I comment those places below, under the place where you set your ID.
-
-//TODO: FIRST THINGS FIRST: RENAME YOUR PACKAGE AND ID NAMES FIRST-THING!!!
-// Right click the package (Open the project pane on the left. Folder with black dot on it. The name's at the very top) -> Refactor -> Rename, and name it whatever you wanna call your mod.
-// Scroll down in this file. Change the ID from "theDefault:" to "yourModName:" or whatever your heart desires (don't use spaces). Dw, you'll see it.
-// In the JSON strings (resources>localization>eng>[all them files] make sure they all go "yourModName:" rather than "theDefault", and change to "yourmodname" rather than "thedefault".
-// You can ctrl+R to replace in 1 file, or ctrl+shift+r to mass replace in specific files/directories, and press alt+c to make the replace case sensitive (Be careful.).
-// Start with the DefaultCommon cards - they are the most commented cards since I don't feel it's necessary to put identical comments on every card.
-// After you sorta get the hang of how to make cards, check out the card template which will make your life easier
-
-/*
- * With that out of the way:
- * Welcome to this super over-commented Slay the Spire modding base.
- * Use it to make your own mod of any type. - If you want to add any standard in-game content (character,
- * cards, relics), this is a good starting point.
- * It features 1 character with a minimal set of things: 1 card of each type, 1 debuff, couple of relics, etc.
- * If you're new to modding, you basically *need* the BaseMod wiki for whatever you wish to add
- * https://github.com/daviscook477/BaseMod/wiki - work your way through with this base.
- * Feel free to use this in any way you like, of course. MIT licence applies. Happy modding!
- *
- * And pls. Read the comments.
- */
-
 @SpireInitializer
 public class TemplarMod implements
         EditCardsSubscriber,
@@ -96,46 +67,39 @@ public class TemplarMod implements
 
     //This is for the in-game mod settings panel.
     private static final String MODNAME = "The Templar";
-    private static final String AUTHOR = "ResponsibleAlex & Searcian"; // And pretty soon - You!
-    private static final String DESCRIPTION = "TemplarMod.java - description TODO";
+    private static final String AUTHOR = "ResponsibleAlex & Searcian";
+    private static final String DESCRIPTION = "A new playable character.";
 
     // =============== INPUT TEXTURE LOCATION =================
 
     // Colors (RGB)
     // Character Color
-    public static final Color DEFAULT_GRAY = CardHelper.getColor(64.0f, 70.0f, 70.0f);
+    public static final Color TEMPLAR_BLUE = CardHelper.getColor(212f, 241f, 244f);
 
     // Potion Colors in RGB
-    public static final Color PLACEHOLDER_POTION_LIQUID = CardHelper.getColor(209.0f, 53.0f, 18.0f); // Orange-ish Red
-    public static final Color PLACEHOLDER_POTION_HYBRID = CardHelper.getColor(255.0f, 230.0f, 230.0f); // Near White
-    public static final Color PLACEHOLDER_POTION_SPOTS = CardHelper.getColor(100.0f, 25.0f, 10.0f); // Super Dark Red/Brown
-
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
-    // ONCE YOU CHANGE YOUR MOD ID (BELOW, YOU CAN'T MISS IT) CHANGE THESE PATHS!!!!!!!!!!!
+    public static final Color POTION_LIQUID = CardHelper.getColor(24f, 154f, 180f);  // blue grotto
+    public static final Color POTION_HYBRID = CardHelper.getColor(117f, 230f, 218f); // blue green
+    public static final Color POTION_SPOTS = CardHelper.getColor(212f, 241f, 244f);  // baby blue
 
     // Card backgrounds - The actual rectangular card.
-    private static final String ATTACK_DEFAULT_GRAY = "TheTemplarResources/images/512/bg_attack_default_gray.png";
-    private static final String SKILL_DEFAULT_GRAY = "TheTemplarResources/images/512/bg_skill_default_gray.png";
-    private static final String POWER_DEFAULT_GRAY = "TheTemplarResources/images/512/bg_power_default_gray.png";
+    private static final String ATTACK_TEMPLAR = "TheTemplarResources/images/512/bg_attack_default_gray.png";
+    private static final String SKILL_TEMPLAR = "TheTemplarResources/images/512/bg_skill_default_gray.png";
+    private static final String POWER_TEMPLAR = "TheTemplarResources/images/512/bg_power_default_gray.png";
 
     private static final String ENERGY_ORB_DEFAULT_GRAY = "TheTemplarResources/images/512/card_default_gray_orb.png";
     private static final String CARD_ENERGY_ORB = "TheTemplarResources/images/512/card_small_orb.png";
 
-    private static final String ATTACK_DEFAULT_GRAY_PORTRAIT = "TheTemplarResources/images/1024/bg_attack_default_gray.png";
-    private static final String SKILL_DEFAULT_GRAY_PORTRAIT = "TheTemplarResources/images/1024/bg_skill_default_gray.png";
-    private static final String POWER_DEFAULT_GRAY_PORTRAIT = "TheTemplarResources/images/1024/bg_power_default_gray.png";
+    private static final String ATTACK_TEMPLAR_PORTRAIT = "TheTemplarResources/images/1024/bg_attack_default_gray.png";
+    private static final String SKILL_TEMPLAR_PORTRAIT = "TheTemplarResources/images/1024/bg_skill_default_gray.png";
+    private static final String POWER_TEMPLAR_PORTRAIT = "TheTemplarResources/images/1024/bg_power_default_gray.png";
     private static final String ENERGY_ORB_DEFAULT_GRAY_PORTRAIT = "TheTemplarResources/images/1024/card_default_gray_orb.png";
 
     // Character assets
-    private static final String THE_DEFAULT_BUTTON = "TheTemplarResources/images/charSelect/DefaultCharacterButton.png";
-    private static final String THE_DEFAULT_PORTRAIT = "TheTemplarResources/images/charSelect/DefaultCharacterPortraitBG.png";
-    public static final String THE_DEFAULT_SHOULDER_1 = "TheTemplarResources/images/char/defaultCharacter/shoulder.png";
-    public static final String THE_DEFAULT_SHOULDER_2 = "TheTemplarResources/images/char/defaultCharacter/shoulder2.png";
-    public static final String THE_DEFAULT_CORPSE = "TheTemplarResources/images/char/defaultCharacter/corpse.png";
+    private static final String TEMPLAR_BUTTON = "TheTemplarResources/images/charSelect/DefaultCharacterButton.png";
+    private static final String TEMPLAR_PORTRAIT = "TheTemplarResources/images/charSelect/DefaultCharacterPortraitBG.png";
+    public static final String TEMPLAR_SHOULDER_1 = "TheTemplarResources/images/char/defaultCharacter/shoulder.png";
+    public static final String TEMPLAR_SHOULDER_2 = "TheTemplarResources/images/char/defaultCharacter/shoulder2.png";
+    public static final String TEMPLAR_CORPSE = "TheTemplarResources/images/char/defaultCharacter/corpse.png";
 
     //Mod Badge - A small icon that appears in the mod settings menu next to your mod.
     public static final String BADGE_IMAGE = "TheTemplarResources/images/Badge.png";
@@ -196,30 +160,15 @@ public class TemplarMod implements
       */
 
         setModID("TheTemplar");
-        // cool
-        // TODO: NOW READ THIS!!!!!!!!!!!!!!!:
-
-        // 1. Go to your resources folder in the project panel, and refactor> rename TheTemplarResources to
-        // yourModIDResources.
-
-        // 2. Click on the localization > eng folder and press ctrl+shift+r, then select "Directory" (rather than in Project) and press alt+c (or mark the match case option)
-        // replace all instances of theDefault with yourModID, and all instances of thedefault with yourmodid (the same but all lowercase).
-        // Because your mod ID isn't the default. Your cards (and everything else) should have Your mod id. Not mine.
-        // It's important that the mod ID prefix for keywords used in the cards descriptions is lowercase!
-
-        // 3. Scroll down (or search for "ADD CARDS") till you reach the ADD CARDS section, and follow the TODO instructions
-
-        // 4. FINALLY and most importantly: Scroll up a bit. You may have noticed the image locations above don't use getModID()
-        // Change their locations to reflect your actual ID rather than theDefault. They get loaded before getID is a thing.
 
         logger.info("Done subscribing");
 
-        logger.info("Creating the color " + TheTemplar.Enums.COLOR_GRAY.toString());
+        logger.info("Creating the color " + TheTemplar.Enums.TEMPLAR_COLOR.toString());
 
-        BaseMod.addColor(TheTemplar.Enums.COLOR_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY, DEFAULT_GRAY,
-                ATTACK_DEFAULT_GRAY, SKILL_DEFAULT_GRAY, POWER_DEFAULT_GRAY, ENERGY_ORB_DEFAULT_GRAY,
-                ATTACK_DEFAULT_GRAY_PORTRAIT, SKILL_DEFAULT_GRAY_PORTRAIT, POWER_DEFAULT_GRAY_PORTRAIT,
+        BaseMod.addColor(TheTemplar.Enums.TEMPLAR_COLOR, TEMPLAR_BLUE, TEMPLAR_BLUE, TEMPLAR_BLUE,
+                TEMPLAR_BLUE, TEMPLAR_BLUE, TEMPLAR_BLUE, TEMPLAR_BLUE,
+                ATTACK_TEMPLAR, SKILL_TEMPLAR, POWER_TEMPLAR, ENERGY_ORB_DEFAULT_GRAY,
+                ATTACK_TEMPLAR_PORTRAIT, SKILL_TEMPLAR_PORTRAIT, POWER_TEMPLAR_PORTRAIT,
                 ENERGY_ORB_DEFAULT_GRAY_PORTRAIT, CARD_ENERGY_ORB);
 
         logger.info("Done creating the color");
@@ -301,7 +250,7 @@ public class TemplarMod implements
         logger.info("Beginning to edit characters. " + "Add " + TheTemplar.Enums.THE_TEMPLAR.toString());
 
         BaseMod.addCharacter(new TheTemplar("The Templar", TheTemplar.Enums.THE_TEMPLAR),
-                THE_DEFAULT_BUTTON, THE_DEFAULT_PORTRAIT, TheTemplar.Enums.THE_TEMPLAR);
+                TEMPLAR_BUTTON, TEMPLAR_PORTRAIT, TheTemplar.Enums.THE_TEMPLAR);
 
         receiveEditPotions();
         logger.info("Added " + TheTemplar.Enums.THE_TEMPLAR.toString());
@@ -345,29 +294,6 @@ public class TemplarMod implements
 
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
 
-
-        // =============== EVENTS =================
-        // https://github.com/daviscook477/BaseMod/wiki/Custom-Events
-
-        // You can add the event like so:
-        // BaseMod.addEvent(IdentityCrisisEvent.ID, IdentityCrisisEvent.class, TheCity.ID);
-        // Then, this event will be exclusive to the City (act 2), and will show up for all characters.
-        // If you want an event that's present at any part of the game, simply don't include the dungeon ID
-
-        // If you want to have more specific event spawning (e.g. character-specific or so)
-        // deffo take a look at that basemod wiki link as well, as it explains things very in-depth
-        // btw if you don't provide event type, normal is assumed by default
-
-        // Create a new event builder
-        // Since this is a builder these method calls (outside of create()) can be skipped/added as necessary
-        /*AddEventParams eventParams = new AddEventParams.Builder(IdentityCrisisEvent.ID, IdentityCrisisEvent.class) // for this specific event
-            .dungeonID(TheCity.ID) // The dungeon (act) this event will appear in
-            .playerClass(TheTemplar.Enums.THE_TEMPLAR) // Character specific event
-            .create();
-
-        // Add the event
-        BaseMod.addEvent(eventParams);*/
-
         // =============== /EVENTS/ =================
         logger.info("Done loading badge Image and mod options");
     }
@@ -379,12 +305,9 @@ public class TemplarMod implements
     public void receiveEditPotions() {
         logger.info("Beginning to edit potions");
 
-        // Class Specific Potion. If you want your potion to not be class-specific,
-        // just remove the player class at the end (in this case the "TheDefaultEnum.THE_DEFAULT".
-        // Remember, you can press ctrl+P inside parentheses like addPotions)
-        BaseMod.addPotion(PotionOfLore.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, PotionOfLore.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
-        BaseMod.addPotion(StalwartFlask.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, StalwartFlask.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
-        BaseMod.addPotion(ExaltedEssence.class, PLACEHOLDER_POTION_LIQUID, PLACEHOLDER_POTION_HYBRID, PLACEHOLDER_POTION_SPOTS, ExaltedEssence.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
+        BaseMod.addPotion(PotionOfLore.class, POTION_LIQUID, POTION_HYBRID, POTION_SPOTS, PotionOfLore.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
+        BaseMod.addPotion(StalwartFlask.class, POTION_LIQUID, POTION_HYBRID, POTION_SPOTS, StalwartFlask.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
+        BaseMod.addPotion(ExaltedEssence.class, POTION_LIQUID, POTION_HYBRID, POTION_SPOTS, ExaltedEssence.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
 
         logger.info("Done editing potions");
     }
@@ -414,7 +337,7 @@ public class TemplarMod implements
     }
 
     private void addRelic(AbstractRelic r) {
-        BaseMod.addRelicToCustomPool(r, TheTemplar.Enums.COLOR_GRAY);
+        BaseMod.addRelicToCustomPool(r, TheTemplar.Enums.TEMPLAR_COLOR);
         UnlockTracker.markRelicAsSeen(r.relicId);
     }
 
@@ -435,27 +358,11 @@ public class TemplarMod implements
         BaseMod.addDynamicVariable(new DefaultSecondMagicNumber());
 
         logger.info("Adding cards");
-        // Add the cards
-        // Don't delete these default cards yet. You need 1 of each type and rarity (technically) for your game not to crash
-        // when generating card rewards/shop screen items.
 
-        // This method automatically adds any cards so you don't have to manually load them 1 by 1
-        // For more specific info, including how to exclude cards from being added:
-        // https://github.com/daviscook477/BaseMod/wiki/AutoAdd
-
-        // The ID for this function isn't actually your modid as used for prefixes/by the getModID() method.
-        // It's the mod id you give MTS in ModTheSpire.json - by default your artifact ID in your pom.xml
-
-        //TODO: Rename the "DefaultMod" with the modid in your ModTheSpire.json file
-        //TODO: The artifact mentioned in ModTheSpire.json is the artifactId in pom.xml you should've edited earlier
         new AutoAdd("TemplarMod") // ${project.artifactId}
             .packageFilter(AbstractDefaultCard.class) // filters to any class in the same package as AbstractDefaultCard, nested packages included
             .setDefaultSeen(true)
             .cards();
-
-        // .setDefaultSeen(true) unlocks the cards
-        // This is so that they are all "seen" in the library,
-        // for people who like to look at the card list before playing your mod
 
         logger.info("Done adding cards!");
     }
@@ -506,14 +413,6 @@ public class TemplarMod implements
 
     @Override
     public void receiveEditKeywords() {
-        // Keywords on cards are supposed to be Capitalized, while in Keyword-String.json they're lowercase
-        //
-        // Multiword keywords on cards are done With_Underscores
-        //
-        // If you're using multiword keywords, the first element in your NAMES array in your keywords-strings.json has to be the same as the PROPER_NAME.
-        // That is, in Card-Strings.json you would have #yA_Long_Keyword (#y highlights the keyword in yellow).
-        // In Keyword-Strings.json you would have PROPER_NAME as A Long Keyword and the first element in NAMES be a long keyword, and the second element be a_long_keyword
-
         Gson gson = new Gson();
         String json = Gdx.files.internal(getModID() + "Resources/localization/eng/TemplarMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
