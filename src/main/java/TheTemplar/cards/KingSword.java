@@ -29,7 +29,7 @@ public class KingSword extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheTemplar.Enums.COLOR_GRAY;
 
-    private static final int COST = 3;
+    private static final int COST = 2;
 
     public static final int DAMAGE_ALL = 2;
     public static final int UPGRADE_PLUS_DAMAGE_ALL = 1;

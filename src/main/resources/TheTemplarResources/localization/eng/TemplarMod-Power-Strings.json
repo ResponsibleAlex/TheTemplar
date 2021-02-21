@@ -50,10 +50,9 @@
         "TheTemplar:CleansingRitePower": {
                 "NAME": "Cleansing Rite",
                 "DESCRIPTIONS": [
-                        "Cleanse #b",
-                        " card at the end of your turn and gain #b",
-                        " cards at the end of your turn and gain #b",
-                        " #yVigor."
+                        "Exhaust #b",
+                        " random #yCurse or #yStatus card at the end of your turn. If you do, #yInscribe #b1 #yCharity.",
+                        " random #yCurse or #yStatus cards at the end of your turn. If you do, #yInscribe #b1 #yCharity for each card #yExhausted."
                 ]
         },
         "TheTemplar:DivinePurposePower": {

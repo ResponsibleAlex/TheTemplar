@@ -1,11 +1,11 @@
 package TheTemplar.powers;
 
-import TheTemplar.actions.CleanseAction;
-import TheTemplar.cards.CleansingRite;
+import TheTemplar.actions.GlyphInscribeAction;
+import TheTemplar.glyphs.Charity;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import TheTemplar.TemplarMod;
 import TheTemplar.util.TextureLoader;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 import static TheTemplar.TemplarMod.makePowerPath;
 
@@ -55,21 +54,30 @@ public class CleansingRitePower extends AbstractPower implements CloneablePowerI
 
     @Override
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
-        flash();
+        AbstractCard c;
+
         for (int i = 0; i < amount; i++) {
             if (!p.hand.isEmpty()) {
-                addToBot(new CleanseAction());
+                c = p.hand.getRandomCard(AbstractCard.CardType.CURSE, true);
+                if (c == null) {
+                    c = p.hand.getRandomCard(AbstractCard.CardType.STATUS, true);
+                }
+
+                if (c != null) {
+                    flash();
+                    p.hand.moveToExhaustPile(c);
+                    addToBot(new GlyphInscribeAction(new Charity()));
+                }
             }
         }
-        addToBot(new ApplyPowerAction(p, p, new VigorPower(p, amount * CleansingRite.VIGOR), amount * CleansingRite.VIGOR));
     }
 
     @Override
     public void updateDescription() {
         if (amount == 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + (amount * CleansingRite.VIGOR) + DESCRIPTIONS[3];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
         } else if (amount > 1) {
-            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] + (amount * CleansingRite.VIGOR) + DESCRIPTIONS[3];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
         }
     }
 

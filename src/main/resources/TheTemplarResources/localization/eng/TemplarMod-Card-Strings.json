@@ -293,7 +293,7 @@
   },
   "TheTemplar:CleansingRite": {
     "NAME": "Cleansing Rite",
-    "DESCRIPTION": "At the end of your turn, thetemplar:Cleanse 1 card and gain !M! Vigor."
+    "DESCRIPTION": "At the end of your turn, Exhaust 1 random Curse or Status card. If you do, thetemplar:Inscribe !M! thetemplar:Charity."
   },
   "TheTemplar:DivinePurpose": {
     "NAME": "Divine Purpose",

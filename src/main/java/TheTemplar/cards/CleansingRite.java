@@ -32,14 +32,15 @@ public class CleansingRite extends AbstractDynamicCard {
     private static final int UPGRADED_COST = 0;
 
     private static final int CARDS = 1;
-    public static final int VIGOR = 2;
+    private static final int INSCRIBE = 1;
+
 
     // /STAT DECLARATION/
 
 
     public CleansingRite() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = VIGOR;
+        magicNumber = baseMagicNumber = INSCRIBE;
     }
 
 
