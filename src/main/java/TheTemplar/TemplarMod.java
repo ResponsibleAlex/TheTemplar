@@ -77,9 +77,9 @@ public class TemplarMod implements
     public static final Color TEMPLAR_BLUE = CardHelper.getColor(212f, 241f, 244f);
 
     // Potion Colors in RGB
-    public static final Color POTION_LIQUID = CardHelper.getColor(24f, 154f, 180f);  // blue grotto
-    public static final Color POTION_HYBRID = CardHelper.getColor(117f, 230f, 218f); // blue green
-    public static final Color POTION_SPOTS = CardHelper.getColor(212f, 241f, 244f);  // baby blue
+    public static final Color POTION_DARK = CardHelper.getColor(24f, 154f, 180f);  // blue grotto
+    public static final Color POTION_MID = CardHelper.getColor(117f, 230f, 218f); // blue green
+    public static final Color POTION_LIGHT = CardHelper.getColor(212f, 241f, 244f);  // baby blue
 
     // Card backgrounds - The actual rectangular card.
     private static final String ATTACK_TEMPLAR = "TheTemplarResources/images/512/bg_attack_default_gray.png";
@@ -305,9 +305,9 @@ public class TemplarMod implements
     public void receiveEditPotions() {
         logger.info("Beginning to edit potions");
 
-        BaseMod.addPotion(PotionOfLore.class, POTION_LIQUID, POTION_HYBRID, POTION_SPOTS, PotionOfLore.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
-        BaseMod.addPotion(StalwartFlask.class, POTION_LIQUID, POTION_HYBRID, POTION_SPOTS, StalwartFlask.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
-        BaseMod.addPotion(ExaltedEssence.class, POTION_LIQUID, POTION_HYBRID, POTION_SPOTS, ExaltedEssence.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
+        BaseMod.addPotion(PotionOfLore.class, POTION_LIGHT, POTION_LIGHT, POTION_LIGHT, PotionOfLore.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
+        BaseMod.addPotion(StalwartFlask.class, POTION_MID, POTION_MID, POTION_MID, StalwartFlask.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
+        BaseMod.addPotion(ExaltedEssence.class, POTION_DARK, POTION_MID, POTION_LIGHT, ExaltedEssence.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
 
         logger.info("Done editing potions");
     }
