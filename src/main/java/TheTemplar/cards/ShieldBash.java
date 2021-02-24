@@ -36,8 +36,8 @@ public class ShieldBash extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 1;
-    private static final int BULWARK = 3;
-    private static final int UPGRADE_PLUS_BULWARK = 3;
+    private static final int BULWARK = 4;
+    private static final int UPGRADE_PLUS_BULWARK = 2;
 
     // /STAT DECLARATION/
 

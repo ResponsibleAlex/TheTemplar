@@ -4,6 +4,7 @@ import TheTemplar.variables.HolyWeapons;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpineAnimation;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.esotericsoftware.spine.AnimationState;
@@ -14,8 +15,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
@@ -26,6 +29,7 @@ import TheTemplar.cards.*;
 import TheTemplar.relics.CodeOfChivalry;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static TheTemplar.TemplarMod.*;
 import static TheTemplar.characters.TheTemplar.Enums.TEMPLAR_COLOR;
@@ -305,19 +309,19 @@ public class TheTemplar extends CustomPlayer {
         super.preBattlePrep();
         TemplarMod.setHolyWeapon(HolyWeapons.Default);
     }
-/*
+
     @Override
     public Texture getCutsceneBg() {
-        return ImageMaster.loadImage("RobotSpaceExplorerResources/images/char/defaultCharacter/cutscene/background.png");
+        return ImageMaster.loadImage("TheTemplarResources/images/char/defaultCharacter/cutscene/background.png");
     }
 
     @Override
     public List<CutscenePanel> getCutscenePanels() {
         List<CutscenePanel> panels = new ArrayList<>();
-        panels.add(new CutscenePanel("RobotSpaceExplorerResources/images/char/defaultCharacter/cutscene/1.png", "ATTACK_HEAVY"));
-        panels.add(new CutscenePanel("RobotSpaceExplorerResources/images/char/defaultCharacter/cutscene/2.png"));
-        panels.add(new CutscenePanel("RobotSpaceExplorerResources/images/char/defaultCharacter/cutscene/3.png"));
+        panels.add(new CutscenePanel("TheTemplarResources/images/char/defaultCharacter/cutscene/cutscene1.png", "ATTACK_FIRE"));
+        panels.add(new CutscenePanel("TheTemplarResources/images/char/defaultCharacter/cutscene/cutscene2.png"));
+        panels.add(new CutscenePanel("TheTemplarResources/images/char/defaultCharacter/cutscene/cutscene3.png"));
         return panels;
     }
-*/
+
 }

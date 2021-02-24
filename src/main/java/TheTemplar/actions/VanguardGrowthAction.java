@@ -26,6 +26,7 @@ public class VanguardGrowthAction extends AbstractGameAction {
                 c.baseBlock = c.misc;
                 c.baseDamage = c.misc;
                 c.isBlockModified = false;
+                c.isDamageModified = false;
             }
         }
 
