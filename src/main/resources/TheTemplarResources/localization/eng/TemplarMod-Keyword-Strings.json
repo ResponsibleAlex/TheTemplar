@@ -43,14 +43,6 @@
     "DESCRIPTION": "At the end of turn, gain #yBlock equal to your #yBulwark then reduce it by half."
   },
   {
-    "PROPER_NAME": "Cleanse",
-    "NAMES": [
-      "Cleanse",
-      "cleanse"
-    ],
-    "DESCRIPTION": "#yExhaust a random card in your hand. #yCurse and #yStatus cards are prioritized."
-  },
-  {
     "PROPER_NAME": "Holy Weapon",
     "NAMES": [
       "Holy Weapon",
@@ -64,21 +56,21 @@
       "justice",
       "Justice"
     ],
-    "DESCRIPTION": "Deals #b3 damage to ALL enemies when paired. NL Match bonus: deal #b6 damage to ALL enemies."
+    "DESCRIPTION": "Deals #b4 damage to ALL enemies when paired. NL Match bonus: deal #b4 damage to ALL enemies."
   },
   {
     "NAMES": [
       "fortitude",
       "Fortitude"
     ],
-    "DESCRIPTION": "Gain #b3 #yBulwark when paired. NL Match bonus: gain #b3 #yBulwark."
+    "DESCRIPTION": "Gain #b4 #yBulwark when paired. NL Match bonus: gain #b4 #yBulwark."
   },
   {
     "NAMES": [
       "valor",
       "Valor"
     ],
-    "DESCRIPTION": "Gain #b4 #yVigor when paired. NL Match bonus: gain #b2 #yStrength."
+    "DESCRIPTION": "Gain #b5 #yVigor when paired. NL Match bonus: gain #b2 #yStrength."
   },
   {
     "NAMES": [
@@ -92,6 +84,6 @@
       "charity",
       "Charity"
     ],
-    "DESCRIPTION": "Gain #b5 Block when paired. NL Match bonus: remove all of your debuffs."
+    "DESCRIPTION": "Gain #b6 Block when paired. NL Match bonus: remove all of your debuffs."
   }
 ]

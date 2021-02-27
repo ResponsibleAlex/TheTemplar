@@ -65,9 +65,8 @@
         "TheTemplar:RetributionPower": {
                 "NAME": "Retribution",
                 "DESCRIPTIONS": [
-                        "Whenever you receive unblocked attack damage, gain #b",
-                        " #yThorns and #b",
-                        " #yBulwark."
+                        "Whenever you receive unblocked attack damage, #yInscribe #b",
+                        " #yValor."
                 ]
         },
         "TheTemplar:AltarPower": {

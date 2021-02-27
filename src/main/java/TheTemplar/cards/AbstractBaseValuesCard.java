@@ -13,13 +13,17 @@ public abstract class AbstractBaseValuesCard extends AbstractDynamicCard {
         super(id, img, cost, type, color, rarity, target);
     }
 
+    @SuppressWarnings("unused")
+    protected int increaseBaseDamage(AbstractMonster m) {
+        return increaseBaseDamage();
+    }
     protected int increaseBaseDamage() {
         return 0;
     }
 
     public void calculateCardDamage(AbstractMonster m) {
         int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.increaseBaseDamage();
+        this.baseDamage += this.increaseBaseDamage(m);
         super.calculateCardDamage(m);
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;

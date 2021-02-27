@@ -33,7 +33,7 @@
   },
   "TheTemplar:CourageousAttack": {
     "NAME": "Courageous Attack",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy is thetemplar:Empowered, thetemplar:Inscribe 1 thetemplar:Valor."
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy is thetemplar:Empowered, deal !M! additional damage."
   },
   "TheTemplar:ShieldBash": {
     "NAME": "Shield Bash",
@@ -79,7 +79,7 @@
   },
   "TheTemplar:FearlessAssault": {
     "NAME": "FearlessAssault",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy is thetemplar:Empowered, deal !M! additional damage."
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy is thetemplar:Empowered, thetemplar:Inscribe !M! thetemplar:Valor."
   },
   "TheTemplar:DeterminedCharge": {
     "NAME": "Determined Charge",
@@ -195,7 +195,7 @@
   },
   "TheTemplar:Tithe": {
     "NAME": "Tithe",
-    "DESCRIPTION": "Lose 10% of your gold. Heal HP equal to 10% of the gold lost and gain !M! Strength."
+    "DESCRIPTION": "Lose 10% of your gold. Gain Regen equal to 10% of the gold lost. NL thetemplar:Inscribe 1 thetemplar:Charity."
   },
   "TheTemplar:Unwavering": {
     "NAME": "Unwavering",
@@ -223,7 +223,7 @@
   },
   "TheTemplar:HolyLight": {
     "NAME": "Holy Light",
-    "DESCRIPTION": "Gain !M! regen. NL thetemplar:Inscribe 1 thetemplar:Charity. NL Exhaust."
+    "DESCRIPTION": "Gain !M! temporary Strength and !M! temporary Dexterity."
   },
   "TheTemplar:Beseech": {
     "NAME": "Beseech",
@@ -302,7 +302,7 @@
   },
   "TheTemplar:Retribution": {
     "NAME": "Retribution",
-    "DESCRIPTION": "Whenever you receive unblocked attack damage, gain !M! Thorns and !M! thetemplar:Bulwark."
+    "DESCRIPTION": "Whenever you receive unblocked attack damage, thetemplar:Inscribe !M! thetemplar:Valor."
   },
   "TheTemplar:Altar": {
     "NAME": "Altar",
@@ -361,11 +361,17 @@
   "TheTemplar:BeseechChooseAttack": {
     "NAME": "Attack",
     "DESCRIPTION": "Add a random Attack to your hand.",
-    "UPGRADE_DESCRIPTION": " NL It costs 0 this turn."
+    "UPGRADE_DESCRIPTION": "Add a random Upgraded Attack to your hand.",
+    "EXTENDED_DESCRIPTION": [
+      " NL It costs 0 this turn."
+    ]
   },
   "TheTemplar:BeseechChooseSkill": {
     "NAME": "Skill",
     "DESCRIPTION": "Add a random Skill to your hand.",
-    "UPGRADE_DESCRIPTION": " NL It costs 0 this turn."
+    "UPGRADE_DESCRIPTION": "Add a random Upgraded Skill to your hand.",
+    "EXTENDED_DESCRIPTION": [
+      " NL It costs 0 this turn."
+    ]
   }
 }

@@ -1,14 +1,12 @@
 package TheTemplar.cards;
 
-import TheTemplar.actions.GlyphInscribeAction;
-import TheTemplar.glyphs.Charity;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import TheTemplar.TemplarMod;
 import TheTemplar.characters.TheTemplar;
-import com.megacrit.cardcrawl.powers.RegenPower;
+import com.megacrit.cardcrawl.powers.*;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -30,27 +28,26 @@ public class HolyLight extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
-    private static final int COST = 1;
-    private static final int REGEN = 2;
-    private static final int UPGRADE_PLUS_REGEN = 1;
+    private static final int COST = 0;
+    private static final int BONUS = 2;
+    private static final int UPGRADE_PLUS_BONUS = 1;
 
     // /STAT DECLARATION/
 
 
     public HolyLight() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = REGEN;
-
-        this.exhaust = true;
-        this.tags.add(CardTags.HEALING);
+        this.magicNumber = this.baseMagicNumber = BONUS;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new RegenPower(p, this.magicNumber), this.magicNumber));
-        this.addToBot(new GlyphInscribeAction(new Charity()));
+        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber), magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, magicNumber), magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber), magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new LoseDexterityPower(p, magicNumber), magicNumber));
     }
 
 
@@ -59,7 +56,7 @@ public class HolyLight extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_REGEN);
+            upgradeMagicNumber(UPGRADE_PLUS_BONUS);
             initializeDescription();
         }
     }

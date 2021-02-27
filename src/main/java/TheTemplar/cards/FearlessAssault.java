@@ -1,5 +1,7 @@
 package TheTemplar.cards;
 
+import TheTemplar.actions.GlyphInscribeAction;
+import TheTemplar.glyphs.Valor;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -33,8 +35,8 @@ public class FearlessAssault extends AbstractDynamicCard {
 
     private static final int DAMAGE = 9;
     private static final int UPGRADE_PLUS_DMG = 3;
-    private static final int BONUS = 4;
-    private static final int UPGRADE_PLUS_BONUS = 2;
+    private static final int VALOR = 1;
+    private static final int UPGRADE_PLUS_VALOR = 1;
 
     // /STAT DECLARATION/
 
@@ -42,19 +44,9 @@ public class FearlessAssault extends AbstractDynamicCard {
     public FearlessAssault() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        magicNumber = baseMagicNumber = BONUS;
+        magicNumber = baseMagicNumber = VALOR;
 
         this.glowEmpowered = true;
-    }
-
-    public void calculateCardDamage(AbstractMonster m) {
-        int realBaseDamage = this.baseDamage;
-        if (this.isEmpowered(m)) {
-            this.baseDamage += this.magicNumber;
-        }
-        super.calculateCardDamage(m);
-        this.baseDamage = realBaseDamage;
-        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     // Actions the card should do.
@@ -64,6 +56,10 @@ public class FearlessAssault extends AbstractDynamicCard {
 
         if (isEmpowered(m)) {
             effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
+
+            for (int i = 0; i < magicNumber; i++) {
+                addToBot(new GlyphInscribeAction(new Valor()));
+            }
         }
 
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
@@ -76,7 +72,7 @@ public class FearlessAssault extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeMagicNumber(UPGRADE_PLUS_BONUS);
+            upgradeMagicNumber(UPGRADE_PLUS_VALOR);
             initializeDescription();
         }
     }

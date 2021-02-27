@@ -58,6 +58,7 @@ public class Dragonslayer extends AbstractDynamicCard {
         if (isEmpowered(m)) {
             this.damage *= 2;
         }
+        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     // Upgraded stats.

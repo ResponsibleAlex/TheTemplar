@@ -388,10 +388,6 @@ public class TemplarMod implements
         BaseMod.loadCustomStringsFile(RelicStrings.class,
                 getModID() + "Resources/localization/eng/TemplarMod-Relic-Strings.json");
 
-        // Event Strings
-        BaseMod.loadCustomStringsFile(EventStrings.class,
-                getModID() + "Resources/localization/eng/TemplarMod-Event-Strings.json");
-
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
                 getModID() + "Resources/localization/eng/TemplarMod-Potion-Strings.json");
@@ -399,10 +395,6 @@ public class TemplarMod implements
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
                 getModID() + "Resources/localization/eng/TemplarMod-Character-Strings.json");
-
-        // OrbStrings
-        BaseMod.loadCustomStringsFile(OrbStrings.class,
-                getModID() + "Resources/localization/eng/TemplarMod-Orb-Strings.json");
 
         logger.info("Done editing strings");
     }

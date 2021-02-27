@@ -1,10 +1,10 @@
 package TheTemplar.powers;
 
-import TheTemplar.actions.GainBulwarkAction;
+import TheTemplar.actions.GlyphInscribeAction;
+import TheTemplar.glyphs.Valor;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import TheTemplar.TemplarMod;
 import TheTemplar.util.TextureLoader;
-import com.megacrit.cardcrawl.powers.ThornsPower;
 
 import static TheTemplar.TemplarMod.makePowerPath;
 
@@ -54,8 +53,9 @@ public class RetributionPower extends AbstractPower implements CloneablePowerInt
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && damageAmount > 0) {
             this.flash();
-            this.addToTop(new ApplyPowerAction(owner, owner, new ThornsPower(owner, amount), amount));
-            this.addToBot(new GainBulwarkAction(amount));
+            for (int i = 0; i < amount; i++) {
+                this.addToTop(new GlyphInscribeAction(new Valor()));
+            }
         }
 
         return damageAmount;
@@ -63,7 +63,7 @@ public class RetributionPower extends AbstractPower implements CloneablePowerInt
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
     @Override

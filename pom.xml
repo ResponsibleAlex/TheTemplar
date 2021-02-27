@@ -6,8 +6,8 @@
     <groupId>templarmod</groupId>
     <artifactId>TemplarMod</artifactId> <!--Keep a note of this one: this is the ID used in the "auto add cards" method-->
     <name>The Templar</name>
-    <version>0.1.2</version>
-    <description>A default base to start your own mod from.</description>
+    <version>0.2.0</version>
+    <description>A new character for Slay the Spire.</description>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

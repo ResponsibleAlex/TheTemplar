@@ -1,14 +1,15 @@
 package TheTemplar.cards;
 
+import TheTemplar.actions.GlyphInscribeAction;
+import TheTemplar.glyphs.Charity;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import TheTemplar.TemplarMod;
 import TheTemplar.characters.TheTemplar;
-import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.RegenPower;
 
 import static TheTemplar.TemplarMod.makeCardPath;
 
@@ -31,15 +32,17 @@ public class Tithe extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 1;
-    private static final int STRENGTH = 1;
-    private static final int UPGRADE_PLUS_STR = 1;
+    private static final int UPGRADE_COST = 0;
+    private static final int CHARITY = 1;
 
     // /STAT DECLARATION/
 
 
     public Tithe() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = STRENGTH;
+        magicNumber = baseMagicNumber = CHARITY;
+
+        this.tags.add(CardTags.HEALING);
     }
 
 
@@ -51,8 +54,12 @@ public class Tithe extends AbstractDynamicCard {
         CardCrawlGame.sound.play("EVENT_PURCHASE");
         p.loseGold(amt);
 
-        this.addToBot(new HealAction(p, p, amt / 10));
-        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber));
+        int regenAmt = amt / 10;
+        if (regenAmt > 0) {
+            this.addToBot(new ApplyPowerAction(p, p, new RegenPower(p, regenAmt), regenAmt));
+        }
+
+        this.addToBot(new GlyphInscribeAction(new Charity()));
     }
 
 
@@ -61,7 +68,7 @@ public class Tithe extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_STR);
+            upgradeBaseCost(UPGRADE_COST);
             initializeDescription();
         }
     }

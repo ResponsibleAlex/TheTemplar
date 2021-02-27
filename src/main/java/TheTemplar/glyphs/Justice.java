@@ -11,8 +11,8 @@ public class Justice extends AbstractGlyph {
     public static final String DESCRIPTION =
             BaseMod.getKeywordDescription(TemplarMod.getModID().toLowerCase() + ":" + classID);
 
-    private static final int TRIGGER = 3;
-    private static final int MATCH_BONUS = 6;
+    private static final int TRIGGER = 4;
+    private static final int MATCH_BONUS = 4;
 
     public Justice() {
         super(classID, DESCRIPTION);

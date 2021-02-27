@@ -13,7 +13,7 @@ public class Valor extends AbstractGlyph {
     public static final String DESCRIPTION =
             BaseMod.getKeywordDescription(TemplarMod.getModID().toLowerCase() + ":" + classID);
 
-    private static final int TRIGGER = 4;
+    private static final int TRIGGER = 5;
     private static final int MATCH_BONUS = 2;
 
     public Valor() {
@@ -33,7 +33,7 @@ public class Valor extends AbstractGlyph {
             p.getRelic(RunedArmor.ID).flash();
             amt *= 2;
         }
-        this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, amt), amt));
+        this.addToTop(new ApplyPowerAction(p, p, new StrengthPower(p, amt), amt, true));
     }
 
     @Override

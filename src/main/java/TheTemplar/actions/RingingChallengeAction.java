@@ -99,9 +99,9 @@ public class RingingChallengeAction extends AbstractGameAction {
         int roll = AbstractDungeon.miscRng.random(0, 100);
 
         if (this.isNormal) {
-            // 15 more gold +6% rare chance  OR  10 more gold +12% rare chance
+            // 20 more gold +6% rare chance  OR  10 more gold +12% rare chance
             if (roll > 33) {
-                this.r.addGoldToRewards(15);
+                this.r.addGoldToRewards(20);
                 this.r.baseRareCardChance += 6;
                 this.r.baseUncommonCardChance += 6;
             } else {
@@ -110,9 +110,9 @@ public class RingingChallengeAction extends AbstractGameAction {
                 this.r.baseUncommonCardChance += 12;
             }
         } else if (this.isElite) {
-            // 20 more gold   AND
+            // 25 more gold   AND
             // random upgrade  AND/OR  Max HP
-            this.r.addGoldToRewards(20);
+            this.r.addGoldToRewards(25);
             if (roll > 80) {
                 this.randomUpgrade = true;
                 this.maxHp = 2;
