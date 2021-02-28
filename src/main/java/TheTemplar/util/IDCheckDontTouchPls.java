@@ -1,5 +1,6 @@
 package TheTemplar.util;
 
+@SuppressWarnings("unused")
 public class IDCheckDontTouchPls {
     public String DEFAULTID;
     public String DEVID;

@@ -48,6 +48,7 @@ public class TheTemplar extends CustomPlayer {
     // in the basegame (for fun and education) Ctrl+click on the PlayerClass, CardColor and/or LibraryType below and go down the
     // Ctrl+click rabbit hole
 
+    @SuppressWarnings("unused")
     public static class Enums {
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_TEMPLAR;

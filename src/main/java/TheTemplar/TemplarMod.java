@@ -133,10 +133,6 @@ public class TemplarMod implements
         return getModID() + "Resources/images/powers/" + resourcePath;
     }
 
-    /*public static String makeEventPath(String resourcePath) {
-        return getModID() + "Resources/images/events/" + resourcePath;
-    }*/
-
     // =============== /MAKE IMAGE PATHS/ =================
 
     // =============== /INPUT TEXTURE LOCATION/ =================
