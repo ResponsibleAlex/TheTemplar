@@ -40,15 +40,15 @@ public class ShieldsOfTheFallen extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BULWARK;
 
-        this.isEthereal = true;
+        isEthereal = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBulwarkAction(this.magicNumber));
-        this.addToBot(new DrawCardAction(p, 1));
+        addToBot(new GainBulwarkAction(magicNumber));
+        addToBot(new DrawCardAction(p, 1));
     }
 
 

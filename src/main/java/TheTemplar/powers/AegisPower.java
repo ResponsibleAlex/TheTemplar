@@ -35,13 +35,13 @@ public class AegisPower extends HolyWeaponPower implements CloneablePowerInterfa
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
-        this.amount = 0;
+        owner = AbstractDungeon.player;
+        amount = 0;
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         refresh(upgraded);
     }
@@ -97,24 +97,24 @@ public class AegisPower extends HolyWeaponPower implements CloneablePowerInterfa
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.type != DamageInfo.DamageType.THORNS
                 && info.type != DamageInfo.DamageType.HP_LOSS
-                && info.owner != this.owner
+                && info.owner != owner
                 && info.owner instanceof AbstractMonster) {
 
             // attempt to get the "real" value from the lookup table(s)
             int dmgBack;
             if (dmgAmts.containsKey(info.output)) {
-                dmgBack = this.upgraded ? dmgAmts.get(info.output) * 2 : dmgAmts.get(info.output);
+                dmgBack = upgraded ? dmgAmts.get(info.output) * 2 : dmgAmts.get(info.output);
             } else if (specialCases.containsKey(info.output)) {
-                dmgBack = this.upgraded ? specialCases.get(info.output) * 2 : specialCases.get(info.output);
+                dmgBack = upgraded ? specialCases.get(info.output) * 2 : specialCases.get(info.output);
             } else {
                 // we didn't have the value in either lookup, fall back to 1/3 or 2/3
                 // return which is only accurate for most values
-                dmgBack = (int) (this.upgraded ? Math.ceil(info.output * 0.66) : Math.ceil(info.output * 0.33));
+                dmgBack = (int) (upgraded ? Math.ceil(info.output * 0.66) : Math.ceil(info.output * 0.33));
             }
 
-            this.flash();
+            flash();
             int amt = dmgBack;
-            this.addToTop(new DamageAction(info.owner, new DamageInfo(this.owner, amt, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE, true));
+            addToTop(new DamageAction(info.owner, new DamageInfo(owner, amt, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE, true));
 
         }
 
@@ -123,7 +123,7 @@ public class AegisPower extends HolyWeaponPower implements CloneablePowerInterfa
 
     @Override
     public void updateDescription() {
-        if (this.upgraded) {
+        if (upgraded) {
             description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[2];
         } else {
             description = DESCRIPTIONS[0] + DESCRIPTIONS[2];
@@ -132,6 +132,6 @@ public class AegisPower extends HolyWeaponPower implements CloneablePowerInterfa
 
     @Override
     public AbstractPower makeCopy() {
-        return new AegisPower(this.upgraded);
+        return new AegisPower(upgraded);
     }
 }

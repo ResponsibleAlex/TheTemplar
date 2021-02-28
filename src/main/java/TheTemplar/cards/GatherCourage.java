@@ -43,7 +43,7 @@ public class GatherCourage extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = VALOR;
 
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
@@ -51,12 +51,12 @@ public class GatherCourage extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster unused) {
         for (int i = 0; i < magicNumber; i++) {
-            this.addToBot(new GlyphInscribeAction(new Valor()));
+            addToBot(new GlyphInscribeAction(new Valor()));
         }
 
         for (AbstractMonster m: AbstractDungeon.getMonsters().monsters) {
             if(!m.isDeadOrEscaped()) {
-                this.addToBot(new ApplyPowerAction(m, m, new StrengthPower(m, ENEMY_STRENGTH), ENEMY_STRENGTH));
+                addToBot(new ApplyPowerAction(m, m, new StrengthPower(m, ENEMY_STRENGTH), ENEMY_STRENGTH));
             }
         }
     }

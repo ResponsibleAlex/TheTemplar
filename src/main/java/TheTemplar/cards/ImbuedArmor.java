@@ -47,7 +47,7 @@ public class ImbuedArmor extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ImbuedArmorAction(p, magicNumber, block, freeToPlayOnce, energyOnUse));
+        addToBot(new ImbuedArmorAction(p, magicNumber, block, freeToPlayOnce, energyOnUse));
     }
 
 

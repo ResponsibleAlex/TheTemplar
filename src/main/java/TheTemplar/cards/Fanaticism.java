@@ -36,14 +36,14 @@ public class Fanaticism extends AbstractDynamicCard {
 
     public Fanaticism() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new FanaticismPower(1), 1));
+        addToBot(new ApplyPowerAction(p, p, new FanaticismPower(1), 1));
     }
 
 

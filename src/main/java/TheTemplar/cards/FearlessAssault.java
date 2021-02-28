@@ -46,7 +46,7 @@ public class FearlessAssault extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = VALOR;
 
-        this.glowEmpowered = true;
+        glowEmpowered = true;
     }
 
     // Actions the card should do.
@@ -62,7 +62,7 @@ public class FearlessAssault extends AbstractDynamicCard {
             }
         }
 
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
     }
 
 

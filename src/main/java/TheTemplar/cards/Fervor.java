@@ -48,9 +48,9 @@ public class Fervor extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DrawCardAction(p, this.magicNumber));
-        this.addToBot(new ExhaustAction(1, false));
-        this.addToBot(new GlyphInscribeAction(new Zeal()));
+        addToBot(new DrawCardAction(p, magicNumber));
+        addToBot(new ExhaustAction(1, false));
+        addToBot(new GlyphInscribeAction(new Zeal()));
     }
 
 

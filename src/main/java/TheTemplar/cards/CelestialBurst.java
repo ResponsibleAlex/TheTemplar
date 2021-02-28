@@ -45,17 +45,17 @@ public class CelestialBurst extends AbstractDynamicCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = CARDS;
 
-        this.blessing = true;
+        blessing = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
 
-        if (this.triggerBlessing()) {
-            this.addToBot(new DrawCardAction(AbstractDungeon.player, this.magicNumber));
+        if (triggerBlessing()) {
+            addToBot(new DrawCardAction(AbstractDungeon.player, magicNumber));
         }
     }
 

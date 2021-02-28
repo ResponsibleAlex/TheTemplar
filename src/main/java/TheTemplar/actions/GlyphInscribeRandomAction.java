@@ -12,7 +12,7 @@ public class GlyphInscribeRandomAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        this.addToBot(new GlyphInscribeAction(glyphToInscribe));
-        this.isDone = true;
+        addToBot(new GlyphInscribeAction(glyphToInscribe));
+        isDone = true;
     }
 }

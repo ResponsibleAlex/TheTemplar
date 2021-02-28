@@ -17,22 +17,22 @@ public class GlyphChoiceAction extends AbstractGameAction {
 
     public GlyphChoiceAction(int number) {
         this.number = number;
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = this.startDuration = Settings.ACTION_DUR_XFAST;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = startDuration = Settings.ACTION_DUR_XFAST;
     }
 
     public void update() {
-        if (this.duration == this.startDuration) {
+        if (duration == startDuration) {
             ArrayList<AbstractCard> glyphChoices = new ArrayList<>();
-            glyphChoices.add(new InscribeJustice(this.number));
-            glyphChoices.add(new InscribeFortitude(this.number));
-            glyphChoices.add(new InscribeValor(this.number));
-            glyphChoices.add(new InscribeZeal(this.number));
-            glyphChoices.add(new InscribeCharity(this.number));
+            glyphChoices.add(new InscribeJustice(number));
+            glyphChoices.add(new InscribeFortitude(number));
+            glyphChoices.add(new InscribeValor(number));
+            glyphChoices.add(new InscribeZeal(number));
+            glyphChoices.add(new InscribeCharity(number));
 
-            this.addToBot(new ChooseOneAction(glyphChoices));
+            addToBot(new ChooseOneAction(glyphChoices));
         }
 
-        this.tickDuration();
+        tickDuration();
     }
 }

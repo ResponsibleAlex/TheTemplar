@@ -54,12 +54,12 @@ public class RecklessSweep extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new SFXAction("ATTACK_HEAVY"));
-        this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new SFXAction("ATTACK_HEAVY"));
+        addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.NONE));
 
-        this.addToBot(new GlyphInscribeAction(new Zeal()));
-        this.addToBot(new ApplyPowerAction(p, p, new FrailPower(p, this.magicNumber, true), 2));
+        addToBot(new GlyphInscribeAction(new Zeal()));
+        addToBot(new ApplyPowerAction(p, p, new FrailPower(p, magicNumber, true), 2));
     }
 
 

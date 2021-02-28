@@ -39,7 +39,7 @@ public class StaggeringAwe extends AbstractDynamicCard {
 
     public StaggeringAwe() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
@@ -49,8 +49,8 @@ public class StaggeringAwe extends AbstractDynamicCard {
         if (upgraded) {
             addToBot(new RemoveSpecificPowerAction(m, p, "Artifact"));
         }
-        this.addToBot(new VFXAction(new FlashCustomAttackEffect(m.hb.cX, m.drawY, "StaggeringAwe", true)));
-        this.addToBot(new StunMonsterAction(m, p, 1));
+        addToBot(new VFXAction(new FlashCustomAttackEffect(m.hb.cX, m.drawY, "StaggeringAwe", true)));
+        addToBot(new StunMonsterAction(m, p, 1));
     }
 
 

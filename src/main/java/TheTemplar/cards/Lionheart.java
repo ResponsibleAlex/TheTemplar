@@ -49,54 +49,54 @@ public class Lionheart extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int times = TemplarMod.valorInscribedThisCombat;
-        if (this.upgraded) {
-            this.addToBot(new GlyphInscribeAction(new Valor()));
+        if (upgraded) {
+            addToBot(new GlyphInscribeAction(new Valor()));
             times++;
         }
 
         for (int i = 0; i < times; i++) {
-            this.addToBot(new LionheartAttackAction(this));
+            addToBot(new LionheartAttackAction(this));
         }
     }
 
     public void applyPowers() {
         super.applyPowers();
-        this.setDescription(true);
+        setDescription(true);
     }
 
     public void calculateCardDamage(AbstractMonster m) {
         super.calculateCardDamage(m);
-        this.setDescription(true);
+        setDescription(true);
     }
 
     @Override
     public void atTurnStart() {
-        this.setDescription(true);
+        setDescription(true);
     }
 
     public void onMoveToDiscard() {
-        this.setDescription(false);
+        setDescription(false);
     }
 
     private void setDescription(boolean includeTimes) {
         if (includeTimes) {
-            this.magicNumber = TemplarMod.valorInscribedThisCombat;
-            this.isMagicNumberModified = true;
-            if (this.upgraded) {
+            magicNumber = TemplarMod.valorInscribedThisCombat;
+            isMagicNumberModified = true;
+            if (upgraded) {
                 // display an incremented amount to account for the Valor this card will Inscribe
-                this.magicNumber++;
+                magicNumber++;
             }
 
-            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+            rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
         } else {
-            this.rawDescription = cardStrings.DESCRIPTION;
+            rawDescription = cardStrings.DESCRIPTION;
         }
 
-        if (this.upgraded) {
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION + this.rawDescription;
+        if (upgraded) {
+            rawDescription = cardStrings.UPGRADE_DESCRIPTION + rawDescription;
         }
 
-        this.initializeDescription();
+        initializeDescription();
     }
 
     // Upgraded stats.

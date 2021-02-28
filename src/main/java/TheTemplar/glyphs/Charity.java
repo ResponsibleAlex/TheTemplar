@@ -19,13 +19,13 @@ public class Charity extends AbstractGlyph {
 
     @Override
     public void trigger() {
-        this.addToTop(new GlyphAboveCreatureAction(p, this));
-        this.addToTop(new GainBlockAction(p, TRIGGER));
+        addToTop(new GlyphAboveCreatureAction(p, this));
+        addToTop(new GainBlockAction(p, TRIGGER));
     }
 
     @Override
     public void triggerMatchBonus() {
-        this.addToTop(new RemoveDebuffsAction(p));
+        addToTop(new RemoveDebuffsAction(p));
     }
 
     @Override

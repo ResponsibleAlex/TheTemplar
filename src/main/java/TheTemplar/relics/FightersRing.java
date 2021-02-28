@@ -28,10 +28,10 @@ public class FightersRing extends CustomRelic {
 
     @Override
     public void atTurnStart() {
-        this.flash();
+        flash();
         AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new RelicAboveCreatureAction(p, this));
-        this.addToBot(new ApplyPowerAction(p, p, new VigorPower(p, VIGOR), VIGOR));
+        addToBot(new RelicAboveCreatureAction(p, this));
+        addToBot(new ApplyPowerAction(p, p, new VigorPower(p, VIGOR), VIGOR));
     }
 
     // Description

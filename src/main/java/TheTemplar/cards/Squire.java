@@ -45,7 +45,7 @@ public class Squire extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new SquireAction(cardStrings.EXTENDED_DESCRIPTION[0]));
+        addToBot(new SquireAction(cardStrings.EXTENDED_DESCRIPTION[0]));
     }
 
 
@@ -54,7 +54,7 @@ public class Squire extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.isInnate = true;
+            isInnate = true;
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

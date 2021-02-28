@@ -45,8 +45,8 @@ public class Temperance extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DiscardAction(p, p, 1, false));
-        this.addToBot(new TemperanceAction(p, block));
+        addToBot(new DiscardAction(p, p, 1, false));
+        addToBot(new TemperanceAction(p, block));
     }
 
 

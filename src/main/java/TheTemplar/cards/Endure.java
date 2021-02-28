@@ -40,17 +40,17 @@ public class Endure extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseBlock = BLOCK;
 
-        this.blessing = true;
+        blessing = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p, p, block));
+        addToBot(new GainBlockAction(p, p, block));
 
         if (triggerBlessing()) {
-            this.addToBot(new DrawCardAction(2));
+            addToBot(new DrawCardAction(2));
         }
     }
 

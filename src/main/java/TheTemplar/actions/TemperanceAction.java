@@ -26,9 +26,9 @@ public class TemperanceAction extends AbstractGameAction {
         }
 
         if (!hasAttacks) {
-            this.addToBot(new GainBlockAction(p, p, amt));
+            addToBot(new GainBlockAction(p, p, amt));
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

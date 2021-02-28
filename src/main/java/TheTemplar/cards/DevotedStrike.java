@@ -50,9 +50,9 @@ public class DevotedStrike extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         if (triggerBlessing()) {
-            this.addToBot(new DevotedStrikeAction());
+            addToBot(new DevotedStrikeAction());
         }
     }
 

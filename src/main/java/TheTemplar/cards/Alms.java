@@ -45,8 +45,8 @@ public class Alms extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DrawCardAction(magicNumber));
-        this.addToBot(new GlyphInscribeAction(new Charity()));
+        addToBot(new DrawCardAction(magicNumber));
+        addToBot(new GlyphInscribeAction(new Charity()));
     }
 
 

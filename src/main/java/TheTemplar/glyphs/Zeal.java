@@ -21,8 +21,8 @@ public class Zeal extends AbstractGlyph {
 
     @Override
     public void trigger() {
-        this.addToTop(new GlyphAboveCreatureAction(p, this));
-        this.addToTop(new DrawCardAction(TRIGGER));
+        addToTop(new GlyphAboveCreatureAction(p, this));
+        addToTop(new DrawCardAction(TRIGGER));
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Zeal extends AbstractGlyph {
             p.getRelic(RunedArmor.ID).flash();
             amt *= 2;
         }
-        this.addToTop(new GainEnergyAction(amt));
+        addToTop(new GainEnergyAction(amt));
     }
 
     @Override

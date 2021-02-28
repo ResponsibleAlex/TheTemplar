@@ -42,19 +42,19 @@ public class Avenger extends AbstractBaseValuesCard {
         baseDamage = DAMAGE;
         magicNumber = baseMagicNumber = BONUS;
 
-        this.blessing = true;
+        blessing = true;
     }
 
     @Override
     protected int increaseBaseDamage() {
-        return (this.willTriggerBlessing() ? this.magicNumber : 0);
+        return (willTriggerBlessing() ? magicNumber : 0);
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.triggerBlessing();
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+        triggerBlessing();
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
     }
 
 

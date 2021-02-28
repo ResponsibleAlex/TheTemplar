@@ -117,18 +117,18 @@ public class BottledQuicksilver extends CustomRelic implements CustomBottleRelic
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         if (BottledQuicksilverPatch.inBottledQuicksilver.get(c)) {
             flash();
-            this.addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            addToTop(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 
-            this.addToBot(new DrawCardAction(1));
+            addToBot(new DrawCardAction(1));
         }
     }
 
     // Change description after relic is already loaded to reflect the bottled card.
     public void setDescriptionAfterLoading() {
-        this.description = DESCRIPTIONS[1] + FontHelper.colorString(card.name, "y") + DESCRIPTIONS[2];
-        this.tips.clear();
-        this.tips.add(new PowerTip(this.name, this.description));
-        this.initializeTips();
+        description = DESCRIPTIONS[1] + FontHelper.colorString(card.name, "y") + DESCRIPTIONS[2];
+        tips.clear();
+        tips.add(new PowerTip(name, description));
+        initializeTips();
     }
 
     // Standard description

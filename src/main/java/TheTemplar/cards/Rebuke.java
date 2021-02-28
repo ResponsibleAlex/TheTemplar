@@ -45,9 +45,9 @@ public class Rebuke extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GlyphInscribeAction(new Justice()));
-        if (this.upgraded) {
-            this.addToBot(new GlyphInscribeAction(new Justice()));
+        addToBot(new GlyphInscribeAction(new Justice()));
+        if (upgraded) {
+            addToBot(new GlyphInscribeAction(new Justice()));
         }
     }
 

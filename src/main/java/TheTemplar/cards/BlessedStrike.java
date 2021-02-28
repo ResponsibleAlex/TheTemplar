@@ -50,7 +50,7 @@ public class BlessedStrike extends AbstractBaseValuesCard {
 
     @Override
     protected int increaseBaseDamage() {
-        return (this.willTriggerBlessing() ? this.magicNumber : 0);
+        return (willTriggerBlessing() ? magicNumber : 0);
     }
 
     // Actions the card should do.
@@ -62,7 +62,7 @@ public class BlessedStrike extends AbstractBaseValuesCard {
             effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
         }
 
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
     }
 
 

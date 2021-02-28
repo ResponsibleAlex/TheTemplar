@@ -60,29 +60,29 @@ public class ShieldBash extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBulwarkAction(magicNumber));
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.initializeDescription();
+        addToBot(new GainBulwarkAction(magicNumber));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        rawDescription = cardStrings.DESCRIPTION;
+        initializeDescription();
     }
 
     public void applyPowers() {
-        this.updateBaseDamage();
+        updateBaseDamage();
         super.applyPowers();
-        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        this.initializeDescription();
+        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        initializeDescription();
     }
 
     public void onMoveToDiscard() {
-        this.rawDescription = cardStrings.DESCRIPTION;
-        this.initializeDescription();
+        rawDescription = cardStrings.DESCRIPTION;
+        initializeDescription();
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
-        this.updateBaseDamage();
+        updateBaseDamage();
         super.calculateCardDamage(mo);
-        this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
-        this.initializeDescription();
+        rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+        initializeDescription();
     }
 
     // Upgraded stats.

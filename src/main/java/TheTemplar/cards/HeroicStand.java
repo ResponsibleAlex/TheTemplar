@@ -45,13 +45,13 @@ public class HeroicStand extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int amt = this.block;
+        int amt = block;
 
-        if (this.areAnyEmpowered()) {
+        if (areAnyEmpowered()) {
             amt *= 2;
         }
 
-        this.addToBot(new GainBlockAction(p, p, amt));
+        addToBot(new GainBlockAction(p, p, amt));
     }
 
 

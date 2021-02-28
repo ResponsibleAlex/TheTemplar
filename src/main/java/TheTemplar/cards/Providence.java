@@ -37,20 +37,20 @@ public class Providence extends AbstractDynamicCard {
 
     public Providence() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.exhaust = true;
-        this.blessing = true;
+        exhaust = true;
+        blessing = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DrawCardAction(2));
+        addToBot(new DrawCardAction(2));
 
-        if (this.triggerBlessing()) {
-            this.addToBot(new SetupAction());
+        if (triggerBlessing()) {
+            addToBot(new SetupAction());
         } else {
-            this.addToBot(new PutOnDeckAction(p, p, 1, false));
+            addToBot(new PutOnDeckAction(p, p, 1, false));
         }
     }
 
@@ -60,7 +60,7 @@ public class Providence extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.exhaust = false;
+            exhaust = false;
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

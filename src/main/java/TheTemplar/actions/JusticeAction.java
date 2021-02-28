@@ -19,12 +19,12 @@ public class JusticeAction extends AbstractGameAction {
     private final AbstractGlyph g;
 
     public JusticeAction(int amount, boolean isMatchBonus, AbstractGlyph glyph) {
-        this.actionType = ActionType.DAMAGE;
+        actionType = ActionType.DAMAGE;
 
-        this.amt = amount;
+        amt = amount;
         this.isMatchBonus = isMatchBonus;
-        this.p = AbstractDungeon.player;
-        this.g = glyph;
+        p = AbstractDungeon.player;
+        g = glyph;
     }
 
     public void update() {
@@ -33,28 +33,28 @@ public class JusticeAction extends AbstractGameAction {
             if (!isMatchBonus) {
                 for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
                     if (!m.isDeadOrEscaped()) {
-                        this.addToTop(new GlyphAboveCreatureAction(m, g));
+                        addToTop(new GlyphAboveCreatureAction(m, g));
                     }
                 }
 
                 // increase damage by Vigor if you have Flame of Heaven and Vigor
-                if (this.p.hasPower(FlameOfHeavenPower.POWER_ID) && this.p.hasPower(VigorPower.POWER_ID)) {
-                    amt += this.p.getPower(VigorPower.POWER_ID).amount;
+                if (p.hasPower(FlameOfHeavenPower.POWER_ID) && p.hasPower(VigorPower.POWER_ID)) {
+                    amt += p.getPower(VigorPower.POWER_ID).amount;
                     // if Flame of Heaven is upgraded, do not remove the Vigor
-                    if (!((FlameOfHeavenPower) this.p.getPower(FlameOfHeavenPower.POWER_ID)).upgraded) {
-                        this.addToTop(new RemoveSpecificPowerAction(this.p, this.p, VigorPower.POWER_ID));
+                    if (!((FlameOfHeavenPower) p.getPower(FlameOfHeavenPower.POWER_ID)).upgraded) {
+                        addToTop(new RemoveSpecificPowerAction(p, p, VigorPower.POWER_ID));
                     }
                 }
             }
 
-            this.addToTop(
-                    new DamageAllEnemiesAction(this.p,
+            addToTop(
+                    new DamageAllEnemiesAction(p,
                             DamageInfo.createDamageMatrix(amt, true),
                             DamageInfo.DamageType.THORNS,
                             AbstractGameAction.AttackEffect.FIRE,
                             true));
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

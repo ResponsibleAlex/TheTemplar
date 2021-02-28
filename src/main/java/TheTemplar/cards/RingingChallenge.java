@@ -36,16 +36,16 @@ public class RingingChallenge extends AbstractDynamicCard {
     public RingingChallenge() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
-        this.isInnate = true;
-        this.isEthereal = true;
-        this.exhaust = true;
+        isInnate = true;
+        isEthereal = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new RingingChallengeAction());
+        addToBot(new RingingChallengeAction());
     }
 
 

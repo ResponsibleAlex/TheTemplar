@@ -27,7 +27,7 @@ public class DivinePurposePower extends AbstractPower implements CloneablePowerI
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
+        owner = AbstractDungeon.player;
         this.amount = amount;
         if (this.amount >= 999) {
             this.amount = 999;
@@ -35,25 +35,25 @@ public class DivinePurposePower extends AbstractPower implements CloneablePowerI
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         updateDescription();
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        if (this.amount >= 999) {
-            this.amount = 999;
+        if (amount >= 999) {
+            amount = 999;
         }
     }
 
     @Override
     public void atStartOfTurn() {
         if (TemplarMod.triggeredBlessingLastTurn) {
-            this.flash();
+            flash();
             for (int i = 0; i < amount; i++) {
-                this.addToBot(new GlyphInscribeAction(new Zeal()));
+                addToBot(new GlyphInscribeAction(new Zeal()));
             }
         }
     }

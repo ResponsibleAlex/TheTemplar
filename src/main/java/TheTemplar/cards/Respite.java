@@ -44,18 +44,18 @@ public class Respite extends AbstractDynamicCard {
         baseBlock = BLOCK;
         magicNumber = baseMagicNumber = METALLICIZE;
 
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster unused) {
-        this.addToBot(new GainBlockAction(p, p, block));
+        addToBot(new GainBlockAction(p, p, block));
 
         for (AbstractMonster m: AbstractDungeon.getMonsters().monsters) {
             if(!m.isDeadOrEscaped()) {
-                this.addToBot(new ApplyPowerAction(m, m, new MetallicizePower(m, this.magicNumber), this.magicNumber));
+                addToBot(new ApplyPowerAction(m, m, new MetallicizePower(m, magicNumber), magicNumber));
             }
         }
     }

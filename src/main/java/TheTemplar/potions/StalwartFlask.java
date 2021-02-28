@@ -28,7 +28,7 @@ public class StalwartFlask extends CustomPotion {
 
     public StalwartFlask() {
         super(NAME, POTION_ID, PotionRarity.UNCOMMON, PotionSize.M, PotionColor.WHITE);
-        this.isThrown = false;
+        isThrown = false;
     }
 
     public void initializeData() {
@@ -44,7 +44,7 @@ public class StalwartFlask extends CustomPotion {
     @Override
     public void use(AbstractCreature target) {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
-            this.addToBot(new GainBulwarkAction(this.potency));
+            addToBot(new GainBulwarkAction(potency));
         }
     }
 

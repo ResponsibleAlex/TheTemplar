@@ -31,13 +31,13 @@ public class SacredHammerPower extends HolyWeaponPower implements CloneablePower
         name = NAME;
         ID = POWER_ID;
 
-        this.owner = AbstractDungeon.player;
-        this.amount = 0;
+        owner = AbstractDungeon.player;
+        amount = 0;
 
         type = PowerType.BUFF;
 
-        this.region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
-        this.region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
+        region128 = new TextureAtlas.AtlasRegion(tex84, 0, 0, 84, 84);
+        region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         refresh(upgraded);
     }
@@ -47,17 +47,17 @@ public class SacredHammerPower extends HolyWeaponPower implements CloneablePower
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (target.currentBlock == 0 && info.type == DamageInfo.DamageType.NORMAL) {
-            this.flash();
-            this.addToBot(new ApplyPowerAction(target, this.owner, new VulnerablePower(target, 1, false), 1));
-            if (this.upgraded) {
-                this.addToBot(new ApplyPowerAction(target, this.owner, new WeakPower(target, 1, false), 1));
+            flash();
+            addToBot(new ApplyPowerAction(target, owner, new VulnerablePower(target, 1, false), 1));
+            if (upgraded) {
+                addToBot(new ApplyPowerAction(target, owner, new WeakPower(target, 1, false), 1));
             }
         }
     }
 
     @Override
     public void updateDescription() {
-        if (this.upgraded) {
+        if (upgraded) {
             description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[2];
         } else {
             description = DESCRIPTIONS[0] + DESCRIPTIONS[2];
@@ -66,6 +66,6 @@ public class SacredHammerPower extends HolyWeaponPower implements CloneablePower
 
     @Override
     public AbstractPower makeCopy() {
-        return new SacredHammerPower(this.upgraded);
+        return new SacredHammerPower(upgraded);
     }
 }

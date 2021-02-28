@@ -44,7 +44,7 @@ public class CourageousAttack extends AbstractBaseValuesCard {
         baseDamage = DAMAGE;
         baseMagicNumber = magicNumber = BONUS;
 
-        this.glowEmpowered = true;
+        glowEmpowered = true;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class CourageousAttack extends AbstractBaseValuesCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 
     // Upgraded stats.

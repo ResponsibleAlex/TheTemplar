@@ -47,12 +47,12 @@ public class InscribeCharity extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.onChoseThisOption();
+        onChoseThisOption();
     }
 
     public void onChoseThisOption() {
-        for (int i = 0; i < this.number; i++) {
-            this.addToBot(new GlyphInscribeAction(new Charity()));
+        for (int i = 0; i < number; i++) {
+            addToBot(new GlyphInscribeAction(new Charity()));
         }
     }
 

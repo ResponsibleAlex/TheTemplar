@@ -25,13 +25,13 @@ public class GlyphInscribeAction extends AbstractGameAction {
         duration = startDuration = AbstractGlyph.INSCRIBE_TIME;
 
         if (canDupWithBook && AbstractDungeon.player.hasPower(BookOfTheFivePower.POWER_ID)) {
-            this.addToBot(new GlyphInscribeAction(glyph.makeCopy(), false));
+            addToBot(new GlyphInscribeAction(glyph.makeCopy(), false));
         }
     }
 
     @Override
     public void update() {
-        if (this.duration == this.startDuration) {
+        if (duration == startDuration) {
             TemplarMod.glyphsInscribedThisCombat++;
             updateLightOfGlory();
 
@@ -52,11 +52,11 @@ public class GlyphInscribeAction extends AbstractGameAction {
                 AbstractGlyph.inscribeLeft(glyphToInscribe);
             } else {
                 AbstractGlyph.inscribeRight(glyphToInscribe);
-                this.addToTop(new GlyphTriggerAction());
+                addToTop(new GlyphTriggerAction());
             }
         }
 
-        this.tickDuration();
+        tickDuration();
     }
 
     private void updateLightOfGlory() {

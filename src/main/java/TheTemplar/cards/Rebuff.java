@@ -46,8 +46,8 @@ public class Rebuff extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p, p, block));
-        this.addToBot(new ApplyPowerAction(p, p, new ReboundPower(p), 1));
+        addToBot(new GainBlockAction(p, p, block));
+        addToBot(new ApplyPowerAction(p, p, new ReboundPower(p), 1));
     }
 
 

@@ -43,17 +43,17 @@ public class DeterminedCharge extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        this.blessing = true;
+        blessing = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        this.addToBot(new GlyphInscribeAction(new Fortitude()));
-        if (this.triggerBlessing()) {
-            this.addToBot(new GlyphInscribeAction(new Fortitude()));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        addToBot(new GlyphInscribeAction(new Fortitude()));
+        if (triggerBlessing()) {
+            addToBot(new GlyphInscribeAction(new Fortitude()));
         }
     }
 

@@ -35,7 +35,7 @@ public class Innervate extends AbstractDynamicCard {
 
     public Innervate() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.blessing = true;
+        blessing = true;
     }
 
 
@@ -44,15 +44,15 @@ public class Innervate extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int amt = 1;
 
-        if (this.triggerBlessing()) {
+        if (triggerBlessing()) {
             amt++;
 
-            if (this.upgraded) {
+            if (upgraded) {
                 amt++;
             }
         }
 
-        this.addToBot(new GainEnergyAction(amt));
+        addToBot(new GainEnergyAction(amt));
     }
 
 

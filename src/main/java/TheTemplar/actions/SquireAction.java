@@ -14,21 +14,21 @@ public class SquireAction extends AbstractGameAction {
     private final String text;
 
     public SquireAction(String text) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
-        this.p = AbstractDungeon.player;
+        actionType = ActionType.CARD_MANIPULATION;
+        duration = startDuration = Settings.ACTION_DUR_FAST;
+        p = AbstractDungeon.player;
         this.text = text;
     }
 
     public void update() {
-        if (this.duration == this.startDuration) {
+        if (duration == startDuration) {
             if (!p.drawPile.isEmpty()) {
 
                 if (p.drawPile.size() == 1) {
                     // only 1 card in draw pile, just copy it
-                    this.addToTop(new MakeTempCardInHandAction(p.drawPile.getTopCard().makeStatEquivalentCopy()));
+                    addToTop(new MakeTempCardInHandAction(p.drawPile.getTopCard().makeStatEquivalentCopy()));
 
-                    this.isDone = true;
+                    isDone = true;
                 } else {
                     // choose from draw pile
                     CardGroup selection = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
@@ -40,23 +40,23 @@ public class SquireAction extends AbstractGameAction {
                     selection.sortByRarityPlusStatusCardType(false);
                     AbstractDungeon.gridSelectScreen.open(selection, 1, text, false);
 
-                    this.tickDuration();
+                    tickDuration();
                 }
             } else {
                 // draw pile was empty
-                this.isDone = true;
+                isDone = true;
             }
         } else {
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 // copy the chosen card
                 AbstractCard c = AbstractDungeon.gridSelectScreen.selectedCards.get(0);
-                this.addToTop(new MakeTempCardInHandAction(c.makeStatEquivalentCopy()));
+                addToTop(new MakeTempCardInHandAction(c.makeStatEquivalentCopy()));
 
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
                 AbstractDungeon.player.hand.refreshHandLayout();
             }
 
-            this.tickDuration();
+            tickDuration();
         }
     }
 }

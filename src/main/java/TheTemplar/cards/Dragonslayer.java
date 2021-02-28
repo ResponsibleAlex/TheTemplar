@@ -41,14 +41,14 @@ public class Dragonslayer extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        this.glowEmpowered = true;
+        glowEmpowered = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
     }
 
     @Override
@@ -56,9 +56,9 @@ public class Dragonslayer extends AbstractDynamicCard {
         super.calculateCardDamage(m);
 
         if (isEmpowered(m)) {
-            this.damage *= 2;
+            damage *= 2;
         }
-        this.isDamageModified = this.damage != this.baseDamage;
+        isDamageModified = damage != baseDamage;
     }
 
     // Upgraded stats.

@@ -11,12 +11,12 @@ public class GainBulwarkAction extends AbstractGameAction {
     private final AbstractPlayer p;
     public GainBulwarkAction(int amount) {
         this.amount = amount;
-        this.actionType = ActionType.POWER;
-        this.p = AbstractDungeon.player;
+        actionType = ActionType.POWER;
+        p = AbstractDungeon.player;
     }
 
     public void update() {
-        this.addToBot(new ApplyPowerAction(p, p, new BulwarkPower(p, p, amount), amount));
-        this.isDone = true;
+        addToBot(new ApplyPowerAction(p, p, new BulwarkPower(p, p, amount), amount));
+        isDone = true;
     }
 }

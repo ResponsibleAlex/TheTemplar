@@ -50,12 +50,12 @@ public class Momentum extends AbstractBaseValuesCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
     protected int increaseBaseDamage() {
         int vigorBonus = 0;
-        int additionalTimes = this.magicNumber - 1;
+        int additionalTimes = magicNumber - 1;
         if (AbstractDungeon.player.hasPower(VigorPower.POWER_ID)) {
             vigorBonus = AbstractDungeon.player.getPower(VigorPower.POWER_ID).amount * additionalTimes;
         }

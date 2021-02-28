@@ -38,14 +38,14 @@ public class Bastion extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = BULWARK;
 
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBulwarkAction(magicNumber));
+        addToBot(new GainBulwarkAction(magicNumber));
     }
 
 

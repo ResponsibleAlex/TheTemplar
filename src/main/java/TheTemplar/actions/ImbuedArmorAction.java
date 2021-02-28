@@ -41,11 +41,11 @@ public class ImbuedArmorAction extends AbstractGameAction {
 
         // vigor and block effect# times
         if (effect > 0) {
-            this.addToBot(new VFXAction(p, new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.1F));
+            addToBot(new VFXAction(p, new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.1F));
         }
         for (int i = 0; i < effect; i++) {
-            this.addToBot(new ApplyPowerAction(p, p, new VigorPower(p, this.vigor), this.vigor));
-            this.addToBot(new GainBlockAction(p, p, this.block));
+            addToBot(new ApplyPowerAction(p, p, new VigorPower(p, vigor), vigor));
+            addToBot(new GainBlockAction(p, p, block));
         }
 
         if (!freeToPlayOnce) {

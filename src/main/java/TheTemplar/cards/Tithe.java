@@ -42,7 +42,7 @@ public class Tithe extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = CHARITY;
 
-        this.tags.add(CardTags.HEALING);
+        tags.add(CardTags.HEALING);
     }
 
 
@@ -56,10 +56,10 @@ public class Tithe extends AbstractDynamicCard {
 
         int regenAmt = amt / 10;
         if (regenAmt > 0) {
-            this.addToBot(new ApplyPowerAction(p, p, new RegenPower(p, regenAmt), regenAmt));
+            addToBot(new ApplyPowerAction(p, p, new RegenPower(p, regenAmt), regenAmt));
         }
 
-        this.addToBot(new GlyphInscribeAction(new Charity()));
+        addToBot(new GlyphInscribeAction(new Charity()));
     }
 
 

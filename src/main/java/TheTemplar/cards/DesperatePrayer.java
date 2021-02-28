@@ -44,7 +44,7 @@ public class DesperatePrayer extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DesperatePrayerAction(upgraded, cardStrings.EXTENDED_DESCRIPTION[0]));
+        addToBot(new DesperatePrayerAction(upgraded, cardStrings.EXTENDED_DESCRIPTION[0]));
     }
 
 

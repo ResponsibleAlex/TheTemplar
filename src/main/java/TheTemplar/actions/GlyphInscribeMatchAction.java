@@ -10,9 +10,9 @@ public class GlyphInscribeMatchAction extends AbstractGameAction {
     @Override
     public void update() {
         if (AbstractGlyph.canMatch()) {
-            this.addToBot(new GlyphInscribeAction(AbstractGlyph.getCopyOfLeftGlyph()));
+            addToBot(new GlyphInscribeAction(AbstractGlyph.getCopyOfLeftGlyph()));
         }
 
-        this.isDone = true;
+        isDone = true;
     }
 }

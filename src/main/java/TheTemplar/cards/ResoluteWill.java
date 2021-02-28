@@ -45,7 +45,7 @@ public class ResoluteWill extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p,
+        addToBot(new ApplyPowerAction(p, p,
                 new ResoluteWillPower(magicNumber), magicNumber));
     }
 

@@ -9,21 +9,21 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class ExaltedEssenceAction extends AbstractGameAction {
     public ExaltedEssenceAction(int amt) {
-        this.amount = amt;
-        this.actionType = ActionType.SPECIAL;
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
+        amount = amt;
+        actionType = ActionType.SPECIAL;
+        duration = startDuration = Settings.ACTION_DUR_FAST;
     }
 
     public void update() {
-        if (this.duration == this.startDuration) {
+        if (duration == startDuration) {
             AbstractPlayer p = AbstractDungeon.player;
             if (p.hand.size() < 5) {
                 int amtToDraw = 5 - p.hand.size();
-                this.addToBot(new DrawCardAction(amtToDraw));
+                addToBot(new DrawCardAction(amtToDraw));
             }
-            this.addToBot(new GainEnergyAction(this.amount));
+            addToBot(new GainEnergyAction(amount));
         }
 
-        this.tickDuration();
+        tickDuration();
     }
 }

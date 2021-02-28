@@ -36,14 +36,14 @@ public class EtchInFaith extends AbstractDynamicCard {
     public EtchInFaith() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GlyphChoiceAction());
+        addToBot(new GlyphChoiceAction());
     }
 
 
@@ -52,7 +52,7 @@ public class EtchInFaith extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.exhaust = false;
+            exhaust = false;
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

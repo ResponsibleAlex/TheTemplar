@@ -13,7 +13,7 @@ public class LionheartAttackAction extends AttackDamageRandomEnemyAction {
 
     public void update() {
         if (!Settings.FAST_MODE) {
-            this.addToTop(new WaitAction(0.1F));
+            addToTop(new WaitAction(0.1F));
         }
 
         super.update();

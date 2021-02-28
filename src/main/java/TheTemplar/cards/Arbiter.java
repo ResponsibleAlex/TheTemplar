@@ -46,8 +46,8 @@ public class Arbiter extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ArbiterAction(p, upgraded, freeToPlayOnce, energyOnUse,
-                new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY)));
+        addToBot(new ArbiterAction(p, upgraded, freeToPlayOnce, energyOnUse,
+                new DamageAllEnemiesAction(p, multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY)));
     }
 
 

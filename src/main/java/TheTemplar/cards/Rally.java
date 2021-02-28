@@ -38,15 +38,15 @@ public class Rally extends AbstractDynamicCard {
     public Rally() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
 
-        this.exhaust = true;
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GlyphInscribeAction(new Valor()));
-        this.addToBot(new GlyphInscribeAction(new Fortitude()));
+        addToBot(new GlyphInscribeAction(new Valor()));
+        addToBot(new GlyphInscribeAction(new Fortitude()));
     }
 
 
@@ -55,7 +55,7 @@ public class Rally extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            this.exhaust = false;
+            exhaust = false;
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

@@ -48,9 +48,9 @@ public class Hymn extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (AbstractGlyph.canMatch()) {
-            this.addToBot(new GlyphInscribeMatchAction());
-        } else if (this.upgraded) {
-            this.addToBot(new GlyphInscribeRandomAction());
+            addToBot(new GlyphInscribeMatchAction());
+        } else if (upgraded) {
+            addToBot(new GlyphInscribeRandomAction());
         }
     }
 
@@ -59,9 +59,9 @@ public class Hymn extends AbstractDynamicCard {
         if (!canUse) {
             return false;
         } else {
-            if (!this.upgraded && !AbstractGlyph.canMatch()) {
+            if (!upgraded && !AbstractGlyph.canMatch()) {
                 canUse = false;
-                this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[1];
+                cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[1];
             }
 
             return canUse;

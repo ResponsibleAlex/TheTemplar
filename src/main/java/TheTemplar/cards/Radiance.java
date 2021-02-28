@@ -65,13 +65,13 @@ public class Radiance extends AbstractBaseValuesCard {
 
     @Override
     protected int increaseBaseDamage() {
-        return this.magicNumber * countBlessingCards();
+        return magicNumber * countBlessingCards();
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
     }
 
     // Upgraded stats.
