@@ -53,9 +53,7 @@ public class RetributionPower extends AbstractPower implements CloneablePowerInt
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != owner && damageAmount > 0) {
             flash();
-            for (int i = 0; i < amount; i++) {
-                addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, amount), amount));
-            }
+            addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, amount), amount));
         }
 
         return damageAmount;
