@@ -51,8 +51,7 @@ public class AltarPower extends AbstractPower implements CloneablePowerInterface
         }
     }
 
-    @Override
-    public void atEndOfTurn(boolean isPlayer) {
+    public void atEndOfTurnSpecial() {
         if (AbstractGlyph.canMatchAltar()) {
             flash();
 
@@ -62,7 +61,7 @@ public class AltarPower extends AbstractPower implements CloneablePowerInterface
             }
 
             while (!glyphs.isEmpty()) {
-                addToTop(new GlyphInscribeAction(glyphs.pop()));
+                addToBot(new GlyphInscribeAction(glyphs.pop()));
             }
         }
     }

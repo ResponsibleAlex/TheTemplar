@@ -4,6 +4,7 @@ import TheTemplar.glyphs.AbstractGlyph;
 import TheTemplar.patches.AbstractMonsterPatch;
 import TheTemplar.potions.ExaltedEssence;
 import TheTemplar.potions.StalwartFlask;
+import TheTemplar.powers.AltarPower;
 import TheTemplar.relics.*;
 import TheTemplar.variables.HolyWeapons;
 import TheTemplar.vfx.FlashCustomAttackEffect;
@@ -526,5 +527,13 @@ public class TemplarMod implements
             }
         }
         return false;
+    }
+
+    public static void triggerAltar() {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p.hasPower(AltarPower.POWER_ID)) {
+            AltarPower altarPower = (AltarPower)p.getPower(AltarPower.POWER_ID);
+            altarPower.atEndOfTurnSpecial();
+        }
     }
 }
