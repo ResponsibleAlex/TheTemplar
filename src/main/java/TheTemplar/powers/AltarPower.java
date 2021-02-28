@@ -62,7 +62,7 @@ public class AltarPower extends AbstractPower implements CloneablePowerInterface
             }
 
             while (!glyphs.isEmpty()) {
-                this.addToBot(new GlyphInscribeAction(glyphs.pop()));
+                this.addToTop(new GlyphInscribeAction(glyphs.pop()));
             }
         }
     }

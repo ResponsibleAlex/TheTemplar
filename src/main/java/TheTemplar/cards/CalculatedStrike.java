@@ -82,6 +82,7 @@ public class CalculatedStrike extends AbstractDynamicCard {
         if (this.onlyAttackInHand()) {
             this.damage *= 2;
         }
+        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     // Actions the card should do.
