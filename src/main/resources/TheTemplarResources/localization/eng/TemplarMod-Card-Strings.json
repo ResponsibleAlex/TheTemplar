@@ -306,7 +306,7 @@
   },
   "TheTemplar:Altar": {
     "NAME": "Altar",
-    "DESCRIPTION": "If you have a glyph thetemplar:Inscribed at the end of your turn that isn't a thetemplar:Zeal, thetemplar:Inscribe !M! additional glyph of that type."
+    "DESCRIPTION": "If you have a non-Zeal glyph thetemplar:Inscribed at the end of your turn, thetemplar:Inscribe !M! additional glyph of that type."
   },
   "TheTemplar:SacredHammer": {
     "NAME": "Sacred Hammer",

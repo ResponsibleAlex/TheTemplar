@@ -72,7 +72,7 @@
         "TheTemplar:AltarPower": {
                 "NAME": "Altar",
                 "DESCRIPTIONS": [
-                        "If you have a glyph #yInscribed at the end of your turn that isn't a #yZeal, #yInscribe #b",
+                        "If you have a #ynon-Zeal glyph #yInscribed at the end of your turn, #yInscribe #b",
                         " additional glyph of that type.",
                         " additional glyphs of that type."
                 ]
