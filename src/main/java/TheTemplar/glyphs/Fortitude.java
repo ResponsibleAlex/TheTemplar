@@ -12,8 +12,8 @@ public class Fortitude extends AbstractGlyph {
     public static final String DESCRIPTION =
             BaseMod.getKeywordDescription(TemplarMod.getModID().toLowerCase() + ":" + classID);
 
-    private static final int TRIGGER = 4;
-    private static final int MATCH_BONUS = 4;
+    private static final int TRIGGER = 3;
+    private static final int MATCH_BONUS = 3;
 
     public Fortitude() {
         super(classID, DESCRIPTION);

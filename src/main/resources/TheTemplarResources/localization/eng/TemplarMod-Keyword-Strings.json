@@ -63,7 +63,7 @@
       "fortitude",
       "Fortitude"
     ],
-    "DESCRIPTION": "Gain #b4 #yBulwark when paired. NL Match bonus: gain #b4 #yBulwark."
+    "DESCRIPTION": "Gain #b3 #yBulwark when paired. NL Match bonus: gain #b3 #yBulwark."
   },
   {
     "NAMES": [
@@ -84,6 +84,6 @@
       "charity",
       "Charity"
     ],
-    "DESCRIPTION": "Gain #b6 Block when paired. NL Match bonus: remove all of your debuffs."
+    "DESCRIPTION": "Gain #b5 Block when paired. NL Match bonus: remove all of your debuffs."
   }
 ]
