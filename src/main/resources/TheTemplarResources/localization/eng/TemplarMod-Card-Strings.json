@@ -302,11 +302,11 @@
   },
   "TheTemplar:Retribution": {
     "NAME": "Retribution",
-    "DESCRIPTION": "Whenever you receive unblocked attack damage, thetemplar:Inscribe !M! thetemplar:Valor."
+    "DESCRIPTION": "Whenever you receive unblocked attack damage, gain !M! Vigor."
   },
   "TheTemplar:Altar": {
     "NAME": "Altar",
-    "DESCRIPTION": "If you have a glyph thetemplar:Inscribed at the end of your turn, thetemplar:Inscribe !M! additional glyph of that type."
+    "DESCRIPTION": "If you have a non-thetemplar:Zeal glyph thetemplar:Inscribed at the end of your turn, thetemplar:Inscribe !M! additional glyph of that type."
   },
   "TheTemplar:SacredHammer": {
     "NAME": "Sacred Hammer",

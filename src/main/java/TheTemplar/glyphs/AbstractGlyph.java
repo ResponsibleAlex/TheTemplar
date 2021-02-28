@@ -112,6 +112,10 @@ public abstract class AbstractGlyph {
         return LeftGlyph != null && RightGlyph == null;
     }
 
+    public static boolean canMatchAltar() {
+        return canMatch() && !LeftGlyph.name.equals(Zeal.classID);
+    }
+
     public static void inscribeLeft(AbstractGlyph glyph) {
         glyph.isLeft = true;
         LeftGlyph = glyph;

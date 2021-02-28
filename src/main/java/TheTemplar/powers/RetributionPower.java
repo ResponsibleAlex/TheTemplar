@@ -1,10 +1,9 @@
 package TheTemplar.powers;
 
-import TheTemplar.actions.GlyphInscribeAction;
-import TheTemplar.glyphs.Valor;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -12,6 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import TheTemplar.TemplarMod;
 import TheTemplar.util.TextureLoader;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 
 import static TheTemplar.TemplarMod.makePowerPath;
 
@@ -54,7 +54,7 @@ public class RetributionPower extends AbstractPower implements CloneablePowerInt
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != owner && damageAmount > 0) {
             flash();
             for (int i = 0; i < amount; i++) {
-                addToTop(new GlyphInscribeAction(new Valor()));
+                addToBot(new ApplyPowerAction(owner, owner, new VigorPower(owner, amount), amount));
             }
         }
 

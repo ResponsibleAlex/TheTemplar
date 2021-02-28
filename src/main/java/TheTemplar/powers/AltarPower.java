@@ -53,7 +53,7 @@ public class AltarPower extends AbstractPower implements CloneablePowerInterface
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        if (AbstractGlyph.canMatch()) {
+        if (AbstractGlyph.canMatchAltar()) {
             flash();
 
             Deque<AbstractGlyph> glyphs = new ArrayDeque<>();

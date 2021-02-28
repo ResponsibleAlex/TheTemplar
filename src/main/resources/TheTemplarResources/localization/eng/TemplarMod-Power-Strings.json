@@ -65,14 +65,14 @@
         "TheTemplar:RetributionPower": {
                 "NAME": "Retribution",
                 "DESCRIPTIONS": [
-                        "Whenever you receive unblocked attack damage, #yInscribe #b",
-                        " #yValor."
+                        "Whenever you receive unblocked attack damage, gain #b",
+                        " Vigor."
                 ]
         },
         "TheTemplar:AltarPower": {
                 "NAME": "Altar",
                 "DESCRIPTIONS": [
-                        "If you have a glyph #yInscribed at the end of your turn, #yInscribe #b",
+                        "If you have a non-#yZeal glyph #yInscribed at the end of your turn, #yInscribe #b",
                         " additional glyph of that type.",
                         " additional glyphs of that type."
                 ]
