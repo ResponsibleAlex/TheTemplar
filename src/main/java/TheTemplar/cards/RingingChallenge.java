@@ -39,6 +39,7 @@ public class RingingChallenge extends AbstractDynamicCard {
         isInnate = true;
         isEthereal = true;
         exhaust = true;
+        tags.add(CardTags.HEALING);
     }
 
 

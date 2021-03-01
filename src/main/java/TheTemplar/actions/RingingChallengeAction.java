@@ -72,24 +72,32 @@ public class RingingChallengeAction extends AbstractGameAction {
             case 0:
                 amt = AbstractDungeon.actNum + 1;
                 for (AbstractMonster m : mg.monsters) {
-                    addToBot(new ApplyPowerAction(m, m, new StrengthPower(m, amt), amt));
+                    if (!m.isDeadOrEscaped()) {
+                        addToBot(new ApplyPowerAction(m, m, new StrengthPower(m, amt), amt));
+                    }
                 }
                 break;
             case 1:
                 for (AbstractMonster m : mg.monsters) {
-                    addToBot(new IncreaseMaxHpAction(m, 0.25F, true));
+                    if (!m.isDeadOrEscaped()) {
+                        addToBot(new IncreaseMaxHpAction(m, 0.25F, true));
+                    }
                 }
                 break;
             case 2:
                 amt = AbstractDungeon.actNum * 2 + 2;
                 for (AbstractMonster m : mg.monsters) {
-                    addToBot(new ApplyPowerAction(m, m, new MetallicizePower(m, amt), amt));
+                    if (!m.isDeadOrEscaped()) {
+                        addToBot(new ApplyPowerAction(m, m, new MetallicizePower(m, amt), amt));
+                    }
                 }
                 break;
             case 3:
                 amt = 1 + AbstractDungeon.actNum * 2;
                 for (AbstractMonster m : mg.monsters) {
-                    addToBot(new ApplyPowerAction(m, m, new RegenerateMonsterPower(m, amt), amt));
+                    if (!m.isDeadOrEscaped()) {
+                        addToBot(new ApplyPowerAction(m, m, new RegenerateMonsterPower(m, amt), amt));
+                    }
                 }
                 break;
         }
