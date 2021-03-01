@@ -71,7 +71,7 @@
   },
   "TheTemplar:Reckoning": {
     "NAME": "Reckoning",
-    "DESCRIPTION": "thetemplar:Inscribe 1 thetemplar:Valor and 1 thetemplar:Justice. NL Deal !D! damage."
+    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Valor. NL thetemplar:Inscribe 1 thetemplar:Justice."
   },
   "TheTemplar:DevotedStrike": {
     "NAME": "Devoted Strike",

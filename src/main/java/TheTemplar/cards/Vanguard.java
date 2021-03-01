@@ -33,7 +33,7 @@ public class Vanguard extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int BASE_VALUE = 7;
+    private static final int BASE_VALUE = 5;
     private static final int BONUS = 1;
     private static final int UPGRADE_PLUS_BONUS = 1;
 

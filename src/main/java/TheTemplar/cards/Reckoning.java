@@ -52,12 +52,12 @@ public class Reckoning extends AbstractDynamicCard {
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GlyphInscribeAction(new Valor()));
-        addToBot(new GlyphInscribeAction(new Justice()));
-
         addToBot(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.0F));
         addToBot(new SFXAction("ORB_LIGHTNING_EVOKE"));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+
+        addToBot(new GlyphInscribeAction(new Valor()));
+        addToBot(new GlyphInscribeAction(new Justice()));
     }
 
 
