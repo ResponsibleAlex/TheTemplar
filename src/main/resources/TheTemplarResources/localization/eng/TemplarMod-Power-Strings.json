@@ -112,7 +112,9 @@
         "TheTemplar:BookOfTheFivePower": {
                 "NAME": "Book of the Five",
                 "DESCRIPTIONS": [
-                        "Whenever you #yInscribe a glyph, #yInscribe an additional glyph of the same type."
+                        "The first #b",
+                        " times you #yInscribe a glyph each turn, #yInscribe an additional glyph of the same type. #b",
+                        " remaining this turn."
                 ]
         },
         "TheTemplar:ParagonFormPower": {

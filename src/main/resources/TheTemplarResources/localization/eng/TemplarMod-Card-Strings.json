@@ -330,7 +330,7 @@
   },
   "TheTemplar:BookOfTheFive": {
     "NAME": "Book of the Five",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Whenever you thetemplar:Inscribe a glyph, thetemplar:Inscribe an additional glyph of the same type."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL The first !M! times you thetemplar:Inscribe a glyph each turn, thetemplar:Inscribe an additional glyph of the same type."
   },
   "TheTemplar:ParagonForm": {
     "NAME": "Paragon Form",

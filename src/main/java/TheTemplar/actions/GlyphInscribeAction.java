@@ -18,14 +18,18 @@ public class GlyphInscribeAction extends AbstractGameAction {
         this(glyph, true);
     }
 
-    public GlyphInscribeAction(AbstractGlyph glyph, boolean canDupWithBook) {
+    private GlyphInscribeAction(AbstractGlyph glyph, boolean canDupeWithBook) {
         glyphToInscribe = glyph;
 
         actionType = ActionType.SPECIAL;
         duration = startDuration = AbstractGlyph.INSCRIBE_TIME;
 
-        if (canDupWithBook && AbstractDungeon.player.hasPower(BookOfTheFivePower.POWER_ID)) {
-            addToBot(new GlyphInscribeAction(glyph.makeCopy(), false));
+        if (canDupeWithBook && AbstractDungeon.player.hasPower(BookOfTheFivePower.POWER_ID)) {
+            BookOfTheFivePower bookPower = (BookOfTheFivePower) AbstractDungeon.player.getPower(BookOfTheFivePower.POWER_ID);
+            if (bookPower.amount > 0) {
+                bookPower.trigger();
+                addToBot(new GlyphInscribeAction(glyph.makeCopy(), false));
+            }
         }
     }
 

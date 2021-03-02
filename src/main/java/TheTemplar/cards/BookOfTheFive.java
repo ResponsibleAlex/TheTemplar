@@ -28,14 +28,16 @@ public class BookOfTheFive extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
-    private static final int COST = 3;
-    private static final int UPGRADED_COST = 2;
+    private static final int COST = 2;
+    public static final int TIMES = 2;
+    public static final int UPGRADE_PLUS_TIMES = 1;
 
     // /STAT DECLARATION/
 
 
     public BookOfTheFive() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        baseMagicNumber = magicNumber = TIMES;
     }
 
 
@@ -51,7 +53,7 @@ public class BookOfTheFive extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            upgradeMagicNumber(UPGRADE_PLUS_TIMES);
             initializeDescription();
         }
     }

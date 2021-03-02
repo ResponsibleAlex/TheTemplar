@@ -1,14 +1,14 @@
 {
   "TheTemplar:CodeOfChivalry": {
     "NAME": "Code Of Chivalry",
-    "FLAVOR": "A list of rules and ideals for a knight of the order to follow.",
+    "FLAVOR": "A list of rules for a knight of the order to follow.",
     "DESCRIPTIONS": [
       "At the start of each combat, #ythetemplar:Inscribe #b1 #ythetemplar:Valor."
     ]
   },
   "TheTemplar:DivineChalice": {
     "NAME": "Divine Chalice",
-    "FLAVOR": "A cup said to have been touched by the divine, the goal of many great quests.",
+    "FLAVOR": "Long lost and long sought after.",
     "DESCRIPTIONS": [
       "Start each combat with #b3 #yRegen, #b1 #yStrength, and #b1 #yDexterity."
     ]

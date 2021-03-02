@@ -1,5 +1,6 @@
 package TheTemplar.powers;
 
+import TheTemplar.cards.BookOfTheFive;
 import TheTemplar.util.HolyWeaponPower;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
@@ -22,12 +23,14 @@ public class BookOfTheFivePower extends HolyWeaponPower implements CloneablePowe
     private static final Texture tex84 = TextureLoader.getTexture(makePowerPath("BookOfTheFive84.png"));
     private static final Texture tex32 = TextureLoader.getTexture(makePowerPath("BookOfTheFive32.png"));
 
-    public BookOfTheFivePower() {
+    private int maxAmount;
+
+    public BookOfTheFivePower(boolean isUpgraded) {
         name = NAME;
         ID = POWER_ID;
 
         owner = AbstractDungeon.player;
-        amount = 0;
+        maxAmount = amount = isUpgraded ? BookOfTheFive.TIMES + BookOfTheFive.UPGRADE_PLUS_TIMES : BookOfTheFive.TIMES;
 
         type = PowerType.BUFF;
 
@@ -37,15 +40,36 @@ public class BookOfTheFivePower extends HolyWeaponPower implements CloneablePowe
         updateDescription();
     }
 
+    public void trigger() {
+        flash();
+        if (amount > 0) {
+            amount--;
+        }
+        updateDescription();
+    }
+
+    @Override
+    public void refresh(boolean isUpgraded) {
+        upgraded = isUpgraded || upgraded;
+        maxAmount = upgraded ? BookOfTheFive.TIMES + BookOfTheFive.UPGRADE_PLUS_TIMES : BookOfTheFive.TIMES;
+        updateDescription();
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        amount = maxAmount;
+        updateDescription();
+    }
+
     public void stackPower(int unused) { }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + maxAmount + DESCRIPTIONS[1] + amount + DESCRIPTIONS[2];
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new BookOfTheFivePower();
+        return new BookOfTheFivePower(upgraded);
     }
 }

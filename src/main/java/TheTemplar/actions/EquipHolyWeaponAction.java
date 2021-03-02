@@ -58,7 +58,7 @@ public class EquipHolyWeaponAction extends AbstractGameAction {
                 setPower(new FlameOfHeavenPower(isUpgraded));
                 break;
             case HolyWeapons.Book:
-                setPower(new BookOfTheFivePower());
+                setPower(new BookOfTheFivePower(isUpgraded));
                 break;
             default:
                 throw new RuntimeException("Unknown weapon: " + weapon);
