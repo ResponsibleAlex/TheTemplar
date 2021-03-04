@@ -42,8 +42,6 @@ public class DeterminedCharge extends AbstractDynamicCard {
     public DeterminedCharge() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-
-        blessing = true;
     }
 
 
@@ -52,9 +50,7 @@ public class DeterminedCharge extends AbstractDynamicCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         addToBot(new GlyphInscribeAction(new Fortitude()));
-        if (triggerBlessing()) {
-            addToBot(new GlyphInscribeAction(new Fortitude()));
-        }
+        addToBot(new GlyphInscribeAction(new Fortitude()));
     }
 
 

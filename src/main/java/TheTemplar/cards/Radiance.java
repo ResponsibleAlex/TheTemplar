@@ -35,7 +35,7 @@ public class Radiance extends AbstractBaseValuesCard {
 
     private static final int DAMAGE = 6;
     private static final int BONUS = 2;
-    private static final int UPGRADE_PLUS_BONUS = 2;
+    private static final int UPGRADE_PLUS_BONUS = 1;
 
     // /STAT DECLARATION/
 

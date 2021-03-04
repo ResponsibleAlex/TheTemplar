@@ -41,6 +41,7 @@ public class Beseech extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         exhaust = true;
         blessing = true;
+        tags.add(CardTags.HEALING);
     }
 
 

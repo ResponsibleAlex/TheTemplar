@@ -29,10 +29,9 @@ public class ProtectiveBlessing extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 1;
-    // private static final int UPGRADED_COST = 0;
 
-    private static final int MAGIC_NUMBER = 3;
-    private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
+    private static final int MAGIC_NUMBER = 4;
+    private static final int UPGRADE_PLUS_MAGIC_NUMBER = 2;
 
     // /STAT DECLARATION/
 

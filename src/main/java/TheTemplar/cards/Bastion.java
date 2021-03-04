@@ -28,7 +28,7 @@ public class Bastion extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 2;
-    private static final int BULWARK = 12;
+    private static final int BULWARK = 14;
     private static final int UPGRADE_PLUS_BULWARK = 4;
 
     // /STAT DECLARATION/

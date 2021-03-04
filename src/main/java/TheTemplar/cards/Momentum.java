@@ -35,7 +35,7 @@ public class Momentum extends AbstractBaseValuesCard {
 
     private static final int DAMAGE = 10;
     private static final int TIMES = 2;
-    private static final int UPGRADE_PLUS_TIMES = 2;
+    private static final int UPGRADE_PLUS_TIMES = 1;
 
     // /STAT DECLARATION/
 

@@ -78,12 +78,12 @@
     "DESCRIPTION": "Deal !D! damage. NL thetemplar:Blessing: reduce the cost of a random card in your hand to 0 this turn."
   },
   "TheTemplar:FearlessAssault": {
-    "NAME": "FearlessAssault",
+    "NAME": "Fearless Assault",
     "DESCRIPTION": "Deal !D! damage. NL If the enemy is thetemplar:Empowered, thetemplar:Inscribe !M! thetemplar:Valor."
   },
   "TheTemplar:DeterminedCharge": {
     "NAME": "Determined Charge",
-    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Fortitude. NL thetemplar:Blessing: thetemplar:Inscribe 1 thetemplar:Fortitude."
+    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 2 thetemplar:Fortitude."
   },
   "TheTemplar:CalculatedStrike": {
     "NAME": "Calculated Strike",
