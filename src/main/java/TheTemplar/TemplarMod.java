@@ -2,7 +2,7 @@ package TheTemplar;
 
 import TheTemplar.glyphs.AbstractGlyph;
 import TheTemplar.patches.AbstractMonsterPatch;
-import TheTemplar.potions.ExaltedEssence;
+import TheTemplar.potions.AnnointingOil;
 import TheTemplar.potions.StalwartFlask;
 import TheTemplar.powers.AltarPower;
 import TheTemplar.relics.*;
@@ -78,6 +78,7 @@ public class TemplarMod implements
     public static final Color TEMPLAR_BLUE = CardHelper.getColor(212f, 241f, 244f);
 
     // Potion Colors in RGB
+    public static final Color POTION_GOLD = CardHelper.getColor(238f, 188f, 29f);
     public static final Color POTION_DARK = CardHelper.getColor(24f, 154f, 180f);  // blue grotto
     public static final Color POTION_MID = CardHelper.getColor(117f, 230f, 218f); // blue green
     public static final Color POTION_LIGHT = CardHelper.getColor(212f, 241f, 244f);  // baby blue
@@ -302,9 +303,9 @@ public class TemplarMod implements
     public void receiveEditPotions() {
         logger.info("Beginning to edit potions");
 
-        BaseMod.addPotion(PotionOfLore.class, POTION_LIGHT, POTION_LIGHT, POTION_LIGHT, PotionOfLore.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
+        BaseMod.addPotion(PotionOfLore.class, POTION_LIGHT, POTION_MID, POTION_DARK, PotionOfLore.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
         BaseMod.addPotion(StalwartFlask.class, POTION_MID, POTION_MID, POTION_MID, StalwartFlask.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
-        BaseMod.addPotion(ExaltedEssence.class, POTION_DARK, POTION_MID, POTION_LIGHT, ExaltedEssence.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
+        BaseMod.addPotion(AnnointingOil.class, POTION_GOLD, POTION_GOLD, POTION_LIGHT, AnnointingOil.POTION_ID, TheTemplar.Enums.THE_TEMPLAR);
 
         logger.info("Done editing potions");
     }

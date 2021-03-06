@@ -13,11 +13,11 @@
                         " #yBulwark."
                 ]
         },
-        "TheTemplar:ExaltedEssence": {
-                "NAME": "Exalted Essence",
+        "TheTemplar:AnnointingOil": {
+                "NAME": "Annointing Oil",
                 "DESCRIPTIONS": [
-                        "Draw until you have 5 cards in hand and gain [E] .",
-                        "Draw until you have 5 cards in hand and gain [E] [E] ."
+                        "Choose a #yHoly #yWeapon card to add to your hand, it costs #b0 this turn.",
+                        "Choose an #yUpgraded #yHoly #yWeapon card to add to your hand, it costs #b0 this turn."
                 ]
         }
 }

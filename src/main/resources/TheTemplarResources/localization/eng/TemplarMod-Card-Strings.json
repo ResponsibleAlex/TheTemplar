@@ -320,13 +320,13 @@
   },
   "TheTemplar:KingSword": {
     "NAME": "King Sword",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal 25% more damage. Whenever you play an Attack, deal !M! to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal 50% more damage. Whenever you play an Attack, deal !M! to ALL enemies."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal [#87CEEB]25%[] more damage. Whenever you play an Attack, deal !M! to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal [#87CEEB]50%[] more damage. Whenever you play an Attack, deal !M! to ALL enemies."
   },
   "TheTemplar:Aegis": {
     "NAME": "Aegis",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL You receive 25% less damage from attacks. The attacker loses health equal to the damage prevented.",
-    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL You receive 25% less damage from attacks. The attacker loses health equal to twice the damage prevented."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL You receive [#87CEEB]25%[] less damage from attacks. The attacker loses health equal to the damage prevented.",
+    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL You receive [#87CEEB]25%[] less damage from attacks. The attacker loses health equal to twice the damage prevented."
   },
   "TheTemplar:BookOfTheFive": {
     "NAME": "Book of the Five",

@@ -31,10 +31,11 @@ public class FireOfConviction extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.ATTACK;
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
-    private static final int COST = 1;
-    private static final int UPGRADED_COST = 0;
+    private static final int COST = 0;
+    //private static final int UPGRADED_COST = 0;
 
-    private static final int DAMAGE = 6;
+    private static final int DAMAGE = 5;
+    private static final int UPGRADE_PLUS_DMG = 3;
 
     // /STAT DECLARATION/
 
@@ -60,7 +61,8 @@ public class FireOfConviction extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADED_COST);
+            //upgradeBaseCost(UPGRADED_COST);
+            upgradeDamage(UPGRADE_PLUS_DMG);
             initializeDescription();
         }
     }

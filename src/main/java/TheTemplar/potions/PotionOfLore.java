@@ -29,7 +29,7 @@ public class PotionOfLore extends CustomPotion {
     private static final int POTENCY = 1;
 
     public PotionOfLore() {
-        super(NAME, POTION_ID, PotionRarity.COMMON, PotionSize.S, PotionColor.WHITE);
+        super(NAME, POTION_ID, PotionRarity.COMMON, PotionSize.M, PotionColor.WHITE);
         isThrown = false;
     }
 

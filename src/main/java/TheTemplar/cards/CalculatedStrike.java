@@ -85,6 +85,16 @@ public class CalculatedStrike extends AbstractDynamicCard {
         isDamageModified = damage != baseDamage;
     }
 
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+
+        if (onlyAttackInHand()) {
+            damage *= 2;
+        }
+        isDamageModified = damage != baseDamage;
+    }
+
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
