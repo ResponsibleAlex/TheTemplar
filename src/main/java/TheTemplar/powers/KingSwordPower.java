@@ -61,8 +61,10 @@ public class KingSwordPower extends HolyWeaponPower implements CloneablePowerInt
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (info.type == DamageInfo.DamageType.NORMAL) {
-            addToBot(new ApplyPowerAction(target, owner, new WeakPower(target, 1, false), 1));
             addToBot(new ApplyPowerAction(target, owner, new VulnerablePower(target, 1, false), 1));
+            if (upgraded) {
+                addToBot(new ApplyPowerAction(target, owner, new WeakPower(target, 1, false), 1));
+            }
         }
     }
 

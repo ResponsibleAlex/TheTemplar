@@ -58,8 +58,8 @@ public class SacredHammerPower extends HolyWeaponPower implements CloneablePower
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.type == AbstractCard.CardType.ATTACK && !card.purgeOnUse && amount > 0) {
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        if (card.type == AbstractCard.CardType.ATTACK && amount > 0) {
             flash();
             --amount;
             updateDescription();
@@ -67,7 +67,7 @@ public class SacredHammerPower extends HolyWeaponPower implements CloneablePower
     }
 
     @Override
-    public float atDamageGive(float damage, DamageInfo.DamageType type) {
+    public float atDamageFinalGive(float damage, DamageInfo.DamageType type) {
         if (amount == 1) {
             return type == DamageInfo.DamageType.NORMAL ? damage * 2.0F : damage;
         } else {

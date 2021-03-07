@@ -5,6 +5,7 @@ import TheTemplar.patches.AbstractMonsterPatch;
 import TheTemplar.potions.AnnointingOil;
 import TheTemplar.potions.StalwartFlask;
 import TheTemplar.powers.AltarPower;
+import TheTemplar.powers.SacredHammerPower;
 import TheTemplar.relics.*;
 import TheTemplar.variables.HolyWeapons;
 import TheTemplar.vfx.FlashCustomAttackEffect;
@@ -487,7 +488,8 @@ public class TemplarMod implements
 
         if (target != null &&
             HolyWeapons.IsEquipped(HolyWeapons.Hammer) &&
-            AbstractDungeon.player.getPower(SacredHammer.ID).amount > 0) {
+            AbstractDungeon.player.getPower(SacredHammerPower.POWER_ID).amount == 1) {
+
             // we are on the Hammer empowered hit, use the Heavy Blade visual
             AbstractDungeon.effectList.add(new VerticalImpactEffect(target.hb.cX + target.hb.width / 4.0F, target.hb.cY - target.hb.height / 4.0F));
 
