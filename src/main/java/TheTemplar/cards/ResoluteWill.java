@@ -30,7 +30,7 @@ public class ResoluteWill extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int MAGIC_NUMBER = 2;
+    private static final int MAGIC_NUMBER = 3;
     private static final int UPGRADE_PLUS_MAGIC_NUMBER = 1;
 
     // /STAT DECLARATION/

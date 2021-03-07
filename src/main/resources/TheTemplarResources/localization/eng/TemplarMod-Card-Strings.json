@@ -310,18 +310,17 @@
   },
   "TheTemplar:SacredHammer": {
     "NAME": "Sacred Hammer",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks ignore Block. NL Your Attacks against enemies without Block apply 1 Vulnerable.",
-    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks ignore Block. NL Your Attacks against enemies without Block apply 1 Vulnerable and 1 Weak."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL The first attack you play each turn deals double damage.",
+    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL The first attack you play each turn deals double damage costs 0."
   },
   "TheTemplar:FlameOfHeaven": {
     "NAME": "Flame of Heaven",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Inscribe 1 thetemplar:Valor at the start of each turn. NL thetemplar:Justice is now affected by Vigor.",
-    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL Inscribe 1 thetemplar:Valor at the start of each turn. NL thetemplar:Justice is now affected by Vigor and does not consume it."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Every time you play 5 cards in a single turn, gain !M! Block and add a #yFire #yof #yConviction to your hand."
   },
   "TheTemplar:KingSword": {
     "NAME": "King Sword",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal [#87CEEB]25%[] more damage. Whenever you play an Attack, deal !M! to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks deal [#87CEEB]50%[] more damage. Whenever you play an Attack, deal !M! to ALL enemies."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks apply 1 Vulnerable. NL Whenever you play an Attack, deal !M! damage to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL Your Attacks apply 1 Vulnerable and 1 Weak. NL Whenever you play an Attack, deal !M! damage to ALL enemies."
   },
   "TheTemplar:Aegis": {
     "NAME": "Aegis",

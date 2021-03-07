@@ -6,9 +6,11 @@ import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -16,14 +18,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import TheTemplar.TemplarMod;
 import TheTemplar.util.TextureLoader;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static TheTemplar.TemplarMod.makePowerPath;
 
 public class KingSwordPower extends HolyWeaponPower implements CloneablePowerInterface {
-
-    private String desc;
-    private float mult;
-    private int dmgAmt;
 
     public static final String POWER_ID = TemplarMod.makeID(KingSwordPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -47,46 +47,32 @@ public class KingSwordPower extends HolyWeaponPower implements CloneablePowerInt
         refresh(upgraded);
     }
 
-    @Override
-    public void refresh(boolean upgraded) {
-        this.upgraded = upgraded || this.upgraded;
-
-        if (this.upgraded) {
-            mult = 1.5f;
-            desc = "50";
-            dmgAmt = KingSword.DAMAGE_ALL + KingSword.UPGRADE_PLUS_DAMAGE_ALL;
-        } else {
-            mult = 1.25f;
-            desc = "25";
-            dmgAmt = KingSword.DAMAGE_ALL;
-        }
-
-        updateDescription();
-    }
-
     public void stackPower(int unused) { }
-
-    @Override
-    public float atDamageFinalGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
-        if (card.type == AbstractCard.CardType.ATTACK && type == DamageInfo.DamageType.NORMAL) {
-            return damage * mult;
-        } else {
-            return damage;
-        }
-    }
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         if (AbstractCard.CardType.ATTACK == card.type) {
             flash();
             TemplarMod.flashCustomAttackAllEffect();
-            addToBot(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(dmgAmt, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE, true));
+            addToBot(new DamageAllEnemiesAction(owner, DamageInfo.createDamageMatrix(KingSword.DAMAGE_ALL, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE, true));
+        }
+    }
+
+    @Override
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+        if (info.type == DamageInfo.DamageType.NORMAL) {
+            addToBot(new ApplyPowerAction(target, owner, new WeakPower(target, 1, false), 1));
+            addToBot(new ApplyPowerAction(target, owner, new VulnerablePower(target, 1, false), 1));
         }
     }
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + desc + DESCRIPTIONS[1] + dmgAmt + DESCRIPTIONS[2];
+        description = DESCRIPTIONS[0];
+        if (upgraded) {
+            description += DESCRIPTIONS[1];
+        }
+        description += DESCRIPTIONS[2] + KingSword.DAMAGE_ALL + DESCRIPTIONS[3];
     }
 
     @Override

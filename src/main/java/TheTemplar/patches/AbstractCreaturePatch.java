@@ -1,7 +1,6 @@
 package TheTemplar.patches;
 
 import TheTemplar.cards.BladesOfTheFallen;
-import TheTemplar.powers.SacredHammerPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -24,10 +23,6 @@ public class AbstractCreaturePatch {
                     || AbstractDungeon.getCurrRoom() instanceof MonsterRoom)
                 && info.owner != null
                 && info.type == DamageInfo.DamageType.NORMAL && info.owner.isPlayer) {
-
-                if (AbstractDungeon.player.hasPower(SacredHammerPower.POWER_ID)) {
-                    return SpireReturn.Return(damageAmount);
-                }
 
                 if (AbstractDungeon.player.cardInUse != null) {
                     if (AbstractDungeon.player.cardInUse.cardID.equals(BladesOfTheFallen.ID)) {

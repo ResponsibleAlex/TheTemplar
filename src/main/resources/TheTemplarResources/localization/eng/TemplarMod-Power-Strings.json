@@ -80,24 +80,28 @@
         "TheTemplar:SacredHammerPower": {
                 "NAME": "Sacred Hammer",
                 "DESCRIPTIONS": [
-                        "Your #yAttacks ignore #yBlock. Your #yAttacks against enemies without #yBlock apply #b1 #yVulnerable",
-                        " and #b1 #yWeak",
+                        "The first attack you play each",
+                        "The next attack you play this",
+                        " turn deals double damage",
+                        " and costs #b0",
                         "."
                 ]
         },
         "TheTemplar:FlameOfHeavenPower": {
                 "NAME": "Flame of Heaven",
                 "DESCRIPTIONS": [
-                        "#yInscribe #b1 #yValor at the start of each turn. #yJustice is now affected by #yVigor",
-                        " and does not consume it",
-                        "."
+                        "If you play #b",
+                        " more card this turn, gain #b",
+                        " more cards this turn, gain #b",
+                        " #yBlock and add a #yFire #yof #yConviction to your hand."
                 ]
         },
         "TheTemplar:KingSwordPower": {
                 "NAME": "King Sword",
                 "DESCRIPTIONS": [
-                        "Your attacks deal #b",
-                        "% more damage. Whenever you play an #yAttack, deal #b",
+                        "Your attacks apply #b1 #yVulnerable",
+                        " and #b1 #yWeak",
+                        ". Whenever you play an #yAttack, deal #b",
                         " damage to ALL enemies."
                 ]
         },

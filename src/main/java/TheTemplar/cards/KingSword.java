@@ -31,8 +31,7 @@ public class KingSword extends AbstractDynamicCard {
 
     private static final int COST = 2;
 
-    public static final int DAMAGE_ALL = 2;
-    public static final int UPGRADE_PLUS_DAMAGE_ALL = 1;
+    public static final int DAMAGE_ALL = 3;
 
     // /STAT DECLARATION/
 
@@ -55,7 +54,6 @@ public class KingSword extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(UPGRADE_PLUS_DAMAGE_ALL);
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

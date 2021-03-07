@@ -29,7 +29,7 @@ public class SacredHammer extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.POWER;
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
-    private static final int COST = 3;
+    private static final int COST = 2;
 
     // /STAT DECLARATION/
 

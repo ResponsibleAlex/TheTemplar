@@ -1,11 +1,15 @@
 package TheTemplar.powers;
 
-import TheTemplar.actions.GlyphInscribeAction;
-import TheTemplar.glyphs.Valor;
+import TheTemplar.cards.FireOfConviction;
+import TheTemplar.cards.FlameOfHeaven;
 import TheTemplar.util.HolyWeaponPower;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -16,6 +20,9 @@ import TheTemplar.util.TextureLoader;
 import static TheTemplar.TemplarMod.makePowerPath;
 
 public class FlameOfHeavenPower extends HolyWeaponPower implements CloneablePowerInterface {
+
+    private final int magicNumber;
+
     public static final String POWER_ID = TemplarMod.makeID(FlameOfHeavenPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -29,7 +36,7 @@ public class FlameOfHeavenPower extends HolyWeaponPower implements CloneablePowe
         ID = POWER_ID;
 
         owner = AbstractDungeon.player;
-        amount = 0;
+        amount = 5;
 
         type = PowerType.BUFF;
 
@@ -37,22 +44,44 @@ public class FlameOfHeavenPower extends HolyWeaponPower implements CloneablePowe
         region48 = new TextureAtlas.AtlasRegion(tex32, 0, 0, 32, 32);
 
         refresh(upgraded);
+        if (this.upgraded) {
+            magicNumber = FlameOfHeaven.UPGRADED_BLOCK;
+        } else {
+            magicNumber = FlameOfHeaven.BLOCK;
+        }
+        updateDescription();
     }
 
     public void stackPower(int unused) { }
 
     @Override
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        --amount;
+        if (0 == amount) {
+            flash();
+            amount = 5;
+
+            addToBot(new GainBlockAction(owner, owner, magicNumber));
+            addToBot(new MakeTempCardInHandAction(new FireOfConviction(), 1, false));
+        }
+
+        updateDescription();
+    }
+
+    @Override
     public void atStartOfTurn() {
-        flash();
-        addToBot(new GlyphInscribeAction(new Valor()));
+        amount = 5;
+        updateDescription();
     }
 
     @Override
     public void updateDescription() {
-        if (upgraded) {
-            description = DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[2];
+        if (1 == amount) {
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] +
+                    magicNumber + DESCRIPTIONS[3];
         } else {
-            description = DESCRIPTIONS[0] + DESCRIPTIONS[2];
+            description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] +
+                    magicNumber + DESCRIPTIONS[3];
         }
     }
 

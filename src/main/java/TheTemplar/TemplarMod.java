@@ -33,6 +33,7 @@ import com.megacrit.cardcrawl.powers.RegenerateMonsterPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.combat.VerticalImpactEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import TheTemplar.cards.*;
@@ -483,19 +484,29 @@ public class TemplarMod implements
         flashCustomAttackEffect(target, true);
     }
     public static void flashCustomAttackEffect(AbstractCreature target, boolean playSound) {
-        float x = 0;
-        float y = 0;
-        if (target != null) {
-            x = target.hb.cX;
-            if (HolyWeapons.IsEquipped(HolyWeapons.Book)) {
-                y = target.drawY;
-            } else {
-                y = target.hb.cY;
-            }
-        }
 
-        AbstractDungeon.effectList.add(
-                new FlashCustomAttackEffect(x, y, HolyWeapons.GetEquipped(), playSound));
+        if (target != null &&
+            HolyWeapons.IsEquipped(HolyWeapons.Hammer) &&
+            AbstractDungeon.player.getPower(SacredHammer.ID).amount > 0) {
+            // we are on the Hammer empowered hit, use the Heavy Blade visual
+            AbstractDungeon.effectList.add(new VerticalImpactEffect(target.hb.cX + target.hb.width / 4.0F, target.hb.cY - target.hb.height / 4.0F));
+
+        } else {
+            // use the appropriate custom effect
+            float x = 0;
+            float y = 0;
+            if (target != null) {
+                x = target.hb.cX;
+                if (HolyWeapons.IsEquipped(HolyWeapons.Book)) {
+                    y = target.drawY;
+                } else {
+                    y = target.hb.cY;
+                }
+            }
+
+            AbstractDungeon.effectList.add(
+                    new FlashCustomAttackEffect(x, y, HolyWeapons.GetEquipped(), playSound));
+        }
     }
 
     public static void flashCustomAttackAllEffect() {
