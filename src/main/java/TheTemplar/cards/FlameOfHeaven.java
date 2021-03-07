@@ -39,6 +39,8 @@ public class FlameOfHeaven extends AbstractDynamicCard {
 
     public FlameOfHeaven() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        magicNumber = baseMagicNumber = BLOCK;
+        cardsToPreview = new FireOfConviction();
     }
 
 
@@ -54,6 +56,8 @@ public class FlameOfHeaven extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeMagicNumber(UPGRADE_PLUS_BLOCK);
+            cardsToPreview.upgrade();
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

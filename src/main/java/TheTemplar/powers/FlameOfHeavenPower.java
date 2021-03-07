@@ -62,7 +62,13 @@ public class FlameOfHeavenPower extends HolyWeaponPower implements CloneablePowe
             amount = 5;
 
             addToBot(new GainBlockAction(owner, owner, magicNumber));
-            addToBot(new MakeTempCardInHandAction(new FireOfConviction(), 1, false));
+
+            AbstractCard c = new FireOfConviction();
+            if (upgraded) {
+                c.upgrade();
+                c.applyPowers();
+            }
+            addToBot(new MakeTempCardInHandAction(c, 1, false));
         }
 
         updateDescription();
@@ -78,10 +84,16 @@ public class FlameOfHeavenPower extends HolyWeaponPower implements CloneablePowe
     public void updateDescription() {
         if (1 == amount) {
             description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] +
-                    magicNumber + DESCRIPTIONS[3];
+                    magicNumber;
         } else {
             description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2] +
-                    magicNumber + DESCRIPTIONS[3];
+                    magicNumber;
+        }
+
+        if (upgraded) {
+            description += DESCRIPTIONS[4];
+        } else {
+            description += DESCRIPTIONS[3];
         }
     }
 

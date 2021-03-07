@@ -311,11 +311,12 @@
   "TheTemplar:SacredHammer": {
     "NAME": "Sacred Hammer",
     "DESCRIPTION": "thetemplar:Holy_Weapon. NL The first attack you play each turn deals double damage.",
-    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL The first attack you play each turn deals double damage costs 0."
+    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL The first attack you play each turn deals double damage and costs 0."
   },
   "TheTemplar:FlameOfHeaven": {
     "NAME": "Flame of Heaven",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Every time you play 5 cards in a single turn, gain !M! Block and add a #yFire #yof #yConviction to your hand."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Every time you play 5 cards in a single turn, gain !M! Block and add a Fire of Conviction to your hand.",
+    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL Every time you play 5 cards in a single turn, gain !M! Block and add an Upgraded Fire of Conviction to your hand."
   },
   "TheTemplar:KingSword": {
     "NAME": "King Sword",

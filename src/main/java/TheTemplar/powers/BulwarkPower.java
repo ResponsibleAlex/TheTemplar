@@ -64,18 +64,18 @@ public class BulwarkPower extends AbstractPower implements CloneablePowerInterfa
     public void atEndOfTurn(boolean isPlayer) {
         addToBot(new GainBlockAction(p, p, amount));
 
-        float reduction = 0.5f;
+        int percent = 50;
 
         if (owner.hasPower(AegisPower.POWER_ID)) {
             // we have Aegis, set reduction and deal damage
             AegisPower aegisPower = (AegisPower) owner.getPower(AegisPower.POWER_ID);
 
-            addToBot(new DamageRandomEnemyAction(new DamageInfo(owner, aegisPower.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+            addToBot(new DamageRandomEnemyAction(new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 
             if (aegisPower.upgraded) {
-                reduction = Aegis.UPGRADE_REDUCTION / 100f;
+                percent = Aegis.UPGRADE_REDUCTION;
             } else {
-                reduction = Aegis.REDUCTION / 100f;
+                percent = Aegis.REDUCTION;
             }
         }
 
@@ -85,7 +85,7 @@ public class BulwarkPower extends AbstractPower implements CloneablePowerInterfa
             stalwart.reduce();
         } else {
             // we do not have Stalwart, reduce Bulwark
-            amount *= reduction;
+            amount *= (double) (100 - percent) / 100;
             if (amount <= 0) {
                 addToBot(new RemoveSpecificPowerAction(p, p, ID));
             } else {

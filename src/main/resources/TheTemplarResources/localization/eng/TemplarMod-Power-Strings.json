@@ -93,7 +93,8 @@
                         "If you play #b",
                         " more card this turn, gain #b",
                         " more cards this turn, gain #b",
-                        " #yBlock and add a #yFire #yof #yConviction to your hand."
+                        " #yBlock and add a #yFire #yof #yConviction to your hand.",
+                        " #yBlock and add an #yUpgraded #yFire #yof #yConviction to your hand."
                 ]
         },
         "TheTemplar:KingSwordPower": {
