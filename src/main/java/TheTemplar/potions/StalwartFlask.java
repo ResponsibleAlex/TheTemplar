@@ -2,8 +2,10 @@ package TheTemplar.potions;
 
 import TheTemplar.TemplarMod;
 import TheTemplar.actions.GainBulwarkAction;
+import TheTemplar.powers.StalwartPower;
 import basemod.BaseMod;
 import basemod.abstracts.CustomPotion;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -45,6 +47,9 @@ public class StalwartFlask extends CustomPotion {
     public void use(AbstractCreature target) {
         if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) {
             addToBot(new GainBulwarkAction(potency));
+
+            addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                    new StalwartPower(1), 1));
         }
     }
 

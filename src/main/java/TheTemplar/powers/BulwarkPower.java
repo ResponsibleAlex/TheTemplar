@@ -60,11 +60,18 @@ public class BulwarkPower extends AbstractPower implements CloneablePowerInterfa
     public void atEndOfTurn(boolean isPlayer) {
         addToBot(new GainBlockAction(p, p, amount));
 
-        amount = amount / 2;
-        if (amount <= 0) {
-            addToBot(new RemoveSpecificPowerAction(p, p, ID));
+        if (owner.hasPower(StalwartPower.POWER_ID)) {
+            // we have Stalwart, reduce that by 1 and remove if 0
+            StalwartPower stalwart = (StalwartPower) owner.getPower(StalwartPower.POWER_ID);
+            stalwart.reduce();
         } else {
-            updateDescription();
+            // we do not have Stalwart, reduce Bulwark
+            amount = amount / 2;
+            if (amount <= 0) {
+                addToBot(new RemoveSpecificPowerAction(p, p, ID));
+            } else {
+                updateDescription();
+            }
         }
     }
 
