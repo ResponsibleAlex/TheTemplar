@@ -324,8 +324,7 @@
   },
   "TheTemplar:Aegis": {
     "NAME": "Aegis",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL You receive [#87CEEB]25%[] less damage from attacks. The attacker loses health equal to the damage prevented.",
-    "UPGRADE_DESCRIPTION": "thetemplar:Holy_Weapon. NL You receive [#87CEEB]25%[] less damage from attacks. The attacker loses health equal to twice the damage prevented."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL At the end of your turn, deal damage equal to your thetemplar:Bulwark to a random enemy. NL thetemplar:Bulwark is reduced by !M!% instead of half."
   },
   "TheTemplar:BookOfTheFive": {
     "NAME": "Book of the Five",

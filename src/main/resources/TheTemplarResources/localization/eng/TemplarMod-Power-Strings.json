@@ -108,9 +108,8 @@
         "TheTemplar:AegisPower": {
                 "NAME": "Aegis",
                 "DESCRIPTIONS": [
-                        "You receive #b25% less damage from attacks. The attacker loses health equal to",
-                        " twice",
-                        " the damage prevented."
+                        "At the end of your turn, deal damage equal to your #yBulwark to a random enemy. #yBulwark is reduced by #b",
+                        "% instead of half."
                 ]
         },
         "TheTemplar:BookOfTheFivePower": {

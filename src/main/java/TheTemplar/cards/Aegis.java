@@ -30,12 +30,16 @@ public class Aegis extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 2;
+    public static final int REDUCTION = 40;
+    private static final int UPGRADE_PLUS_REDUCTION = -10;
+    public static final int UPGRADE_REDUCTION = 30;
 
     // /STAT DECLARATION/
 
 
     public Aegis() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
+        magicNumber = baseMagicNumber = REDUCTION;
     }
 
 
@@ -51,6 +55,7 @@ public class Aegis extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeMagicNumber(UPGRADE_PLUS_REDUCTION);
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

@@ -1,10 +1,14 @@
 package TheTemplar.powers;
 
+import TheTemplar.cards.Aegis;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -60,13 +64,28 @@ public class BulwarkPower extends AbstractPower implements CloneablePowerInterfa
     public void atEndOfTurn(boolean isPlayer) {
         addToBot(new GainBlockAction(p, p, amount));
 
+        float reduction = 0.5f;
+
+        if (owner.hasPower(AegisPower.POWER_ID)) {
+            // we have Aegis, set reduction and deal damage
+            AegisPower aegisPower = (AegisPower) owner.getPower(AegisPower.POWER_ID);
+
+            addToBot(new DamageRandomEnemyAction(new DamageInfo(owner, aegisPower.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+
+            if (aegisPower.upgraded) {
+                reduction = Aegis.UPGRADE_REDUCTION / 100f;
+            } else {
+                reduction = Aegis.REDUCTION / 100f;
+            }
+        }
+
         if (owner.hasPower(StalwartPower.POWER_ID)) {
             // we have Stalwart, reduce that by 1 and remove if 0
             StalwartPower stalwart = (StalwartPower) owner.getPower(StalwartPower.POWER_ID);
             stalwart.reduce();
         } else {
             // we do not have Stalwart, reduce Bulwark
-            amount = amount / 2;
+            amount *= reduction;
             if (amount <= 0) {
                 addToBot(new RemoveSpecificPowerAction(p, p, ID));
             } else {
