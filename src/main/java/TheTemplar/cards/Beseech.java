@@ -33,6 +33,7 @@ public class Beseech extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 1;
+    private static final int UPGRADED_COST = 0;
 
     // /STAT DECLARATION/
 
@@ -63,6 +64,7 @@ public class Beseech extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
+            upgradeBaseCost(UPGRADED_COST);
             rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }

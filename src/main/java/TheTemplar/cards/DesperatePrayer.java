@@ -31,7 +31,7 @@ public class DesperatePrayer extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
-    private static final int COST = 1;
+    private static final int COST = 0;
 
     // /STAT DECLARATION/
 

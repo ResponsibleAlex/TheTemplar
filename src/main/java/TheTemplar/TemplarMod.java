@@ -30,6 +30,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.MetallicizePower;
+import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.powers.RegenerateMonsterPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -529,6 +530,7 @@ public class TemplarMod implements
         return (m.hasPower(StrengthPower.POWER_ID) && m.getPower(StrengthPower.POWER_ID).amount > 0)
                 || m.hasPower(MetallicizePower.POWER_ID)
                 || m.hasPower(RegenerateMonsterPower.POWER_ID)
+                || m.hasPower(PlatedArmorPower.POWER_ID)
                 || AbstractMonsterPatch.maxHpBuff.get(m);
     }
 

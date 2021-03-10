@@ -31,7 +31,7 @@ public class Awakening extends AbstractDynamicCard {
 
     private static final int COST = 0;
 
-    private static final int BLOCK = 3;
+    private static final int BLOCK = 5;
     private static final int CARDS = 1;
     private static final int UPGRADE_PLUS_CARDS = 1;
 

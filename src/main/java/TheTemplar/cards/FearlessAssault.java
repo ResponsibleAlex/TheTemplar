@@ -53,16 +53,17 @@ public class FearlessAssault extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractGameAction.AttackEffect effect = AbstractGameAction.AttackEffect.BLUNT_LIGHT;
-
         if (isEmpowered(m)) {
             effect = AbstractGameAction.AttackEffect.BLUNT_HEAVY;
+        }
 
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
+
+        if (isEmpowered(m)) {
             for (int i = 0; i < magicNumber; i++) {
                 addToBot(new GlyphInscribeAction(new Valor()));
             }
         }
-
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), effect));
     }
 
 

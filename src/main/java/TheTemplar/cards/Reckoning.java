@@ -2,7 +2,6 @@ package TheTemplar.cards;
 
 import TheTemplar.actions.GlyphInscribeAction;
 import TheTemplar.glyphs.Justice;
-import TheTemplar.glyphs.Valor;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -38,7 +37,7 @@ public class Reckoning extends AbstractDynamicCard {
     private static final int COST = 2;
 
     private static final int DAMAGE = 10;
-    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int UPGRADE_PLUS_DMG = 5;
 
     // /STAT DECLARATION/
 
@@ -56,7 +55,7 @@ public class Reckoning extends AbstractDynamicCard {
         addToBot(new SFXAction("ORB_LIGHTNING_EVOKE"));
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
 
-        addToBot(new GlyphInscribeAction(new Valor()));
+        addToBot(new GlyphInscribeAction(new Justice()));
         addToBot(new GlyphInscribeAction(new Justice()));
     }
 

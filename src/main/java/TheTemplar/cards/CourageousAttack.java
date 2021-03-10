@@ -1,5 +1,7 @@
 package TheTemplar.cards;
 
+import TheTemplar.actions.GlyphInscribeAction;
+import TheTemplar.glyphs.Valor;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,7 +14,7 @@ import TheTemplar.characters.TheTemplar;
 import static TheTemplar.TemplarMod.makeCardPath;
 
 @SuppressWarnings("unused")
-public class CourageousAttack extends AbstractBaseValuesCard {
+public class CourageousAttack extends AbstractDynamicCard {
 
     // TEXT DECLARATION
 
@@ -33,8 +35,6 @@ public class CourageousAttack extends AbstractBaseValuesCard {
 
     private static final int DAMAGE = 9;
     private static final int UPGRADE_PLUS_DMG = 3;
-    private static final int BONUS = 3;
-    private static final int UPGRADE_PLUS_BONUS = 3;
 
     // /STAT DECLARATION/
 
@@ -42,20 +42,17 @@ public class CourageousAttack extends AbstractBaseValuesCard {
     public CourageousAttack() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
-        baseMagicNumber = magicNumber = BONUS;
 
-        glowEmpowered = true;
-    }
-
-    @Override
-    protected int increaseBaseDamage(AbstractMonster m) {
-        return isEmpowered(m) ? magicNumber : 0;
+        blessing = true;
     }
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+        if(triggerBlessing()) {
+            addToBot(new GlyphInscribeAction(new Valor()));
+        }
     }
 
     // Upgraded stats.
@@ -64,7 +61,6 @@ public class CourageousAttack extends AbstractBaseValuesCard {
         if (!upgraded) {
             upgradeName();
             upgradeDamage(UPGRADE_PLUS_DMG);
-            upgradeMagicNumber(UPGRADE_PLUS_BONUS);
             initializeDescription();
         }
     }

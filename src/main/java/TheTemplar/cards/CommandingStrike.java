@@ -33,7 +33,7 @@ public class CommandingStrike extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 7;
     private static final int UPGRADE_PLUS_DMG = 3;
 
     // /STAT DECLARATION/
@@ -43,7 +43,6 @@ public class CommandingStrike extends AbstractDynamicCard {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
         baseDamage = DAMAGE;
 
-        blessing = true;
         tags.add(CardTags.STRIKE);
     }
 
@@ -52,9 +51,7 @@ public class CommandingStrike extends AbstractDynamicCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        if (triggerBlessing()) {
-            addToBot(new GlyphInscribeAction(new Justice()));
-        }
+        addToBot(new GlyphInscribeAction(new Justice()));
     }
 
 

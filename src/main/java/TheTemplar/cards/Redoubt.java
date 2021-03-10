@@ -31,7 +31,7 @@ public class Redoubt extends AbstractDynamicCard {
 
     private static final int COST = 1;
 
-    private static final int BLOCK = 4;
+    private static final int BLOCK = 5;
     private static final int UPGRADE_PLUS_BLOCK = 3;
 
     // /STAT DECLARATION/

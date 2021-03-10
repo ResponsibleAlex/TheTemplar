@@ -1,6 +1,5 @@
 package TheTemplar.powers;
 
-import TheTemplar.cards.Aegis;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -62,22 +61,13 @@ public class BulwarkPower extends AbstractPower implements CloneablePowerInterfa
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {
-        addToBot(new GainBlockAction(p, p, amount));
-
-        int percent = 50;
-
         if (owner.hasPower(AegisPower.POWER_ID)) {
-            // we have Aegis, set reduction and deal damage
-            AegisPower aegisPower = (AegisPower) owner.getPower(AegisPower.POWER_ID);
-
+            // we have Aegis, deal damage
             addToBot(new DamageRandomEnemyAction(new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-
-            if (aegisPower.upgraded) {
-                percent = Aegis.UPGRADE_REDUCTION;
-            } else {
-                percent = Aegis.REDUCTION;
-            }
         }
+
+        // gain block for the amount of Bulwark we have
+        addToBot(new GainBlockAction(p, p, amount));
 
         if (owner.hasPower(StalwartPower.POWER_ID)) {
             // we have Stalwart, reduce that by 1 and remove if 0
@@ -85,7 +75,7 @@ public class BulwarkPower extends AbstractPower implements CloneablePowerInterfa
             stalwart.reduce();
         } else {
             // we do not have Stalwart, reduce Bulwark
-            amount *= (double) (100 - percent) / 100;
+            amount *= 0.5f;
             if (amount <= 0) {
                 addToBot(new RemoveSpecificPowerAction(p, p, ID));
             } else {

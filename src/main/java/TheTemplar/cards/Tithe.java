@@ -31,33 +31,30 @@ public class Tithe extends AbstractDynamicCard {
     private static final CardType TYPE = CardType.SKILL;
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
-    private static final int COST = 1;
-    private static final int UPGRADE_COST = 0;
-    private static final int CHARITY = 1;
+    private static final int COST = 0;
+    private static final int REGEN = 2;
+    private static final int UPGRADE_PLUS_REGEN = 1;
+    private static final int LOSE_GOLD = 10;
 
     // /STAT DECLARATION/
 
 
     public Tithe() {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = CHARITY;
+        magicNumber = baseMagicNumber = REGEN;
 
         tags.add(CardTags.HEALING);
+        exhaust = true;
     }
 
 
     // Actions the card should do.
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int amt = p.gold / 10;
-
         CardCrawlGame.sound.play("EVENT_PURCHASE");
-        p.loseGold(amt);
+        p.loseGold(LOSE_GOLD);
 
-        int regenAmt = amt / 10;
-        if (regenAmt > 0) {
-            addToBot(new ApplyPowerAction(p, p, new RegenPower(p, regenAmt), regenAmt));
-        }
+        addToBot(new ApplyPowerAction(p, p, new RegenPower(p, magicNumber), magicNumber));
 
         addToBot(new GlyphInscribeAction(new Charity()));
     }
@@ -68,7 +65,7 @@ public class Tithe extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_COST);
+            upgradeMagicNumber(UPGRADE_PLUS_REGEN);
             initializeDescription();
         }
     }

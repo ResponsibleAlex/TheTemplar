@@ -21,7 +21,7 @@
   },
   "TheTemplar:CommandingStrike": {
     "NAME": "Commanding Strike",
-    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Blessing: thetemplar:Inscribe 1 thetemplar:Justice."
+    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Justice."
   },
   "TheTemplar:WaitForAnOpening": {
     "NAME": "Wait for an Opening",
@@ -33,7 +33,7 @@
   },
   "TheTemplar:CourageousAttack": {
     "NAME": "Courageous Attack",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy is thetemplar:Empowered, deal !M! additional damage."
+    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Blessing: thetemplar:Inscribe 1 thetemplar:Valor."
   },
   "TheTemplar:ShieldBash": {
     "NAME": "Shield Bash",
@@ -71,7 +71,7 @@
   },
   "TheTemplar:Reckoning": {
     "NAME": "Reckoning",
-    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Valor. NL thetemplar:Inscribe 1 thetemplar:Justice."
+    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 2 thetemplar:Justice."
   },
   "TheTemplar:DevotedStrike": {
     "NAME": "Devoted Strike",
@@ -195,7 +195,7 @@
   },
   "TheTemplar:Tithe": {
     "NAME": "Tithe",
-    "DESCRIPTION": "Lose 10% of your gold. Gain Regen equal to 10% of the gold lost. NL thetemplar:Inscribe 1 thetemplar:Charity."
+    "DESCRIPTION": "Lose 10 gold. NL Gain !M! Regen. NL thetemplar:Inscribe 1 thetemplar:Charity. NL Exhaust."
   },
   "TheTemplar:Unwavering": {
     "NAME": "Unwavering",
@@ -211,7 +211,7 @@
   },
   "TheTemplar:GatherCourage": {
     "NAME": "Gather Courage",
-    "DESCRIPTION": "thetemplar:Inscribe !M! thetemplar:Valor. NL Grant 1 Strength to ALL enemies. NL Exhaust."
+    "DESCRIPTION": "thetemplar:Inscribe !M! thetemplar:Valor. NL Grant 1 temporary Strength to ALL enemies. NL Exhaust."
   },
   "TheTemplar:DesperatePrayer": {
     "NAME": "Desperate Prayer",
@@ -273,7 +273,8 @@
   },
   "TheTemplar:RingingChallenge": {
     "NAME": "Ringing Challenge",
-    "DESCRIPTION": "Innate. NL Ethereal. NL ALL enemies become randomly thetemplar:Empowered and grant thetemplar:Greater_Rewards at the end of combat. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Ethereal. NL ALL enemies become thetemplar:Empowered and grant thetemplar:Greater_Rewards at the end of combat. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Ethereal. NL ALL enemies become thetemplar:Empowered and grant thetemplar:Greater_Rewards at the end of combat. NL Draw a card. NL Exhaust."
   },
   "TheTemplar:ResoluteWill": {
     "NAME": "Resolute Will",
@@ -297,8 +298,8 @@
   },
   "TheTemplar:DivinePurpose": {
     "NAME": "Divine Purpose",
-    "DESCRIPTION": "At the start of your turn, thetemplar:Inscribe 1 thetemplar:Zeal if you triggered a thetemplar:Blessing on your previous turn.",
-    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, thetemplar:Inscribe 1 thetemplar:Zeal if you triggered a thetemplar:Blessing on your previous turn."
+    "DESCRIPTION": "At the start of your turn, thetemplar:Inscribe 1 thetemplar:Zeal.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, thetemplar:Inscribe 1 thetemplar:Zeal."
   },
   "TheTemplar:Retribution": {
     "NAME": "Retribution",
@@ -325,7 +326,7 @@
   },
   "TheTemplar:Aegis": {
     "NAME": "Aegis",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL At the end of your turn, deal damage equal to your thetemplar:Bulwark to a random enemy. NL thetemplar:Bulwark is reduced by !M!% instead of half."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL At the end of your turn gain !M! thetemplar:Bulwark, then deal damage equal to your thetemplar:Bulwark to a random enemy."
   },
   "TheTemplar:BookOfTheFive": {
     "NAME": "Book of the Five",

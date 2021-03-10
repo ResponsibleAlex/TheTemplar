@@ -10,8 +10,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.MetallicizePower;
+import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 import com.megacrit.cardcrawl.powers.RegenerateMonsterPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
@@ -68,9 +70,9 @@ public class RingingChallengeAction extends AbstractGameAction {
         MonsterGroup mg = AbstractDungeon.getMonsters();
         int amt;
 
-        switch(AbstractDungeon.miscRng.random(0, 3)) {
+        switch(AbstractDungeon.miscRng.random(0, 4)) {
             case 0:
-                amt = AbstractDungeon.actNum + 1;
+                amt = AbstractDungeon.actNum + 1; // 2, 3, 4, 5
                 for (AbstractMonster m : mg.monsters) {
                     if (!m.isDeadOrEscaped()) {
                         addToBot(new ApplyPowerAction(m, m, new StrengthPower(m, amt), amt));
@@ -85,7 +87,7 @@ public class RingingChallengeAction extends AbstractGameAction {
                 }
                 break;
             case 2:
-                amt = AbstractDungeon.actNum * 2 + 2;
+                amt = AbstractDungeon.actNum * 2 + 2; // 4, 6, 8, 10
                 for (AbstractMonster m : mg.monsters) {
                     if (!m.isDeadOrEscaped()) {
                         addToBot(new ApplyPowerAction(m, m, new MetallicizePower(m, amt), amt));
@@ -93,10 +95,18 @@ public class RingingChallengeAction extends AbstractGameAction {
                 }
                 break;
             case 3:
-                amt = 1 + AbstractDungeon.actNum * 2;
+                amt = 1 + AbstractDungeon.actNum * 2; // 3, 5, 7, 9
                 for (AbstractMonster m : mg.monsters) {
                     if (!m.isDeadOrEscaped()) {
                         addToBot(new ApplyPowerAction(m, m, new RegenerateMonsterPower(m, amt), amt));
+                    }
+                }
+                break;
+            case 4:
+                amt = AbstractDungeon.actNum * 3 + 3; // 6, 9, 12, 15
+                for (AbstractMonster m : mg.monsters) {
+                    if (!m.isDeadOrEscaped()) {
+                        addToBot(new ApplyPowerAction(m, m, new PlatedArmorPower(m, amt), amt));
                     }
                 }
                 break;
@@ -104,35 +114,14 @@ public class RingingChallengeAction extends AbstractGameAction {
     }
 
     private void setRewards() {
-        int roll = AbstractDungeon.miscRng.random(0, 100);
+        //int roll = AbstractDungeon.miscRng.random(0, 100);
 
         if (isNormal) {
-            // 20 more gold +6% rare chance  OR  10 more gold +12% rare chance
-            if (roll > 33) {
-                r.addGoldToRewards(20);
-                r.baseRareCardChance += 6;
-                r.baseUncommonCardChance += 6;
-            } else {
-                r.addGoldToRewards(10);
-                r.baseRareCardChance += 12;
-                r.baseUncommonCardChance += 12;
-            }
-        } else if (isElite) {
-            // 25 more gold   AND
-            // random upgrade  AND/OR  Max HP
-            r.addGoldToRewards(25);
-            if (roll > 80) {
-                randomUpgrade = true;
-                maxHp = 2;
-            } else if (roll > 33) {
-                maxHp = 3;
-            } else {
-                randomUpgrade = true;
-            }
-        } else if (isBoss) {
-            // +4 Max HP  AND  random upgrade
             randomUpgrade = true;
-            maxHp = 4;
+        } else if (isElite) {
+            r.addRelicToRewards(AbstractRelic.RelicTier.COMMON);
+        } else if (isBoss) {
+            maxHp = 5;
         }
     }
 }

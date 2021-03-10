@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import TheTemplar.TemplarMod;
 import TheTemplar.characters.TheTemplar;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import static TheTemplar.TemplarMod.makeCardPath;
@@ -57,6 +58,7 @@ public class GatherCourage extends AbstractDynamicCard {
         for (AbstractMonster m: AbstractDungeon.getMonsters().monsters) {
             if(!m.isDeadOrEscaped()) {
                 addToBot(new ApplyPowerAction(m, m, new StrengthPower(m, ENEMY_STRENGTH), ENEMY_STRENGTH));
+                addToBot(new ApplyPowerAction(m, m, new LoseStrengthPower(m, ENEMY_STRENGTH), ENEMY_STRENGTH));
             }
         }
     }

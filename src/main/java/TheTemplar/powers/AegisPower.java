@@ -1,5 +1,6 @@
 package TheTemplar.powers;
 
+import TheTemplar.actions.GainBulwarkAction;
 import TheTemplar.cards.Aegis;
 import TheTemplar.util.HolyWeaponPower;
 import basemod.interfaces.CloneablePowerInterface;
@@ -28,7 +29,6 @@ public class AegisPower extends HolyWeaponPower implements CloneablePowerInterfa
         ID = POWER_ID;
 
         owner = AbstractDungeon.player;
-        amount = 0;
 
         type = PowerType.BUFF;
 
@@ -38,15 +38,23 @@ public class AegisPower extends HolyWeaponPower implements CloneablePowerInterfa
         refresh(upgraded);
     }
 
+    @Override
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+        addToBot(new GainBulwarkAction(amount));
+    }
+
+    @Override
+    public void refresh(boolean isUpgraded) {
+        upgraded = isUpgraded || upgraded;
+        amount = upgraded ? Aegis.UPGRADED_BULWARK : Aegis.BULWARK;
+        updateDescription();
+    }
+
     public void stackPower(int unused) { }
 
     @Override
     public void updateDescription() {
-        if (upgraded) {
-            description = DESCRIPTIONS[0] + Aegis.UPGRADE_REDUCTION + DESCRIPTIONS[1];
-        } else {
-            description = DESCRIPTIONS[0] + Aegis.REDUCTION + DESCRIPTIONS[1];
-        }
+        description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 
     @Override
