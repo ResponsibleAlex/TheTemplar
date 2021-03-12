@@ -109,8 +109,8 @@
         "TheTemplar:AegisPower": {
                 "NAME": "Aegis",
                 "DESCRIPTIONS": [
-                        "At the end of your turn gain #b",
-                        " #yBulwark, then deal damage equal to your #yBulwark to a random enemy."
+                        "Gain #b",
+                        " #yBulwark at the start of your turn. At the end of your turn, deal damage equal to your #yBulwark to a random enemy."
                 ]
         },
         "TheTemplar:BookOfTheFivePower": {

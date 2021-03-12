@@ -14,7 +14,7 @@
       "Greater_Rewards",
       "greater_rewards"
     ],
-    "DESCRIPTION": "Normal combats: upgrade a random card in your deck. NL Elite combats: receive a random common relic. NL Boss combats: Gain 5 Max HP."
+    "DESCRIPTION": "#yNormal #ycombat: upgrade a random card in your deck. NL #yElite #ycombat: receive a random common relic. NL #yBoss #ycombat: Gain 5 Max HP. NL #bDoes #bnot #bstack"
   },
   {
     "PROPER_NAME": "Inscribe",
@@ -24,7 +24,7 @@
       "Inscribed",
       "inscribed"
     ],
-    "DESCRIPTION": "When you inscribe #b2 #yGlyphs, trigger their effects and remove them. A matching pair increases the strength of the effect."
+    "DESCRIPTION": "When you inscribe #b2 #yGlyphs, trigger their effects and remove them. A matching pair triggers a bonus effect."
   },
   {
     "PROPER_NAME": "Blessing",

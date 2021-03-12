@@ -12,7 +12,6 @@ import TheTemplar.characters.TheTemplar;
 import java.util.ArrayList;
 
 import static TheTemplar.TemplarMod.makeCardPath;
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 @SuppressWarnings("unused")
 public class Beseech extends AbstractDynamicCard {
@@ -52,8 +51,8 @@ public class Beseech extends AbstractDynamicCard {
         boolean setCost = triggerBlessing();
 
         ArrayList<AbstractCard> choices = new ArrayList<>();
-        choices.add(new BeseechChooseAttack(upgraded, setCost));
-        choices.add(new BeseechChooseSkill(upgraded, setCost));
+        choices.add(new BeseechChooseAttack(setCost));
+        choices.add(new BeseechChooseSkill(setCost));
 
         addToBot(new ChooseOneAction(choices));
     }
@@ -65,7 +64,6 @@ public class Beseech extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBaseCost(UPGRADED_COST);
-            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }

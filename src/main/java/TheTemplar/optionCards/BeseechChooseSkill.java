@@ -35,17 +35,12 @@ public class BeseechChooseSkill extends AbstractDynamicCard {
 
     // /STAT DECLARATION/
 
-    private final boolean upgradeCard;
     private final boolean setCost;
 
-    public BeseechChooseSkill(boolean upgradeCard, boolean setCost) {
+    public BeseechChooseSkill(boolean setCost) {
         super(ID, IMG, COST, TYPE, COLOR, RARITY, TARGET);
-        this.upgradeCard = upgradeCard;
         this.setCost = setCost;
 
-        if (upgradeCard) {
-            rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-        }
         if (setCost) {
             rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
         }
@@ -62,9 +57,7 @@ public class BeseechChooseSkill extends AbstractDynamicCard {
     public void onChoseThisOption() {
         AbstractCard c = AbstractDungeon.returnTrulyRandomCardInCombat(CardType.SKILL).makeCopy();
 
-        if (upgradeCard) {
-            c.upgrade();
-        }
+        c.upgrade();
         if (setCost) {
             c.setCostForTurn(0);
         }
@@ -88,6 +81,6 @@ public class BeseechChooseSkill extends AbstractDynamicCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new BeseechChooseSkill(upgradeCard, setCost);
+        return new BeseechChooseSkill(setCost);
     }
 }

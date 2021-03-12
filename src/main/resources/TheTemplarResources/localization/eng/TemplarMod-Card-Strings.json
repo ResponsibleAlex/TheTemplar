@@ -227,8 +227,7 @@
   },
   "TheTemplar:Beseech": {
     "NAME": "Beseech",
-    "DESCRIPTION": "Choose Attack or Skill. Add a random card of that type to your hand. NL Exhaust. NL thetemplar:Blessing: it costs 0 this turn.",
-    "UPGRADE_DESCRIPTION": "Choose Attack or Skill. Add a random Upgraded card of that type to your hand. NL Exhaust. NL thetemplar:Blessing: it costs 0 this turn."
+    "DESCRIPTION": "Choose Attack or Skill. Add a random Upgraded card of that type to your hand. NL Exhaust. NL thetemplar:Blessing: it costs 0 this turn."
   },
   "TheTemplar:Innervate": {
     "NAME": "Innervate",
@@ -273,8 +272,7 @@
   },
   "TheTemplar:RingingChallenge": {
     "NAME": "Ringing Challenge",
-    "DESCRIPTION": "Innate. NL Ethereal. NL ALL enemies become thetemplar:Empowered and grant thetemplar:Greater_Rewards at the end of combat. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Ethereal. NL ALL enemies become thetemplar:Empowered and grant thetemplar:Greater_Rewards at the end of combat. NL Draw a card. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Ethereal. NL ALL enemies become thetemplar:Empowered and grant thetemplar:Greater_Rewards at the end of combat. NL Exhaust."
   },
   "TheTemplar:ResoluteWill": {
     "NAME": "Resolute Will",
@@ -326,7 +324,7 @@
   },
   "TheTemplar:Aegis": {
     "NAME": "Aegis",
-    "DESCRIPTION": "thetemplar:Holy_Weapon. NL At the end of your turn gain !M! thetemplar:Bulwark, then deal damage equal to your thetemplar:Bulwark to a random enemy."
+    "DESCRIPTION": "thetemplar:Holy_Weapon. NL Gain !M! thetemplar:Bulwark at the start of your turn. NL At the end of your turn, deal damage equal to your thetemplar:Bulwark to a random enemy."
   },
   "TheTemplar:BookOfTheFive": {
     "NAME": "Book of the Five",
@@ -360,16 +358,14 @@
   },
   "TheTemplar:BeseechChooseAttack": {
     "NAME": "Attack",
-    "DESCRIPTION": "Add a random Attack to your hand.",
-    "UPGRADE_DESCRIPTION": "Add a random Upgraded Attack to your hand.",
+    "DESCRIPTION": "Add a random Upgraded Attack to your hand.",
     "EXTENDED_DESCRIPTION": [
       " NL It costs 0 this turn."
     ]
   },
   "TheTemplar:BeseechChooseSkill": {
     "NAME": "Skill",
-    "DESCRIPTION": "Add a random Skill to your hand.",
-    "UPGRADE_DESCRIPTION": "Add a random Upgraded Skill to your hand.",
+    "DESCRIPTION": "Add a random Upgraded Skill to your hand.",
     "EXTENDED_DESCRIPTION": [
       " NL It costs 0 this turn."
     ]

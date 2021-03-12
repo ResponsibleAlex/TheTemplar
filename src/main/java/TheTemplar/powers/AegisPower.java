@@ -39,7 +39,8 @@ public class AegisPower extends HolyWeaponPower implements CloneablePowerInterfa
     }
 
     @Override
-    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+    public void atStartOfTurn() {
+        flash();
         addToBot(new GainBulwarkAction(amount));
     }
 
