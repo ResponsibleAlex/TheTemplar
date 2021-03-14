@@ -49,7 +49,7 @@ public class DivinePurposePower extends AbstractPower implements CloneablePowerI
     }
 
     @Override
-    public void atStartOfTurn() {
+    public void atStartOfTurnPostDraw() {
         //if (TemplarMod.triggeredBlessingLastTurn) { }
         flash();
         for (int i = 0; i < amount; i++) {
