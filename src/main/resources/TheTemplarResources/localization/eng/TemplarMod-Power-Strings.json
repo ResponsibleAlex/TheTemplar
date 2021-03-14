@@ -129,13 +129,6 @@
                         " cards."
                 ]
         },
-        "TheTemplar:FanaticismPower": {
-                "NAME": "Fanaticism",
-                "DESCRIPTIONS": [
-                        "Whenever you play an #yAttack this turn, #yInscribe ",
-                        " #yZeal."
-                ]
-        },
         "TheTemplar:StalwartPower": {
                 "NAME": "Stalwart",
                 "DESCRIPTIONS": [

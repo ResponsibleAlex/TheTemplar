@@ -191,7 +191,7 @@
   },
   "TheTemplar:Fanaticism": {
     "NAME": "Fanaticism",
-    "DESCRIPTION": "Whenever you play an Attack this turn, thetemplar:Inscribe 1 thetemplar:Zeal. NL Exhaust."
+    "DESCRIPTION": "thetemplar:Inscribe !M! thetemplar:Zeal. NL Exhaust."
   },
   "TheTemplar:Tithe": {
     "NAME": "Tithe",
