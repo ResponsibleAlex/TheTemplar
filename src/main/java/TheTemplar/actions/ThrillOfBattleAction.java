@@ -1,5 +1,6 @@
 package TheTemplar.actions;
 
+import TheTemplar.TemplarMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -21,8 +22,7 @@ public class ThrillOfBattleAction extends AbstractGameAction {
         this.info = info;
         setValues(target, info);
         actionType = ActionType.DAMAGE;
-        startDuration = Settings.ACTION_DUR_FAST;
-        duration = startDuration;
+        duration = startDuration = Settings.ACTION_DUR_FAST;
         p = AbstractDungeon.player;
     }
 
@@ -31,8 +31,13 @@ public class ThrillOfBattleAction extends AbstractGameAction {
             isDone = true;
         } else {
             tickDuration();
+
             if (isDone) {
-                AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.BLUNT_HEAVY, false));
+                if (TemplarMod.shouldUseCustomAttackEffect()) {
+                    TemplarMod.flashCustomAttackEffect(target);
+                } else {
+                    AbstractDungeon.effectList.add(new FlashAtkImgEffect(target.hb.cX, target.hb.cY, AttackEffect.BLUNT_HEAVY, false));
+                }
                 target.damage(info);
                 int amt = target.lastDamageTaken;
                 if (amt > 0) {
