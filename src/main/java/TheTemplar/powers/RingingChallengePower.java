@@ -15,8 +15,6 @@ import TheTemplar.util.TextureLoader;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
-import java.util.ArrayList;
-
 import static TheTemplar.TemplarMod.makePowerPath;
 
 public class RingingChallengePower extends AbstractPower implements CloneablePowerInterface {
@@ -66,22 +64,10 @@ public class RingingChallengePower extends AbstractPower implements CloneablePow
 
     private void doUpgrade() {
         CardGroup cards = AbstractDungeon.player.masterDeck.getUpgradableCards();
-        ArrayList<AbstractCard> betterCards = new ArrayList<>();
 
         if (!cards.isEmpty()) {
-            for (AbstractCard c : cards.group) {
-                if (c.rarity != AbstractCard.CardRarity.BASIC) {
-                    betterCards.add(c);
-                }
-            }
 
-            AbstractCard c;
-            if (betterCards.isEmpty()) {
-                c = cards.getRandomCard(AbstractDungeon.miscRng);
-            } else {
-                c = betterCards.get(AbstractDungeon.miscRng.random(0, betterCards.size() - 1));
-            }
-
+            AbstractCard c = cards.getRandomCard(AbstractDungeon.miscRng);
             c.upgrade();
             AbstractDungeon.player.bottledCardUpgradeCheck(c);
 
