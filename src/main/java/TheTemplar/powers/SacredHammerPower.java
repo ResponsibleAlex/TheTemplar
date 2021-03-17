@@ -82,6 +82,12 @@ public class SacredHammerPower extends HolyWeaponPower implements CloneablePower
     }
 
     @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        amount = 0;
+        updateDescription();
+    }
+
+    @Override
     public void updateDescription() {
         if (amount == 0) {
             description = DESCRIPTIONS[0];

@@ -63,7 +63,7 @@ public class BulwarkPower extends AbstractPower implements CloneablePowerInterfa
     public void atEndOfTurn(boolean isPlayer) {
         if (owner.hasPower(AegisPower.POWER_ID)) {
             // we have Aegis, deal damage
-            addToBot(new DamageRandomEnemyAction(new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+            addToBot(new DamageRandomEnemyAction(new DamageInfo(owner, amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SHIELD));
         }
 
         // gain block for the amount of Bulwark we have

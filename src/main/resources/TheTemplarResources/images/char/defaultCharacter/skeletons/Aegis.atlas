@@ -20,7 +20,7 @@ cape
   index: -1
 leg-left
   rotate: false
-  xy: 147, 218
+  xy: 116, 353
   size: 51, 62
   orig: 51, 62
   offset: 0, 0
@@ -34,28 +34,28 @@ leg-right
   index: -1
 boot-left-upper
   rotate: false
-  xy: 160, 341
+  xy: 153, 267
   size: 38, 40
   orig: 38, 40
   offset: 0, 0
   index: -1
 boot-left-lower
   rotate: false
-  xy: 184, 194
+  xy: 160, 417
   size: 35, 16
   orig: 35, 16
   offset: 0, 0
   index: -1
 boot-right-upper
   rotate: false
-  xy: 99, 289
+  xy: 153, 221
   size: 46, 44
   orig: 46, 44
   offset: 0, 0
   index: -1
 boot-right-lower
   rotate: false
-  xy: 200, 162
+  xy: 153, 309
   size: 47, 30
   orig: 47, 30
   offset: 0, 0
@@ -69,14 +69,14 @@ mace
   index: -1
 mace-left-arm
   rotate: false
-  xy: 99, 218
+  xy: 68, 353
   size: 46, 69
   orig: 46, 69
   offset: 0, 0
   index: -1
 mace-right-arm
   rotate: false
-  xy: 99, 162
+  xy: 68, 297
   size: 83, 54
   orig: 83, 54
   offset: 0, 0
@@ -90,7 +90,7 @@ tabard
   index: -1
 mantle
   rotate: false
-  xy: 68, 341
+  xy: 68, 424
   size: 90, 25
   orig: 90, 25
   offset: 0, 0
@@ -104,7 +104,7 @@ aegis
   index: -1
 helm
   rotate: false
-  xy: 147, 282
+  xy: 153, 162
   size: 46, 57
   orig: 46, 57
   offset: 0, 0

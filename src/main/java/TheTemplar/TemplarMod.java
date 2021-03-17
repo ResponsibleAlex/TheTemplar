@@ -5,11 +5,13 @@ import TheTemplar.patches.AbstractMonsterPatch;
 import TheTemplar.potions.AnnointingOil;
 import TheTemplar.potions.StalwartFlask;
 import TheTemplar.powers.AltarPower;
+import TheTemplar.powers.BookOfTheFivePower;
 import TheTemplar.powers.SacredHammerPower;
 import TheTemplar.relics.*;
 import TheTemplar.variables.HolyWeapons;
 import TheTemplar.vfx.FlashCustomAttackEffect;
 import TheTemplar.vfx.BookEffect;
+import TheTemplar.vfx.HammerEffect;
 import basemod.*;
 import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
@@ -461,9 +463,17 @@ public class TemplarMod implements
     public static void combatUpdate() {
         AbstractGlyph.updateGlyphs();
 
-        if (AbstractDungeon.player.chosenClass.toString().equals("THE_TEMPLAR")
-                && HolyWeapons.IsEquipped(HolyWeapons.Book)) {
-            BookEffect.update();
+        if (AbstractDungeon.player.chosenClass.toString().equals("THE_TEMPLAR")) {
+
+            if (HolyWeapons.IsEquipped(HolyWeapons.Book)
+                    && AbstractDungeon.player.hasPower(BookOfTheFivePower.POWER_ID)
+                    && AbstractDungeon.player.getPower(BookOfTheFivePower.POWER_ID).amount > 0) {
+                BookEffect.update();
+            } else if (HolyWeapons.IsEquipped(HolyWeapons.Hammer)
+                    && AbstractDungeon.player.hasPower(SacredHammerPower.POWER_ID)
+                    && AbstractDungeon.player.getPower(SacredHammerPower.POWER_ID).amount > 0) {
+                HammerEffect.update();
+            }
         }
     }
 

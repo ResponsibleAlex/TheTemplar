@@ -11,16 +11,19 @@ import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -127,7 +130,7 @@ public class TheTemplar extends CustomPlayer {
 
         // =============== ANIMATIONS =================  
 
-        AnimationState.TrackEntry e = state.setAnimation(0, HolyWeapons.Default, true);
+        AnimationState.TrackEntry e = state.setAnimation(0, "idle", true);
         e.setTime(0);
 
         // =============== /ANIMATIONS/ =================
@@ -150,12 +153,26 @@ public class TheTemplar extends CustomPlayer {
         sr.setPremultipliedAlpha(true);
     }
 
+    @Override
+    public void damage(DamageInfo info) {
+        if (null != info.owner && DamageInfo.DamageType.THORNS != info.type
+                && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT
+                && info.output > currentBlock) {
+
+            AnimationState.TrackEntry e = state.setAnimation(0, "hit", false);
+            state.addAnimation(0, "idle", true, 0.0f);
+            e.setTimeScale(1f);
+        }
+
+        super.damage(info);
+    }
+
     public void reloadAnimation(String animationName) {
         loadAnimation(
                 SKELETON_PATH + animationName + ".atlas",
                 SKELETON_PATH + animationName + ".json",
                 1.0f);
-        AnimationState.TrackEntry e = state.setAnimation(0, animationName, true);
+        AnimationState.TrackEntry e = state.setAnimation(0, "idle", true);
         e.setTime(0);
     }
 

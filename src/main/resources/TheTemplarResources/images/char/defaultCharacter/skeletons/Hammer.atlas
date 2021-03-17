@@ -20,42 +20,42 @@ cape
   index: -1
 leg-left
   rotate: false
-  xy: 53, 283
+  xy: 1, 283
   size: 51, 62
   orig: 51, 62
   offset: 0, 0
   index: -1
 leg-right
   rotate: false
-  xy: 1, 283
+  xy: 202, 248
   size: 50, 64
   orig: 50, 64
   offset: 0, 0
   index: -1
 boot-left-upper
   rotate: false
-  xy: 106, 342
+  xy: 54, 342
   size: 38, 40
   orig: 38, 40
   offset: 0, 0
   index: -1
 boot-left-lower
   rotate: false
-  xy: 1, 349
+  xy: 1, 379
   size: 35, 16
   orig: 35, 16
   offset: 0, 0
   index: -1
 boot-right-upper
   rotate: false
-  xy: 154, 283
+  xy: 102, 310
   size: 46, 44
   orig: 46, 44
   offset: 0, 0
   index: -1
 boot-right-lower
   rotate: false
-  xy: 53, 347
+  xy: 1, 347
   size: 47, 30
   orig: 47, 30
   offset: 0, 0
@@ -69,14 +69,14 @@ tabard
   index: -1
 hammer-left-arm
   rotate: false
-  xy: 202, 257
+  xy: 202, 174
   size: 47, 72
   orig: 47, 72
   offset: 0, 0
   index: -1
 hammer-right-arm
   rotate: false
-  xy: 202, 167
+  xy: 191, 84
   size: 45, 88
   orig: 45, 88
   offset: 0, 0
@@ -90,22 +90,15 @@ hammer
   index: -1
 mantle
   rotate: false
-  xy: 154, 331
+  xy: 102, 283
   size: 90, 25
   orig: 90, 25
   offset: 0, 0
   index: -1
 helm
   rotate: false
-  xy: 106, 283
+  xy: 54, 283
   size: 46, 57
   orig: 46, 57
-  offset: 0, 0
-  index: -1
-HammerGlow
-  rotate: false
-  xy: 191, 84
-  size: 58, 81
-  orig: 58, 81
   offset: 0, 0
   index: -1
