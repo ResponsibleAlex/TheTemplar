@@ -59,7 +59,7 @@
                 "NAME": "Divine Purpose",
                 "DESCRIPTIONS": [
                         "At the start of your turn, #yInscribe #b",
-                        " #yZeal if you triggered a #yBlessing on your previous turn."
+                        " #yZeal."
                 ]
         },
         "TheTemplar:RetributionPower": {

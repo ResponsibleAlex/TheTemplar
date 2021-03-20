@@ -30,8 +30,8 @@ public class FlameOfHeaven extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 2;
-    public static final int BLOCK = 4;
-    private static final int UPGRADE_PLUS_BLOCK = 2;
+    public static final int BLOCK = 5;
+    private static final int UPGRADE_PLUS_BLOCK = 3;
     public static final int UPGRADED_BLOCK = BLOCK + UPGRADE_PLUS_BLOCK;
 
     // /STAT DECLARATION/
