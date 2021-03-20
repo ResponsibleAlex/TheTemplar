@@ -9,6 +9,9 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.FrozenEgg2;
+import com.megacrit.cardcrawl.relics.MoltenEgg2;
+import com.megacrit.cardcrawl.relics.ToxicEgg2;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 
 import static TheTemplar.TemplarMod.makeRelicOutlinePath;
@@ -46,12 +49,32 @@ public class GildedEgg extends CustomRelic {
     @Override
     public void onObtainCard(AbstractCard c) {
         if (counter > 0 && c.rarity == AbstractCard.CardRarity.RARE) {
-            if (c.canUpgrade() && !c.upgraded) {
-                c.upgrade();
+
+            // only use a charge if we aren't already covered by one of the other eggs
+            if (!molten(c) && !toxic(c) && !frozen(c)) {
+                if (c.canUpgrade() && !c.upgraded) {
+                    c.upgrade();
+                }
+                flash();
+                decrementCounter();
             }
-            flash();
-            decrementCounter();
+
         }
+    }
+
+    private boolean molten(AbstractCard c) {
+        return (AbstractDungeon.player.hasRelic(MoltenEgg2.ID)
+                && c.type == AbstractCard.CardType.ATTACK);
+    }
+
+    private boolean toxic(AbstractCard c) {
+        return (AbstractDungeon.player.hasRelic(ToxicEgg2.ID)
+                && c.type == AbstractCard.CardType.SKILL);
+    }
+
+    private boolean frozen(AbstractCard c) {
+        return (AbstractDungeon.player.hasRelic(FrozenEgg2.ID)
+                && c.type == AbstractCard.CardType.POWER);
     }
 
     public void decrementCounter() {
