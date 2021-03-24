@@ -241,8 +241,7 @@
   },
   "TheTemplar:Awakening": {
     "NAME": "Awakening",
-    "DESCRIPTION": "Gain !B! Block. NL If you have triggered a thetemplar:Blessing this turn, draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL If you have triggered a thetemplar:Blessing this turn, draw !M! cards."
+    "DESCRIPTION": "Gain !B! Block. NL If you have triggered a thetemplar:Blessing this turn, draw !M! cards."
   },
   "TheTemplar:ImbuedArmor": {
     "NAME": "Imbued Armor",

@@ -9,7 +9,6 @@ import TheTemplar.TemplarMod;
 import TheTemplar.characters.TheTemplar;
 
 import static TheTemplar.TemplarMod.makeCardPath;
-import static com.megacrit.cardcrawl.core.CardCrawlGame.languagePack;
 
 @SuppressWarnings("unused")
 public class Awakening extends AbstractDynamicCard {
@@ -69,7 +68,6 @@ public class Awakening extends AbstractDynamicCard {
         if (!upgraded) {
             upgradeName();
             upgradeBlock(UPGRADE_PLUS_BLOCK);
-            rawDescription = languagePack.getCardStrings(ID).UPGRADE_DESCRIPTION;
             initializeDescription();
         }
     }
