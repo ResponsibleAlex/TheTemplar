@@ -19,9 +19,9 @@
     "NAME": "Blessed Strike",
     "DESCRIPTION": "Deal !D! damage. NL thetemplar:Blessing: Deal !M! additional damage."
   },
-  "TheTemplar:CommandingStrike": {
-    "NAME": "Commanding Strike",
-    "DESCRIPTION": "Deal !D! damage. NL thetemplar:Inscribe 1 thetemplar:Justice."
+  "TheTemplar:HolyStrike": {
+    "NAME": "Holy Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you thetemplar:Inscribe a thetemplar:Zeal or thetemplar:Valor, return this from the discard pile to your Hand."
   },
   "TheTemplar:WaitForAnOpening": {
     "NAME": "Wait for an Opening",
@@ -301,7 +301,7 @@
   },
   "TheTemplar:Retribution": {
     "NAME": "Retribution",
-    "DESCRIPTION": "Whenever you receive unblocked attack damage, gain !M! Vigor."
+    "DESCRIPTION": "Whenever you are attacked, gain !M! Vigor."
   },
   "TheTemplar:Altar": {
     "NAME": "Altar",

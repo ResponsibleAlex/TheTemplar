@@ -33,7 +33,7 @@ public class RighteousBlow extends AbstractDynamicCard {
     private static final int COST = 2;
 
     private static final int DAMAGE = 9;
-    private static final int UPGRADE_PLUS_DMG = 4;
+    private static final int UPGRADE_COST = 1;
 
     // /STAT DECLARATION/
 
@@ -57,7 +57,7 @@ public class RighteousBlow extends AbstractDynamicCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeDamage(UPGRADE_PLUS_DMG);
+            upgradeBaseCost(UPGRADE_COST);
             initializeDescription();
         }
     }

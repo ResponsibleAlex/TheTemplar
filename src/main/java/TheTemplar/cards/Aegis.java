@@ -29,7 +29,7 @@ public class Aegis extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 2;
-    public static final int BULWARK = 3;
+    public static final int BULWARK = 2;
     private static final int UPGRADE_PLUS_BULWARK = 2;
     public static final int UPGRADED_BULWARK = BULWARK + UPGRADE_PLUS_BULWARK;
 

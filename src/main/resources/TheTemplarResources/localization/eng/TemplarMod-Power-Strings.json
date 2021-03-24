@@ -65,7 +65,7 @@
         "TheTemplar:RetributionPower": {
                 "NAME": "Retribution",
                 "DESCRIPTIONS": [
-                        "Whenever you receive unblocked attack damage, gain #b",
+                        "Whenever you are attacked, gain #b",
                         " Vigor."
                 ]
         },
