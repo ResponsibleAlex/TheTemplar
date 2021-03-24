@@ -2,13 +2,10 @@ package TheTemplar.glyphs;
 
 import TheTemplar.TemplarMod;
 import TheTemplar.actions.GlyphAboveCreatureAction;
-import TheTemplar.cards.HolyStrike;
 import TheTemplar.relics.RunedArmor;
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class Zeal extends AbstractGlyph {
     public static final String classID = Zeal.class.getSimpleName();
@@ -25,13 +22,6 @@ public class Zeal extends AbstractGlyph {
     @Override
     public void trigger() {
         addToBot(new GlyphAboveCreatureAction(p, this));
-
-        for (AbstractCard c : p.discardPile.group) {
-            if (c instanceof HolyStrike) {
-                addToBot(new DiscardToHandAction(c));
-            }
-        }
-
         addToBot(new DrawCardAction(TRIGGER));
     }
 

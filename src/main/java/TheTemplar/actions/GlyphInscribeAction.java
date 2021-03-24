@@ -1,11 +1,13 @@
 package TheTemplar.actions;
 
 import TheTemplar.TemplarMod;
+import TheTemplar.cards.HolyStrike;
 import TheTemplar.cards.LightOfGlory;
 import TheTemplar.glyphs.*;
 import TheTemplar.powers.BookOfTheFivePower;
 import TheTemplar.variables.GlyphTypes;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
@@ -42,12 +44,14 @@ public class GlyphInscribeAction extends AbstractGameAction {
             if (glyphToInscribe.name.equals(Valor.classID)) {
                 TemplarMod.valorInscribedThisCombat++;
                 TemplarMod.glyphTypesInscribedThisCombat[GlyphTypes.Valor.ordinal()] = true;
+                triggerHolyStrike();
             } else if (glyphToInscribe.name.equals(Fortitude.classID)) {
                 TemplarMod.glyphTypesInscribedThisCombat[GlyphTypes.Fortitude.ordinal()] = true;
             } else if (glyphToInscribe.name.equals(Justice.classID)) {
                 TemplarMod.glyphTypesInscribedThisCombat[GlyphTypes.Justice.ordinal()] = true;
             } else if (glyphToInscribe.name.equals(Zeal.classID)) {
                 TemplarMod.glyphTypesInscribedThisCombat[GlyphTypes.Zeal.ordinal()] = true;
+                triggerHolyStrike();
             } else if (glyphToInscribe.name.equals(Charity.classID)) {
                 TemplarMod.glyphTypesInscribedThisCombat[GlyphTypes.Charity.ordinal()] = true;
             }
@@ -61,6 +65,14 @@ public class GlyphInscribeAction extends AbstractGameAction {
         }
 
         tickDuration();
+    }
+
+    private void triggerHolyStrike() {
+        for (AbstractCard c : AbstractDungeon.player.discardPile.group) {
+            if (c instanceof HolyStrike) {
+                addToBot(new DiscardToHandAction(c));
+            }
+        }
     }
 
     private void updateLightOfGlory() {
