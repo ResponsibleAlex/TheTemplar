@@ -50,7 +50,6 @@ public class DivinePurposePower extends AbstractPower implements CloneablePowerI
 
     @Override
     public void atStartOfTurnPostDraw() {
-        //if (TemplarMod.triggeredBlessingLastTurn) { }
         flash();
         for (int i = 0; i < amount; i++) {
             addToBot(new GlyphInscribeAction(new Zeal()));
