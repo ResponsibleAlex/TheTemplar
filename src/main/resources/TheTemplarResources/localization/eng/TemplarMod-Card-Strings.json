@@ -187,7 +187,7 @@
   },
   "TheTemplar:ShieldsOfTheFallen": {
     "NAME": "Shields of the Fallen",
-    "DESCRIPTION": "Ethereal. NL Gain !M! Bulwark. NL Draw a card."
+    "DESCRIPTION": "Ethereal. NL Gain !M! thetemplar:Bulwark. NL Draw a card."
   },
   "TheTemplar:Fanaticism": {
     "NAME": "Fanaticism",
