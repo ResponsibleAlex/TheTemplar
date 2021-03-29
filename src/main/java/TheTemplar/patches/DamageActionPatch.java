@@ -18,7 +18,7 @@ public class DamageActionPatch {
     )
     public static class DamageActionUpdate {
         public static void Prefix(DamageAction __instance, DamageInfo ___info, float ___duration) {
-            if (___info.owner != null && ___info.owner.isPlayer && ___duration == 0.1F) {
+            if (___info != null && ___info.owner != null && ___info.owner.isPlayer && ___duration == 0.1F) {
                 if (__instance.attackEffect != AbstractGameAction.AttackEffect.NONE
                         && ___info.type == DamageInfo.DamageType.NORMAL
                         && TemplarMod.shouldUseCustomAttackEffect()) {
