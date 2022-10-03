@@ -381,6 +381,8 @@ public class TemplarMod implements
         String lang = "eng";
         if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
+        } else if (Settings.GameLanguage.KOR == Settings.language) {
+            lang = "kor";
         }
 
         logger.info("Beginning to edit strings for mod with ID: " + getModID());
@@ -417,6 +419,8 @@ public class TemplarMod implements
         String lang = "eng";
         if (Settings.GameLanguage.ZHS == Settings.language) {
             lang = "zhs";
+        } else if (Settings.GameLanguage.KOR == Settings.language) {
+            lang = "kor";
         }
 
         Gson gson = new Gson();

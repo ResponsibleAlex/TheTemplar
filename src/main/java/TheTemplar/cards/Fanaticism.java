@@ -29,7 +29,7 @@ public class Fanaticism extends AbstractDynamicCard {
     public static final CardColor COLOR = TheTemplar.Enums.TEMPLAR_COLOR;
 
     private static final int COST = 0;
-    private static final int ZEAL = 2;
+    private static final int ZEAL = 1;
     private static final int UPGRADE_PLUS_ZEAL = 1;
 
     // /STAT DECLARATION/

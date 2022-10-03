@@ -1,0 +1,372 @@
+{
+  "TheTemplar:Strike": {
+    "NAME": "타격",
+    "DESCRIPTION": "피해를 !D! 줍니다."
+  },
+  "TheTemplar:Defend": {
+    "NAME": "수비",
+    "DESCRIPTION": "방어도를 !B! 얻습니다."
+  },
+  "TheTemplar:RighteousBlow": {
+    "NAME": "정의로운 일격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL thetemplar:정의를 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:BlessedCloak": {
+    "NAME": "축복받은 망토",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL thetemplar:축복: 방어도를 추가로 !M! 얻습니다."
+  },
+  "TheTemplar:BlessedStrike": {
+    "NAME": "축복받은 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL thetemplar:축복: 피해량이 !M! 증가합니다."
+  },
+  "TheTemplar:HolyStrike": {
+    "NAME": "성스러운 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL thetemplar:열의 또는 thetemplar:용맹을 thetemplar:새길 때마다 버린 카드 더미에서 손으로 가져옵니다."
+  },
+  "TheTemplar:WaitForAnOpening": {
+    "NAME": "기회 노리기",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 선택한 적이 공격할 의도가 없다면 다시 피해를 !D! 줍니다."
+  },
+  "TheTemplar:RecklessSweep": {
+    "NAME": "무모한 휩쓸기",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL thetemplar:열의를 1 thetemplar:새깁니다. NL 손상을 !M! 받습니다."
+  },
+  "TheTemplar:CourageousAttack": {
+    "NAME": "용감한 공격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL thetemplar:축복: thetemplar:용맹을 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:ShieldBash": {
+    "NAME": "방패 강타",
+    "DESCRIPTION": "thetemplar:방벽을 !M! 얻습니다. NL 현재 thetemplar:방벽만큼 피해를 줍니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (피해를 !D! 줍니다.)"
+    ]
+  },
+  "TheTemplar:Radiance": {
+    "NAME": "광채",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 보유 중인 카드 중 thetemplar:축복 카드 하나당 피해량이 !M! 증가합니다."
+  },
+  "TheTemplar:Skirmish": {
+    "NAME": "교전",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL thetemplar:불굴을 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:Momentum": {
+    "NAME": "기세",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이 카드로 활력이 소모되지 않고 활력의 효과가 !M! 배로 적용됩니다."
+  },
+  "TheTemplar:FireOfConviction": {
+    "NAME": "신념의 불",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL thetemplar:열의를 1 thetemplar:새깁니다. NL 소멸."
+  },
+  "TheTemplar:WordOfPower": {
+    "NAME": "권능어",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이번 전투에서 thetemplar:새긴 상형문자의 종류 하나당 카드를 1 장 뽑습니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (카드를 !M! 장 뽑습니다.)"
+    ]
+  },
+  "TheTemplar:BladesOfTheFallen": {
+    "NAME": "망자들의 검",
+    "DESCRIPTION": "휘발성. NL 피해를 !D! 만큼 !M! 번 줍니다. NL 방어도를 무시합니다."
+  },
+  "TheTemplar:Reckoning": {
+    "NAME": "판결",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL thetemplar:정의를 2 thetemplar:새깁니다."
+  },
+  "TheTemplar:DevotedStrike": {
+    "NAME": "헌신적인 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL thetemplar:축복: 이번 턴 동안 손에 있는 무작위 카드의 비용을 0 으로 바꿉니다."
+  },
+  "TheTemplar:FearlessAssault": {
+    "NAME": "두려움없는 맹공",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 적이 thetemplar:강화된 경우 thetemplar:용맹을 !M! thetemplar:새깁니다."
+  },
+  "TheTemplar:DeterminedCharge": {
+    "NAME": "단호한 돌진",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL thetemplar:불굴을 2 thetemplar:새깁니다"
+  },
+  "TheTemplar:CalculatedStrike": {
+    "NAME": "계산된 타격",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 이 카드가 손에 있는 유일한 공격 카드일 경우 두 배의 피해를 줍니다."
+  },
+  "TheTemplar:CelestialBurst": {
+    "NAME": "천상의 폭발",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL thetemplar:축복: 카드를 !M! 장 뽑습니다."
+  },
+  "TheTemplar:LightOfGlory": {
+    "NAME": "영광의 빛",
+    "DESCRIPTION": "이번 전투에 thetemplar:새긴 상형문자의 수만큼 이 카드의 비용이 [E] 감소합니다. NL 피해를 !D! 줍니다."
+  },
+  "TheTemplar:ThrillOfBattle": {
+    "NAME": "전투의 전율",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 막히지 않은 피해량만큼 활력을 얻습니다."
+  },
+  "TheTemplar:Lionheart": {
+    "NAME": "사자심",
+    "DESCRIPTION": "이번 전투에서 thetemplar:새긴 thetemplar:용맹 하나당 무작위 적에게 피해를 !D! 줍니다.",
+    "UPGRADE_DESCRIPTION": "thetemplar:용맹을 1 thetemplar:새깁니다. NL ",
+    "EXTENDED_DESCRIPTION": [
+      " NL (총 !M! 번 공격합니다.)"
+    ]
+  },
+  "TheTemplar:Avenger": {
+    "NAME": "복수자",
+    "DESCRIPTION": "적 전체에게 피해를 !D! 줍니다. NL thetemplar:축복: 피해량이 !M! 증가합니다."
+  },
+  "TheTemplar:Dragonslayer": {
+    "NAME": "용살자",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL 적이 thetemplar:강화된 경우 두 배의 피해를 줍니다."
+  },
+  "TheTemplar:Crusader": {
+    "NAME": "십자군",
+    "DESCRIPTION": "피해를 !D! 줍니다. NL thetemplar:축복: [E] [E] 를 얻습니다."
+  },
+  "TheTemplar:Vanguard": {
+    "NAME": "선봉대",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 피해를 !D! 줍니다. NL 영구적으로 이 카드의 피해량과 방어도가 !M! 만큼 증가합니다. NL 소멸."
+  },
+  "TheTemplar:Arbiter": {
+    "NAME": "중재자",
+    "DESCRIPTION": "thetemplar:정의를 X thetemplar:새깁니다. NL 적 전체에게 피해를 !D! 줍니다.",
+    "UPGRADE_DESCRIPTION": "thetemplar:정의를 X+1 thetemplar:새깁니다. NL 적 전체에게 피해를 !D! 줍니다."
+  },
+  "TheTemplar:Endure": {
+    "NAME": "인고",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL thetemplar:축복: 카드를 2 장 뽑습니다."
+  },
+  "TheTemplar:Redoubt": {
+    "NAME": "보루",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL thetemplar:불굴을 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:Sanctuary": {
+    "NAME": "성역",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL thetemplar:축복: thetemplar:자비를 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:Rally": {
+    "NAME": "재집결",
+    "DESCRIPTION": "thetemplar:용맹과 thetemplar:불굴을 1 thetemplar:새깁니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "thetemplar:용맹과 1 thetemplar:불굴을 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:Hymn": {
+    "NAME": "찬가",
+    "DESCRIPTION": "상형문자를 thetemplar:새긴 경우 같은 상형문자를 추가로 thetemplar:새깁니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL 상형문자가 없으면 무작위 상형문자를 thetemplar:새깁니다.",
+      "새겨진 상형문자가 없어."
+    ]
+  },
+  "TheTemplar:Fervor": {
+    "NAME": "열정",
+    "DESCRIPTION": "카드를 !M! 장 뽑고 카드를 1 장 소멸시킵니다. NL thetemplar:열의를 1 thetemplar:새깁니다.",
+    "UPGRADE_DESCRIPTION": "카드를 !M! 장 뽑고 카드를 1 장 소멸시킵니다. NL thetemplar:열의를 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:Rebuke": {
+    "NAME": "힐책",
+    "DESCRIPTION": "thetemplar:정의를 !M! thetemplar:새깁니다."
+  },
+  "TheTemplar:Rebuff": {
+    "NAME": "거부",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 이번 턴에 사용하는 다음 카드를 뽑을 카드 더미의 맨 위에 놓습니다."
+  },
+  "TheTemplar:EtchInFaith": {
+    "NAME": "새겨진 신앙",
+    "DESCRIPTION": "thetemplar:새길 상형문자를 선택합니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "thetemplar:새길 상형문자를 선택합니다."
+  },
+  "TheTemplar:Respite": {
+    "NAME": "유예",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 모든 적이 금속화를 !M! 얻습니다. NL 소멸."
+  },
+  "TheTemplar:Temperance": {
+    "NAME": "절제",
+    "DESCRIPTION": "카드를 1 장 버립니다. NL 손에 공격 카드가 없다면 방어도를 !B! 얻습니다."
+  },
+  "TheTemplar:HeroicStand": {
+    "NAME": "영웅적인 저항",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 적이 thetemplar:강화된 경우 두 배로 얻습니다."
+  },
+  "TheTemplar:ShieldsOfTheFallen": {
+    "NAME": "망자들의 방패",
+    "DESCRIPTION": "휘발성. NL thetemplar:방벽을 !M! 얻습니다. NL 카드를 1 장 뽑습니다."
+  },
+  "TheTemplar:Fanaticism": {
+    "NAME": "광신",
+    "DESCRIPTION": "thetemplar:열의를 !M! thetemplar:새깁니다. NL 소멸."
+  },
+  "TheTemplar:Tithe": {
+    "NAME": "십일조",
+    "DESCRIPTION": "골드를 10 잃습니다. NL 재생을 !M! 얻습니다. NL thetemplar:자비를 1 thetemplar:새깁니다. NL 소멸."
+  },
+  "TheTemplar:Unwavering": {
+    "NAME": "견고",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL thetemplar:방벽을 !M! 얻습니다."
+  },
+  "TheTemplar:Bastion": {
+    "NAME": "요새",
+    "DESCRIPTION": "thetemplar:방벽을 !M! 얻습니다. NL 소멸."
+  },
+  "TheTemplar:Alms": {
+    "NAME": "구제",
+    "DESCRIPTION": "카드를 !M! 장 뽑습니다. NL thetemplar:자비를 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:GatherCourage": {
+    "NAME": "용기 모으기",
+    "DESCRIPTION": "thetemplar:용맹을 !M! thetemplar:새깁니다. NL 모든 적이 임시 힘을 1 얻습니다. NL 소멸."
+  },
+  "TheTemplar:DesperatePrayer": {
+    "NAME": "간절한 기도",
+    "DESCRIPTION": "카드를 1 장 선택하고 다른 카드들을 버립니다. 선택한 카드는 사용할 때까지 항상 thetemplar:축복이 발동됩니다.",
+    "UPGRADE_DESCRIPTION": "카드를 1 장 선택하고 다른 카드들을 버립니다. 선택한 카드는 이번 턴 동안 비용이 0이 되고 사용할 때까지 항상 thetemplar:축복이 발동됩니다.",
+    "EXTENDED_DESCRIPTION": [
+      "간절한 기도의 카드를 선택하십시오"
+    ]
+  },
+  "TheTemplar:HolyLight": {
+    "NAME": "성스러운 빛",
+    "DESCRIPTION": "임시 힘을 !M! 얻고 임시 민첩을 !M! 얻습니다."
+  },
+  "TheTemplar:Beseech": {
+    "NAME": "간청",
+    "DESCRIPTION": "공격 또는 스킬을 선택합니다. 선택한 유형의 강화된 무작위 카드를 얻습니다. NL 소멸. NL thetemplar:축복: 이번 턴 동안 그 카드의 비용이 0이 됩니다."
+  },
+  "TheTemplar:Innervate": {
+    "NAME": "자극",
+    "DESCRIPTION": "[E] 를 얻습니다. NL thetemplar:축복: 추가로 [E] 를 얻습니다.",
+    "UPGRADE_DESCRIPTION": "[E] 를 얻습니다. NL thetemplar:축복: 추가로 [E] [E] 를 얻습니다."
+  },
+  "TheTemplar:Providence": {
+    "NAME": "섭리",
+    "DESCRIPTION": "카드를 2 장 뽑은 뒤 카드 1 장을 뽑을 카드 더미 맨 위에 놓습니다. NL 소멸. NL thetemplar:축복: 사용하기 전까지 그 카드의 비용은 0 이 됩니다.",
+    "UPGRADE_DESCRIPTION": "카드를 2 장 뽑은 뒤 카드 1 장을 뽑을 카드 더미 맨 위에 놓습니다. NL thetemplar:축복: 사용하기 전까지 그 카드의 비용은 0 이 됩니다."
+  },
+  "TheTemplar:Awakening": {
+    "NAME": "각성",
+    "DESCRIPTION": "방어도를 !B! 얻습니다. NL 이번 턴에 thetemplar:축복을 발동했었으면 카드를 !M! 장 뽑습니다."
+  },
+  "TheTemplar:ImbuedArmor": {
+    "NAME": "마법부여 갑옷",
+    "DESCRIPTION": "활력을 !M! 만큼 방어도를 !B! 만큼 X 번 얻습니다."
+  },
+  "TheTemplar:HopeEternal": {
+    "NAME": "영원한 희망",
+    "DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드가 두 번 사용됩니다. NL 소멸. NL thetemplar:축복: 카드를 1 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "이번 턴에 사용하는 다음 공격 카드나 스킬 카드가 두 번 사용됩니다. NL thetemplar:축복: 카드를 1 장 뽑습니다."
+  },
+  "TheTemplar:StaggeringAwe": {
+    "NAME": "충격적 경외감",
+    "DESCRIPTION": "적을 기절시킵니다. NL 소멸.",
+    "UPGRADE_DESCRIPTION": "적의 모든 인공물을 제거하고 기절시킵니다. NL 소멸."
+  },
+  "TheTemplar:Squire": {
+    "NAME": "종자",
+    "DESCRIPTION": "뽑을 카드 더미에서 카드를 1 장 선택합니다. 선택한 카드를 1 장 복사해서 얻습니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 뽑을 카드 더미에서 카드를 1 장 선택합니다. 선택한 카드를 1 장 복사해서 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      "복사해 얻을 카드를 선택하십시오"
+    ]
+  },
+  "TheTemplar:Virtue": {
+    "NAME": "미덕",
+    "DESCRIPTION": "thetemplar:자비를 2 thetemplar:새깁니다. NL 소멸. NL thetemplar:축복: 소멸하지 않습니다."
+  },
+  "TheTemplar:RingingChallenge": {
+    "NAME": "도전의 울림",
+    "DESCRIPTION": "선천성. NL 휘발성. NL 적 전체가 thetemplar:강화되고 전투 종료 시 thetemplar:큰_보상을 얻습니다. NL 소멸."
+  },
+  "TheTemplar:ResoluteWill": {
+    "NAME": "확고한 의지",
+    "DESCRIPTION": "thetemplar:정의와 thetemplar:불굴의 효과가 !M! 증가합니다."
+  },
+  "TheTemplar:BattleTactics": {
+    "NAME": "전투 전술",
+    "DESCRIPTION": "이번 턴에 공격 카드를 1 장만 사용했을 경우 내 턴 종료 시 thetemplar:정의를 !M! thetemplar:새깁니다."
+  },
+  "TheTemplar:ProtectiveBlessing": {
+    "NAME": "보호 축복",
+    "DESCRIPTION": "thetemplar:축복을 발동하면 방어도를 !M! 얻습니다."
+  },
+  "TheTemplar:Gallantry": {
+    "NAME": "용감함",
+    "DESCRIPTION": "내 턴 시작 시 적이 thetemplar:강화되어 있으면 임시 힘을 !M! 얻고 임시 민첩을 !M! 얻습니다."
+  },
+  "TheTemplar:CleansingRite": {
+    "NAME": "정화 의식",
+    "DESCRIPTION": "내 턴 종료 시 무작위 저주나 상태이상 카드를 1 장 소멸시킵니다. 소멸시켰다면 thetemplar:자비를 !M! thetemplar:새깁니다."
+  },
+  "TheTemplar:DivinePurpose": {
+    "NAME": "신성한 목적",
+    "DESCRIPTION": "내 턴 시작 시 thetemplar:열의를 1 thetemplar:새깁니다.",
+    "UPGRADE_DESCRIPTION": "선천성. NL 내 턴 시작 시 thetemplar:열의를 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:Retribution": {
+    "NAME": "응징",
+    "DESCRIPTION": "공격을 받을 때마다 활력을 !M! 얻습니다."
+  },
+  "TheTemplar:Altar": {
+    "NAME": "제단",
+    "DESCRIPTION": "내 턴 종료 시 열의가 아닌 상형문자가 thetemplar:새겨져 있다면 같은 상형문자를 추가로 !M! 번 thetemplar:새깁니다."
+  },
+  "TheTemplar:SacredHammer": {
+    "NAME": "신성한 망치",
+    "DESCRIPTION": "thetemplar:신성한_무기. NL 매 턴 처음 사용하는 공격 카드가 두 배의 피해를 줍니다.",
+    "UPGRADE_DESCRIPTION": "thetemplar:신성한_무기. NL 매 턴 처음 사용하는 공격 카드의 비용이 0이 되고 두 배의 피해를 줍니다."
+  },
+  "TheTemplar:FlameOfHeaven": {
+    "NAME": "천상의 불꽃",
+    "DESCRIPTION": "thetemplar:신성한_무기. NL 한 턴에 5 장의 카드를 사용할 때마다 방어도를 !M! 얻고 *신념의 *불 을 얻습니다.",
+    "UPGRADE_DESCRIPTION": "thetemplar:신성한_무기. NL 한 턴에 5 장의 카드를 사용할 때마다 방어도를 !M! 얻고 *신념의 *불+ 을 얻습니다."
+  },
+  "TheTemplar:KingSword": {
+    "NAME": "왕의 검",
+    "DESCRIPTION": "thetemplar:신성한_무기. NL 공격이 취약을 1 부여합니다. NL 공격 카드를 사용할 때마다 적 전체에게 피해를 !M! 줍니다.",
+    "UPGRADE_DESCRIPTION": "thetemplar:신성한_무기. NL 공격이 취약을 1 부여하고 약화를 1 부여합니다. NL 공격 카드를 사용할 때마다 적 전체에게 피해를 !M! 줍니다."
+  },
+  "TheTemplar:Aegis": {
+    "NAME": "이지스",
+    "DESCRIPTION": "thetemplar:신성한_무기. NL 내 턴 시작 시 thetemplar:방벽을 !M! 얻습니다. NL 내 턴 종료 시 무작위 적에게 현재 thetemplar:방벽만큼 피해를 줍니다."
+  },
+  "TheTemplar:BookOfTheFive": {
+    "NAME": "다섯의 책",
+    "DESCRIPTION": "thetemplar:신성한_무기. NL 매 턴 처음 thetemplar:새기는 !M! 개의 상형문자는 같은 상형문자를 추가로 thetemplar:새깁니다."
+  },
+  "TheTemplar:ParagonForm": {
+    "NAME": "모범의 형상",
+    "DESCRIPTION": "휘발성. NL thetemplar:축복이 항상 발동합니다. NL thetemplar:축복을 발동할 때마다 카드를 1 장 뽑습니다.",
+    "UPGRADE_DESCRIPTION": "thetemplar:축복이 항상 발동합니다. NL thetemplar:축복을 발동할 때마다 카드를 1 장 뽑습니다."
+  },
+
+  "TheTemplar:InscribeJustice": {
+    "NAME": "정의",
+    "DESCRIPTION": "thetemplar:정의를 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:InscribeFortitude": {
+    "NAME": "불굴",
+    "DESCRIPTION": "thetemplar:불굴을 1 thetemplar:새깁니다"
+  },
+  "TheTemplar:InscribeValor": {
+    "NAME": "용맹",
+    "DESCRIPTION": "thetemplar:용맹을 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:InscribeZeal": {
+    "NAME": "열의",
+    "DESCRIPTION": "thetemplar:열의를 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:InscribeCharity": {
+    "NAME": "자비",
+    "DESCRIPTION": "thetemplar:자비를 1 thetemplar:새깁니다."
+  },
+  "TheTemplar:BeseechChooseAttack": {
+    "NAME": "공격",
+    "DESCRIPTION": "강화된 무작위 공격 카드를 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL 이번 턴 동안 그 카드의 비용이 0이 됩니다."
+    ]
+  },
+  "TheTemplar:BeseechChooseSkill": {
+    "NAME": "스킬",
+    "DESCRIPTION": "강화된 무작위 스킬 카드를 얻습니다.",
+    "EXTENDED_DESCRIPTION": [
+      " NL 이번 턴 동안 그 카드의 비용이 0이 됩니다."
+    ]
+  }
+}

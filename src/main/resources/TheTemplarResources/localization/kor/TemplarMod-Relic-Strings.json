@@ -1,0 +1,86 @@
+{
+  "TheTemplar:CodeOfChivalry": {
+    "NAME": "기사도 규범",
+    "FLAVOR": "기사단원이 따라야 할 규칙 목록입니다.",
+    "DESCRIPTIONS": [
+      "전투 시작 시 #ythetemplar:용맹을 #b1 #ythetemplar:새깁니다."
+    ]
+  },
+  "TheTemplar:DivineChalice": {
+    "NAME": "신성한 성배",
+    "FLAVOR": "오랫동안 잃어버리고 오랫동안 찾고 있었죠.",
+    "DESCRIPTIONS": [
+      "전투 시작 시 #y재생을 #b3 , #y힘을 #b1 , #y민첩을 #b1 얻습니다."
+    ]
+  },
+  "TheTemplar:PrayerBeads": {
+    "NAME": "기도 묵주",
+    "FLAVOR": "교단의 다양한 예배와 찬가에 사용됩니다.",
+    "DESCRIPTIONS": [
+      "매 턴 마다 처음으로 #ythetemplar:축복을 발동했을 경우 [E] 를 얻습니다."
+    ]
+  },
+  "TheTemplar:Apocrypha": {
+    "NAME": "외경",
+    "FLAVOR": "지금은 무시되는, 잃어버렸었던, 고대의 문헌.",
+    "DESCRIPTIONS": [
+      "#r기사도 #r규범과 교체됩니다. NL 매 턴 시작 시 무작위 상형문자를 #ythetemplar:새깁니다."
+    ]
+  },
+  "TheTemplar:FightersRing": {
+    "NAME": "전사의 반지",
+    "FLAVOR": "당신은 이 반지에서 아주 작은 힘이 나오고 있는 것을 느낍니다. 착각일 수도 있고요.",
+    "DESCRIPTIONS": [
+      "매 턴 마다 #y활력을 #b2 얻습니다."
+    ]
+  },
+  "TheTemplar:DragonsScale": {
+    "NAME": "용비늘",
+    "FLAVOR": "빛을 받으면 반짝이고 만지면 약간 따뜻하네요.",
+    "DESCRIPTIONS": [
+      "매 턴 마다 #ythetemplar:방벽을 #b1 얻습니다."
+    ]
+  },
+  "TheTemplar:GildedEgg": {
+    "NAME": "금박 알",
+    "FLAVOR": "금 껍질은 값을 매길 수 없을 거 같네요. 안에는 어떤 보물이 있을까요?",
+    "DESCRIPTIONS": [
+      "앞으로 덱에 추가할 #y희귀 카드 #b2 개는 #y강화됩니다.",
+      "다음 덱에 추가하는 #y희귀 카드는 #y강화됩니다."
+    ]
+  },
+  "TheTemplar:BottledQuicksilver": {
+    "NAME": "병 속의 수은",
+    "FLAVOR": "신비한 액체 금속이 병 안에 단단히 봉인되어 있습니다.",
+    "DESCRIPTIONS": [
+      "획득 시 카드를 하나 선택합니다. 선택한 카드를 사용하면 카드를 #b1 장 뽑습니다.",
+      "선택한 ",
+      " 카드를 사용하면 카드를 #b1 장 뽑습니다.",
+      "카드를 선택하세요: ",
+      "."
+    ]
+  },
+  "TheTemplar:KingsCrown": {
+    "NAME": "왕의 왕관",
+    "FLAVOR": "왕의 위엄있는 왕관입니다.",
+    "DESCRIPTIONS": [
+      "획득 시 덱에 #y강화된 카드를 추가합니다.",
+      "덱에 추가할 카드를 선택하세요."
+    ]
+  },
+  "TheTemplar:Reliquary": {
+    "NAME": "성해함",
+    "FLAVOR": "첫번째 템플러의 유해가 담긴 신성한 유물입니다.",
+    "DESCRIPTIONS": [
+      "매 전투 마다 처음 뽑는 #b",
+      " 개의 #y상태이상 카드나 #y저주 카드를 #y소멸시키고 카드를 #b1 장 뽑습니다."
+    ]
+  },
+  "TheTemplar:RunedArmor": {
+    "NAME": "룬새김 갑옷",
+    "FLAVOR": "이상하게 빛나는 룬이 있는 흉갑입니다.",
+    "DESCRIPTIONS": [
+      "상형문자의 일치 보너스를 두 배로 늘립니다."
+    ]
+  }
+}
