@@ -1,0 +1,94 @@
+[
+  {
+    "NAMES": [
+	  "强化",
+      "Empowered",
+      "empowered"
+    ],
+    "DESCRIPTION": "当敌人受到以下增幅：力量、再生、金属化、多层护甲、最大生命增加，此敌人视为被强化。"
+  },
+  {
+    "NAMES": [
+	  "圣赏",
+      "Greater Rewards",
+      "Greater_Rewards",
+      "greater_rewards"
+    ],
+    "DESCRIPTION": "#y寻常战 : 随机升级牌组中1张牌。 NL #y精英战 : 随机获得1个普通遗物。 NL #y首领战 : 获得5最大生命值。 NL #b不叠加"
+  },
+  {
+    "NAMES": [
+	  "铭刻",
+      "Inscribe",
+      "inscribe",
+      "Inscribed",
+      "inscribed"
+    ],
+    "DESCRIPTION": "当铭刻了 #b2 枚 #y铭文 ，触发其效果并移除铭文。一对相配的铭文还会触发额外效果。"
+  },
+  {
+    "NAMES": [
+	  "祝福",
+      "Blessing",
+      "blessing"
+    ],
+    "DESCRIPTION": "当打出时恰好拥有 #b5 张手牌，触发此效果。"
+  },
+  {
+    "NAMES": [
+	  "壁垒",
+      "Bulwark",
+      "bulwark"
+    ],
+    "DESCRIPTION": "每回合结束时，获得等同于层数的格挡，然后丢失一半层数。"
+  },
+  {
+    "NAMES": [
+	  "神圣武器",
+      "Holy Weapon",
+      "Holy_Weapon",
+      "holy_weapon"
+    ],
+    "DESCRIPTION": "你只能同时拥有1种 #y神圣武器 。使用新的会替代已有的。"
+  },
+  {
+    "NAMES": [
+	  "正义",
+      "justice",
+      "Justice"
+    ],
+    "DESCRIPTION": "参与配对时对全敌造成 #b4 伤害。 NL 同类相配：对全敌再造成 #b4 伤害。"
+  },
+  {
+    "NAMES": [
+	  "刚毅",
+      "fortitude",
+      "Fortitude"
+    ],
+    "DESCRIPTION": "参与配对时获得 #b3 #y壁垒 。 NL 同类相配：获得 #b4 #y壁垒 。"
+  },
+  {
+    "NAMES": [
+	  "英勇",
+      "valor",
+      "Valor"
+    ],
+    "DESCRIPTION": "参与配对时获得 #b5 #y活力 。 NL 同类相配：获得 #b2 #y力量 。"
+  },
+  {
+    "NAMES": [
+	  "热诚",
+      "zeal",
+      "Zeal"
+    ],
+    "DESCRIPTION": "参与配对时抽 #b1 张牌。 NL 同类相配：获得 [E] 。"
+  },
+  {
+    "NAMES": [
+	  "慈善",
+      "charity",
+      "Charity"
+    ],
+    "DESCRIPTION": "参与配对时获得 #b5 格挡。 NL 同类相配：移除所有减益。"
+  }
+]

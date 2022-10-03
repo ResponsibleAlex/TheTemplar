@@ -377,27 +377,33 @@ public class TemplarMod implements
 
     @Override
     public void receiveEditStrings() {
+
+        String lang = "eng";
+        if (Settings.GameLanguage.ZHS == Settings.language) {
+            lang = "zhs";
+        }
+
         logger.info("Beginning to edit strings for mod with ID: " + getModID());
 
         // CardStrings
         BaseMod.loadCustomStringsFile(CardStrings.class,
-                getModID() + "Resources/localization/eng/TemplarMod-Card-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/TemplarMod-Card-Strings.json");
 
         // PowerStrings
         BaseMod.loadCustomStringsFile(PowerStrings.class,
-                getModID() + "Resources/localization/eng/TemplarMod-Power-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/TemplarMod-Power-Strings.json");
 
         // RelicStrings
         BaseMod.loadCustomStringsFile(RelicStrings.class,
-                getModID() + "Resources/localization/eng/TemplarMod-Relic-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/TemplarMod-Relic-Strings.json");
 
         // PotionStrings
         BaseMod.loadCustomStringsFile(PotionStrings.class,
-                getModID() + "Resources/localization/eng/TemplarMod-Potion-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/TemplarMod-Potion-Strings.json");
 
         // CharacterStrings
         BaseMod.loadCustomStringsFile(CharacterStrings.class,
-                getModID() + "Resources/localization/eng/TemplarMod-Character-Strings.json");
+                getModID() + "Resources/localization/" + lang + "/TemplarMod-Character-Strings.json");
 
         logger.info("Done editing strings");
     }
@@ -408,8 +414,13 @@ public class TemplarMod implements
 
     @Override
     public void receiveEditKeywords() {
+        String lang = "eng";
+        if (Settings.GameLanguage.ZHS == Settings.language) {
+            lang = "zhs";
+        }
+
         Gson gson = new Gson();
-        String json = Gdx.files.internal(getModID() + "Resources/localization/eng/TemplarMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        String json = Gdx.files.internal(getModID() + "Resources/localization/" + lang + "/TemplarMod-Keyword-Strings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = gson.fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
 
         if (keywords != null) {

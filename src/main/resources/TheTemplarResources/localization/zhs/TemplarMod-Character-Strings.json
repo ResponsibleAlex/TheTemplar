@@ -1,0 +1,13 @@
+{
+  "TheTemplar:DefaultCharacter": {
+    "NAMES": [
+      "圣堂武士",
+      "圣堂武士"
+    ],
+    "TEXT": [
+      "君主的忠侍，五典的冠军。 NL 圣殿骑士受命于净除尖塔的腐朽。",
+      "NL 你坚定了你的决心。",
+      "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~holy~ ~one,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+    ]
+  }
+}

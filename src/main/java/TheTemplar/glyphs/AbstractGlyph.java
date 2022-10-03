@@ -1,5 +1,7 @@
 package TheTemplar.glyphs;
 
+import TheTemplar.TemplarMod;
+import basemod.BaseMod;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -26,6 +28,7 @@ public abstract class AbstractGlyph {
 
     public final String name;
     public final String description;
+    public final String keywordProper;
     public float cX = 0.0F;
     public float cY = 0.0F;
     protected final Color c;
@@ -65,6 +68,7 @@ public abstract class AbstractGlyph {
         glowImg = glowTextures.get(glyphName);
         name = glyphName;
         description = glyphDesc;
+        keywordProper = BaseMod.getKeywordTitle(TemplarMod.getModID().toLowerCase() + ":" + glyphName);
 
         c = new Color(1.0F, 1.0F, 1.0F, 1.0F);
         shineColor = new Color(1.0F, 1.0F, 1.0F, c.a / 3.0F);
@@ -154,7 +158,7 @@ public abstract class AbstractGlyph {
                 TipHelper.renderGenericTip(
                         cX + HALF_SIZE * Settings.scale,
                         cY + PCT_35_SIZE * Settings.scale,
-                        name, description);
+                        keywordProper, description);
             }
         }
     }

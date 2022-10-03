@@ -1,0 +1,23 @@
+{
+        "TheTemplar:PotionOfLore": {
+                "NAME": "学识药剂",
+                "DESCRIPTIONS": [
+                        "选择1枚铭文， #y铭刻 之。",
+                        "选择1枚铭文， #y铭刻 两次。"
+                ]
+        },
+        "TheTemplar:StalwartFlask": {
+                "NAME": "坚定药剂",
+                "DESCRIPTIONS": [
+                        "获得 #b",
+                        " #y壁垒 。壁垒层数于此回合被保留。"
+                ]
+        },
+        "TheTemplar:AnnointingOil": {
+                "NAME": "受膏礼圣油",
+                "DESCRIPTIONS": [
+                        "选择1张 #y神圣武器 添加到手中，其于此回合耗费为0。",
+                        "选择1张升级的 #y神圣武器 添加到手中，其于此回合耗费为0。"
+                ]
+        }
+}

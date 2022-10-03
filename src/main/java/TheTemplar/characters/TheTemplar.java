@@ -55,9 +55,9 @@ public class TheTemplar extends CustomPlayer {
     public static class Enums {
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_TEMPLAR;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") // These two HAVE to have the same absolutely identical name.
+        @SpireEnum(name = "BLESSED_TEMPLAR_BLUE") // These two HAVE to have the same absolutely identical name.
         public static AbstractCard.CardColor TEMPLAR_COLOR;
-        @SpireEnum(name = "DEFAULT_GRAY_COLOR") @SuppressWarnings("unused")
+        @SpireEnum(name = "BLESSED_TEMPLAR_BLUE") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 

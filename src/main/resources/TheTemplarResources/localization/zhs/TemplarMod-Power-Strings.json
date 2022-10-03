@@ -1,0 +1,140 @@
+{
+	"TheTemplar:BulwarkPower": {
+			"NAME": "壁垒",
+			"DESCRIPTIONS": [
+					"每回合结束时，获得 #b",
+					" #y格挡 ，然后丢失一半层数。"
+			]
+	},
+	"TheTemplar:HopeEternalPower": {
+			"NAME": "希望永存",
+			"DESCRIPTIONS": [
+			"此回合的下一张攻击或技能牌会被打出2次。"
+			]
+	},
+	"TheTemplar:RingingChallengePower": {
+			"NAME": "明宣的挑战",
+			"DESCRIPTIONS": [
+					"在战斗结束后获得 #y圣赏 。"
+			]
+	},
+	"TheTemplar:BattleTacticsPower": {
+			"NAME": "战术策略",
+			"DESCRIPTIONS": [
+					"当在一个回合内，只打出了 #b1 张 攻击牌，则在回合末 #y铭刻 #b",
+					" #y正义 。"
+			]
+	},
+	"TheTemplar:ProtectiveBlessingPower": {
+			"NAME": "祝佑",
+			"DESCRIPTIONS": [
+					"每当触发 #y祝福 效果，获得 #b",
+					" #y格挡 。"
+			]
+	},
+	"TheTemplar:ResoluteWillPower": {
+			"NAME": "坚定意志",
+			"DESCRIPTIONS": [
+					"增加 #y祝福 和 #y刚毅 的效果 #b",
+					" 点。"
+			]
+	},
+	"TheTemplar:GallantryPower": {
+			"NAME": "侠义风流",
+			"DESCRIPTIONS": [
+					"每回合开始，若存在 #y强化 的敌人，你获得 #b",
+					" 临时力量和 #b",
+					" 临时敏捷。"
+			]
+	},
+	"TheTemplar:CleansingRitePower": {
+			"NAME": "净化仪式",
+			"DESCRIPTIONS": [
+					"在你的回合末消耗 #b",
+					" 张随机 #y诅咒 或 #y状态 牌。若进行了消耗， #y铭刻 #b1 #y慈善 。",
+					" 张随机 #y诅咒 或 #y状态 牌。每消耗一张， #y铭刻 #b1 #y慈善 。"
+			]
+	},
+	"TheTemplar:DivinePurposePower": {
+			"NAME": "神圣宗旨",
+			"DESCRIPTIONS": [
+					"每回合开始， #y铭刻 #b",
+					" #y热诚 。"
+			]
+	},
+	"TheTemplar:RetributionPower": {
+			"NAME": "惩罚",
+			"DESCRIPTIONS": [
+					"每当你受到攻击，获得 #b",
+					" 活力。"
+			]
+	},
+	"TheTemplar:AltarPower": {
+			"NAME": "圣坛",
+			"DESCRIPTIONS": [
+					"若在回合末已刻有 #y非热诚 的铭文，额外 #y铭刻 #b",
+					" 枚同类铭文。",
+					" 枚同类铭文。"
+			]
+	},
+	"TheTemplar:SacredHammerPower": {
+			"NAME": "圣教之锤",
+			"DESCRIPTIONS": [
+					"每回合打出的首张攻击牌",
+					"此回合打出的下一张攻击牌",
+					"造成双倍伤害",
+					" 并且耗费为 #b0",
+					"。"
+			]
+	},
+	"TheTemplar:FlameOfHeavenPower": {
+			"NAME": "烈焰天堂",
+			"DESCRIPTIONS": [
+					"如果于此回合再打出 #b",
+					" 张牌，获得 #b",
+					" 张牌，获得 #b",
+					" #y格挡 并添加1张 #yConviction之火 到手上。",
+					" #y格挡 并添加1张升级的 #yConviction之火 到手上。"
+			]
+	},
+	"TheTemplar:KingSwordPower": {
+			"NAME": "圣王之剑",
+			"DESCRIPTIONS": [
+					"你的攻击会施加 #b1 #y易伤",
+					" 和 #y虚弱",
+					"。 每当你打出1张攻击牌，对全敌造成 #b",
+					" 伤害。"
+			]
+	},
+	"TheTemplar:AegisPower": {
+			"NAME": "庇护之盾",
+			"DESCRIPTIONS": [
+					"每回合开始获得 #b",
+					" #y壁垒 。回合结束时，对随机敌人造成等量于壁垒层数的伤害。"
+			]
+	},
+	"TheTemplar:BookOfTheFivePower": {
+			"NAME": "五德圣典",
+			"DESCRIPTIONS": [
+					"每回合中，首 #b",
+					" 次 #y铭刻 铭文时，额外铭刻1枚同类铭文。（还剩 #b",
+					" 次）"
+			]
+	},
+	"TheTemplar:ParagonFormPower": {
+			"NAME": "完人形态",
+			"DESCRIPTIONS": [
+					"#y祝福 的效果必定被触发。每当触发祝福，抽 #b",
+					" 张牌。",
+					" 张牌。"
+			]
+	},
+	"TheTemplar:StalwartPower": {
+			"NAME": "坚定不移",
+			"DESCRIPTIONS": [
+					"#y壁垒 于此回合保留。",
+					"#y壁垒 持续保留于 #b",
+					" 回合。"
+			]
+	}
+}

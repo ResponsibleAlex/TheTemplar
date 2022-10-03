@@ -1,0 +1,86 @@
+{
+  "TheTemplar:CodeOfChivalry": {
+    "NAME": " 骑士德典",
+    "FLAVOR": "骑士团的规则清单，供骑士遵循。",
+    "DESCRIPTIONS": [
+      "每场战斗开始， #ythetemplar:铭刻 #b1 #ythetemplar:英勇 。"
+    ]
+  },
+  "TheTemplar:DivineChalice": {
+    "NAME": "圣杯",
+    "FLAVOR": "遗失了多久，就被寻觅了多久。",
+    "DESCRIPTIONS": [
+      "每场战斗开始获得 #b3 #y再生 ， #b1 #y力量 ，和 #b1 #y敏捷 。"
+    ]
+  },
+  "TheTemplar:PrayerBeads": {
+    "NAME": "祷告念珠",
+    "FLAVOR": "用于教团的礼拜和颂歌仪式。",
+    "DESCRIPTIONS": [
+      "每回合首次触发 #ythetemplar:祝福 时获得 [E] 。"
+    ]
+  },
+  "TheTemplar:Apocrypha": {
+    "NAME": "旁经",
+    "FLAVOR": "古代经文，一度遗失，已被忽视。",
+    "DESCRIPTIONS": [
+      "替换 #r骑士德典 。 NL 每回合开始 #ythetemplar:铭刻 一枚随机铭文。"
+    ]
+  },
+  "TheTemplar:FightersRing": {
+    "NAME": "斗士指环",
+    "FLAVOR": "你感觉到有一种非常轻微的力量从这枚戒指中散发出来。或者说，只是你的错觉。",
+    "DESCRIPTIONS": [
+      "每回合开始获得 #b2 #y活力 。"
+    ]
+  },
+  "TheTemplar:DragonsScale": {
+    "NAME": "龙鳞",
+    "FLAVOR": "它在灯光下闪闪发光，触感微温。",
+    "DESCRIPTIONS": [
+      "每回合开始获得 #b1 #ythetemplar:壁垒 。"
+    ]
+  },
+  "TheTemplar:GildedEgg": {
+    "NAME": "金蛋",
+    "FLAVOR": "金壳似乎是无价之宝。里面又会有什么宝贝呢？",
+    "DESCRIPTIONS": [
+      "下 #b2 次你添加 #y稀有 牌到牌组时， #y升级 之。",
+      "下一次你添加 #y稀有 牌到牌组时， #y升级 之。"
+    ]
+  },
+  "TheTemplar:BottledQuicksilver": {
+    "NAME": "瓶装迅银",
+    "FLAVOR": "一种神秘的液体金属被紧紧地封在里面。",
+    "DESCRIPTIONS": [
+      "选择1张牌。每当你打出它，抽取1张牌。",
+      "每当你打出 ",
+      " ，抽取1张牌。",
+      "选择着一张牌封装于 ",
+      " 。"
+    ]
+  },
+  "TheTemplar:KingsCrown": {
+    "NAME": "王冠",
+    "FLAVOR": "君王的威严冠冕。",
+    "DESCRIPTIONS": [
+      "拾起时，选择并增加1张升级后的牌到牌组。",
+      "选择1张牌加入牌组。"
+    ]
+  },
+  "TheTemplar:Reliquary": {
+    "NAME": "圣骨匣",
+    "FLAVOR": "保存着首任圣堂武士遗物的圣器箱。",
+    "DESCRIPTIONS": [
+      "每场战斗首 #b",
+      " 次抽到 #y诅咒 或 #y状态 时， #y消耗 之并抽1张牌。"
+    ]
+  },
+  "TheTemplar:RunedArmor": {
+    "NAME": "符文盔甲",
+    "FLAVOR": "一件带有奇怪的发光符文的胸甲。",
+    "DESCRIPTIONS": [
+      "铭文的同类相配效果变为。"
+    ]
+  }
+}
